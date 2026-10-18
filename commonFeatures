@@ -1,0 +1,33 @@
+Cechy wspólne dla wszystkich platform
+
+Każdy z tych serwisów opiera wpis o zestaw identycznych składowych:
+
+Tożsamość i autor:
+
+Id: UUID / string – unikalny identyfikator wpisu w całym systemie.
+
+AuthorId: UUID / string – identyfikator konta lub profilu twórcy.
+
+Czas publikacji:
+
+CreatedAt: DateTime – znacznik czasu, kluczowy dla sortowania algorytmicznego oraz chronologicznego.
+
+Treść tekstowa (Podpis / Opis):
+
+Caption / Description / Content: string – tekst wpisu. Na Facebooku to główny post, na Instagramie i TikToku jest to podpis pod multimedium. Na każdej platformie obsługuje hashtagi (#) oraz oznaczenia użytkowników (@).
+
+Metadane zaangażowania (Engagement metrics):
+
+LikesCount: int (lub uniwersalne polubienia/serduszka).
+
+CommentsCount: int (liczba odpowiedzi/komentarzy).
+
+SharesCount: int (udostępnienia, retweety, reposty na TikToku).
+
+ViewsCount: long / ImpressionsCount: long – wyświetlenia (szczególnie eksponowane na TikToku, Instagram Reels i X).
+
+Lokalizacja i prywatność:
+
+Location: string / LocationData – oznaczone miejsce (restauracja, miasto, współrzędne).
+
+Visibility: Enum – status widoczności (Public, Private, FriendsOnly / CloseFriends).
