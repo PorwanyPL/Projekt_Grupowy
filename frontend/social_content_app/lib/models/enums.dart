@@ -56,3 +56,28 @@ enum PostType {
         orElse: () => throw FormatException('Nieznany typ posta: $value'),
       );
 }
+
+enum SocialPlatform {
+  facebook,
+  instagram,
+  tikTok;
+
+  String get apiName => name[0].toUpperCase() + name.substring(1);
+
+  String get label {
+    switch (this) {
+      case SocialPlatform.facebook:
+        return 'Facebook';
+      case SocialPlatform.instagram:
+        return 'Instagram';
+      case SocialPlatform.tikTok:
+        return 'TikTok';
+    }
+  }
+
+  static SocialPlatform parse(String value) =>
+      SocialPlatform.values.firstWhere(
+        (e) => e.name == value.toLowerCase() || e.name.toLowerCase() == value.toLowerCase(),
+        orElse: () => throw FormatException('Nieznana platforma: $value'),
+      );
+}

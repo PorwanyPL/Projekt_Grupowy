@@ -21,6 +21,26 @@ internal static class Rules
             throw new DomainValidationException($"{field} może mieć maksymalnie {max} znaków.");
         return v;
     }
+
+    /// <summary>Tekst opcjonalny: null lub same spacje dają null, w przeciwnym razie obowiązuje limit długości.</summary>
+    public static string? OptionalText(string? value, string field, int max) =>
+        Validators.NotWhiteSpace(value) ? Text(value, field, max) : null;
+
+    /// <summary>Normalizuje datę do UTC (Unspecified traktowane jako UTC - tak są zapisywane w bazie).</summary>
+    public static DateTime ToUtc(DateTime date) => date.Kind switch
+    {
+        DateTimeKind.Local => date.ToUniversalTime(),
+        DateTimeKind.Utc => date,
+        _ => DateTime.SpecifyKind(date, DateTimeKind.Utc)
+    };
+
+    public static DateTime ParseIsoDate(string? value)
+    {
+        if (!DateTime.TryParse(value, CultureInfo.InvariantCulture,
+                DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out var date))
+            throw new DomainValidationException("Data ma nieprawidłowy format (oczekiwano ISO 8601).");
+        return date;
+    }
 }
 
 public sealed record FirstName
@@ -90,16 +110,61 @@ public sealed record CreatedAt
 
     public static CreatedAt Create(DateTime date)
     {
-        if (!Validators.ValidDateFormat(date))
+        // Data utworzenia nie może pochodzić z przyszłości (tolerancja 5 minut na różnice zegarów).
+        if (!Validators.ValidDateFormat(date) || date > DateTime.UtcNow.AddMinutes(5))
             throw new DomainValidationException("Nieprawidłowa data utworzenia.");
         return new CreatedAt(date);
     }
 
-    public static CreatedAt Create(string? value)
+    public static CreatedAt Create(string? value) => Create(Rules.ParseIsoDate(value));
+}
+
+/// <summary>Termin publikacji (ScheduledAt) lub faktyczny czas publikacji (PublishedAt). Zawsze w UTC.</summary>
+public sealed record ScheduledTime
+{
+    public DateTime Date { get; }
+    private ScheduledTime(DateTime date) => Date = date;
+
+    public static ScheduledTime Create(DateTime date)
     {
-        if (!DateTime.TryParse(value, CultureInfo.InvariantCulture,
-                DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out var date))
-            throw new DomainValidationException("Data ma nieprawidłowy format (oczekiwano ISO 8601).");
-        return Create(date);
+        if (!Validators.ValidDateFormat(date))
+            throw new DomainValidationException("Nieprawidłowa data (oczekiwano daty od roku 2000).");
+        return new ScheduledTime(Rules.ToUtc(date));
     }
+
+    public static ScheduledTime Create(string? value) => Create(Rules.ParseIsoDate(value));
+}
+
+/// <summary>
+/// Identyfikator obiektu po stronie zewnętrznej platformy (strona Facebooka, konto Instagrama/TikToka, lokalizacja, post).
+/// Diagram podaje atrybut "Date: DateTime", ale metody Create(string)/Read(): string wskazują na wartość tekstową
+/// - przyjęto atrybut Value: string (patrz założenia).
+/// </summary>
+public sealed record ExternalId
+{
+    public string Value { get; }
+    private ExternalId(string value) => Value = value;
+    public static ExternalId Create(string? value)
+    {
+        var v = Rules.Text(value, "Identyfikator zewnętrzny", 100);
+        if (v.Any(c => char.IsWhiteSpace(c) || char.IsControl(c)))
+            throw new DomainValidationException("Identyfikator zewnętrzny nie może zawierać białych znaków.");
+        return new ExternalId(v);
+    }
+    public override string ToString() => Value;
+}
+
+public sealed record WebUrl
+{
+    public string Url { get; }
+    private WebUrl(string url) => Url = url;
+    public static WebUrl Create(string? value)
+    {
+        var v = Rules.Text(value, "Adres URL", 2000);
+        if (!Uri.TryCreate(v, UriKind.Absolute, out var uri)
+            || (uri.Scheme != Uri.UriSchemeHttp && uri.Scheme != Uri.UriSchemeHttps))
+            throw new DomainValidationException("Adres URL musi być bezwzględnym adresem http lub https.");
+        return new WebUrl(v);
+    }
+    public override string ToString() => Url;
 }

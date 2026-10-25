@@ -32,14 +32,48 @@ public class PostService(AppDbContext db) : IPostService
 
     public async Task<PostDto> CreateAsync(PostWriteDto dto, CancellationToken ct)
     {
-        var managers = await LoadManagers(dto.ManagerUserIds, ct);
-        var post = Post.Create(
-            Title.Create(dto.Title),
-            Description.Create(dto.Description),
-            dto.Visibility,
-            BuildPictures(dto),
-            BuildVideos(dto),
-            managers);
+        var platform = RequestedPlatform(dto);
+        var managers = await ManagerLookup.LoadAsync(db, dto.ManagerUserIds, ct);
+        var account = await LoadAccount(dto.TargetAccountId, ct);
+
+        var title = Title.Create(dto.Title);
+        var description = Description.Create(dto.Description);
+        var pictures = BuildPictures(dto);
+        var videos = BuildVideos(dto);
+        var scheduledAt = BuildSchedule(dto);
+
+        Post post;
+        switch (platform)
+        {
+            case SocialPlatform.Facebook:
+            {
+                var fb = dto.Facebook!;
+                post = FacebookPost.Create(title, description, dto.Visibility, pictures, videos, managers,
+                    scheduledAt, account, ExternalId.Create(fb.TargetPageId), ParseUrl(fb.LinkUrl),
+                    fb.PrivacySetting, fb.FeedTargeting, fb.PostType);
+                break;
+            }
+            case SocialPlatform.Instagram:
+            {
+                var ig = dto.Instagram!;
+                post = InstagramPost.Create(title, description, dto.Visibility, pictures, videos, managers,
+                    scheduledAt, account, ExternalId.Create(ig.InstagramAccountId), ig.MediaType!.Value,
+                    ig.UserTags, ParseExternalId(ig.LocationId), ig.ShareToFeed);
+                break;
+            }
+            case SocialPlatform.TikTok:
+            {
+                var tt = dto.TikTok!;
+                post = TikTokPost.Create(title, description, dto.Visibility, pictures, videos, managers,
+                    scheduledAt, account, ExternalId.Create(tt.TikTokAccountId), tt.PrivacyLevel!.Value,
+                    tt.DisableDuet, tt.DisableStitch, tt.DisableComment, tt.BrandContentToggle, tt.AutoAddMusic);
+                break;
+            }
+            default:
+                post = Post.Create(title, description, dto.Visibility, pictures, videos, managers,
+                    scheduledAt, account);
+                break;
+        }
 
         db.Posts.Add(post);
         await db.SaveChangesAsync(ct);
@@ -49,15 +83,52 @@ public class PostService(AppDbContext db) : IPostService
     public async Task<PostDto> UpdateAsync(Guid id, PostWriteDto dto, CancellationToken ct)
     {
         var post = await Find(id, ct);
-        var managers = await LoadManagers(dto.ManagerUserIds, ct);
 
-        post.Update(
-            Title.Create(dto.Title),
-            Description.Create(dto.Description),
-            dto.Visibility,
-            BuildPictures(dto),
-            BuildVideos(dto),
-            managers);
+        var platform = RequestedPlatform(dto);
+        if (platform != post.Platform)
+            throw new DomainValidationException(post.Platform is null
+                ? "Post ogólny nie może zawierać danych platformy; rodzaju posta nie można zmienić po utworzeniu."
+                : $"Ten post jest postem platformy {post.Platform}: podaj blok danych tej platformy (i żadnej innej). Rodzaju posta nie można zmienić po utworzeniu.");
+
+        var managers = await ManagerLookup.LoadAsync(db, dto.ManagerUserIds, ct);
+        var account = await LoadAccount(dto.TargetAccountId, ct);
+
+        var title = Title.Create(dto.Title);
+        var description = Description.Create(dto.Description);
+        var pictures = BuildPictures(dto);
+        var videos = BuildVideos(dto);
+        var scheduledAt = BuildSchedule(dto);
+
+        switch (post)
+        {
+            case FacebookPost fbPost:
+            {
+                var fb = dto.Facebook!;
+                fbPost.Update(title, description, dto.Visibility, pictures, videos, managers, scheduledAt, account,
+                    ExternalId.Create(fb.TargetPageId), ParseUrl(fb.LinkUrl), fb.PrivacySetting, fb.FeedTargeting,
+                    fb.PostType);
+                break;
+            }
+            case InstagramPost igPost:
+            {
+                var ig = dto.Instagram!;
+                igPost.Update(title, description, dto.Visibility, pictures, videos, managers, scheduledAt, account,
+                    ExternalId.Create(ig.InstagramAccountId), ig.MediaType!.Value, ig.UserTags,
+                    ParseExternalId(ig.LocationId), ig.ShareToFeed);
+                break;
+            }
+            case TikTokPost ttPost:
+            {
+                var tt = dto.TikTok!;
+                ttPost.Update(title, description, dto.Visibility, pictures, videos, managers, scheduledAt, account,
+                    ExternalId.Create(tt.TikTokAccountId), tt.PrivacyLevel!.Value, tt.DisableDuet, tt.DisableStitch,
+                    tt.DisableComment, tt.BrandContentToggle, tt.AutoAddMusic);
+                break;
+            }
+            default:
+                post.Update(title, description, dto.Visibility, pictures, videos, managers, scheduledAt, account);
+                break;
+        }
 
         await db.SaveChangesAsync(ct);
         return post.ToDto();
@@ -74,17 +145,33 @@ public class PostService(AppDbContext db) : IPostService
         await Query().FirstOrDefaultAsync(p => p.Id == id, ct)
         ?? throw new NotFoundException($"Nie znaleziono posta o id {id}.");
 
-    private async Task<List<ManagerUser>> LoadManagers(List<Guid> ids, CancellationToken ct)
+    private async Task<SocialAccount?> LoadAccount(Guid? id, CancellationToken ct)
     {
-        var distinct = ids.Distinct().ToList();
-        if (distinct.Count == 0) return new List<ManagerUser>();
-
-        var found = await db.ManagerUsers.Where(m => distinct.Contains(m.Id)).ToListAsync(ct);
-        var missing = distinct.Except(found.Select(m => m.Id)).ToList();
-        if (missing.Count > 0)
-            throw new NotFoundException($"Nie znaleziono managerów: {string.Join(", ", missing)}.");
-        return found;
+        if (id is null) return null;
+        return await db.SocialAccounts.FirstOrDefaultAsync(a => a.Id == id.Value, ct)
+               ?? throw new NotFoundException($"Nie znaleziono konta społecznościowego o id {id}.");
     }
+
+    /// <summary>Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd.</summary>
+    private static SocialPlatform? RequestedPlatform(PostWriteDto dto)
+    {
+        var count = (dto.Facebook is null ? 0 : 1) + (dto.Instagram is null ? 0 : 1) + (dto.TikTok is null ? 0 : 1);
+        if (count > 1)
+            throw new DomainValidationException("Podaj dane tylko jednej platformy: facebook, instagram albo tikTok.");
+        if (dto.Facebook is not null) return SocialPlatform.Facebook;
+        if (dto.Instagram is not null) return SocialPlatform.Instagram;
+        if (dto.TikTok is not null) return SocialPlatform.TikTok;
+        return null;
+    }
+
+    private static ScheduledTime? BuildSchedule(PostWriteDto dto) =>
+        dto.ScheduledAt is null ? null : ScheduledTime.Create(dto.ScheduledAt.Value);
+
+    private static WebUrl? ParseUrl(string? value) =>
+        string.IsNullOrWhiteSpace(value) ? null : WebUrl.Create(value);
+
+    private static ExternalId? ParseExternalId(string? value) =>
+        string.IsNullOrWhiteSpace(value) ? null : ExternalId.Create(value);
 
     private static List<Picture> BuildPictures(PostWriteDto dto) =>
         dto.Pictures.Select(p => Picture.Create(FileName.Create(p.FileName), p.Format, p.SizeKb)).ToList();

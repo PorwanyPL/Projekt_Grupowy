@@ -39,8 +39,19 @@ class ManagerProvider extends ChangeNotifier {
     await load();
   }
 
+  /// Rzuca [ApiException] ze statusCode 409, gdy manager ma powiązane posty lub konta.
   Future<void> delete(String id) async {
     await _service.delete(id);
+    await load();
+  }
+
+  Future<void> setAccessBlocked(String id, bool blocked) async {
+    await _service.setAccessBlocked(id, blocked);
+    await load();
+  }
+
+  Future<void> anonymize(String id) async {
+    await _service.anonymize(id);
     await load();
   }
 }

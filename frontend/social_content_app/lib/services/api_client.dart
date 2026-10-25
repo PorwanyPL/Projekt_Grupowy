@@ -16,7 +16,18 @@ class ApiClient {
   final http.Client _client;
   final String _baseUrl;
 
-  static const _headers = {'Content-Type': 'application/json; charset=utf-8'};
+  String? _token;
+
+  /// Wywoływane, gdy serwer odpowie 401 na żądanie wysłane z tokenem (sesja wygasła / dostęp zablokowany).
+  void Function()? onUnauthorized;
+
+  /// Ustawia token dołączany do każdego żądania (null = wylogowany).
+  void setToken(String? token) => _token = token;
+
+  Map<String, String> get _headers => {
+        'Content-Type': 'application/json; charset=utf-8',
+        if (_token != null) 'Authorization': 'Bearer $_token',
+      };
 
   Uri _uri(String path, [Map<String, String>? query]) =>
       Uri.parse('$_baseUrl$path').replace(queryParameters: query);
@@ -24,8 +35,10 @@ class ApiClient {
   Future<dynamic> get(String path, {Map<String, String>? query}) =>
       _send(() => _client.get(_uri(path, query), headers: _headers));
 
-  Future<dynamic> post(String path, Object body) => _send(
-      () => _client.post(_uri(path), headers: _headers, body: jsonEncode(body)));
+  Future<dynamic> post(String path, [Object? body]) => _send(() => _client.post(
+      _uri(path),
+      headers: _headers,
+      body: body == null ? null : jsonEncode(body)));
 
   Future<dynamic> put(String path, Object body) => _send(
       () => _client.put(_uri(path), headers: _headers, body: jsonEncode(body)));
@@ -46,6 +59,14 @@ class ApiClient {
     }
 
     final bodyText = utf8.decode(response.bodyBytes);
+
+    // 401 przy aktywnej sesji = token nieważny; przy logowaniu (brak tokenu) to zwykły błąd danych.
+    if (response.statusCode == 401 && _token != null) {
+      onUnauthorized?.call();
+      throw const ApiException(
+          'Sesja wygasła lub dostęp został zablokowany. Zaloguj się ponownie.',
+          statusCode: 401);
+    }
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
       if (bodyText.isEmpty) return null;
@@ -74,6 +95,7 @@ class ApiClient {
     } catch (_) {
       // odpowiedź nie jest JSON-em - użyj komunikatu ogólnego
     }
+    if (status == 401) return 'Nieprawidłowy adres e-mail lub hasło.';
     return 'Błąd serwera (HTTP $status).';
   }
 }

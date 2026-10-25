@@ -42,4 +42,33 @@ class FormValidators {
     if (n == null || n <= 0) return '$field musi być liczbą większą od 0';
     return null;
   }
+
+  static String? email(String? value) {
+    final v = value?.trim() ?? '';
+    if (v.isEmpty) return 'Adres e-mail jest wymagany';
+    if (v.length > 254) return 'Adres e-mail może mieć maksymalnie 254 znaki';
+    if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(v)) {
+      return 'Podaj poprawny adres e-mail';
+    }
+    return null;
+  }
+
+  /// Hasło przy rejestracji: 8-128 znaków, mała i wielka litera oraz cyfra (jak w backendzie).
+  static String? newPassword(String? value) {
+    final v = value ?? '';
+    if (v.isEmpty) return 'Hasło jest wymagane';
+    final problems = <String>[];
+    if (v.length < 8 || v.length > 128) problems.add('długość 8-128 znaków');
+    if (!RegExp(r'\p{Ll}', unicode: true).hasMatch(v)) problems.add('mała litera');
+    if (!RegExp(r'\p{Lu}', unicode: true).hasMatch(v)) problems.add('wielka litera');
+    if (!RegExp(r'\d').hasMatch(v)) problems.add('cyfra');
+    if (problems.isEmpty) return null;
+    return 'Hasło wymaga: ${problems.join(', ')}';
+  }
+
+  static String? required(String? value, String field) =>
+      (value == null || value.isEmpty) ? '$field jest wymagane' : null;
+
+  static String? confirmPassword(String? value, String original) =>
+      value != original ? 'Hasła nie są takie same' : null;
 }

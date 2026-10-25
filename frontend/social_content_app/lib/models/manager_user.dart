@@ -6,6 +6,9 @@ class ManagerUser {
     required this.lastName,
     required this.age,
     required this.description,
+    this.socialAccountId,
+    this.hasLoginAccount,
+    this.isAccessBlocked,
   });
 
   final String id;
@@ -13,6 +16,11 @@ class ManagerUser {
   final String lastName;
   final int age;
   final String description;
+  final String? socialAccountId;
+
+  /// Wypełnione tylko przez /api/ManagerUsers (null w managerach zagnieżdżonych w postach).
+  final bool? hasLoginAccount;
+  final bool? isAccessBlocked;
 
   String get fullName => '$firstName $lastName';
 
@@ -22,6 +30,9 @@ class ManagerUser {
         lastName: json['lastName'] as String,
         age: (json['age'] as num).toInt(),
         description: json['description'] as String,
+        socialAccountId: json['socialAccountId'] as String?,
+        hasLoginAccount: json['hasLoginAccount'] as bool?,
+        isAccessBlocked: json['isAccessBlocked'] as bool?,
       );
 }
 

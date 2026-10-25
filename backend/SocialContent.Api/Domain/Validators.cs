@@ -31,6 +31,10 @@ public static class Validators
         _ => false
     };
 
+    /// <summary>
+    /// Sprawdza tylko poprawność formatu daty (nie jest wartością domyślną, rok od 2000).
+    /// Reguły "nie z przyszłości" (CreatedAt) i "w przyszłości" (ScheduledTime) stosują same value objecty.
+    /// </summary>
     public static bool ValidDateFormat(DateTime date) =>
-        date != default && date.Year >= 2000 && date <= DateTime.UtcNow.AddMinutes(5);
+        date != default && date.Year >= 2000;
 }
