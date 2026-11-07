@@ -1,20 +1,27 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using SocialContent.Api.Data;
-using SocialContent.Api.Domain;
+using SocialContent.Api.Domain.Entities;
+using SocialContent.Api.Domain.Exceptions;
 using SocialContent.Api.Dtos;
 
 namespace SocialContent.Api.Services;
 
+/// <summary>
+/// Konta społecznościowe firmy. Odczyt: CompanyUser widzi wszystkie konta firmy, ManagerUser tylko przypisane do siebie.
+/// Zapis (tworzenie, zmiana, usuwanie, przypisywanie managerów): wyłącznie firma, przez <c>companyId</c>.
+/// </summary>
 public interface ISocialAccountService
 {
-    Task<List<SocialAccountDto>> GetAllAsync(CancellationToken ct);
-    Task<SocialAccountDto> GetAsync(Guid id, CancellationToken ct);
-    Task<SocialAccountDto> CreateAsync(SocialAccountWriteDto dto, CancellationToken ct);
-    Task<SocialAccountDto> UpdateAsync(Guid id, SocialAccountWriteDto dto, CancellationToken ct);
-    Task DeleteAsync(Guid id, CancellationToken ct);
+    Task<List<SocialAccountDto>> GetAllAsync(CurrentUser user, CancellationToken ct);
+    Task<SocialAccountDto> GetAsync(CurrentUser user, Guid id, CancellationToken ct);
+    Task<SocialAccountDto> CreateAsync(Guid companyId, SocialAccountWriteDto dto, CancellationToken ct);
+    Task<SocialAccountDto> UpdateAsync(Guid companyId, Guid id, SocialAccountWriteDto dto, CancellationToken ct);
+    Task<SocialAccountDto> AssignManagersAsync(Guid companyId, Guid id, AssignManagersDto dto, CancellationToken ct);
+    Task DeleteAsync(Guid companyId, Guid id, CancellationToken ct);
 }
 
-public class SocialAccountService(AppDbContext db) : ISocialAccountService
+public class SocialAccountService(AppDbContext db, IMapper mapper) : ISocialAccountService
 {
     private IQueryable<SocialAccount> Query() =>
         db.SocialAccounts
@@ -22,20 +29,25 @@ public class SocialAccountService(AppDbContext db) : ISocialAccountService
             .Include(a => a.Posts).ThenInclude(p => p.Files)
             .AsSplitQuery();
 
-    public async Task<List<SocialAccountDto>> GetAllAsync(CancellationToken ct)
+    public async Task<List<SocialAccountDto>> GetAllAsync(CurrentUser user, CancellationToken ct)
     {
-        var items = await Query().AsNoTracking().ToListAsync(ct);
-        return items.OrderBy(a => a.AccountName).ThenBy(a => a.AccountId).Select(a => a.ToDto()).ToList();
+        var items = await VisibleTo(user, Query().AsNoTracking()).ToListAsync(ct);
+        return items.OrderBy(a => a.AccountName).ThenBy(a => a.AccountId).Select(a => mapper.Map<SocialAccountDto>(a)).ToList();
     }
 
-    public async Task<SocialAccountDto> GetAsync(Guid id, CancellationToken ct) =>
-        (await Find(id, ct)).ToDto();
-
-    public async Task<SocialAccountDto> CreateAsync(SocialAccountWriteDto dto, CancellationToken ct)
+    public async Task<SocialAccountDto> GetAsync(CurrentUser user, Guid id, CancellationToken ct)
     {
-        var managers = await ManagerLookup.LoadAsync(db, dto.ManagerUserIds, ct);
+        var account = await VisibleTo(user, Query().AsNoTracking()).FirstOrDefaultAsync(a => a.Id == id, ct)
+                      ?? throw new NotFoundException($"Nie znaleziono konta społecznościowego o id {id}.");
+        return mapper.Map<SocialAccountDto>(account);
+    }
+
+    public async Task<SocialAccountDto> CreateAsync(Guid companyId, SocialAccountWriteDto dto, CancellationToken ct)
+    {
+        var managers = await ManagerLookup.LoadAsync(db, companyId, dto.ManagerUserIds, ct);
 
         var account = SocialAccount.Create(
+            companyId,
             dto.AccountId,
             dto.Platform!.Value,
             dto.ExternalPlatformId,
@@ -46,7 +58,8 @@ public class SocialAccountService(AppDbContext db) : ISocialAccountService
             dto.IsActive,
             managers);
 
-        if (await db.SocialAccounts.AnyAsync(a => a.Platform == account.Platform && a.AccountId == account.AccountId, ct))
+        if (await db.SocialAccounts.AnyAsync(
+                a => a.CompanyId == companyId && a.Platform == account.Platform && a.AccountId == account.AccountId, ct))
             throw new ConflictException($"Konto {account.Platform} o identyfikatorze '{account.AccountId}' już istnieje.");
 
         db.SocialAccounts.Add(account);
@@ -58,13 +71,13 @@ public class SocialAccountService(AppDbContext db) : ISocialAccountService
         {
             throw new ConflictException($"Konto {account.Platform} o identyfikatorze '{account.AccountId}' już istnieje.");
         }
-        return account.ToDto();
+        return mapper.Map<SocialAccountDto>(account);
     }
 
-    public async Task<SocialAccountDto> UpdateAsync(Guid id, SocialAccountWriteDto dto, CancellationToken ct)
+    public async Task<SocialAccountDto> UpdateAsync(Guid companyId, Guid id, SocialAccountWriteDto dto, CancellationToken ct)
     {
-        var account = await Find(id, ct);
-        var managers = await ManagerLookup.LoadAsync(db, dto.ManagerUserIds, ct);
+        var account = await Find(companyId, id, ct);
+        var managers = await ManagerLookup.LoadAsync(db, companyId, dto.ManagerUserIds, ct);
 
         // Posty kierowane na konto muszą zostać na tej samej platformie (reguła z Post.Apply).
         if (dto.Platform!.Value != account.Platform && account.Posts.Count > 0)
@@ -82,7 +95,7 @@ public class SocialAccountService(AppDbContext db) : ISocialAccountService
             managers);
 
         var duplicate = await db.SocialAccounts.AnyAsync(
-            a => a.Id != id && a.Platform == account.Platform && a.AccountId == account.AccountId, ct);
+            a => a.Id != id && a.CompanyId == companyId && a.Platform == account.Platform && a.AccountId == account.AccountId, ct);
         if (duplicate)
             throw new ConflictException($"Konto {account.Platform} o identyfikatorze '{account.AccountId}' już istnieje.");
 
@@ -94,12 +107,25 @@ public class SocialAccountService(AppDbContext db) : ISocialAccountService
         {
             throw new ConflictException($"Konto {account.Platform} o identyfikatorze '{account.AccountId}' już istnieje.");
         }
-        return account.ToDto();
+        return mapper.Map<SocialAccountDto>(account);
     }
 
-    public async Task DeleteAsync(Guid id, CancellationToken ct)
+    public async Task<SocialAccountDto> AssignManagersAsync(Guid companyId, Guid id, AssignManagersDto dto, CancellationToken ct)
     {
-        var account = await db.SocialAccounts.FirstOrDefaultAsync(a => a.Id == id, ct)
+        var account = await Find(companyId, id, ct);
+        var managers = await ManagerLookup.LoadAsync(db, companyId, dto.ManagerUserIds, ct);
+
+        // Przypisanie zmienia tylko listę managerów; dane i tokeny konta zostają (null = bez zmian).
+        account.Update(account.AccountId, account.Platform, account.ExternalPlatformId, account.AccountName,
+            null, null, account.TokenExpiresAt, account.IsActive, managers);
+
+        await db.SaveChangesAsync(ct);
+        return mapper.Map<SocialAccountDto>(account);
+    }
+
+    public async Task DeleteAsync(Guid companyId, Guid id, CancellationToken ct)
+    {
+        var account = await db.SocialAccounts.FirstOrDefaultAsync(a => a.Id == id && a.CompanyId == companyId, ct)
                       ?? throw new NotFoundException($"Nie znaleziono konta społecznościowego o id {id}.");
 
         if (await db.Posts.AnyAsync(p => p.TargetAccountId == id, ct))
@@ -117,7 +143,13 @@ public class SocialAccountService(AppDbContext db) : ISocialAccountService
         }
     }
 
-    private async Task<SocialAccount> Find(Guid id, CancellationToken ct) =>
-        await Query().FirstOrDefaultAsync(a => a.Id == id, ct)
+    /// <summary>CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany.</summary>
+    private static IQueryable<SocialAccount> VisibleTo(CurrentUser user, IQueryable<SocialAccount> query) =>
+        user.IsCompany
+            ? query.Where(a => a.CompanyId == user.Id)
+            : query.Where(a => a.ManagerUsers.Any(m => m.Id == user.Id));
+
+    private async Task<SocialAccount> Find(Guid companyId, Guid id, CancellationToken ct) =>
+        await Query().FirstOrDefaultAsync(a => a.Id == id && a.CompanyId == companyId, ct)
         ?? throw new NotFoundException($"Nie znaleziono konta społecznościowego o id {id}.");
 }

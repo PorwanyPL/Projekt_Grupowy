@@ -27,6 +27,8 @@ class SocialAccount {
   final bool hasRefreshToken;
   final List<ManagerUser> managers;
 
+  bool hasManager(String managerId) => managers.any((m) => m.id == managerId);
+
   factory SocialAccount.fromJson(Map<String, dynamic> json) => SocialAccount(
         id: json['id'] as String,
         accountId: json['accountId'] as String,

@@ -21,7 +21,7 @@ Map<String, dynamic> _manager(String id, {bool login = true, bool blocked = fals
       'lastName': 'Nowak',
       'age': 30,
       'description': 'Opis',
-      'socialAccountId': null,
+      'socialAccountIds': <String>[],
       'hasLoginAccount': login,
       'isAccessBlocked': blocked,
     };

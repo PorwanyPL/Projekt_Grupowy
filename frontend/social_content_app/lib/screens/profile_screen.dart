@@ -30,19 +30,27 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               children: [
                 ListTile(
-                  leading: const CircleAvatar(child: Icon(Icons.person)),
-                  title: Text(profile.fullName),
+                  leading: CircleAvatar(
+                    child: Icon(profile.isCompany ? Icons.business : Icons.person),
+                  ),
+                  title: Text(profile.displayName),
                   subtitle: Text(profile.email),
                 ),
                 const Divider(),
                 ListTile(
-                  title: const Text('Wiek'),
-                  subtitle: Text('${profile.age}'),
+                  title: const Text('Rola'),
+                  subtitle: Text(profile.role.label),
                 ),
-                ListTile(
-                  title: const Text('Opis'),
-                  subtitle: Text(profile.description),
-                ),
+                if (profile.age != null)
+                  ListTile(
+                    title: const Text('Wiek'),
+                    subtitle: Text('${profile.age}'),
+                  ),
+                if (profile.description != null)
+                  ListTile(
+                    title: const Text('Opis'),
+                    subtitle: Text(profile.description!),
+                  ),
                 const SizedBox(height: 24),
                 OutlinedButton.icon(
                   onPressed: () => _logout(context),

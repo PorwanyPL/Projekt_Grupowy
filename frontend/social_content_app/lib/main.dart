@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/auth_provider.dart';
+import 'providers/client_provider.dart';
 import 'providers/manager_provider.dart';
+import 'providers/notification_provider.dart';
 import 'providers/post_provider.dart';
 import 'providers/social_account_provider.dart';
 import 'screens/auth_gate.dart';
 import 'services/api_client.dart';
 import 'services/auth_service.dart';
+import 'services/client_service.dart';
 import 'services/manager_service.dart';
+import 'services/media_service.dart';
+import 'services/notification_service.dart';
 import 'services/post_service.dart';
 import 'services/social_account_service.dart';
 import 'services/token_storage.dart';
@@ -34,7 +39,10 @@ class SocialContentApp extends StatelessWidget {
         ),
         // Dane są pobierane przez HomeScreen dopiero po zalogowaniu.
         ChangeNotifierProvider(create: (_) => ManagerProvider(ManagerService(_api))),
+        ChangeNotifierProvider(create: (_) => ClientProvider(ClientService(_api))),
         ChangeNotifierProvider(create: (_) => PostProvider(PostService(_api))),
+        ChangeNotifierProvider(create: (_) => NotificationProvider(NotificationService(_api))),
+        Provider(create: (_) => MediaService(_api)),
         ChangeNotifierProvider(
           create: (_) => SocialAccountProvider(SocialAccountService(_api)),
         ),

@@ -7,10 +7,21 @@ class PostService {
 
   final ApiClient _api;
 
-  Future<List<Post>> getAll({PostType? type}) async {
+  /// [accountId] - posty jednego konta; [managerId] - posty jednego managera
+  /// (manager może podać tylko własny id, firma - dowolnego managera swojej firmy).
+  Future<List<Post>> getAll({
+    PostType? type,
+    String? accountId,
+    String? managerId,
+  }) async {
+    final query = {
+      if (type != null) 'type': type.apiName,
+      if (accountId != null) 'accountId': accountId,
+      if (managerId != null) 'managerId': managerId,
+    };
     final json = await _api.get(
       '/api/Posts',
-      query: type == null ? null : {'type': type.apiName},
+      query: query.isEmpty ? null : query,
     ) as List<dynamic>;
     return json.map((e) => Post.fromJson(e as Map<String, dynamic>)).toList();
   }
@@ -26,4 +37,9 @@ class PostService {
   }
 
   Future<void> delete(String id) => _api.delete('/api/Posts/$id');
+
+  /// Zajmuje lub odnawia blokadę edycji; 409 = edytuje ktoś inny (komunikat z imieniem).
+  Future<void> acquireLock(String id) => _api.post('/api/Posts/$id/lock');
+
+  Future<void> releaseLock(String id) => _api.delete('/api/Posts/$id/lock');
 }

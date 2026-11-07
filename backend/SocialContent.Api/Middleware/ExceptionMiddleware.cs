@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using SocialContent.Api.Domain;
+using SocialContent.Api.Domain.Exceptions;
 
 namespace SocialContent.Api.Middleware;
 
@@ -18,6 +18,10 @@ public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddlewa
         catch (UnauthorizedException ex)
         {
             await Write(context, StatusCodes.Status401Unauthorized, "Brak autoryzacji", ex.Message);
+        }
+        catch (ForbiddenException ex)
+        {
+            await Write(context, StatusCodes.Status403Forbidden, "Brak uprawnień", ex.Message);
         }
         catch (NotFoundException ex)
         {

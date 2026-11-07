@@ -23,5 +23,13 @@ class SocialAccountService {
     return SocialAccount.fromJson(json as Map<String, dynamic>);
   }
 
+  /// CompanyUser: ustawia pełną listę managerów konta (pominięci zostają odpięci).
+  Future<SocialAccount> assignManagers(String id, List<String> managerIds) async {
+    final json = await _api.put('/api/SocialAccounts/$id/managers', {
+      'managerUserIds': managerIds,
+    });
+    return SocialAccount.fromJson(json as Map<String, dynamic>);
+  }
+
   Future<void> delete(String id) => _api.delete('/api/SocialAccounts/$id');
 }

@@ -121,7 +121,6 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final managers = context.watch<ManagerProvider>().items;
     final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -212,26 +211,10 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
               onChanged: (v) => setState(() => _isActive = v),
             ),
             const SizedBox(height: 8),
-            Text('Managerowie konta', style: Theme.of(context).textTheme.titleSmall),
-            if (managers.isEmpty)
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8),
-                child: Text('Brak managerów do przypisania.'),
-              )
-            else
-              Wrap(
-                spacing: 8,
-                children: [
-                  for (final m in managers)
-                    FilterChip(
-                      label: Text(m.fullName),
-                      selected: _managerIds.contains(m.id),
-                      onSelected: (on) => setState(() {
-                        on ? _managerIds.add(m.id) : _managerIds.remove(m.id);
-                      }),
-                    ),
-                ],
-              ),
+            Text(
+              'Managerów przypisujesz w widoku szczegółowym konta (przycisk "Przypisz").',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
             if (_error != null) ...[
               const SizedBox(height: 16),
               Text(_error!, style: TextStyle(color: scheme.error)),

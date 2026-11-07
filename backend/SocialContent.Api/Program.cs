@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -28,6 +27,16 @@ builder.Services.AddScoped<IManagerUserService, ManagerUserService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<ISocialAccountService, SocialAccountService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IClientUserService, ClientUserService>();
+builder.Services.AddScoped<IMediaService, MediaService>();
+builder.Services.AddScoped<IPostEditLockService, PostEditLockService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IPostPublisher, PostPublisher>();
+// Przesłane pliki leżą w folderze "uploads" obok aplikacji (podfolder na firmę).
+builder.Services.AddSingleton<IMediaStorage>(
+    new MediaStorage(Path.Combine(builder.Environment.ContentRootPath, "uploads")));
+builder.Services.AddHostedService<ScheduledPostWorker>();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddSingleton<IPasswordHasher, Pbkdf2PasswordHasher>();
 builder.Services.AddSingleton<ITokenService, JwtTokenService>();
 
@@ -36,8 +45,11 @@ builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(o =>
     {
+        o.MapInboundClaims = false; // claimy zostają pod nazwami z tokenu: "sub", "role"
         o.TokenValidationParameters = new TokenValidationParameters
         {
+            NameClaimType = "sub",
+            RoleClaimType = "role",
             ValidateIssuer = true,
             ValidIssuer = jwt.Issuer,
             ValidateAudience = true,
@@ -48,27 +60,25 @@ builder.Services
             ClockSkew = TimeSpan.FromMinutes(1)
         };
 
-        // Token jest ważny tylko dopóki konto logowania istnieje i nie jest zablokowane
+        // Token jest ważny tylko dopóki konto istnieje i nie jest zablokowane
         // (blokada i anonimizacja działają od razu, bez czekania na wygaśnięcie tokenu).
         o.Events = new JwtBearerEvents
         {
             OnTokenValidated = async context =>
             {
-                var subject = context.Principal?.FindFirst("sub")?.Value
-                              ?? context.Principal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (!Guid.TryParse(subject, out var managerId))
+                CurrentUser user;
+                try
+                {
+                    user = context.Principal!.ToCurrentUser();
+                }
+                catch (Exception)
                 {
                     context.Fail("Nieprawidłowy token.");
                     return;
                 }
 
-                var db = context.HttpContext.RequestServices.GetRequiredService<AppDbContext>();
-                var blocked = await db.ManagerCredentials.AsNoTracking()
-                    .Where(c => c.ManagerUserId == managerId)
-                    .Select(c => (bool?)c.IsAccessBlocked)
-                    .FirstOrDefaultAsync(context.HttpContext.RequestAborted);
-
-                if (blocked is null || blocked == true)
+                var auth = context.HttpContext.RequestServices.GetRequiredService<IAuthService>();
+                if (!await auth.IsSessionValidAsync(user, context.HttpContext.RequestAborted))
                     context.Fail("Konto nie istnieje lub jest zablokowane.");
             }
         };
@@ -87,8 +97,8 @@ builder.Services.AddSwaggerGen(o =>
         Title = "Social Content API",
         Version = "v1",
         Description = "API do zarządzania tworzeniem treści do mediów społecznościowych przez content managerów: " +
-                      "managerowie, konta społecznościowe, posty (ogólne oraz Facebook, Instagram, TikTok) " +
-                      "oraz rejestracja i logowanie (JWT)."
+                      "firmy (CompanyUser), managerowie, klienci, konta społecznościowe, posty (ogólne oraz Facebook, Instagram, TikTok) " +
+                      "oraz rejestracja i logowanie (JWT) z rolami."
     });
 
     // Opisy endpointów i modeli pochodzą z komentarzy XML (<summary>, <remarks>, <response>).
@@ -103,7 +113,7 @@ builder.Services.AddSwaggerGen(o =>
         Scheme = "bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Wklej token JWT otrzymany z /api/Auth/login lub /api/Auth/register (bez słowa Bearer)."
+        Description = "Wklej token JWT otrzymany z /api/Auth/login, /api/Auth/register-company lub /api/Auth/register-client (bez słowa Bearer)."
     });
     o.OperationFilter<AuthorizeOperationFilter>();
 });

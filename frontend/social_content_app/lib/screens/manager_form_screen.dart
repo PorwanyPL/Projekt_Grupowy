@@ -22,6 +22,9 @@ class _ManagerFormScreenState extends State<ManagerFormScreen> {
   late final TextEditingController _lastName;
   late final TextEditingController _age;
   late final TextEditingController _description;
+  late final TextEditingController _email;
+  final _password = TextEditingController();
+  bool _obscure = true;
 
   bool _saving = false;
   String? _error;
@@ -36,6 +39,7 @@ class _ManagerFormScreenState extends State<ManagerFormScreen> {
     _lastName = TextEditingController(text: m?.lastName ?? '');
     _age = TextEditingController(text: m?.age.toString() ?? '');
     _description = TextEditingController(text: m?.description ?? '');
+    _email = TextEditingController(text: m?.email ?? '');
   }
 
   @override
@@ -44,6 +48,8 @@ class _ManagerFormScreenState extends State<ManagerFormScreen> {
     _lastName.dispose();
     _age.dispose();
     _description.dispose();
+    _email.dispose();
+    _password.dispose();
     super.dispose();
   }
 
@@ -59,12 +65,20 @@ class _ManagerFormScreenState extends State<ManagerFormScreen> {
       lastName: _lastName.text.trim(),
       age: int.parse(_age.text.trim()),
       description: _description.text.trim(),
+      // Przy tworzeniu e-mail i hasło są zawsze wysyłane (wymagane przez API).
+      email: _isEdit ? null : _email.text.trim(),
+      password: _isEdit ? null : _password.text,
     );
     final provider = context.read<ManagerProvider>();
 
     try {
       if (_isEdit) {
         await provider.update(widget.manager!.id, input);
+        // Dane logowania mają osobny endpoint; puste hasło = bez zmiany hasła.
+        await provider.updateCredentials(
+          widget.manager!.id,
+          ManagerCredentialsInput(email: _email.text.trim(), password: _password.text),
+        );
       } else {
         await provider.create(input);
       }
@@ -120,6 +134,34 @@ class _ManagerFormScreenState extends State<ManagerFormScreen> {
               ),
               maxLines: 4,
               validator: (v) => FormValidators.text(v, 'Opis', 2000),
+            ),
+            const SizedBox(height: 16),
+            Text('Dane logowania', style: Theme.of(context).textTheme.titleSmall),
+            const SizedBox(height: 8),
+            TextFormField(
+              controller: _email,
+              decoration: const InputDecoration(labelText: 'Adres e-mail managera'),
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              validator: FormValidators.email,
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _password,
+              decoration: InputDecoration(
+                labelText: _isEdit ? 'Nowe hasło (opcjonalnie)' : 'Hasło początkowe',
+                helperText: _isEdit
+                    ? 'Zostaw puste, aby nie zmieniać hasła. W przeciwnym razie: 8-128 znaków, mała i wielka litera oraz cyfra'
+                    : '8-128 znaków, mała i wielka litera oraz cyfra',
+                suffixIcon: IconButton(
+                  tooltip: _obscure ? 'Pokaż hasło' : 'Ukryj hasło',
+                  icon: Icon(_obscure ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () => setState(() => _obscure = !_obscure),
+                ),
+              ),
+              obscureText: _obscure,
+              validator: (v) =>
+                  _isEdit && (v == null || v.isEmpty) ? null : FormValidators.newPassword(v),
             ),
             if (_error != null) ...[
               const SizedBox(height: 16),

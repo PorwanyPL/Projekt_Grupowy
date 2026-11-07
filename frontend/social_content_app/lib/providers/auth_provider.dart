@@ -22,7 +22,9 @@ class AuthProvider extends ChangeNotifier {
   bool _handlingUnauthorized = false;
 
   AuthStatus status = AuthStatus.unknown;
-  ManagerProfile? profile;
+  UserProfile? profile;
+
+  UserRole? get role => profile?.role;
 
   /// Komunikat do pokazania na ekranie logowania (np. po wygaśnięciu sesji).
   String? notice;
@@ -58,8 +60,11 @@ class AuthProvider extends ChangeNotifier {
   Future<void> login(String email, String password) async =>
       _startSession(await _service.login(email.trim(), password));
 
-  Future<void> register(RegisterInput input) async =>
-      _startSession(await _service.register(input));
+  Future<void> registerCompany(RegisterCompanyInput input) async =>
+      _startSession(await _service.registerCompany(input));
+
+  Future<void> registerClient(RegisterClientInput input) async =>
+      _startSession(await _service.registerClient(input));
 
   Future<void> logout() async {
     await _endSession();
@@ -69,7 +74,7 @@ class AuthProvider extends ChangeNotifier {
   Future<void> _startSession(AuthSession session) async {
     _api.setToken(session.accessToken);
     await _storage.save(session.accessToken, session.expiresAt);
-    profile = session.manager;
+    profile = session.user;
     notice = null;
     status = AuthStatus.authenticated;
     notifyListeners();

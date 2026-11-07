@@ -39,6 +39,11 @@ class SocialAccountProvider extends ChangeNotifier {
     await load();
   }
 
+  Future<void> assignManagers(String id, List<String> managerIds) async {
+    await _service.assignManagers(id, managerIds);
+    await load();
+  }
+
   Future<void> delete(String id) async {
     await _service.delete(id);
     await load();

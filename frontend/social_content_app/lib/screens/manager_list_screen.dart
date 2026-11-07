@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/manager_user.dart';
-import '../providers/auth_provider.dart';
 import '../providers/manager_provider.dart';
-import '../providers/post_provider.dart';
 import '../providers/social_account_provider.dart';
 import '../services/api_exception.dart';
+import '../widgets/account_menu.dart';
 import '../widgets/async_body.dart';
 import '../widgets/confirm_dialog.dart';
 import 'manager_form_screen.dart';
+import 'manager_posts_screen.dart';
 
-enum _ManagerAction { edit, block, unblock, anonymize, delete }
+enum _ManagerAction { posts, edit, block, unblock, anonymize, delete }
 
 class ManagerListScreen extends StatelessWidget {
   const ManagerListScreen({super.key});
@@ -19,6 +19,11 @@ class ManagerListScreen extends StatelessWidget {
   Future<void> _onAction(
       BuildContext context, ManagerUser m, _ManagerAction action) async {
     switch (action) {
+      case _ManagerAction.posts:
+        await Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => ManagerPostsScreen(manager: m)),
+        );
       case _ManagerAction.edit:
         await Navigator.push(
           context,
@@ -51,25 +56,21 @@ class ManagerListScreen extends StatelessWidget {
   }
 
   Future<void> _anonymize(BuildContext context, ManagerUser m) async {
-    final ownId = context.read<AuthProvider>().profile?.id;
     final ok = await confirmAction(
       context,
       title: 'Zanonimizować managera?',
       message: 'Imię i nazwisko ${m.fullName} zostaną zastąpione napisem '
           '"Usunięty użytkownik", opis zostanie wyczyszczony, a konto logowania '
           'usunięte. Powiązania z postami zostaną zachowane.'
-          '${ownId == m.id ? '\n\nTo Twoje konto - zostaniesz wylogowany.' : ''}'
           '\n\nTej operacji nie można cofnąć.',
       confirmLabel: 'Zanonimizuj',
     );
     if (!ok || !context.mounted) return;
     final managers = context.read<ManagerProvider>();
-    final posts = context.read<PostProvider>();
     final accounts = context.read<SocialAccountProvider>();
     final messenger = ScaffoldMessenger.of(context);
     try {
       await managers.anonymize(m.id);
-      await posts.load();
       await accounts.load();
       messenger.showSnackBar(
           const SnackBar(content: Text('Dane managera zostały zanonimizowane.')));
@@ -82,11 +83,9 @@ class ManagerListScreen extends StatelessWidget {
     if (!await confirmDelete(context, m.fullName)) return;
     if (!context.mounted) return;
     final managers = context.read<ManagerProvider>();
-    final posts = context.read<PostProvider>();
     final messenger = ScaffoldMessenger.of(context);
     try {
       await managers.delete(m.id);
-      await posts.load();
     } on ApiException catch (e) {
       if (e.statusCode == 409 && context.mounted) {
         await _showDeleteConflict(context, m, e.message);
@@ -131,7 +130,6 @@ class ManagerListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<ManagerProvider>();
-    final ownId = context.watch<AuthProvider>().profile?.id;
     final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -143,6 +141,7 @@ class ManagerListScreen extends StatelessWidget {
             icon: const Icon(Icons.refresh),
             onPressed: provider.load,
           ),
+          ...accountMenuActions(context),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -157,7 +156,7 @@ class ManagerListScreen extends StatelessWidget {
         state: provider.state,
         error: provider.error,
         isEmpty: provider.items.isEmpty,
-        emptyText: 'Brak managerów. Dodaj pierwszego.',
+        emptyText: 'Brak managerów. Utwórz pierwszego, a potem przypisz go do konta społecznościowego.',
         onRetry: provider.load,
         builder: (_) => ListView.separated(
           padding: const EdgeInsets.only(bottom: 96),
@@ -173,7 +172,7 @@ class ManagerListScreen extends StatelessWidget {
               ),
               title: Text(m.fullName),
               subtitle: Text(
-                '${m.age} lat · ${m.description}${_accessLabel(m)}',
+                '${m.age} lat · ${m.description}\n${m.email ?? 'brak e-maila'} · Konta: ${m.socialAccountIds.length}${_accessLabel(m)}',
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: m.isAccessBlocked == true
@@ -185,12 +184,14 @@ class ManagerListScreen extends StatelessWidget {
                 onSelected: (a) => _onAction(context, m, a),
                 itemBuilder: (_) => [
                   const PopupMenuItem(
+                    value: _ManagerAction.posts,
+                    child: Text('Posty managera'),
+                  ),
+                  const PopupMenuItem(
                     value: _ManagerAction.edit,
                     child: Text('Edytuj'),
                   ),
-                  if (m.hasLoginAccount == true &&
-                      m.isAccessBlocked != true &&
-                      m.id != ownId)
+                  if (m.hasLoginAccount == true && m.isAccessBlocked != true)
                     const PopupMenuItem(
                       value: _ManagerAction.block,
                       child: Text('Zablokuj dostęp'),
@@ -213,7 +214,7 @@ class ManagerListScreen extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => ManagerFormScreen(manager: m),
+                  builder: (_) => ManagerPostsScreen(manager: m),
                 ),
               ),
             );

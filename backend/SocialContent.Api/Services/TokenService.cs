@@ -3,39 +3,28 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SocialContent.Api.Domain.Enums;
 
 namespace SocialContent.Api.Services;
 
-public class JwtOptions
-{
-    public const string SectionName = "Jwt";
-
-    public string Issuer { get; set; } = "SocialContent.Api";
-    public string Audience { get; set; } = "SocialContent.Client";
-
-    /// <summary>Klucz podpisu HS256, minimum 32 bajty. Na produkcji ustaw przez zmienną środowiskową Jwt__Key.</summary>
-    public string Key { get; set; } = "";
-
-    public int ExpiresMinutes { get; set; } = 60;
-}
-
 public interface ITokenService
 {
-    (string Token, DateTime ExpiresAt) Create(Guid managerId, string email);
+    (string Token, DateTime ExpiresAt) Create(Guid userId, string email, UserRole role);
 }
 
 public sealed class JwtTokenService(IOptions<JwtOptions> options) : ITokenService
 {
     private readonly JwtOptions _options = options.Value;
 
-    public (string Token, DateTime ExpiresAt) Create(Guid managerId, string email)
+    public (string Token, DateTime ExpiresAt) Create(Guid userId, string email, UserRole role)
     {
         var now = DateTime.UtcNow;
         var expires = now.AddMinutes(_options.ExpiresMinutes);
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, managerId.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+            new Claim("role", role.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };

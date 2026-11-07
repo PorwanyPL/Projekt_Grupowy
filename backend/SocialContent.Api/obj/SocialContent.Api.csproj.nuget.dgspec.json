@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Studia\\7 semestr\\Projekt\\SocialContent_3\\backend\\SocialContent.Api\\SocialContent.Api.csproj": {}
+    "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj": {}
   },
   "projects": {
-    "H:\\Studia\\7 semestr\\Projekt\\SocialContent_3\\backend\\SocialContent.Api\\SocialContent.Api.csproj": {
+    "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Studia\\7 semestr\\Projekt\\SocialContent_3\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+        "projectUniqueName": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
         "projectName": "SocialContent.Api",
-        "projectPath": "H:\\Studia\\7 semestr\\Projekt\\SocialContent_3\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
-        "packagesPath": "C:\\Users\\Przemek\\.nuget\\packages\\",
-        "outputPath": "H:\\Studia\\7 semestr\\Projekt\\SocialContent_3\\backend\\SocialContent.Api\\obj\\",
+        "projectPath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
+        "outputPath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Przemek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -52,6 +52,13 @@
           "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )",
+              "noWarn": [
+                "NU1903"
+              ]
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.10, )"

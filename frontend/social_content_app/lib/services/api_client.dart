@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 
@@ -29,6 +30,14 @@ class ApiClient {
         if (_token != null) 'Authorization': 'Bearer $_token',
       };
 
+  /// Nagłówki do żądań spoza ApiClient (np. Image.network pobierające prywatne pliki).
+  Map<String, String> get authHeaders => {
+        if (_token != null) 'Authorization': 'Bearer $_token',
+      };
+
+  /// Pełny adres pliku medium (wymaga nagłówka [authHeaders]).
+  String mediaUrl(String storageKey) => '$_baseUrl/api/Media/$storageKey';
+
   Uri _uri(String path, [Map<String, String>? query]) =>
       Uri.parse('$_baseUrl$path').replace(queryParameters: query);
 
@@ -42,6 +51,14 @@ class ApiClient {
 
   Future<dynamic> put(String path, Object body) => _send(
       () => _client.put(_uri(path), headers: _headers, body: jsonEncode(body)));
+
+  /// Wysyła plik jako multipart/form-data (pole "file").
+  Future<dynamic> postFile(String path, Uint8List bytes, String fileName) => _send(() async {
+        final request = http.MultipartRequest('POST', _uri(path))
+          ..headers.addAll(authHeaders)
+          ..files.add(http.MultipartFile.fromBytes('file', bytes, filename: fileName));
+        return http.Response.fromStream(await _client.send(request));
+      });
 
   Future<dynamic> delete(String path) =>
       _send(() => _client.delete(_uri(path), headers: _headers));

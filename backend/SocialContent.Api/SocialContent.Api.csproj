@@ -5,9 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- Komentarze XML zasilają opisy (summary/description) endpointów w Swaggerze. -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+    <NoWarn>$(NoWarn);1591;1573</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <!-- 13.0.1 to ostatnia wersja bez licencji komercyjnej; NU1903 (CVE-2026-32933, rekurencja przy bardzo głęboko zagnieżdżonych grafach) wyciszone świadomie:
+         mapujemy wyłącznie własne encje na płaskie DTO, nigdy dane z żądania. -->
+    <PackageReference Include="AutoMapper" Version="13.0.1" NoWarn="NU1903" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />

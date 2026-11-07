@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_exception.dart';
 import '../utils/validators.dart';
-import 'register_screen.dart';
+import 'register_client_screen.dart';
+import 'register_company_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -109,15 +110,43 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   : const Text('Zaloguj się'),
             ),
+            const SizedBox(height: 24),
+            const Divider(),
             const SizedBox(height: 8),
-            TextButton(
+            Text(
+              'Nie masz konta?',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
               onPressed: _loading
                   ? null
                   : () => Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const RegisterScreen()),
+                        MaterialPageRoute(
+                            builder: (_) => const RegisterCompanyScreen()),
                       ),
-              child: const Text('Nie masz konta? Zarejestruj się'),
+              icon: const Icon(Icons.business),
+              label: const Text('Zarejestruj firmę'),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: _loading
+                  ? null
+                  : () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const RegisterClientScreen()),
+                      ),
+              icon: const Icon(Icons.person_add_alt),
+              label: const Text('Zarejestruj się jako klient'),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Managerów tworzy administrator firmy - po otrzymaniu e-maila i hasła zaloguj się powyżej.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         ),

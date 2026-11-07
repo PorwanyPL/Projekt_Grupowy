@@ -81,3 +81,32 @@ enum SocialPlatform {
         orElse: () => throw FormatException('Nieznana platforma: $value'),
       );
 }
+
+/// Status publikacji posta (PostStatus z backendu).
+enum PostStatus {
+  draft,
+  scheduled,
+  publishing,
+  published,
+  failed;
+
+  String get label {
+    switch (this) {
+      case PostStatus.draft:
+        return 'Szkic';
+      case PostStatus.scheduled:
+        return 'Zaplanowany';
+      case PostStatus.publishing:
+        return 'Publikowanie';
+      case PostStatus.published:
+        return 'Opublikowany';
+      case PostStatus.failed:
+        return 'Błąd';
+    }
+  }
+
+  static PostStatus parse(String value) => PostStatus.values.firstWhere(
+        (e) => e.name == value.toLowerCase(),
+        orElse: () => throw FormatException('Nieznany status posta: $value'),
+      );
+}

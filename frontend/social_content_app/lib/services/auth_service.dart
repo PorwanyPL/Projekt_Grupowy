@@ -14,13 +14,18 @@ class AuthService {
     return AuthSession.fromJson(json as Map<String, dynamic>);
   }
 
-  Future<AuthSession> register(RegisterInput input) async {
-    final json = await _api.post('/api/Auth/register', input.toJson());
+  Future<AuthSession> registerCompany(RegisterCompanyInput input) async {
+    final json = await _api.post('/api/Auth/register-company', input.toJson());
     return AuthSession.fromJson(json as Map<String, dynamic>);
   }
 
-  Future<ManagerProfile> me() async {
+  Future<AuthSession> registerClient(RegisterClientInput input) async {
+    final json = await _api.post('/api/Auth/register-client', input.toJson());
+    return AuthSession.fromJson(json as Map<String, dynamic>);
+  }
+
+  Future<UserProfile> me() async {
     final json = await _api.get('/api/Auth/me');
-    return ManagerProfile.fromJson(json as Map<String, dynamic>);
+    return UserProfile.fromJson(json as Map<String, dynamic>);
   }
 }

@@ -2,52 +2,45 @@ import 'package:flutter/foundation.dart';
 
 import '../models/enums.dart';
 import '../models/post.dart';
-import '../services/api_exception.dart';
 import '../services/post_service.dart';
-import 'load_state.dart';
 
+/// Posty nie mają jednej globalnej listy: każdy widok (konto, manager, firma) pobiera własny
+/// zakres przez [fetch]. Provider zapewnia też tworzenie, edycję i usuwanie.
 class PostProvider extends ChangeNotifier {
   PostProvider(this._service);
 
   final PostService _service;
 
-  LoadState state = LoadState.idle;
-  String? error;
-  List<Post> items = const [];
-  PostType? filter;
-
-  Future<void> load() async {
-    state = LoadState.loading;
-    error = null;
-    notifyListeners();
-    try {
-      items = await _service.getAll(type: filter);
-      state = LoadState.loaded;
-    } on ApiException catch (e) {
-      error = e.message;
-      state = LoadState.failed;
-    }
-    notifyListeners();
-  }
-
-  Future<void> setFilter(PostType? type) {
-    filter = type;
-    return load();
-  }
+  /// Rzuca [ApiException].
+  Future<List<Post>> fetch({PostType? type, String? accountId, String? managerId}) =>
+      _service.getAll(type: type, accountId: accountId, managerId: managerId);
 
   /// Poniższe metody rzucają [ApiException] - formularz pokazuje komunikat.
-  Future<void> create(PostInput input) async {
-    await _service.create(input);
-    await load();
+  Future<Post> create(PostInput input) async {
+    final post = await _service.create(input);
+    notifyListeners();
+    return post;
   }
 
-  Future<void> update(String id, PostInput input) async {
-    await _service.update(id, input);
-    await load();
+  Future<Post> update(String id, PostInput input) async {
+    final post = await _service.update(id, input);
+    notifyListeners();
+    return post;
+  }
+
+  /// Blokada edycji: rzuca [ApiException] (409), gdy post edytuje ktoś inny.
+  Future<void> acquireLock(String id) => _service.acquireLock(id);
+
+  Future<void> releaseLock(String id) async {
+    try {
+      await _service.releaseLock(id);
+    } catch (_) {
+      // blokada i tak wygaśnie sama
+    }
   }
 
   Future<void> delete(String id) async {
     await _service.delete(id);
-    await load();
+    notifyListeners();
   }
 }

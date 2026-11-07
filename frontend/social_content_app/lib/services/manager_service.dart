@@ -23,6 +23,11 @@ class ManagerService {
     return ManagerUser.fromJson(json as Map<String, dynamic>);
   }
 
+  Future<ManagerUser> updateCredentials(String id, ManagerCredentialsInput input) async {
+    final json = await _api.put('/api/ManagerUsers/$id/credentials', input.toJson());
+    return ManagerUser.fromJson(json as Map<String, dynamic>);
+  }
+
   Future<void> delete(String id) => _api.delete('/api/ManagerUsers/$id');
 
   Future<ManagerUser> setAccessBlocked(String id, bool blocked) async {
