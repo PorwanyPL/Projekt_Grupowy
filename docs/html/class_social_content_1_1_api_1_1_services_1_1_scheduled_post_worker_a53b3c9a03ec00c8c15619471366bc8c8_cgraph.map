@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Services.ScheduledPostWorker.ExecuteAsync" name="SocialContent.Api.Services.ScheduledPostWorker.ExecuteAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,245,48"/>
+<area shape="rect" id="Node000002" href="$interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher.html#ab50ad44ab30c92fd7d05bf9b17c0426e" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="293,5,507,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,24,280,27,274,27,245,29"/>
+</map>

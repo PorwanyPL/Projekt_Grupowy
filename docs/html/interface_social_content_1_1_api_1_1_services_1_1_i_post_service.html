@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja interfejsu SocialContent.Api.Services.IPostService</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html','','interface_social_content_1_1_api_1_1_services_1_1_i_post_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja interfejsu SocialContent.Api.Services.IPostService</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Posty. Odczyt: <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> widzi posty kont swojej firmy, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> tylko posty, których jest autorem. Tworzenie, zmiana i usuwanie: <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> na każdym koncie swojej firmy oraz <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> na koncie, do którego jest przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty. Autorami nowego posta są od razu wszyscy managerowie przypisani do konta. Edycję jednego posta wykonuje naraz jedna osoba (blokada edycji).  
+ <a href="#details">Więcej...</a></p>
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.IPostService</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_i_post_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_i_post_service_inherit__map" id="a_social_content_8_api_8_services_8_i_post_service_inherit__map">
+<area shape="rect" title="Posty. Odczyt: CompanyUser widzi posty kont swojej firmy, ManagerUser tylko posty,..." alt="" coords="16,5,191,219"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html" title=" " alt="" coords="5,267,201,864"/>
+<area shape="poly" title=" " alt="" coords="104,231,106,267,101,267,103,236"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.IPostService:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_i_post_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_i_post_service_coll__map" id="a_social_content_8_api_8_services_8_i_post_service_coll__map">
+<area shape="rect" title="Posty. Odczyt: CompanyUser widzi posty kont swojej firmy, ManagerUser tylko posty,..." alt="" coords="5,5,180,219"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:ac334a2e6e83bed60ce57396e8894d01c" id="r_ac334a2e6e83bed60ce57396e8894d01c"><td class="memItemLeft">Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac334a2e6e83bed60ce57396e8894d01c">GetAllAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a>? type, Guid? accountId, Guid? managerId, CancellationToken ct)</td></tr>
+<tr class="memitem:a94c2ab8ebc882388e3881c00e52b7c34" id="r_a94c2ab8ebc882388e3881c00e52b7c34"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a94c2ab8ebc882388e3881c00e52b7c34">GetAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a8463b688d88ac4bf354b23adfa310dda" id="r_a8463b688d88ac4bf354b23adfa310dda"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8463b688d88ac4bf354b23adfa310dda">CreateAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a8a91a478f8c28f3bfd87df7318437b3a" id="r_a8a91a478f8c28f3bfd87df7318437b3a"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8a91a478f8c28f3bfd87df7318437b3a">UpdateAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a41bb426d89eb81709f8a2c7ff44da4ca" id="r_a41bb426d89eb81709f8a2c7ff44da4ca"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a41bb426d89eb81709f8a2c7ff44da4ca">DeleteAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a22a4249373af31a51b2e376f457d9628" id="r_a22a4249373af31a51b2e376f457d9628"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab">PostLockDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a22a4249373af31a51b2e376f457d9628">AcquireLockAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:ab4e8c305bfa6f501c5d4a833d3cfcba5" id="r_ab4e8c305bfa6f501c5d4a833d3cfcba5"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#ab4e8c305bfa6f501c5d4a833d3cfcba5">ReleaseLockAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Posty. Odczyt: <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> widzi posty kont swojej firmy, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> tylko posty, których jest autorem. Tworzenie, zmiana i usuwanie: <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> na każdym koncie swojej firmy oraz <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> na koncie, do którego jest przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty. Autorami nowego posta są od razu wszyscy managerowie przypisani do konta. Edycję jednego posta wykonuje naraz jedna osoba (blokada edycji). </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a22a4249373af31a51b2e376f457d9628" name="a22a4249373af31a51b2e376f457d9628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a4249373af31a51b2e376f457d9628">&#9670;&#160;</a></span>AcquireLockAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab">PostLockDto</a> &gt; SocialContent.Api.Services.IPostService.AcquireLockAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8a3547823b49efc0a3ec7bcd9fe74903">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,215,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="263,29,448,72"/>
+<area shape="poly" title=" " alt="" coords="215,48,250,51,244,51,215,53"/>
+<area shape="poly" title=" " alt="" coords="309,27,307,19,315,10,331,5,355,3,382,5,399,14,394,13,380,10,355,8,332,10,318,15,312,21,314,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8463b688d88ac4bf354b23adfa310dda" name="a8463b688d88ac4bf354b23adfa310dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8463b688d88ac4bf354b23adfa310dda">&#9670;&#160;</a></span>CreateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; SocialContent.Api.Services.IPostService.CreateAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a41bb426d89eb81709f8a2c7ff44da4ca" name="a41bb426d89eb81709f8a2c7ff44da4ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41bb426d89eb81709f8a2c7ff44da4ca">&#9670;&#160;</a></span>DeleteAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task SocialContent.Api.Services.IPostService.DeleteAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac334a2e6e83bed60ce57396e8894d01c" name="ac334a2e6e83bed60ce57396e8894d01c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac334a2e6e83bed60ce57396e8894d01c">&#9670;&#160;</a></span>GetAllAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; &gt; SocialContent.Api.Services.IPostService.GetAllAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a>?</td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid?</td>          <td class="paramname"><span class="paramname"><em>accountId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid?</td>          <td class="paramname"><span class="paramname"><em>managerId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a94c2ab8ebc882388e3881c00e52b7c34" name="a94c2ab8ebc882388e3881c00e52b7c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c2ab8ebc882388e3881c00e52b7c34">&#9670;&#160;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; SocialContent.Api.Services.IPostService.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab4e8c305bfa6f501c5d4a833d3cfcba5" name="ab4e8c305bfa6f501c5d4a833d3cfcba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e8c305bfa6f501c5d4a833d3cfcba5">&#9670;&#160;</a></span>ReleaseLockAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task SocialContent.Api.Services.IPostService.ReleaseLockAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3d5d4413df50ff2407eb825ba8151e14">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,219,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="267,29,452,72"/>
+<area shape="poly" title=" " alt="" coords="219,48,254,51,248,51,219,53"/>
+<area shape="poly" title=" " alt="" coords="313,27,311,19,319,10,335,5,359,3,386,5,403,14,398,13,384,10,359,8,336,10,322,15,316,21,317,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8a91a478f8c28f3bfd87df7318437b3a" name="a8a91a478f8c28f3bfd87df7318437b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a91a478f8c28f3bfd87df7318437b3a">&#9670;&#160;</a></span>UpdateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; SocialContent.Api.Services.IPostService.UpdateAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9">SocialContent.Api.Services.PostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a_cgraph.png" border="0" usemap="#ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a_cgraph" loading="lazy" alt=""/></div>
+<map name="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a_cgraph" id="ainterface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tego interfejsu została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_post_service_8cs.html">PostService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html">IPostService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

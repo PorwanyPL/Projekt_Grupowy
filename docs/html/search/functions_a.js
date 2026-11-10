@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['managercredential_0',['ManagerCredential',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#af2aa5f204c564c337d28e55f1eb4168e',1,'SocialContent::Api::Domain::Entities::ManagerCredential']]],
+  ['managercredentialprofile_1',['ManagerCredentialProfile',['../class_social_content_1_1_api_1_1_mapping_1_1_manager_credential_profile.html#afa89470fdb0a3fc7642d27d773535f58',1,'SocialContent::Api::Mapping::ManagerCredentialProfile']]],
+  ['manageruser_2',['ManagerUser',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html#a03e9e5ba6fd147fa3e22ed34e422f546',1,'SocialContent::Api::Domain::Entities::ManagerUser']]],
+  ['manageruserdto_3',['ManagerUserDto',['../namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55',1,'SocialContent::Api::Dtos']]],
+  ['manageruserprofile_4',['ManagerUserProfile',['../class_social_content_1_1_api_1_1_mapping_1_1_manager_user_profile.html#abfd14a3fbbded28b4ac6446de410657a',1,'SocialContent::Api::Mapping::ManagerUserProfile']]],
+  ['mapcontrollers_5',['MapControllers',['../_program_8cs.html#a9e2ee3170aa6279b68eefd1651f7d96c',1,'Program.cs']]],
+  ['markallread_6',['MarkAllRead',['../class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller.html#a36d115f7bc380ba6e20b8d339e79fd9c',1,'SocialContent::Api::Controllers::NotificationsController']]],
+  ['markallreadasync_7',['MarkAllReadAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html#a2c358167089ecea0b2467d72f72c31e2',1,'SocialContent.Api.Services.INotificationService.MarkAllReadAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_notification_service.html#a209efa25c1552ac679f42d4d1b67881c',1,'SocialContent.Api.Services.NotificationService.MarkAllReadAsync()']]],
+  ['markfailed_8',['MarkFailed',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#adcf846c51cc58942916400be9ae60875',1,'SocialContent::Api::Domain::Entities::Post']]],
+  ['markpublished_9',['MarkPublished',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa540643b7b110f2d9e9d57818ab59787',1,'SocialContent::Api::Domain::Entities::Post']]],
+  ['markpublishing_10',['MarkPublishing',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ad965fcf4eb8aecf2ac2321a983052517',1,'SocialContent::Api::Domain::Entities::Post']]],
+  ['markread_11',['MarkRead',['../class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller.html#a3c117fce0fd2b89732a75387996aa971',1,'SocialContent.Api.Controllers.NotificationsController.MarkRead()'],['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification.html#a3ba55e2b84f8a55e326817ae8e9e8591',1,'SocialContent.Api.Domain.Entities.Notification.MarkRead()']]],
+  ['markreadasync_12',['MarkReadAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html#ab0222a9b89214f8ca8ac31454e4721ce',1,'SocialContent.Api.Services.INotificationService.MarkReadAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_notification_service.html#a7d1ba56c2fb19642ea9df8785a82b932',1,'SocialContent.Api.Services.NotificationService.MarkReadAsync()']]],
+  ['me_13',['Me',['../class_social_content_1_1_api_1_1_controllers_1_1_auth_controller.html#a00e87767c1a4d7d04f6f97a3ce2392c9',1,'SocialContent::Api::Controllers::AuthController']]],
+  ['mediauploaddto_14',['MediaUploadDto',['../namespace_social_content_1_1_api_1_1_dtos.html#aa0fd27387a0b37aecd8ae65847153f09',1,'SocialContent::Api::Dtos']]],
+  ['messagehandler_15',['MessageHandler',['../class_flutter_window.html#a1bb87f35fbcee9b6ce64a04bea92b121',1,'FlutterWindow::MessageHandler()'],['../class_win32_window.html#a9821d29a52a05f5ed9b49b89d7110cf7',1,'Win32Window::MessageHandler()']]],
+  ['mycompanies_16',['MyCompanies',['../class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller.html#a74777841f90a9a4c5e8bf2514334510d',1,'SocialContent::Api::Controllers::ClientUsersController']]]
+];

@@ -1,0 +1,87 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IMedia\+Service}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_service}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_media_service}\index{SocialContent.Api.Services.IMediaService@{SocialContent.Api.Services.IMediaService}}
+
+
+Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IMedia\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IMedia\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_aad6fd198d6d56b6c03de5b5d95dbcb1b}{Upload\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Stream content, string file\+Name, long length, Cancellation\+Token ct)
+\item 
+Task$<$(string Path, string Content\+Type)$>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_a0663370db488415b342a7c579215a018}{Open\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, string storage\+Key, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy. 
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_a0663370db488415b342a7c579215a018}\index{SocialContent.Api.Services.IMediaService@{SocialContent.Api.Services.IMediaService}!OpenAsync@{OpenAsync}}
+\index{OpenAsync@{OpenAsync}!SocialContent.Api.Services.IMediaService@{SocialContent.Api.Services.IMediaService}}
+\doxysubsubsection{\texorpdfstring{OpenAsync()}{OpenAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_a0663370db488415b342a7c579215a018} 
+Task$<$(string Path, string Content\+Type)$>$ Social\+Content.\+Api.\+Services.\+IMedia\+Service.\+Open\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{string}]{storage\+Key}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP. 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f}{Social\+Content.\+Api.\+Services.\+Media\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_a0663370db488415b342a7c579215a018_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_aad6fd198d6d56b6c03de5b5d95dbcb1b}\index{SocialContent.Api.Services.IMediaService@{SocialContent.Api.Services.IMediaService}!UploadAsync@{UploadAsync}}
+\index{UploadAsync@{UploadAsync}!SocialContent.Api.Services.IMediaService@{SocialContent.Api.Services.IMediaService}}
+\doxysubsubsection{\texorpdfstring{UploadAsync()}{UploadAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_aad6fd198d6d56b6c03de5b5d95dbcb1b} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IMedia\+Service.\+Upload\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Stream}]{content}{, }\item[{string}]{file\+Name}{, }\item[{long}]{length}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87}{Social\+Content.\+Api.\+Services.\+Media\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_aad6fd198d6d56b6c03de5b5d95dbcb1b_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_media_service_8cs}{Media\+Service.\+cs}}\end{DoxyCompactItemize}

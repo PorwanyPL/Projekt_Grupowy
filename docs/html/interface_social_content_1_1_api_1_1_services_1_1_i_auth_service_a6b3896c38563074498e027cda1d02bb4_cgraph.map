@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Services.IAuthService.GetProfileAsync" name="SocialContent.Api.Services.IAuthService.GetProfileAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,201,72"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="249,29,434,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,48,235,50,230,51,201,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="297,27,294,19,302,10,318,5,341,3,367,5,384,14,378,13,366,10,341,8,319,10,305,15,300,21,301,30"/>
+</map>

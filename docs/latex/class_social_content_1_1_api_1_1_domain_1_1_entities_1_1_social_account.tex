@@ -1,0 +1,303 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account}
+\hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{}\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+
+
+Konto w mediach społecznościowych (Facebook, Instagram, Tik\+Tok). Relacje z diagramu: n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} (managerowie konta), 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post} (konto docelowe postów) oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} (firma będąca właścicielem konta).  
+
+
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3866e6e82b266ed67626e95817501c47}{Update}} (string account\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} platform, string external\+Platform\+Id, string account\+Name, string? access\+Token, string? refresh\+Token, Date\+Time token\+Expires\+At, bool is\+Active, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers)
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a212049dbff1e506e4101c8fbd13dc22d}{Set\+Connection\+Error}} (string? message)
+\begin{DoxyCompactList}\small\item\em Zapisuje wynik kontroli połączenia (Validate.\+Verify\+Connection): przyczynę błędu albo null, gdy jest poprawne. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a0be8fea432da39ee2a9acbfc6524086a}{Social\+Account}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a583adbaf40e4ec2206fac38366df525d}{Create}} (Guid company\+Id, string account\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} platform, string external\+Platform\+Id, string account\+Name, string access\+Token, string? refresh\+Token, Date\+Time token\+Expires\+At, bool is\+Active, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_aa4ab362bd8cbbdbdecd54ae0976822f4}{Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_accd6c1936b6e07ef1f9ba0bf10ff62c1}{Company\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Company\+User \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_aba037523e477c40841f8f73d559226e9}{Company\+User}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a44290edb05b169da6d32733017ee11a5}{Account\+Id}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Identyfikator konta nadawany przez użytkownika systemu; unikalny w obrębie platformy. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a597a4b883c44231d1d22aac95d2525e7}{Platform}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a2ed1b6331961b97e5d4ccdadb128dc28}{External\+Platform\+Id}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Identyfikator konta po stronie platformy (np. id strony Facebooka). \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a6dc377078cfe0cf3dc42596e0cb1a517}{Account\+Name}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1f7d5833e97551df4c835f40831d2ad8}{Access\+Token}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Sekret -\/ nigdy nie jest zwracany przez API. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a51e9175783547417fb851967f1e8b437}{Refresh\+Token}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Sekret -\/ nigdy nie jest zwracany przez API. \end{DoxyCompactList}\item 
+Date\+Time \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3188a4f749cd6b6df99a15c1897e94f7}{Token\+Expires\+At}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+bool \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a7ea01e57892de445b45ab44fc9fa84bd}{Is\+Active}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3f81a7e95b6d132d1838b7c756670fbc}{Error\+Message}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a6cf63390c4e544af6e2876e99e2cf84a}{Manager\+Users}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_ad571156eda1358255b404bb433dff91d}{Posts}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+IRead\+Only\+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_acadf86e401d498a211592937657472c1}{Pictures}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\begin{DoxyCompactList}\small\item\em Zdjęcia z postów kierowanych na to konto (wyliczane, nie przechowywane osobno). \end{DoxyCompactList}\item 
+IRead\+Only\+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_ae14c2f1bfeb9d2891ea5640c1f1d557d}{Videos}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\begin{DoxyCompactList}\small\item\em Wideo z postów kierowanych na to konto (wyliczane, nie przechowywane osobno). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a0be8fea432da39ee2a9acbfc6524086a}{Social\+Account}} ()
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1e92fa73af6803f41c886e56e3f00414}{Apply}} (string account\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} platform, string external\+Platform\+Id, string account\+Name, string access\+Token, string? refresh\+Token, Date\+Time token\+Expires\+At, bool is\+Active, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Konto w mediach społecznościowych (Facebook, Instagram, Tik\+Tok). Relacje z diagramu: n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} (managerowie konta), 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post} (konto docelowe postów) oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} (firma będąca właścicielem konta). 
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_doc-constructors}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_doc-constructors}
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a0be8fea432da39ee2a9acbfc6524086a}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!SocialAccount@{SocialAccount}}
+\index{SocialAccount@{SocialAccount}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{SocialAccount()}{SocialAccount()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a0be8fea432da39ee2a9acbfc6524086a} 
+Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Social\+Account (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a0be8fea432da39ee2a9acbfc6524086a_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1e92fa73af6803f41c886e56e3f00414}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Apply@{Apply}}
+\index{Apply@{Apply}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1e92fa73af6803f41c886e56e3f00414} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Apply (\begin{DoxyParamCaption}\item[{string}]{account\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}}]{platform}{, }\item[{string}]{external\+Platform\+Id}{, }\item[{string}]{account\+Name}{, }\item[{string}]{access\+Token}{, }\item[{string?}]{refresh\+Token}{, }\item[{Date\+Time}]{token\+Expires\+At}{, }\item[{bool}]{is\+Active}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$}]{managers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1e92fa73af6803f41c886e56e3f00414_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a583adbaf40e4ec2206fac38366df525d}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a583adbaf40e4ec2206fac38366df525d} 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a0be8fea432da39ee2a9acbfc6524086a}{Social\+Account}} Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Create (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{string}]{account\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}}]{platform}{, }\item[{string}]{external\+Platform\+Id}{, }\item[{string}]{account\+Name}{, }\item[{string}]{access\+Token}{, }\item[{string?}]{refresh\+Token}{, }\item[{Date\+Time}]{token\+Expires\+At}{, }\item[{bool}]{is\+Active}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$}]{managers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a583adbaf40e4ec2206fac38366df525d_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a583adbaf40e4ec2206fac38366df525d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a212049dbff1e506e4101c8fbd13dc22d}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!SetConnectionError@{SetConnectionError}}
+\index{SetConnectionError@{SetConnectionError}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{SetConnectionError()}{SetConnectionError()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a212049dbff1e506e4101c8fbd13dc22d} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Set\+Connection\+Error (\begin{DoxyParamCaption}\item[{string?}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zapisuje wynik kontroli połączenia (Validate.\+Verify\+Connection): przyczynę błędu albo null, gdy jest poprawne. 
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a212049dbff1e506e4101c8fbd13dc22d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3866e6e82b266ed67626e95817501c47}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Update@{Update}}
+\index{Update@{Update}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3866e6e82b266ed67626e95817501c47} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Update (\begin{DoxyParamCaption}\item[{string}]{account\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}}]{platform}{, }\item[{string}]{external\+Platform\+Id}{, }\item[{string}]{account\+Name}{, }\item[{string?}]{access\+Token}{, }\item[{string?}]{refresh\+Token}{, }\item[{Date\+Time}]{token\+Expires\+At}{, }\item[{bool}]{is\+Active}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$}]{managers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parametry}
+{\em access\+Token} & null = bez zmian.\\
+\hline
+{\em refresh\+Token} & null = bez zmian.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3866e6e82b266ed67626e95817501c47_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1f7d5833e97551df4c835f40831d2ad8}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!AccessToken@{AccessToken}}
+\index{AccessToken@{AccessToken}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{AccessToken}{AccessToken}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a1f7d5833e97551df4c835f40831d2ad8} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Access\+Token = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Sekret -\/ nigdy nie jest zwracany przez API. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a44290edb05b169da6d32733017ee11a5}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!AccountId@{AccountId}}
+\index{AccountId@{AccountId}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{AccountId}{AccountId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a44290edb05b169da6d32733017ee11a5} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Account\+Id = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Identyfikator konta nadawany przez użytkownika systemu; unikalny w obrębie platformy. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a6dc377078cfe0cf3dc42596e0cb1a517}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!AccountName@{AccountName}}
+\index{AccountName@{AccountName}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{AccountName}{AccountName}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a6dc377078cfe0cf3dc42596e0cb1a517} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Account\+Name = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_accd6c1936b6e07ef1f9ba0bf10ff62c1}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!CompanyId@{CompanyId}}
+\index{CompanyId@{CompanyId}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{CompanyId}{CompanyId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_accd6c1936b6e07ef1f9ba0bf10ff62c1} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Company\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_aba037523e477c40841f8f73d559226e9}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!CompanyUser@{CompanyUser}}
+\index{CompanyUser@{CompanyUser}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{CompanyUser}{CompanyUser}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_aba037523e477c40841f8f73d559226e9} 
+Company\+User Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Company\+User = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3f81a7e95b6d132d1838b7c756670fbc}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!ErrorMessage@{ErrorMessage}}
+\index{ErrorMessage@{ErrorMessage}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{ErrorMessage}{ErrorMessage}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3f81a7e95b6d132d1838b7c756670fbc} 
+string? Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Error\+Message\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a2ed1b6331961b97e5d4ccdadb128dc28}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!ExternalPlatformId@{ExternalPlatformId}}
+\index{ExternalPlatformId@{ExternalPlatformId}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{ExternalPlatformId}{ExternalPlatformId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a2ed1b6331961b97e5d4ccdadb128dc28} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+External\+Platform\+Id = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Identyfikator konta po stronie platformy (np. id strony Facebooka). 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_aa4ab362bd8cbbdbdecd54ae0976822f4}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Id@{Id}}
+\index{Id@{Id}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Id}{Id}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_aa4ab362bd8cbbdbdecd54ae0976822f4} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a7ea01e57892de445b45ab44fc9fa84bd}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{IsActive}{IsActive}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a7ea01e57892de445b45ab44fc9fa84bd} 
+bool Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Is\+Active\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a6cf63390c4e544af6e2876e99e2cf84a}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!ManagerUsers@{ManagerUsers}}
+\index{ManagerUsers@{ManagerUsers}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{ManagerUsers}{ManagerUsers}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a6cf63390c4e544af6e2876e99e2cf84a} 
+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Manager\+Users = new()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_acadf86e401d498a211592937657472c1}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Pictures@{Pictures}}
+\index{Pictures@{Pictures}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Pictures}{Pictures}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_acadf86e401d498a211592937657472c1} 
+IRead\+Only\+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Pictures\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Zdjęcia z postów kierowanych na to konto (wyliczane, nie przechowywane osobno). 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a597a4b883c44231d1d22aac95d2525e7}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Platform@{Platform}}
+\index{Platform@{Platform}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Platform}{Platform}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a597a4b883c44231d1d22aac95d2525e7} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Platform\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_ad571156eda1358255b404bb433dff91d}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Posts@{Posts}}
+\index{Posts@{Posts}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Posts}{Posts}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_ad571156eda1358255b404bb433dff91d} 
+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Posts = new()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a51e9175783547417fb851967f1e8b437}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!RefreshToken@{RefreshToken}}
+\index{RefreshToken@{RefreshToken}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{RefreshToken}{RefreshToken}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a51e9175783547417fb851967f1e8b437} 
+string? Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Refresh\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Sekret -\/ nigdy nie jest zwracany przez API. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3188a4f749cd6b6df99a15c1897e94f7}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!TokenExpiresAt@{TokenExpiresAt}}
+\index{TokenExpiresAt@{TokenExpiresAt}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{TokenExpiresAt}{TokenExpiresAt}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_a3188a4f749cd6b6df99a15c1897e94f7} 
+Date\+Time Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Token\+Expires\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_ae14c2f1bfeb9d2891ea5640c1f1d557d}\index{SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}!Videos@{Videos}}
+\index{Videos@{Videos}!SocialContent.Api.Domain.Entities.SocialAccount@{SocialContent.Api.Domain.Entities.SocialAccount}}
+\doxysubsubsection{\texorpdfstring{Videos}{Videos}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account_ae14c2f1bfeb9d2891ea5640c1f1d557d} 
+IRead\+Only\+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Social\+Account.\+Videos\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Wideo z postów kierowanych na to konto (wyliczane, nie przechowywane osobno). 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Domain/\+\+Entities/\doxymbox{\hyperlink{_social_account_8cs}{Social\+Account.\+cs}}\end{DoxyCompactItemize}

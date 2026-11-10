@@ -1,0 +1,16 @@
+<map id="SocialContent.Api.Services.ManagerUserService.CreateAsync" name="SocialContent.Api.Services.ManagerUserService.CreateAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,88,229,131"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#a5810d2ca7b1ea0d34e64befb3aa86a1f" title=" " alt="" coords="277,17,498,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,85,291,63,286,66,202,90"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html#a92d3948486281b43cea8782dd0b2a913" title=" " alt="" coords="292,88,482,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,107,280,109,274,110,230,112"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="295,167,480,209"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="193,129,299,161,294,163,193,134"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#af2aa5f204c564c337d28e55f1eb4168e" title=" " alt="" coords="546,5,778,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="498,34,533,36,528,37,499,40"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html#a03e9e5ba6fd147fa3e22ed34e422f546" title=" " alt="" coords="548,88,777,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="483,107,535,109,529,110,483,112"/>
+<area shape="rect" id="Node000007" href="$namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="556,179,768,221"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="480,189,543,195,538,195,480,195"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="611,177,608,169,617,160,635,154,662,152,692,154,711,164,706,163,691,160,662,157,636,159,620,164,614,170,615,180"/>
+</map>

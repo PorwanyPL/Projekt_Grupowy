@@ -1,0 +1,10 @@
+<map id="SocialContent.Api.Services.SocialAccountService.UpdateAsync" name="SocialContent.Api.Services.SocialAccountService.UpdateAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,51,238,93"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a90e8133026f1ff5ddf1e72f768aec831" title=" " alt="" coords="292,5,478,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,49,279,44,274,46,239,55"/>
+<area shape="rect" id="Node000004" href="$namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="286,96,484,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,89,273,98,268,98,238,95"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="532,5,720,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="478,24,519,26,513,27,478,29"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="340,94,337,86,345,77,361,71,385,69,411,72,428,81,422,80,409,77,385,75,362,77,348,81,342,87,344,97"/>
+</map>

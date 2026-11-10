@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Swagger.AuthorizeOperationFilter" name="SocialContent.Api.Swagger.AuthorizeOperationFilter">
+<area shape="rect" id="Node000001" title="Oznacza w Swaggerze (kłódka i przycisk Authorize) tylko te operacje, które mają [Authorize],..." alt="" coords="5,123,180,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="43,5,142,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,87,95,123,90,122,91,92"/>
+</map>

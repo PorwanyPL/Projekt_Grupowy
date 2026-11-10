@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Mapping.SocialAccountProfile.SocialAccountProfile" name="SocialContent.Api.Mapping.SocialAccountProfile.SocialAccountProfile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,21,236,80"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="284,29,482,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,48,270,50,265,51,236,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="334,27,331,19,340,10,357,5,383,3,411,5,429,14,424,14,410,10,383,8,358,10,343,15,337,21,338,30"/>
+</map>

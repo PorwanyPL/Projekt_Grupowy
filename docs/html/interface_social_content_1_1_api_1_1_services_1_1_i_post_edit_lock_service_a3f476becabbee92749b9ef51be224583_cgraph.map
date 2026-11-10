@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Services.IPostEditLockService.ReleaseAsync" name="SocialContent.Api.Services.IPostEditLockService.ReleaseAsync">
+<area shape="rect" id="Node000001" title="Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi)." alt="" coords="5,29,242,72"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="290,29,475,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,48,277,51,271,51,242,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="334,27,332,19,340,10,357,5,382,3,410,5,428,14,423,13,409,10,382,8,358,10,343,15,337,21,338,30"/>
+</map>

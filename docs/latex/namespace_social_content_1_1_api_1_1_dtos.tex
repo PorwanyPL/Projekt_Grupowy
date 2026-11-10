@@ -1,0 +1,454 @@
+\doxysection{Dokumentacja przestrzeni nazw Social\+Content.\+Api.\+Dtos}
+\hypertarget{namespace_social_content_1_1_api_1_1_dtos}{}\label{namespace_social_content_1_1_api_1_1_dtos}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_assign_managers_dto}{Assign\+Managers\+Dto}}
+\begin{DoxyCompactList}\small\item\em Pełna lista managerów przypisanych do konta społecznościowego (pominięci zostaną odpięci). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_facebook_post_details_dto}{Facebook\+Post\+Details\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane specyficzne dla Facebook\+Post -\/ zapis i odczyt. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_instagram_post_details_dto}{Instagram\+Post\+Details\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane specyficzne dla Instagram\+Post -\/ zapis i odczyt. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}}
+\begin{DoxyCompactList}\small\item\em Powiązanie istniejącego klienta z firmą po adresie e-\/mail, którego klient użył przy rejestracji. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_login_dto}{Login\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane logowania. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_access_dto}{Manager\+Access\+Dto}}
+\begin{DoxyCompactList}\small\item\em Żądanie zablokowania lub odblokowania dostępu managera. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto}{Manager\+Credentials\+Update\+Dto}}
+\begin{DoxyCompactList}\small\item\em Zmiana danych logowania managera przez firmę. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto}{Manager\+User\+Create\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane nowego managera tworzonego przez firmę. Konto logowania (e-\/mail i hasło) powstaje zawsze razem z managerem. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto}{Manager\+User\+Write\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane managera przy tworzeniu i pełnej aktualizacji (wszystkie pola wymagane). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_picture_write_dto}{Picture\+Write\+Dto}}
+\begin{DoxyCompactList}\small\item\em Zdjęcie dodawane do posta: odwołanie do pliku przesłanego wcześniej przez POST /\+api/\+\+Media. Format i rozmiar ustala serwer. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane posta przy tworzeniu i pełnej aktualizacji. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto}{Register\+Client\+Dto}}
+\begin{DoxyCompactList}\small\item\em Samodzielna rejestracja klienta (Client\+User): dane osobowe (jak w \doxylink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto}{Manager\+User\+Write\+Dto}) oraz dane logowania. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_company_dto}{Register\+Company\+Dto}}
+\begin{DoxyCompactList}\small\item\em Rejestracja administratora firmy (Company\+User): nazwa firmy oraz dane logowania. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto}{Social\+Account\+Write\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane konta społecznościowego przy tworzeniu i pełnej aktualizacji. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_tik_tok_post_details_dto}{Tik\+Tok\+Post\+Details\+Dto}}
+\begin{DoxyCompactList}\small\item\em Dane specyficzne dla Tik\+Tok\+Post -\/ zapis i odczyt. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_video_write_dto}{Video\+Write\+Dto}}
+\begin{DoxyCompactList}\small\item\em Wideo dodawane do posta: odwołanie do pliku przesłanego wcześniej przez POST /\+api/\+\+Media. Format i rozmiar ustala serwer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} (string Access\+Token, string Token\+Type, Date\+Time Expires\+At, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}} User)
+\begin{DoxyCompactList}\small\item\em Wynik rejestracji lub logowania. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} (Guid Id, string First\+Name, string Last\+Name, int Age, string Description, string Email)
+\begin{DoxyCompactList}\small\item\em Klient (Client\+User) widziany przez firmę, z którą jest powiązany. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} (Guid Company\+Id, string Name)
+\begin{DoxyCompactList}\small\item\em Firma (Company\+User) widziana przez powiązanego z nią klienta. Bez danych logowania. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} (Guid Id, string First\+Name, string Last\+Name, int Age, string Description, List$<$ Guid $>$? Social\+Account\+Ids=null, bool? Has\+Login\+Account=null, bool? Is\+Access\+Blocked=null, string? Email=null)
+\begin{DoxyCompactList}\small\item\em Manager (Manager\+User). Nie zawiera adresu e-\/mail ani żadnych danych logowania. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} (string Storage\+Key, string File\+Name, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a69fa4d0e7790a5208a0e053b4f1f8990}{Media\+Kind}} Kind, Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}, int Size\+Kb)
+\begin{DoxyCompactList}\small\item\em Wynik przesłania pliku. Storage\+Key i File\+Name przekazuje się w pictures/\+videos przy tworzeniu posta. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59}{Notification\+Dto}} (Guid Id, Guid? Post\+Id, string Message, Date\+Time Created\+At, bool Is\+Read)
+\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}{Picture\+Dto}} (Guid Id, string File\+Name, Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}, int Size\+Kb, string Storage\+Key)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parametry}
+{\em Storage\+Key} & Klucz pliku; treść pobiera się z GET /\+api/\+\+Media/\{storage\+Key\}.\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} (Guid Id, string Title, Date\+Time Created\+At, string Description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} Visibility, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}{Picture\+Dto}} $>$ Pictures, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}{Video\+Dto}} $>$ Videos, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ Manager\+Users, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af3e3ea6c27a6d6b271f34baf8522450d}{Post\+Status}} Status, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}? Platform, Date\+Time? Scheduled\+At, Date\+Time? Published\+At, string? External\+Post\+Id, string? Error\+Message, Guid? Target\+Account\+Id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_facebook_post_details_dto}{Facebook\+Post\+Details\+Dto}}? Facebook, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_instagram_post_details_dto}{Instagram\+Post\+Details\+Dto}}? Instagram, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_tik_tok_post_details_dto}{Tik\+Tok\+Post\+Details\+Dto}}? Tik\+Tok, bool Can\+Edit=false, bool Can\+Delete=false, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}}? Lock=null)
+\begin{DoxyCompactList}\small\item\em Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} (string Holder\+Name, Date\+Time Expires\+At, bool Held\+By\+Me=false)
+\begin{DoxyCompactList}\small\item\em Blokada edycji posta. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a99a34c0a954bf2bdc20fd18a4db6cfd6}{Social\+Account\+Dto}} (Guid Id, string Account\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} Platform, string External\+Platform\+Id, string Account\+Name, Date\+Time Token\+Expires\+At, bool Is\+Active, string? Error\+Message, bool Has\+Refresh\+Token, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}{Picture\+Dto}} $>$ Pictures, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}{Video\+Dto}} $>$ Videos, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ Manager\+Users)
+\begin{DoxyCompactList}\small\item\em Konto społecznościowe. Nigdy nie zawiera tokenów (Access\+Token, Refresh\+Token). \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}} (Guid Id, string Role, string Email, string Display\+Name, Guid? Company\+Id, int? Age, string? Description)
+\begin{DoxyCompactList}\small\item\em Zalogowany użytkownik wraz z rolą i adresem e-\/mail (widocznym tylko dla niego samego). \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}{Video\+Dto}} (Guid Id, string File\+Name, Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}, int Size\+Kb, int? Length, string Storage\+Key)
+\end{DoxyCompactItemize}
+
+
+\label{namespace_social_content_1_1_api_1_1_dtos_doc-func-members}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_doc-func-members}
+\doxysubsection{Dokumentacja funkcji}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!AuthResponseDto@{AuthResponseDto}}
+\index{AuthResponseDto@{AuthResponseDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{AuthResponseDto()}{AuthResponseDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310} 
+record Social\+Content.\+Api.\+Dtos.\+Auth\+Response\+Dto (\begin{DoxyParamCaption}\item[{string}]{Access\+Token}{, }\item[{string}]{Token\+Type}{, }\item[{Date\+Time}]{Expires\+At}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}}}]{User}{}\end{DoxyParamCaption})}
+
+
+
+Wynik rejestracji lub logowania. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Access\+Token} & Token JWT; przekazuj w nagłówku Authorization: Bearer.\\
+\hline
+{\em Token\+Type} & Zawsze "{}\+Bearer"{}.\\
+\hline
+{\em Expires\+At} & Moment wygaśnięcia tokenu (UTC).\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!ClientUserDto@{ClientUserDto}}
+\index{ClientUserDto@{ClientUserDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{ClientUserDto()}{ClientUserDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af} 
+record Social\+Content.\+Api.\+Dtos.\+Client\+User\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{First\+Name}{, }\item[{string}]{Last\+Name}{, }\item[{int}]{Age}{, }\item[{string}]{Description}{, }\item[{string}]{Email}{}\end{DoxyParamCaption})}
+
+
+
+Klient (Client\+User) widziany przez firmę, z którą jest powiązany. 
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!CompanyDto@{CompanyDto}}
+\index{CompanyDto@{CompanyDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{CompanyDto()}{CompanyDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2} 
+record Social\+Content.\+Api.\+Dtos.\+Company\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Company\+Id}{, }\item[{string}]{Name}{}\end{DoxyParamCaption})}
+
+
+
+Firma (Company\+User) widziana przez powiązanego z nią klienta. Bez danych logowania. 
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!ManagerUserDto@{ManagerUserDto}}
+\index{ManagerUserDto@{ManagerUserDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{ManagerUserDto()}{ManagerUserDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55} 
+record Social\+Content.\+Api.\+Dtos.\+Manager\+User\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{First\+Name}{, }\item[{string}]{Last\+Name}{, }\item[{int}]{Age}{, }\item[{string}]{Description}{, }\item[{List$<$ Guid $>$?}]{Social\+Account\+Ids}{ = {\ttfamily null}, }\item[{bool?}]{Has\+Login\+Account}{ = {\ttfamily null}, }\item[{bool?}]{Is\+Access\+Blocked}{ = {\ttfamily null}, }\item[{string?}]{Email}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Manager (Manager\+User). Nie zawiera adresu e-\/mail ani żadnych danych logowania. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Social\+Account\+Ids} & Konta społecznościowe przypisane managerowi. Wypełniane tylko przez endpointy /\+api/\+\+Manager\+Users; w managerach zagnieżdżonych w postach i kontach zawsze null.\\
+\hline
+{\em Has\+Login\+Account} & Czy manager ma konto logowania. Wypełniane tylko przez endpointy /\+api/\+\+Manager\+Users; w managerach zagnieżdżonych zawsze null.\\
+\hline
+{\em Email} & Adres e-\/mail logowania. Wypełniany wyłącznie przez endpointy /\+api/\+\+Manager\+Users (dostępne tylko dla firmy); w obiektach zagnieżdżonych zawsze null.\\
+\hline
+{\em Is\+Access\+Blocked} & Czy dostęp managera jest zablokowany. Tak samo jak Has\+Login\+Account: null w obiektach zagnieżdżonych.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!MediaUploadDto@{MediaUploadDto}}
+\index{MediaUploadDto@{MediaUploadDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{MediaUploadDto()}{MediaUploadDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09} 
+record Social\+Content.\+Api.\+Dtos.\+Media\+Upload\+Dto (\begin{DoxyParamCaption}\item[{string}]{Storage\+Key}{, }\item[{string}]{File\+Name}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a69fa4d0e7790a5208a0e053b4f1f8990}{Media\+Kind}}}]{Kind}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}}]{Format}{, }\item[{int}]{Size\+Kb}{}\end{DoxyParamCaption})}
+
+
+
+Wynik przesłania pliku. Storage\+Key i File\+Name przekazuje się w pictures/\+videos przy tworzeniu posta. 
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!NotificationDto@{NotificationDto}}
+\index{NotificationDto@{NotificationDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{NotificationDto()}{NotificationDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59} 
+record Social\+Content.\+Api.\+Dtos.\+Notification\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{Guid?}]{Post\+Id}{, }\item[{string}]{Message}{, }\item[{Date\+Time}]{Created\+At}{, }\item[{bool}]{Is\+Read}{}\end{DoxyParamCaption})}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!PictureDto@{PictureDto}}
+\index{PictureDto@{PictureDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{PictureDto()}{PictureDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8} 
+record Social\+Content.\+Api.\+Dtos.\+Picture\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{File\+Name}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}}]{Format}{, }\item[{int}]{Size\+Kb}{, }\item[{string}]{Storage\+Key}{}\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyParams}{Parametry}
+{\em Storage\+Key} & Klucz pliku; treść pobiera się z GET /\+api/\+\+Media/\{storage\+Key\}.\\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!PostDto@{PostDto}}
+\index{PostDto@{PostDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{PostDto()}{PostDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b} 
+record Social\+Content.\+Api.\+Dtos.\+Post\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{Title}{, }\item[{Date\+Time}]{Created\+At}{, }\item[{string}]{Description}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}}]{Visibility}{, }\item[{List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}{Picture\+Dto}} $>$}]{Pictures}{, }\item[{List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}{Video\+Dto}} $>$}]{Videos}{, }\item[{List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$}]{Manager\+Users}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af3e3ea6c27a6d6b271f34baf8522450d}{Post\+Status}}}]{Status}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}?}]{Platform}{, }\item[{Date\+Time?}]{Scheduled\+At}{, }\item[{Date\+Time?}]{Published\+At}{, }\item[{string?}]{External\+Post\+Id}{, }\item[{string?}]{Error\+Message}{, }\item[{Guid?}]{Target\+Account\+Id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_facebook_post_details_dto}{Facebook\+Post\+Details\+Dto}}?}]{Facebook}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_instagram_post_details_dto}{Instagram\+Post\+Details\+Dto}}?}]{Instagram}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_tik_tok_post_details_dto}{Tik\+Tok\+Post\+Details\+Dto}}?}]{Tik\+Tok}{, }\item[{bool}]{Can\+Edit}{ = {\ttfamily false}, }\item[{bool}]{Can\+Delete}{ = {\ttfamily false}, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}}?}]{Lock}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Platform} & Rodzaj posta; null dla posta ogólnego.\\
+\hline
+{\em Can\+Edit} & Czy zalogowany użytkownik może teraz edytować post (uprawnienia do konta i status; nie uwzględnia blokady edycji przez inną osobę).\\
+\hline
+{\em Can\+Delete} & Czy zalogowany użytkownik może usunąć post.\\
+\hline
+{\em Lock} & Aktywna blokada edycji (kto edytuje); null, gdy nikt nie edytuje.\\
+\hline
+{\em External\+Post\+Id} & Identyfikator posta po stronie platformy, ustawiany po publikacji.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!PostLockDto@{PostLockDto}}
+\index{PostLockDto@{PostLockDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{PostLockDto()}{PostLockDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab} 
+record Social\+Content.\+Api.\+Dtos.\+Post\+Lock\+Dto (\begin{DoxyParamCaption}\item[{string}]{Holder\+Name}{, }\item[{Date\+Time}]{Expires\+At}{, }\item[{bool}]{Held\+By\+Me}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Blokada edycji posta. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Holder\+Name} & Kto edytuje post (imię i nazwisko albo nazwa firmy).\\
+\hline
+{\em Expires\+At} & Kiedy blokada wygaśnie, jeśli nie zostanie odnowiona (UTC).\\
+\hline
+{\em Held\+By\+Me} & Czy blokadę ma zalogowany użytkownik.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a99a34c0a954bf2bdc20fd18a4db6cfd6}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!SocialAccountDto@{SocialAccountDto}}
+\index{SocialAccountDto@{SocialAccountDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{SocialAccountDto()}{SocialAccountDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a99a34c0a954bf2bdc20fd18a4db6cfd6} 
+record Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{Account\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}}]{Platform}{, }\item[{string}]{External\+Platform\+Id}{, }\item[{string}]{Account\+Name}{, }\item[{Date\+Time}]{Token\+Expires\+At}{, }\item[{bool}]{Is\+Active}{, }\item[{string?}]{Error\+Message}{, }\item[{bool}]{Has\+Refresh\+Token}{, }\item[{List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}{Picture\+Dto}} $>$}]{Pictures}{, }\item[{List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}{Video\+Dto}} $>$}]{Videos}{, }\item[{List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$}]{Manager\+Users}{}\end{DoxyParamCaption})}
+
+
+
+Konto społecznościowe. Nigdy nie zawiera tokenów (Access\+Token, Refresh\+Token). 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Has\+Refresh\+Token} & Czy dla konta zapisano token odświeżania.\\
+\hline
+{\em Pictures} & Zdjęcia z postów kierowanych na to konto.\\
+\hline
+{\em Videos} & Wideo z postów kierowanych na to konto.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{namespace_social_content_1_1_api_1_1_dtos_a99a34c0a954bf2bdc20fd18a4db6cfd6_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a99a34c0a954bf2bdc20fd18a4db6cfd6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!UserProfileDto@{UserProfileDto}}
+\index{UserProfileDto@{UserProfileDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{UserProfileDto()}{UserProfileDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9} 
+record Social\+Content.\+Api.\+Dtos.\+User\+Profile\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{Role}{, }\item[{string}]{Email}{, }\item[{string}]{Display\+Name}{, }\item[{Guid?}]{Company\+Id}{, }\item[{int?}]{Age}{, }\item[{string?}]{Description}{}\end{DoxyParamCaption})}
+
+
+
+Zalogowany użytkownik wraz z rolą i adresem e-\/mail (widocznym tylko dla niego samego). 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Role} & Company\+User, Manager\+User lub Client\+User.\\
+\hline
+{\em Display\+Name} & Nazwa firmy (Company\+User) albo imię i nazwisko (pozostałe role).\\
+\hline
+{\em Company\+Id} & Firma użytkownika: własna (Company\+User) lub firma, która utworzyła managera; null dla klienta.\\
+\hline
+{\em Age} & Wiek; null dla Company\+User.\\
+\hline
+{\em Description} & Opis; null dla Company\+User.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}\index{SocialContent.Api.Dtos@{SocialContent.Api.Dtos}!VideoDto@{VideoDto}}
+\index{VideoDto@{VideoDto}!SocialContent.Api.Dtos@{SocialContent.Api.Dtos}}
+\doxysubsubsection{\texorpdfstring{VideoDto()}{VideoDto()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a} 
+record Social\+Content.\+Api.\+Dtos.\+Video\+Dto (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{string}]{File\+Name}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}}]{Format}{, }\item[{int}]{Size\+Kb}{, }\item[{int?}]{Length}{, }\item[{string}]{Storage\+Key}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parametry}
+{\em Length} & Czas trwania w sekundach; null, gdy nieznany.\\
+\hline
+{\em Storage\+Key} & Klucz pliku; treść pobiera się z GET /\+api/\+\+Media/\{storage\+Key\}.\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,119 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Services.\+Notification\+Service(App\+Db\+Context db, IMapper mapper)}
+\hypertarget{class_social_content_1_1_api_1_1_services_1_1_notification_service}{}\label{class_social_content_1_1_api_1_1_services_1_1_notification_service}\index{SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+Notification\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_notification_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+Notification\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_notification_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb}{Add\+Publish\+Failed}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}} post, string error)
+\begin{DoxyCompactList}\small\item\em Dodaje (bez zapisu -\/ zapisuje wywołujący) powiadomienia o nieudanej publikacji posta. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59}{Notification\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b}{Get\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Cancellation\+Token ct)
+\item 
+async Task \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932}{Mark\+Read\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid id, Cancellation\+Token ct)
+\item 
+async Task \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c}{Mark\+All\+Read\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_notification_service_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_notification_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb}\index{SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}!AddPublishFailed@{AddPublishFailed}}
+\index{AddPublishFailed@{AddPublishFailed}!SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}}
+\doxysubsubsection{\texorpdfstring{AddPublishFailed()}{AddPublishFailed()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb} 
+void Social\+Content.\+Api.\+Services.\+Notification\+Service.\+Add\+Publish\+Failed (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}}}]{post}{, }\item[{string}]{error}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dodaje (bez zapisu -\/ zapisuje wywołujący) powiadomienia o nieudanej publikacji posta. 
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_notification_service_acd3be5b4ea9d11e7b70201019f1b8b3a}{Social\+Content.\+Api.\+Services.\+INotification\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b}\index{SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}!GetAsync@{GetAsync}}
+\index{GetAsync@{GetAsync}!SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}}
+\doxysubsubsection{\texorpdfstring{GetAsync()}{GetAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59}{Notification\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Services.\+Notification\+Service.\+Get\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_notification_service_a74155a148d36c40720a6a7acec177d2a}{Social\+Content.\+Api.\+Services.\+INotification\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c}\index{SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}!MarkAllReadAsync@{MarkAllReadAsync}}
+\index{MarkAllReadAsync@{MarkAllReadAsync}!SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}}
+\doxysubsubsection{\texorpdfstring{MarkAllReadAsync()}{MarkAllReadAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c} 
+async Task Social\+Content.\+Api.\+Services.\+Notification\+Service.\+Mark\+All\+Read\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_notification_service_a2c358167089ecea0b2467d72f72c31e2}{Social\+Content.\+Api.\+Services.\+INotification\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932}\index{SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}!MarkReadAsync@{MarkReadAsync}}
+\index{MarkReadAsync@{MarkReadAsync}!SocialContent.Api.Services.NotificationService@{SocialContent.Api.Services.NotificationService}}
+\doxysubsubsection{\texorpdfstring{MarkReadAsync()}{MarkReadAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932} 
+async Task Social\+Content.\+Api.\+Services.\+Notification\+Service.\+Mark\+Read\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_notification_service_ab0222a9b89214f8ca8ac31454e4721ce}{Social\+Content.\+Api.\+Services.\+INotification\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_notification_service_8cs}{Notification\+Service.\+cs}}\end{DoxyCompactItemize}

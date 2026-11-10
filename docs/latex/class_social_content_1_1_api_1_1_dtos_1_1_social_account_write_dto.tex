@@ -1,0 +1,129 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto}
+\hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto}{}\label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+
+
+Dane konta społecznościowego przy tworzeniu i pełnej aktualizacji.  
+
+
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_aed81ac0ed160cf614547038a5ca15ae5}{Account\+Id}} = "{}"{}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em Identyfikator konta w systemie, unikalny w obrębie platformy. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a26a41d5e8b73567b92dff4915617ac01}{Platform}}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_afae4480a962d33a73ff68d6f8d4fbce7}{External\+Platform\+Id}} = "{}"{}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em Identyfikator konta po stronie platformy. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a827238f7004dd8337c01138e0b2956b4}{Account\+Name}} = "{}"{}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a6db1a93452b7ee9d61b9157e618f82cd}{Access\+Token}}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em Token dostępu. Wymagany przy tworzeniu; przy aktualizacji pominięcie oznacza brak zmiany. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a47b5032fb1f9d976db63f018b1e3fb2f}{Refresh\+Token}}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em Token odświeżania. Przy aktualizacji pominięcie oznacza brak zmiany. \end{DoxyCompactList}\item 
+Date\+Time? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a1e69ae2196764c37e49de1d859454531}{Token\+Expires\+At}}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespace_social_content_1_1_api_1_1_data}{Data} wygaśnięcia tokenu dostępu (UTC). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a57abbb9851935dc9461b36c9953a8612}{Is\+Active}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\item 
+List$<$ Guid $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a0dff1a80aa8c087866253d67d3d74b50}{Manager\+User\+Ids}} = new()\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em Managerowie konta. Pełna lista: pominięci zostaną odpięci od konta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Dane konta społecznościowego przy tworzeniu i pełnej aktualizacji. 
+
+\label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a6db1a93452b7ee9d61b9157e618f82cd}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!AccessToken@{AccessToken}}
+\index{AccessToken@{AccessToken}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{AccessToken}{AccessToken}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a6db1a93452b7ee9d61b9157e618f82cd} 
+string? Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Access\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Token dostępu. Wymagany przy tworzeniu; przy aktualizacji pominięcie oznacza brak zmiany. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_aed81ac0ed160cf614547038a5ca15ae5}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!AccountId@{AccountId}}
+\index{AccountId@{AccountId}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{AccountId}{AccountId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_aed81ac0ed160cf614547038a5ca15ae5} 
+string Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Account\+Id = "{}"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Identyfikator konta w systemie, unikalny w obrębie platformy. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a827238f7004dd8337c01138e0b2956b4}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!AccountName@{AccountName}}
+\index{AccountName@{AccountName}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{AccountName}{AccountName}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a827238f7004dd8337c01138e0b2956b4} 
+string Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Account\+Name = "{}"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_afae4480a962d33a73ff68d6f8d4fbce7}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!ExternalPlatformId@{ExternalPlatformId}}
+\index{ExternalPlatformId@{ExternalPlatformId}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{ExternalPlatformId}{ExternalPlatformId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_afae4480a962d33a73ff68d6f8d4fbce7} 
+string Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+External\+Platform\+Id = "{}"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Identyfikator konta po stronie platformy. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a57abbb9851935dc9461b36c9953a8612}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{IsActive}{IsActive}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a57abbb9851935dc9461b36c9953a8612} 
+bool Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Is\+Active = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a0dff1a80aa8c087866253d67d3d74b50}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!ManagerUserIds@{ManagerUserIds}}
+\index{ManagerUserIds@{ManagerUserIds}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{ManagerUserIds}{ManagerUserIds}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a0dff1a80aa8c087866253d67d3d74b50} 
+List$<$Guid$>$ Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Manager\+User\+Ids = new()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Managerowie konta. Pełna lista: pominięci zostaną odpięci od konta. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a26a41d5e8b73567b92dff4915617ac01}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!Platform@{Platform}}
+\index{Platform@{Platform}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{Platform}{Platform}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a26a41d5e8b73567b92dff4915617ac01} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}? Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Platform\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a47b5032fb1f9d976db63f018b1e3fb2f}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!RefreshToken@{RefreshToken}}
+\index{RefreshToken@{RefreshToken}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{RefreshToken}{RefreshToken}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a47b5032fb1f9d976db63f018b1e3fb2f} 
+string? Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Refresh\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Token odświeżania. Przy aktualizacji pominięcie oznacza brak zmiany. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a1e69ae2196764c37e49de1d859454531}\index{SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}!TokenExpiresAt@{TokenExpiresAt}}
+\index{TokenExpiresAt@{TokenExpiresAt}!SocialContent.Api.Dtos.SocialAccountWriteDto@{SocialContent.Api.Dtos.SocialAccountWriteDto}}
+\doxysubsubsection{\texorpdfstring{TokenExpiresAt}{TokenExpiresAt}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto_a1e69ae2196764c37e49de1d859454531} 
+Date\+Time? Social\+Content.\+Api.\+Dtos.\+Social\+Account\+Write\+Dto.\+Token\+Expires\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+\doxylink{namespace_social_content_1_1_api_1_1_data}{Data} wygaśnięcia tokenu dostępu (UTC). 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Dtos/\doxymbox{\hyperlink{_social_account_write_dto_8cs}{Social\+Account\+Write\+Dto.\+cs}}\end{DoxyCompactItemize}

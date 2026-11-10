@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Mapping.CompanyUserProfile.CompanyUserProfile" name="SocialContent.Api.Mapping.CompanyUserProfile.CompanyUserProfile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,21,236,80"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#a54fa4a1178843b0d4b61dbaa9a6c64f9" title="Zalogowany użytkownik wraz z rolą i adresem e&#45;mail (widocznym tylko dla niego samego)." alt="" coords="284,29,474,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,48,271,50,265,51,236,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="330,27,328,19,336,10,353,5,379,3,406,5,425,14,419,14,405,10,379,8,354,10,339,15,333,21,335,30"/>
+</map>

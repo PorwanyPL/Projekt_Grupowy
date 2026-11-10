@@ -1,0 +1,14 @@
+<map id="SocialContent.Api.Services.SocialAccountService.GetAsync" name="SocialContent.Api.Services.SocialAccountService.GetAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,217,123"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="519,84,704,127"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,77,197,46,230,31,264,20,322,8,368,3,414,7,472,20,526,43,574,75,569,74,524,48,470,25,414,12,368,8,322,13,265,25,232,36,200,50,145,82"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="274,35,462,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="216,80,261,74,256,76,218,85"/>
+<area shape="rect" id="Node000004" href="$namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="269,125,467,168"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="217,117,256,126,250,127,217,123"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a329382f9c7ef0794b6953deac10a0431" title="CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany." alt="" coords="265,192,471,235"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="151,121,205,149,266,178,283,186,278,186,264,182,203,154,150,126"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="566,82,564,74,571,65,588,59,612,57,638,60,655,69,650,68,636,65,612,63,589,65,574,69,569,75,570,85"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="322,124,320,115,328,106,344,101,368,99,394,101,411,110,406,110,393,106,368,104,345,106,331,111,325,117,327,126"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="441,189,470,178,558,135,564,134,472,182,442,194"/>
+</map>

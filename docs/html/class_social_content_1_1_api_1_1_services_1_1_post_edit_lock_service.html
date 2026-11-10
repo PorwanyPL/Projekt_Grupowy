@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.PostEditLockService(AppDbContext db, IMapper mapper)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html','','class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.PostEditLockService(AppDbContext db, IMapper mapper)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.PostEditLockService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_post_edit_lock_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_post_edit_lock_service_inherit__map" id="a_social_content_8_api_8_services_8_post_edit_lock_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,160,180,309"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service.html" title="Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (PostEditLockService...." alt="" coords="5,5,180,112"/>
+<area shape="poly" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.PostEditLockService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_post_edit_lock_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_post_edit_lock_service_coll__map" id="a_social_content_8_api_8_services_8_post_edit_lock_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,160,180,309"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service.html" title="Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (PostEditLockService...." alt="" coords="5,5,180,112"/>
+<area shape="poly" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:aef5b07d66fc3317f30b0b3c75e6b5116" id="r_aef5b07d66fc3317f30b0b3c75e6b5116"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab">PostLockDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aef5b07d66fc3317f30b0b3c75e6b5116">AcquireAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid postId, CancellationToken ct)</td></tr>
+<tr class="memdesc:aef5b07d66fc3317f30b0b3c75e6b5116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny.  <br /></td></tr>
+<tr class="memitem:ac653981125691ee3b695d80c5ecbda31" id="r_ac653981125691ee3b695d80c5ecbda31"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ac653981125691ee3b695d80c5ecbda31">ReleaseAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid postId, CancellationToken ct)</td></tr>
+<tr class="memdesc:ac653981125691ee3b695d80c5ecbda31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Statyczne atrybuty publiczne</h2></td></tr>
+<tr class="memitem:af7906415cac7956267b904a3bda3e619" id="r_af7906415cac7956267b904a3bda3e619"><td class="memItemLeft">static readonly TimeSpan&#160;</td><td class="memItemRight"><a class="el" href="#af7906415cac7956267b904a3bda3e619">Ttl</a> = TimeSpan.FromMinutes(2)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:aeb9d2f687a7594068cad481fd45837bf" id="r_aeb9d2f687a7594068cad481fd45837bf"><td class="memItemLeft">async Task&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aeb9d2f687a7594068cad481fd45837bf">DisplayNameAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Statyczne metody prywatne</h2></td></tr>
+<tr class="memitem:af7bb42c9a088467e82e08f49493b52fe" id="r_af7bb42c9a088467e82e08f49493b52fe"><td class="memItemLeft">static ConflictException&#160;</td><td class="memItemRight"><a class="el" href="#af7bb42c9a088467e82e08f49493b52fe">Busy</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a> existing)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="aef5b07d66fc3317f30b0b3c75e6b5116" name="aef5b07d66fc3317f30b0b3c75e6b5116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef5b07d66fc3317f30b0b3c75e6b5116">&#9670;&#160;</a></span>AcquireAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab">PostLockDto</a> &gt; SocialContent.Api.Services.PostEditLockService.AcquireAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>postId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service.html#a43d6b5b724ed7baf55900aac7facd6ba">SocialContent.Api.Services.IPostEditLockService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116_cgraph">
+<area shape="rect" title="Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny." alt="" coords="5,131,234,173"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#af7bb42c9a088467e82e08f49493b52fe" title=" " alt="" coords="321,5,506,48"/>
+<area shape="poly" title=" " alt="" coords="151,128,210,92,281,58,308,50,304,53,283,62,213,97,154,132"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#a98d20f35bf55f86393f2a42615f46b56" title=" " alt="" coords="318,72,508,115"/>
+<area shape="poly" title=" " alt="" coords="229,128,305,114,300,117,231,133"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="615,176,800,219"/>
+<area shape="poly" title=" " alt="" coords="234,154,382,162,545,175,602,183,597,183,545,180,382,168,234,159"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#aeb9d2f687a7594068cad481fd45837bf" title=" " alt="" coords="282,189,545,232"/>
+<area shape="poly" title=" " alt="" coords="229,171,291,185,286,186,230,177"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="319,280,508,323"/>
+<area shape="poly" title=" " alt="" coords="157,171,283,242,348,273,342,273,280,246,156,177"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#afaf82b614204c0d5278ff224b2c7fe27" title=" " alt="" coords="593,72,822,115"/>
+<area shape="poly" title=" " alt="" coords="509,91,580,93,575,94,509,96"/>
+<area shape="poly" title=" " alt="" coords="653,174,650,166,660,157,679,151,708,149,739,152,760,161,754,160,738,157,708,155,680,157,662,161,655,167,657,177"/>
+<area shape="poly" title=" " alt="" coords="545,202,602,202,597,203,546,207"/>
+<area shape="poly" title=" " alt="" coords="359,278,356,270,365,261,384,255,413,253,445,256,465,265,460,264,444,261,413,259,385,261,368,265,361,271,363,281"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af7bb42c9a088467e82e08f49493b52fe" name="af7bb42c9a088467e82e08f49493b52fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7bb42c9a088467e82e08f49493b52fe">&#9670;&#160;</a></span>Busy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ConflictException SocialContent.Api.Services.PostEditLockService.Busy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a></td>          <td class="paramname"><span class="paramname"><em>existing</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe_icgraph">
+<area shape="rect" title=" " alt="" coords="282,5,467,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#aef5b07d66fc3317f30b0b3c75e6b5116" title="Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny." alt="" coords="5,5,234,48"/>
+<area shape="poly" title=" " alt="" coords="263,27,234,29,234,24,269,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aeb9d2f687a7594068cad481fd45837bf" name="aeb9d2f687a7594068cad481fd45837bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9d2f687a7594068cad481fd45837bf">&#9670;&#160;</a></span>DisplayNameAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; string &gt; SocialContent.Api.Services.PostEditLockService.DisplayNameAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,269,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="317,29,502,72"/>
+<area shape="poly" title=" " alt="" coords="269,48,304,51,298,51,269,53"/>
+<area shape="poly" title=" " alt="" coords="358,27,356,19,365,10,382,5,409,3,439,5,458,14,452,14,437,10,409,8,383,10,367,15,361,21,363,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_icgraph">
+<area shape="rect" title=" " alt="" coords="282,5,545,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#aef5b07d66fc3317f30b0b3c75e6b5116" title="Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny." alt="" coords="5,5,234,48"/>
+<area shape="poly" title=" " alt="" coords="264,27,234,29,234,24,269,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac653981125691ee3b695d80c5ecbda31" name="ac653981125691ee3b695d80c5ecbda31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac653981125691ee3b695d80c5ecbda31">&#9670;&#160;</a></span>ReleaseAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.PostEditLockService.ReleaseAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>postId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi). </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service.html#a3f476becabbee92749b9ef51be224583">SocialContent.Api.Services.IPostEditLockService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31_cgraph">
+<area shape="rect" title="Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi)." alt="" coords="5,29,238,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="286,29,471,72"/>
+<area shape="poly" title=" " alt="" coords="238,48,272,51,267,51,238,53"/>
+<area shape="poly" title=" " alt="" coords="330,27,328,19,336,10,353,5,378,3,406,5,424,14,418,13,404,10,378,8,354,10,339,15,333,21,335,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="af7906415cac7956267b904a3bda3e619" name="af7906415cac7956267b904a3bda3e619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7906415cac7956267b904a3bda3e619">&#9670;&#160;</a></span>Ttl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly TimeSpan SocialContent.Api.Services.PostEditLockService.Ttl = TimeSpan.FromMinutes(2)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_post_edit_lock_service_8cs.html">PostEditLockService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html">PostEditLockService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

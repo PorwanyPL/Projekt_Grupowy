@@ -1,0 +1,21 @@
+\doxysection{Dokumentacja przestrzeni nazw Social\+Content.\+Api.\+Controllers}
+\hypertarget{namespace_social_content_1_1_api_1_1_controllers}{}\label{namespace_social_content_1_1_api_1_1_controllers}\index{SocialContent.Api.Controllers@{SocialContent.Api.Controllers}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller}{Auth\+Controller}}
+\begin{DoxyCompactList}\small\item\em Rejestracja (firma, klient) i logowanie wszystkich ról (JWT). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller}{Client\+Users\+Controller}}
+\begin{DoxyCompactList}\small\item\em Relacja firma -\/ klient (n -\/ m). Firma zarządza swoimi klientami, klient widzi firmy, z którymi jest powiązany. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller}{Manager\+Users\+Controller}}
+\begin{DoxyCompactList}\small\item\em Zarządzanie managerami (Manager\+User) przez firmę. Dostępne wyłącznie dla roli Company\+User i tylko dla managerów jej firmy. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_media_controller}{Media\+Controller}}
+\begin{DoxyCompactList}\small\item\em Pliki mediów (zdjęcia, wideo) przesyłane do posta. Pliki są prywatne dla firmy. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller}{Notifications\+Controller}}
+\begin{DoxyCompactList}\small\item\em Powiadomienia zalogowanego użytkownika (np. o nieudanej publikacji posta). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller}{Posts\+Controller}}
+\begin{DoxyCompactList}\small\item\em Posty do mediów społecznościowych. Odczyt: firma (wszystkie posty) i manager (tylko własne); zapis: Company\+User (każde konto firmy) i Manager\+User przypisany do konta. \end{DoxyCompactList}\item 
+class {\bfseries Roles}
+\begin{DoxyCompactList}\small\item\em Nazwy ról do atrybutu \+[Authorize(Roles = ...)]; zgodne z wartościami claimu "{}role"{} w tokenie. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_social_accounts_controller}{Social\+Accounts\+Controller}}
+\begin{DoxyCompactList}\small\item\em Konta w mediach społecznościowych (Facebook, Instagram, Tik\+Tok). Odczyt: firma i przypisani managerowie; zapis: wyłącznie Company\+User. \end{DoxyCompactList}\end{DoxyCompactItemize}

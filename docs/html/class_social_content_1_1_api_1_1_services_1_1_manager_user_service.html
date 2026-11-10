@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.ManagerUserService(AppDbContext db, IMapper mapper, IPasswordHasher hasher)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html','','class_social_content_1_1_api_1_1_services_1_1_manager_user_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.ManagerUserService(AppDbContext db, IMapper mapper, IPasswordHasher hasher)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.ManagerUserService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_manager_user_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_manager_user_service_inherit__map" id="a_social_content_8_api_8_services_8_manager_user_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,288,182,587"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html" title="Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy companyId." alt="" coords="5,5,182,240"/>
+<area shape="poly" title=" " alt="" coords="94,252,96,288,91,288,93,258"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.ManagerUserService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_manager_user_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_manager_user_service_coll__map" id="a_social_content_8_api_8_services_8_manager_user_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,288,182,587"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html" title="Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy companyId." alt="" coords="5,5,182,240"/>
+<area shape="poly" title=" " alt="" coords="94,252,96,288,91,288,93,258"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a5282b62b1fe232ce0fd9cf6fcf7ec3fe" id="r_a5282b62b1fe232ce0fd9cf6fcf7ec3fe"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5282b62b1fe232ce0fd9cf6fcf7ec3fe">GetAllAsync</a> (Guid companyId, CancellationToken ct)</td></tr>
+<tr class="memitem:ae8f2cdc589538498ecb1d42e5f5d6ff2" id="r_ae8f2cdc589538498ecb1d42e5f5d6ff2"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae8f2cdc589538498ecb1d42e5f5d6ff2">GetAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a9d43a7e47e9cbad63829d29fe995ca10" id="r_a9d43a7e47e9cbad63829d29fe995ca10"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9d43a7e47e9cbad63829d29fe995ca10">CreateAsync</a> (Guid companyId, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto.html">ManagerUserCreateDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:aefa701e10d1dde1407e9d347bfd69fbd" id="r_aefa701e10d1dde1407e9d347bfd69fbd"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aefa701e10d1dde1407e9d347bfd69fbd">UpdateAsync</a> (Guid companyId, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto.html">ManagerUserWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a91f8798ad94b9d64d0be44583236b7b1" id="r_a91f8798ad94b9d64d0be44583236b7b1"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a91f8798ad94b9d64d0be44583236b7b1">UpdateCredentialsAsync</a> (Guid companyId, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto.html">ManagerCredentialsUpdateDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a9afcad7d86e379b1c399d37e0b4d99ee" id="r_a9afcad7d86e379b1c399d37e0b4d99ee"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a9afcad7d86e379b1c399d37e0b4d99ee">DeleteAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a5cc7cc42cedd0265fe394c002f158c2b" id="r_a5cc7cc42cedd0265fe394c002f158c2b"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5cc7cc42cedd0265fe394c002f158c2b">SetAccessAsync</a> (Guid companyId, Guid id, bool blocked, CancellationToken ct)</td></tr>
+<tr class="memitem:acd59b45b8d109804e76bd6da2f668618" id="r_acd59b45b8d109804e76bd6da2f668618"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#acd59b45b8d109804e76bd6da2f668618">AnonymizeAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Statyczne atrybuty publiczne</h2></td></tr>
+<tr class="memitem:a94342b21ebe384afde25d679f92c649b" id="r_a94342b21ebe384afde25d679f92c649b"><td class="memItemLeft">const string&#160;</td><td class="memItemRight"><a class="el" href="#a94342b21ebe384afde25d679f92c649b">DeleteConflictMessage</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:a015466da219006fe7469eb05df20eb98" id="r_a015466da219006fe7469eb05df20eb98"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a>&#160;</td><td class="memItemRight"><a class="el" href="#a015466da219006fe7469eb05df20eb98">ToDto</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> m, bool hasLoginAccount, bool isAccessBlocked, string? email)</td></tr>
+<tr class="memdesc:a015466da219006fe7469eb05df20eb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji.  <br /></td></tr>
+<tr class="memitem:ae9680abfcadb03e2d7ba8e31f89780cd" id="r_ae9680abfcadb03e2d7ba8e31f89780cd"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae9680abfcadb03e2d7ba8e31f89780cd">ToDtoAsync</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> entity, CancellationToken ct)</td></tr>
+<tr class="memitem:a9665ad889364ef5b392455b1e126f5cd" id="r_a9665ad889364ef5b392455b1e126f5cd"><td class="memItemLeft">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9665ad889364ef5b392455b1e126f5cd">Find</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="acd59b45b8d109804e76bd6da2f668618" name="acd59b45b8d109804e76bd6da2f668618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd59b45b8d109804e76bd6da2f668618">&#9670;&#160;</a></span>AnonymizeAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.AnonymizeAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#aa83fd293b565a322a928ab674d781215">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_acd59b45b8d109804e76bd6da2f668618_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_acd59b45b8d109804e76bd6da2f668618_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_acd59b45b8d109804e76bd6da2f668618_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_acd59b45b8d109804e76bd6da2f668618_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,255,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="303,5,488,48"/>
+<area shape="poly" title=" " alt="" coords="254,42,289,40,284,41,255,47"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="303,72,488,115"/>
+<area shape="poly" title=" " alt="" coords="255,73,289,80,284,80,255,78"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="536,72,748,115"/>
+<area shape="poly" title=" " alt="" coords="489,91,523,93,518,93,489,96"/>
+<area shape="poly" title=" " alt="" coords="596,70,594,62,601,53,618,47,642,45,668,48,686,57,681,56,667,53,642,51,619,53,604,57,599,63,600,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9d43a7e47e9cbad63829d29fe995ca10" name="a9d43a7e47e9cbad63829d29fe995ca10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d43a7e47e9cbad63829d29fe995ca10">&#9670;&#160;</a></span>CreateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.CreateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto.html">ManagerUserCreateDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a3687bda821e57515b0df272a0a740eb0">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9d43a7e47e9cbad63829d29fe995ca10_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9d43a7e47e9cbad63829d29fe995ca10_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9d43a7e47e9cbad63829d29fe995ca10_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9d43a7e47e9cbad63829d29fe995ca10_cgraph">
+<area shape="rect" title=" " alt="" coords="5,88,229,131"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#a5810d2ca7b1ea0d34e64befb3aa86a1f" title=" " alt="" coords="277,17,498,60"/>
+<area shape="poly" title=" " alt="" coords="201,85,291,63,286,66,202,90"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html#a92d3948486281b43cea8782dd0b2a913" title=" " alt="" coords="292,88,482,131"/>
+<area shape="poly" title=" " alt="" coords="229,107,280,109,274,110,230,112"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="295,167,480,209"/>
+<area shape="poly" title=" " alt="" coords="193,129,299,161,294,163,193,134"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#af2aa5f204c564c337d28e55f1eb4168e" title=" " alt="" coords="546,5,778,64"/>
+<area shape="poly" title=" " alt="" coords="498,34,533,36,528,37,499,40"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html#a03e9e5ba6fd147fa3e22ed34e422f546" title=" " alt="" coords="548,88,777,131"/>
+<area shape="poly" title=" " alt="" coords="483,107,535,109,529,110,483,112"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="556,179,768,221"/>
+<area shape="poly" title=" " alt="" coords="480,189,543,195,538,195,480,195"/>
+<area shape="poly" title=" " alt="" coords="611,177,608,169,617,160,635,154,662,152,692,154,711,164,706,163,691,160,662,157,636,159,620,164,614,170,615,180"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9afcad7d86e379b1c399d37e0b4d99ee" name="a9afcad7d86e379b1c399d37e0b4d99ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9afcad7d86e379b1c399d37e0b4d99ee">&#9670;&#160;</a></span>DeleteAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.ManagerUserService.DeleteAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#ad694b9156758a685d9428d1af941dbb8">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9afcad7d86e379b1c399d37e0b4d99ee_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9afcad7d86e379b1c399d37e0b4d99ee_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9afcad7d86e379b1c399d37e0b4d99ee_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9afcad7d86e379b1c399d37e0b4d99ee_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,228,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="276,5,461,48"/>
+<area shape="poly" title=" " alt="" coords="228,24,263,27,257,27,228,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9665ad889364ef5b392455b1e126f5cd" name="a9665ad889364ef5b392455b1e126f5cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9665ad889364ef5b392455b1e126f5cd">&#9670;&#160;</a></span>Find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt; SocialContent.Api.Services.ManagerUserService.Find </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9665ad889364ef5b392455b1e126f5cd_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9665ad889364ef5b392455b1e126f5cd_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9665ad889364ef5b392455b1e126f5cd_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a9665ad889364ef5b392455b1e126f5cd_icgraph">
+<area shape="rect" title=" " alt="" coords="346,172,531,215"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#acd59b45b8d109804e76bd6da2f668618" title=" " alt="" coords="27,5,276,48"/>
+<area shape="poly" title=" " alt="" coords="408,160,360,110,330,84,296,62,273,51,272,46,299,58,333,80,364,106,414,160"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9afcad7d86e379b1c399d37e0b4d99ee" title=" " alt="" coords="40,72,263,115"/>
+<area shape="poly" title=" " alt="" coords="381,165,297,129,261,118,260,113,299,124,386,164"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae8f2cdc589538498ecb1d42e5f5d6ff2" title=" " alt="" coords="49,139,254,181"/>
+<area shape="poly" title=" " alt="" coords="328,182,255,175,254,169,332,180"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5cc7cc42cedd0265fe394c002f158c2b" title=" " alt="" coords="27,205,276,248"/>
+<area shape="poly" title=" " alt="" coords="327,207,277,215,275,210,332,205"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#aefa701e10d1dde1407e9d347bfd69fbd" title=" " alt="" coords="38,272,265,315"/>
+<area shape="poly" title=" " alt="" coords="386,221,299,263,261,274,259,269,297,257,381,223"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a91f8798ad94b9d64d0be44583236b7b1" title=" " alt="" coords="5,339,298,381"/>
+<area shape="poly" title=" " alt="" coords="413,226,364,281,333,307,299,329,273,341,271,336,296,324,330,303,360,277,409,228"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5282b62b1fe232ce0fd9cf6fcf7ec3fe" name="a5282b62b1fe232ce0fd9cf6fcf7ec3fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5282b62b1fe232ce0fd9cf6fcf7ec3fe">&#9670;&#160;</a></span>GetAllAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; &gt; SocialContent.Api.Services.ManagerUserService.GetAllAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a2510efaf0287e5141dbc9d7b8aefb73c">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5282b62b1fe232ce0fd9cf6fcf7ec3fe_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5282b62b1fe232ce0fd9cf6fcf7ec3fe_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5282b62b1fe232ce0fd9cf6fcf7ec3fe_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5282b62b1fe232ce0fd9cf6fcf7ec3fe_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,226,72"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="274,29,459,72"/>
+<area shape="poly" title=" " alt="" coords="226,48,261,51,255,51,226,53"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="507,29,719,72"/>
+<area shape="poly" title=" " alt="" coords="460,48,494,51,489,51,460,53"/>
+<area shape="poly" title=" " alt="" coords="567,27,565,19,572,10,589,5,613,3,639,5,657,14,652,13,638,10,613,8,590,10,575,15,570,21,571,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae8f2cdc589538498ecb1d42e5f5d6ff2" name="ae8f2cdc589538498ecb1d42e5f5d6ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8f2cdc589538498ecb1d42e5f5d6ff2">&#9670;&#160;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a602a3a932f4d3df17e1ab60e78b5c49a">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae8f2cdc589538498ecb1d42e5f5d6ff2_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae8f2cdc589538498ecb1d42e5f5d6ff2_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae8f2cdc589538498ecb1d42e5f5d6ff2_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae8f2cdc589538498ecb1d42e5f5d6ff2_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,211,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="276,5,461,48"/>
+<area shape="poly" title=" " alt="" coords="211,44,263,40,258,41,212,49"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae9680abfcadb03e2d7ba8e31f89780cd" title=" " alt="" coords="259,72,478,115"/>
+<area shape="poly" title=" " alt="" coords="211,71,246,77,241,77,211,76"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="526,72,711,115"/>
+<area shape="poly" title=" " alt="" coords="479,91,513,93,508,93,479,96"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="759,72,972,115"/>
+<area shape="poly" title=" " alt="" coords="712,91,746,93,741,93,712,96"/>
+<area shape="poly" title=" " alt="" coords="819,70,817,62,825,53,841,47,866,45,892,48,909,57,904,56,891,53,865,51,842,53,828,57,822,63,824,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5cc7cc42cedd0265fe394c002f158c2b" name="a5cc7cc42cedd0265fe394c002f158c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc7cc42cedd0265fe394c002f158c2b">&#9670;&#160;</a></span>SetAccessAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.SetAccessAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>blocked</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a09bd2c278de14186c13e3b8222328575">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5cc7cc42cedd0265fe394c002f158c2b_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5cc7cc42cedd0265fe394c002f158c2b_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5cc7cc42cedd0265fe394c002f158c2b_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a5cc7cc42cedd0265fe394c002f158c2b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,254,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="302,5,487,48"/>
+<area shape="poly" title=" " alt="" coords="254,42,289,40,283,41,255,47"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="302,72,487,115"/>
+<area shape="poly" title=" " alt="" coords="254,73,289,80,283,80,254,78"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="535,72,747,115"/>
+<area shape="poly" title=" " alt="" coords="488,91,522,93,517,93,488,96"/>
+<area shape="poly" title=" " alt="" coords="595,70,593,62,600,53,617,47,641,45,667,48,685,57,680,56,666,53,641,51,618,53,603,57,598,63,599,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a015466da219006fe7469eb05df20eb98" name="a015466da219006fe7469eb05df20eb98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a015466da219006fe7469eb05df20eb98">&#9670;&#160;</a></span>ToDto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> SocialContent.Api.Services.ManagerUserService.ToDto </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a></td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>hasLoginAccount</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isAccessBlocked</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string?</td>          <td class="paramname"><span class="paramname"><em>email</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji. </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_cgraph">
+<area shape="rect" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="239,29,451,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="299,27,296,19,304,10,320,5,345,3,371,5,389,14,383,13,370,10,345,8,321,10,307,15,301,21,303,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a015466da219006fe7469eb05df20eb98_icgraph">
+<area shape="rect" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="620,172,805,215"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#acd59b45b8d109804e76bd6da2f668618" title=" " alt="" coords="301,5,550,48"/>
+<area shape="poly" title=" " alt="" coords="683,159,635,110,604,84,571,62,547,51,546,46,573,58,607,80,638,106,688,160"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9d43a7e47e9cbad63829d29fe995ca10" title=" " alt="" coords="314,72,538,115"/>
+<area shape="poly" title=" " alt="" coords="655,165,571,129,535,118,535,113,573,124,661,164"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5282b62b1fe232ce0fd9cf6fcf7ec3fe" title=" " alt="" coords="316,139,536,181"/>
+<area shape="poly" title=" " alt="" coords="602,181,537,175,536,170,607,180"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5cc7cc42cedd0265fe394c002f158c2b" title=" " alt="" coords="302,205,550,248"/>
+<area shape="poly" title=" " alt="" coords="602,206,551,215,550,210,607,205"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae9680abfcadb03e2d7ba8e31f89780cd" title=" " alt="" coords="316,272,536,315"/>
+<area shape="poly" title=" " alt="" coords="661,221,573,263,535,274,534,269,571,257,655,223"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a91f8798ad94b9d64d0be44583236b7b1" title=" " alt="" coords="280,339,572,381"/>
+<area shape="poly" title=" " alt="" coords="688,226,638,281,607,307,573,329,547,341,546,336,571,324,604,303,635,277,683,228"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae8f2cdc589538498ecb1d42e5f5d6ff2" title=" " alt="" coords="16,239,221,281"/>
+<area shape="poly" title=" " alt="" coords="298,281,222,274,221,268,303,279"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#aefa701e10d1dde1407e9d347bfd69fbd" title=" " alt="" coords="5,305,232,348"/>
+<area shape="poly" title=" " alt="" coords="298,307,233,317,232,312,304,306"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae9680abfcadb03e2d7ba8e31f89780cd" name="ae9680abfcadb03e2d7ba8e31f89780cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9680abfcadb03e2d7ba8e31f89780cd">&#9670;&#160;</a></span>ToDtoAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.ToDtoAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a></td>          <td class="paramname"><span class="paramname"><em>entity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,225,72"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="273,29,458,72"/>
+<area shape="poly" title=" " alt="" coords="225,48,260,51,254,51,225,53"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="506,29,718,72"/>
+<area shape="poly" title=" " alt="" coords="459,48,493,51,488,51,459,53"/>
+<area shape="poly" title=" " alt="" coords="566,27,564,19,571,10,588,5,612,3,638,5,656,14,651,13,637,10,612,8,589,10,574,15,569,21,570,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_ae9680abfcadb03e2d7ba8e31f89780cd_icgraph">
+<area shape="rect" title=" " alt="" coords="280,39,499,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae8f2cdc589538498ecb1d42e5f5d6ff2" title=" " alt="" coords="16,5,221,48"/>
+<area shape="poly" title=" " alt="" coords="262,45,222,42,222,37,267,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#aefa701e10d1dde1407e9d347bfd69fbd" title=" " alt="" coords="5,72,232,115"/>
+<area shape="poly" title=" " alt="" coords="262,76,233,82,232,77,267,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aefa701e10d1dde1407e9d347bfd69fbd" name="aefa701e10d1dde1407e9d347bfd69fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa701e10d1dde1407e9d347bfd69fbd">&#9670;&#160;</a></span>UpdateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.UpdateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto.html">ManagerUserWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a202ba8e6e20e32c398acb84b1d2a8d2d">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_aefa701e10d1dde1407e9d347bfd69fbd_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_aefa701e10d1dde1407e9d347bfd69fbd_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_aefa701e10d1dde1407e9d347bfd69fbd_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_aefa701e10d1dde1407e9d347bfd69fbd_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,232,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="297,5,482,48"/>
+<area shape="poly" title=" " alt="" coords="232,43,284,39,279,41,232,49"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae9680abfcadb03e2d7ba8e31f89780cd" title=" " alt="" coords="280,72,499,115"/>
+<area shape="poly" title=" " alt="" coords="232,71,267,78,262,78,232,77"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="547,72,732,115"/>
+<area shape="poly" title=" " alt="" coords="500,91,534,93,529,93,500,96"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="780,72,993,115"/>
+<area shape="poly" title=" " alt="" coords="733,91,767,93,762,93,733,96"/>
+<area shape="poly" title=" " alt="" coords="840,70,838,62,846,53,862,47,887,45,913,48,930,57,925,56,912,53,886,51,863,53,849,57,843,63,845,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a91f8798ad94b9d64d0be44583236b7b1" name="a91f8798ad94b9d64d0be44583236b7b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f8798ad94b9d64d0be44583236b7b1">&#9670;&#160;</a></span>UpdateCredentialsAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.ManagerUserService.UpdateCredentialsAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto.html">ManagerCredentialsUpdateDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a8d4fe40f6e12d30c0429cff210d8f815">SocialContent.Api.Services.IManagerUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_manager_user_service_a91f8798ad94b9d64d0be44583236b7b1_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a91f8798ad94b9d64d0be44583236b7b1_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a91f8798ad94b9d64d0be44583236b7b1_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_manager_user_service_a91f8798ad94b9d64d0be44583236b7b1_cgraph">
+<area shape="rect" title=" " alt="" coords="5,80,298,123"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#a5810d2ca7b1ea0d34e64befb3aa86a1f" title=" " alt="" coords="346,13,567,56"/>
+<area shape="poly" title=" " alt="" coords="251,77,343,59,338,61,253,82"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="364,80,549,123"/>
+<area shape="poly" title=" " alt="" coords="298,99,351,101,346,102,298,104"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="364,147,549,189"/>
+<area shape="poly" title=" " alt="" coords="252,121,351,144,346,145,252,126"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#af2aa5f204c564c337d28e55f1eb4168e" title=" " alt="" coords="615,5,847,64"/>
+<area shape="poly" title=" " alt="" coords="567,32,602,34,597,35,568,37"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="625,147,837,189"/>
+<area shape="poly" title=" " alt="" coords="549,165,612,168,607,168,549,171"/>
+<area shape="poly" title=" " alt="" coords="680,145,677,137,686,128,704,122,731,120,761,122,780,132,775,131,760,128,731,125,705,127,689,132,683,138,684,148"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="a94342b21ebe384afde25d679f92c649b" name="a94342b21ebe384afde25d679f92c649b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94342b21ebe384afde25d679f92c649b">&#9670;&#160;</a></span>DeleteConflictMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string SocialContent.Api.Services.ManagerUserService.DeleteConflictMessage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><div class="line">                                      =</div>
+<div class="line"><span class="stringliteral">&quot;Nie można usunąć managera, który ma powiązane posty lub konta społecznościowe - &quot;</span> +</div>
+<div class="line"><span class="stringliteral">&quot;zablokuj dostęp zamiast usuwać, aby zachować historię publikacji.&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_manager_user_service_8cs.html">ManagerUserService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html">ManagerUserService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

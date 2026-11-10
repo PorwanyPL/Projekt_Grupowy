@@ -1,0 +1,183 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IPost\+Service}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+
+
+Posty. Odczyt: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} widzi posty kont swojej firmy, \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} tylko posty, których jest autorem. Tworzenie, zmiana i usuwanie: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} na każdym koncie swojej firmy oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} na koncie, do którego jest przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty. Autorami nowego posta są od razu wszyscy managerowie przypisani do konta. Edycję jednego posta wykonuje naraz jedna osoba (blokada edycji).  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IPost\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IPost\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c}{Get\+All\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}? type, Guid? account\+Id, Guid? manager\+Id, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34}{Get\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid id, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda}{Create\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}} dto, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a}{Update\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}} dto, Cancellation\+Token ct)
+\item 
+Task \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca}{Delete\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid id, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628}{Acquire\+Lock\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid id, Cancellation\+Token ct)
+\item 
+Task \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5}{Release\+Lock\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid id, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Posty. Odczyt: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} widzi posty kont swojej firmy, \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} tylko posty, których jest autorem. Tworzenie, zmiana i usuwanie: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} na każdym koncie swojej firmy oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} na koncie, do którego jest przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty. Autorami nowego posta są od razu wszyscy managerowie przypisani do konta. Edycję jednego posta wykonuje naraz jedna osoba (blokada edycji). 
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!AcquireLockAsync@{AcquireLockAsync}}
+\index{AcquireLockAsync@{AcquireLockAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{AcquireLockAsync()}{AcquireLockAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Acquire\+Lock\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a8a3547823b49efc0a3ec7bcd9fe74903}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a22a4249373af31a51b2e376f457d9628_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!CreateAsync@{CreateAsync}}
+\index{CreateAsync@{CreateAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{CreateAsync()}{CreateAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Create\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a7634ed867ee975a34c794accc9d6ac9e}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8463b688d88ac4bf354b23adfa310dda_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!DeleteAsync@{DeleteAsync}}
+\index{DeleteAsync@{DeleteAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{DeleteAsync()}{DeleteAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca} 
+Task Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Delete\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a483c00c6803475098c267287948a5566}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a41bb426d89eb81709f8a2c7ff44da4ca_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!GetAllAsync@{GetAllAsync}}
+\index{GetAllAsync@{GetAllAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{GetAllAsync()}{GetAllAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Get\+All\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}?}]{type}{, }\item[{Guid?}]{account\+Id}{, }\item[{Guid?}]{manager\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a3ec6db839d5f57ac67f149ccc51ce026}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ac334a2e6e83bed60ce57396e8894d01c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!GetAsync@{GetAsync}}
+\index{GetAsync@{GetAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{GetAsync()}{GetAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Get\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a256107616ea4243a6eba8287fee38541}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a94c2ab8ebc882388e3881c00e52b7c34_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!ReleaseLockAsync@{ReleaseLockAsync}}
+\index{ReleaseLockAsync@{ReleaseLockAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{ReleaseLockAsync()}{ReleaseLockAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5} 
+Task Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Release\+Lock\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a3d5d4413df50ff2407eb825ba8151e14}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_ab4e8c305bfa6f501c5d4a833d3cfcba5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a}\index{SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}!UpdateAsync@{UpdateAsync}}
+\index{UpdateAsync@{UpdateAsync}!SocialContent.Api.Services.IPostService@{SocialContent.Api.Services.IPostService}}
+\doxysubsubsection{\texorpdfstring{UpdateAsync()}{UpdateAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IPost\+Service.\+Update\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service_a5f040531a9eca6741b0d0a794e9c7ef9}{Social\+Content.\+Api.\+Services.\+Post\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_service_a8a91a478f8c28f3bfd87df7318437b3a_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_post_service_8cs}{Post\+Service.\+cs}}\end{DoxyCompactItemize}

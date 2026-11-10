@@ -1,0 +1,192 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock}
+\hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock}{}\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+
+
+Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (Expires\+At), więc porzucona sesja edycji nie blokuje posta na zawsze; aktywny edytor ją odnawia.  
+
+
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a4e41299cdf6c44fa94836d23b98f17a0}{Is\+Expired}} (Date\+Time now)
+\item 
+bool \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283}{Is\+Held\+By}} (Guid user\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} role)
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad3fd0a51753233a38f0e7ab921653b84}{Renew}} (Date\+Time now, Time\+Span ttl)
+\begin{DoxyCompactList}\small\item\em Odnowienie przez obecnego właściciela. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad5ec65b71f9e76d208d5ebf36d31e639}{Take\+Over}} (Guid holder\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} role, string holder\+Name, Date\+Time now, Time\+Span ttl)
+\begin{DoxyCompactList}\small\item\em Przejęcie wygasłej blokady przez inną osobę. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27}{Post\+Edit\+Lock}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56}{Create}} (Guid post\+Id, Guid holder\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} role, string holder\+Name, Date\+Time now, Time\+Span ttl)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_aaaf0838ff9fc229a2d6368318126981b}{Post\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_aa97ed4aa96b02130861ad9c5b5eb2388}{Holder\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a10874e1ed9f1324b0be8e5ef58c7f90e}{Holder\+Role}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad29655200663aafcc98e9126462024a1}{Holder\+Name}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Imię i nazwisko albo nazwa firmy w chwili przejęcia blokady (pokazywane drugiej osobie). \end{DoxyCompactList}\item 
+Date\+Time \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afd3c7617e6a6b511803aab0e0bf56050}{Acquired\+At}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Date\+Time \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a30d1361aced2a1f052aab970d500d836}{Expires\+At}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27}{Post\+Edit\+Lock}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (Expires\+At), więc porzucona sesja edycji nie blokuje posta na zawsze; aktywny edytor ją odnawia. 
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_doc-constructors}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_doc-constructors}
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!PostEditLock@{PostEditLock}}
+\index{PostEditLock@{PostEditLock}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{PostEditLock()}{PostEditLock()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27} 
+Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Post\+Edit\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56} 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27}{Post\+Edit\+Lock}} Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Create (\begin{DoxyParamCaption}\item[{Guid}]{post\+Id}{, }\item[{Guid}]{holder\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}}}]{role}{, }\item[{string}]{holder\+Name}{, }\item[{Date\+Time}]{now}{, }\item[{Time\+Span}]{ttl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a4e41299cdf6c44fa94836d23b98f17a0}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!IsExpired@{IsExpired}}
+\index{IsExpired@{IsExpired}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{IsExpired()}{IsExpired()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a4e41299cdf6c44fa94836d23b98f17a0} 
+bool Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Is\+Expired (\begin{DoxyParamCaption}\item[{Date\+Time}]{now}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!IsHeldBy@{IsHeldBy}}
+\index{IsHeldBy@{IsHeldBy}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{IsHeldBy()}{IsHeldBy()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283} 
+bool Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Is\+Held\+By (\begin{DoxyParamCaption}\item[{Guid}]{user\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}}}]{role}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad3fd0a51753233a38f0e7ab921653b84}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!Renew@{Renew}}
+\index{Renew@{Renew}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{Renew()}{Renew()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad3fd0a51753233a38f0e7ab921653b84} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Renew (\begin{DoxyParamCaption}\item[{Date\+Time}]{now}{, }\item[{Time\+Span}]{ttl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Odnowienie przez obecnego właściciela. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad5ec65b71f9e76d208d5ebf36d31e639}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!TakeOver@{TakeOver}}
+\index{TakeOver@{TakeOver}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{TakeOver()}{TakeOver()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad5ec65b71f9e76d208d5ebf36d31e639} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Take\+Over (\begin{DoxyParamCaption}\item[{Guid}]{holder\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}}}]{role}{, }\item[{string}]{holder\+Name}{, }\item[{Date\+Time}]{now}{, }\item[{Time\+Span}]{ttl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Przejęcie wygasłej blokady przez inną osobę. 
+
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afd3c7617e6a6b511803aab0e0bf56050}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!AcquiredAt@{AcquiredAt}}
+\index{AcquiredAt@{AcquiredAt}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{AcquiredAt}{AcquiredAt}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afd3c7617e6a6b511803aab0e0bf56050} 
+Date\+Time Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Acquired\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a30d1361aced2a1f052aab970d500d836}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!ExpiresAt@{ExpiresAt}}
+\index{ExpiresAt@{ExpiresAt}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{ExpiresAt}{ExpiresAt}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a30d1361aced2a1f052aab970d500d836} 
+Date\+Time Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Expires\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_aa97ed4aa96b02130861ad9c5b5eb2388}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!HolderId@{HolderId}}
+\index{HolderId@{HolderId}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{HolderId}{HolderId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_aa97ed4aa96b02130861ad9c5b5eb2388} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Holder\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad29655200663aafcc98e9126462024a1}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!HolderName@{HolderName}}
+\index{HolderName@{HolderName}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{HolderName}{HolderName}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_ad29655200663aafcc98e9126462024a1} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Holder\+Name = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Imię i nazwisko albo nazwa firmy w chwili przejęcia blokady (pokazywane drugiej osobie). 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a10874e1ed9f1324b0be8e5ef58c7f90e}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!HolderRole@{HolderRole}}
+\index{HolderRole@{HolderRole}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{HolderRole}{HolderRole}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a10874e1ed9f1324b0be8e5ef58c7f90e} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Holder\+Role\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_aaaf0838ff9fc229a2d6368318126981b}\index{SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}!PostId@{PostId}}
+\index{PostId@{PostId}!SocialContent.Api.Domain.Entities.PostEditLock@{SocialContent.Api.Domain.Entities.PostEditLock}}
+\doxysubsubsection{\texorpdfstring{PostId}{PostId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_aaaf0838ff9fc229a2d6368318126981b} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Post\+Edit\+Lock.\+Post\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Domain/\+\+Entities/\doxymbox{\hyperlink{_post_edit_lock_8cs}{Post\+Edit\+Lock.\+cs}}\end{DoxyCompactItemize}

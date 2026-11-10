@@ -1,0 +1,9 @@
+<map id="SocialContent.Api.Services.PostService.FindModifiable" name="SocialContent.Api.Services.PostService.FindModifiable">
+<area shape="rect" id="Node000001" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,72,444,115"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8a3547823b49efc0a3ec7bcd9fe74903" title=" " alt="" coords="5,5,211,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,68,189,51,188,46,259,67"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="15,72,201,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,94,202,96,201,91,246,93"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="15,139,201,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="259,119,189,141,188,135,254,120"/>
+</map>

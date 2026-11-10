@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Dtos.PostDto" name="SocialContent.Api.Dtos.PostDto">
+<area shape="rect" id="Node000001" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="5,37,216,64"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="68,37,61,29,67,19,83,13,111,11,140,13,157,22,152,23,139,18,110,16,84,18,70,23,67,28,74,37"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="264,29,453,72"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="216,48,251,51,245,51,216,53"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="312,27,310,19,317,10,334,5,358,3,385,5,402,14,397,13,384,10,358,8,335,10,320,15,315,21,316,30"/>
+</map>

@@ -1,0 +1,75 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Services.\+Scheduled\+Post\+Worker(IService\+Scope\+Factory scopes, ILogger\texorpdfstring{$<$}{<} Scheduled\+Post\+Worker \texorpdfstring{$>$}{>} logger)}
+\hypertarget{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker}{}\label{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker}\index{SocialContent.Api.Services.ScheduledPostWorker@{SocialContent.Api.Services.ScheduledPostWorker}}
+
+
+Co kilkadziesiąt sekund publikuje zaplanowane posty, których termin już nadszedł.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+Scheduled\+Post\+Worker
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+Scheduled\+Post\+Worker:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+override async Task \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_a53b3c9a03ec00c8c15619471366bc8c8}{Execute\+Async}} (Cancellation\+Token stopping\+Token)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Time\+Span \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_af0fbc85fba4dfe2c0b10f5f9035ee832}{Interval}} = Time\+Span.\+From\+Seconds(30)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Co kilkadziesiąt sekund publikuje zaplanowane posty, których termin już nadszedł. 
+
+\label{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_a53b3c9a03ec00c8c15619471366bc8c8}\index{SocialContent.Api.Services.ScheduledPostWorker@{SocialContent.Api.Services.ScheduledPostWorker}!ExecuteAsync@{ExecuteAsync}}
+\index{ExecuteAsync@{ExecuteAsync}!SocialContent.Api.Services.ScheduledPostWorker@{SocialContent.Api.Services.ScheduledPostWorker}}
+\doxysubsubsection{\texorpdfstring{ExecuteAsync()}{ExecuteAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_a53b3c9a03ec00c8c15619471366bc8c8} 
+override async Task Social\+Content.\+Api.\+Services.\+Scheduled\+Post\+Worker.\+Execute\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{stopping\+Token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_a53b3c9a03ec00c8c15619471366bc8c8_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_doc-variable-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_doc-variable-members}
+\doxysubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_af0fbc85fba4dfe2c0b10f5f9035ee832}\index{SocialContent.Api.Services.ScheduledPostWorker@{SocialContent.Api.Services.ScheduledPostWorker}!Interval@{Interval}}
+\index{Interval@{Interval}!SocialContent.Api.Services.ScheduledPostWorker@{SocialContent.Api.Services.ScheduledPostWorker}}
+\doxysubsubsection{\texorpdfstring{Interval}{Interval}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker_af0fbc85fba4dfe2c0b10f5f9035ee832} 
+readonly Time\+Span Social\+Content.\+Api.\+Services.\+Scheduled\+Post\+Worker.\+Interval = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_scheduled_post_worker_8cs}{Scheduled\+Post\+Worker.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,29 @@
+<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,413,64,440"/>
+<area shape="rect" id="Node000001" href="$class_social_content_1_1_api_1_1_mapping_1_1_client_user_profile.html" title=" " alt="" coords="112,5,295,48"/>
+<area shape="poly" id="edge11_Node000000_Node000001" title=" " alt="" coords="36,397,44,319,58,218,80,123,94,85,110,58,126,46,124,51,114,62,99,87,85,124,64,219,49,320,41,398"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_mapping_1_1_company_user_profile.html" title=" " alt="" coords="112,72,295,115"/>
+<area shape="poly" id="edge12_Node000000_Node000002" title=" " alt="" coords="32,398,34,342,44,269,54,231,67,193,86,157,110,125,126,113,124,118,114,128,90,160,72,195,59,232,49,270,39,342,37,398"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_mapping_1_1_facebook_post_profile.html" title=" " alt="" coords="112,139,295,181"/>
+<area shape="poly" id="edge13_Node000000_Node000003" title=" " alt="" coords="35,398,40,353,53,298,75,242,91,215,110,191,127,180,124,184,114,195,95,218,80,244,58,300,45,354,40,398"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_mapping_1_1_instagram_post_profile.html" title=" " alt="" coords="112,205,295,248"/>
+<area shape="poly" id="edge14_Node000000_Node000004" title=" " alt="" coords="39,398,48,365,62,328,83,291,110,258,129,246,126,251,113,262,87,294,67,331,53,367,44,399"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_mapping_1_1_manager_credential_profile.html" title="Profil zalogowanego managera: e&#45;mail pochodzi z konta logowania, reszta z powiązanego ManagerUser." alt="" coords="112,272,295,315"/>
+<area shape="poly" id="edge15_Node000000_Node000005" title=" " alt="" coords="48,398,74,360,110,325,132,313,129,317,113,329,78,364,53,401"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_mapping_1_1_manager_user_profile.html" title=" " alt="" coords="112,339,295,381"/>
+<area shape="poly" id="edge16_Node000000_Node000006" title=" " alt="" coords="76,406,111,391,143,380,139,384,113,396,80,409"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_mapping_1_1_notification_profile.html" title=" " alt="" coords="112,405,295,448"/>
+<area shape="poly" id="edge17_Node000000_Node000007" title=" " alt="" coords="78,425,113,425,109,428,81,429"/>
+<area shape="rect" id="Node000008" href="$class_social_content_1_1_api_1_1_mapping_1_1_picture_profile.html" title=" " alt="" coords="112,472,295,515"/>
+<area shape="poly" id="edge18_Node000000_Node000008" title=" " alt="" coords="77,443,113,458,143,470,139,473,111,462,79,448"/>
+<area shape="rect" id="Node000009" href="$class_social_content_1_1_api_1_1_mapping_1_1_post_edit_lock_profile.html" title=" " alt="" coords="112,539,295,581"/>
+<area shape="poly" id="edge19_Node000000_Node000009" title=" " alt="" coords="50,451,78,490,113,525,133,537,128,539,110,529,74,493,51,456"/>
+<area shape="rect" id="Node000010" href="$class_social_content_1_1_api_1_1_mapping_1_1_post_profile.html" title=" " alt="" coords="112,605,295,648"/>
+<area shape="poly" id="edge20_Node000000_Node000010" title=" " alt="" coords="42,453,53,486,67,523,87,560,113,591,130,604,125,606,110,595,83,563,62,525,48,488,42,458"/>
+<area shape="rect" id="Node000011" href="$class_social_content_1_1_api_1_1_mapping_1_1_social_account_profile.html" title=" " alt="" coords="112,672,295,715"/>
+<area shape="poly" id="edge21_Node000000_Node000011" title=" " alt="" coords="37,453,45,499,58,553,80,609,95,635,114,658,128,671,123,672,110,662,91,638,75,612,53,555,40,500,37,458"/>
+<area shape="rect" id="Node000012" href="$class_social_content_1_1_api_1_1_mapping_1_1_tik_tok_post_profile.html" title=" " alt="" coords="112,739,295,781"/>
+<area shape="poly" id="edge22_Node000000_Node000012" title=" " alt="" coords="35,453,39,511,49,583,59,621,72,658,90,694,114,725,128,738,122,738,110,728,86,696,67,661,54,623,44,584,34,512,35,458"/>
+<area shape="rect" id="Node000013" href="$class_social_content_1_1_api_1_1_mapping_1_1_video_profile.html" title=" " alt="" coords="112,805,295,848"/>
+<area shape="poly" id="edge23_Node000000_Node000013" title=" " alt="" coords="38,453,49,534,64,634,85,729,99,766,114,792,127,805,122,805,110,795,94,768,80,731,58,635,44,534,38,459"/>
+</map>

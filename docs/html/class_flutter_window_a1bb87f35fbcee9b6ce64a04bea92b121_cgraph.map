@@ -1,0 +1,19 @@
+<map id="FlutterWindow::MessageHandler" name="FlutterWindow::MessageHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,217,149"/>
+<area shape="rect" id="Node000002" href="$class_win32_window.html#a9821d29a52a05f5ed9b49b89d7110cf7" title=" " alt="" coords="265,123,476,149"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,133,252,136,246,136,217,139"/>
+<area shape="rect" id="Node000003" href="$class_win32_window.html#a6545dfce322862ad6318eb6102d59e06" title=" " alt="" coords="542,72,701,99"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,119,535,103,540,102,441,125"/>
+<area shape="rect" id="Node000008" href="$class_win32_window.html#aab1722c8d02d1e224f953260b6c64d70" title=" " alt="" coords="524,123,719,149"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="476,133,511,136,506,136,477,139"/>
+<area shape="rect" id="Node000009" href="$class_win32_window.html#aaaf8caa2e02bb3b96012ec21c84a0268" title=" " alt="" coords="524,173,719,200"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="441,147,540,170,535,170,440,153"/>
+<area shape="rect" id="Node000004" href="$class_window_class_registrar.html#a61087a352125d976b12553fa143847bd" title=" " alt="" coords="778,5,933,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="677,69,760,50,765,49,678,74"/>
+<area shape="rect" id="Node000006" href="$class_win32_window.html#a78f04e4f7a473145711e65ebb8040185" title=" " alt="" coords="767,72,944,99"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="702,83,754,85,749,86,702,88"/>
+<area shape="rect" id="Node000007" href="$class_window_class_registrar.html#a9c8e9bd34199b832ad09e3e92ca94768" title=" " alt="" coords="770,123,941,165"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="678,97,758,119,753,119,678,102"/>
+<area shape="rect" id="Node000005" href="$class_window_class_registrar.html#ada9c15bbbaaa4938b093120b4f3e224a" title=" " alt="" coords="992,5,1155,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="933,24,978,26,973,27,934,29"/>
+</map>

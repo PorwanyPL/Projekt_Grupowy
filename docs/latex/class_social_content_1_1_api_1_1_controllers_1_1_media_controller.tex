@@ -1,0 +1,83 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Controllers.\+Media\+Controller(IMedia\+Service service)}
+\hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_media_controller}{}\label{class_social_content_1_1_api_1_1_controllers_1_1_media_controller}\index{SocialContent.Api.Controllers.MediaController@{SocialContent.Api.Controllers.MediaController}}
+
+
+Pliki mediów (zdjęcia, wideo) przesyłane do posta. Pliki są prywatne dla firmy.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Controllers.\+Media\+Controller
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_media_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Controllers.\+Media\+Controller:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_media_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_a42829070a8232dbe0372f439ecc3480b}{Upload}} (IForm\+File? file, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Prześlij plik medium. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_ac16f039bbdb5655c8a452888fb42cd58}{Download}} (string storage\+Key, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz plik medium. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Pliki mediów (zdjęcia, wideo) przesyłane do posta. Pliki są prywatne dla firmy. 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_ac16f039bbdb5655c8a452888fb42cd58}\index{SocialContent.Api.Controllers.MediaController@{SocialContent.Api.Controllers.MediaController}!Download@{Download}}
+\index{Download@{Download}!SocialContent.Api.Controllers.MediaController@{SocialContent.Api.Controllers.MediaController}}
+\doxysubsubsection{\texorpdfstring{Download()}{Download()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_ac16f039bbdb5655c8a452888fb42cd58} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Media\+Controller.\+Download (\begin{DoxyParamCaption}\item[{string}]{storage\+Key}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz plik medium. 
+
+Dostępne dla użytkowników firmy, do której należy plik (do podglądu w formularzu i na liście postów).
+
+
+\begin{DoxyParams}{Parametry}
+{\em storage\+Key} & Klucz pliku zwrócony przy przesłaniu.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Zawartość pliku.$<$/\+response$>$ $<$response code="{}404"{}$>$Plik nie istnieje.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_a42829070a8232dbe0372f439ecc3480b}\index{SocialContent.Api.Controllers.MediaController@{SocialContent.Api.Controllers.MediaController}!Upload@{Upload}}
+\index{Upload@{Upload}!SocialContent.Api.Controllers.MediaController@{SocialContent.Api.Controllers.MediaController}}
+\doxysubsubsection{\texorpdfstring{Upload()}{Upload()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_media_controller_a42829070a8232dbe0372f439ecc3480b} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Media\+Controller.\+Upload (\begin{DoxyParamCaption}\item[{IForm\+File?}]{file}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prześlij plik medium. 
+
+Żądanie multipart/\+form-\/data z polem pliku "{}file"{}. Serwer sprawdza rozszerzenie (png, jpg, jpeg, gif, webp, mp4, mp3, flac), rozmiar (zdjęcia do 10 MB, wideo do 50 MB) oraz zgodność zawartości z formatem (sygnatura pliku).
+
+Zwrócony storage\+Key podaje się potem w polach pictures/\+videos posta. Plik trafia do magazynu firmy użytkownika.
+
+
+\begin{DoxyParams}{Parametry}
+{\em file} & Przesyłany plik.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Plik zapisany; zwraca klucz, rodzaj, format i rozmiar.$<$/\+response$>$ $<$response code="{}400"{}$>$Brak pliku, niedozwolone rozszerzenie, zbyt duży rozmiar lub zawartość niezgodna z formatem.$<$/\+response$>$ 
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Controllers/\doxymbox{\hyperlink{_media_controller_8cs}{Media\+Controller.\+cs}}\end{DoxyCompactItemize}

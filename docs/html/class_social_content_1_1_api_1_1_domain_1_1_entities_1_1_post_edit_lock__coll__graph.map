@@ -1,0 +1,3 @@
+<map id="SocialContent.Api.Domain.Entities.PostEditLock" name="SocialContent.Api.Domain.Entities.PostEditLock">
+<area shape="rect" id="Node000001" title="Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (Expir..." alt="" coords="5,5,174,304"/>
+</map>

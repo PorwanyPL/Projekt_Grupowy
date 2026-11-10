@@ -1,0 +1,91 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service}\index{SocialContent.Api.Services.IPostEditLockService@{SocialContent.Api.Services.IPostEditLockService}}
+
+
+Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (Post\+Edit\+Lock\+Service.\+Ttl); edytor odnawia ją co jakiś czas, a zamknięcie formularza ją zwalnia. Porzucona sesja wygasa sama, więc nikt nie zostaje zablokowany na stałe. Serwer wymusza blokadę przy zapisie i usuwaniu posta (\doxylink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Post\+Service}), nie tylko w widoku.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a43d6b5b724ed7baf55900aac7facd6ba}{Acquire\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid post\+Id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny. \end{DoxyCompactList}\item 
+Task \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a3f476becabbee92749b9ef51be224583}{Release\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid post\+Id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (Post\+Edit\+Lock\+Service.\+Ttl); edytor odnawia ją co jakiś czas, a zamknięcie formularza ją zwalnia. Porzucona sesja wygasa sama, więc nikt nie zostaje zablokowany na stałe. Serwer wymusza blokadę przy zapisie i usuwaniu posta (\doxylink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Post\+Service}), nie tylko w widoku. 
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a43d6b5b724ed7baf55900aac7facd6ba}\index{SocialContent.Api.Services.IPostEditLockService@{SocialContent.Api.Services.IPostEditLockService}!AcquireAsync@{AcquireAsync}}
+\index{AcquireAsync@{AcquireAsync}!SocialContent.Api.Services.IPostEditLockService@{SocialContent.Api.Services.IPostEditLockService}}
+\doxysubsubsection{\texorpdfstring{AcquireAsync()}{AcquireAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a43d6b5b724ed7baf55900aac7facd6ba} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service.\+Acquire\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{post\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny. 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116}{Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a43d6b5b724ed7baf55900aac7facd6ba_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a3f476becabbee92749b9ef51be224583}\index{SocialContent.Api.Services.IPostEditLockService@{SocialContent.Api.Services.IPostEditLockService}!ReleaseAsync@{ReleaseAsync}}
+\index{ReleaseAsync@{ReleaseAsync}!SocialContent.Api.Services.IPostEditLockService@{SocialContent.Api.Services.IPostEditLockService}}
+\doxysubsubsection{\texorpdfstring{ReleaseAsync()}{ReleaseAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a3f476becabbee92749b9ef51be224583} 
+Task Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service.\+Release\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{post\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi). 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31}{Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a3f476becabbee92749b9ef51be224583_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_post_edit_lock_service_8cs}{Post\+Edit\+Lock\+Service.\+cs}}\end{DoxyCompactItemize}

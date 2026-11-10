@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Services.IPostService.ReleaseLockAsync" name="SocialContent.Api.Services.IPostService.ReleaseLockAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,219,72"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="267,29,452,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,48,254,51,248,51,219,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="313,27,311,19,319,10,335,5,359,3,386,5,403,14,398,13,384,10,359,8,336,10,322,15,316,21,317,30"/>
+</map>

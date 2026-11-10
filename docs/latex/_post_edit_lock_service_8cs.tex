@@ -1,0 +1,18 @@
+\doxysection{Dokumentacja pliku backend/\+\+Social\+Content.Api/\+\+Services/\+\+Post\+Edit\+Lock\+Service.cs}
+\hypertarget{_post_edit_lock_service_8cs}{}\label{_post_edit_lock_service_8cs}\index{backend/SocialContent.Api/Services/PostEditLockService.cs@{backend/SocialContent.Api/Services/PostEditLockService.cs}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service}{Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service}}
+\begin{DoxyCompactList}\small\item\em Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (Post\+Edit\+Lock\+Service.\+Ttl); edytor odnawia ją co jakiś czas, a zamknięcie formularza ją zwalnia. Porzucona sesja wygasa sama, więc nikt nie zostaje zablokowany na stałe. Serwer wymusza blokadę przy zapisie i usuwaniu posta (\doxylink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Post\+Service}), nie tylko w widoku. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service}{Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Przestrzenie nazw}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content}{Social\+Content}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api}{Social\+Content.\+Api}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services}{Social\+Content.\+Api.\+Services}}
+\end{DoxyCompactItemize}

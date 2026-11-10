@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Services.PostService.DeleteUnusedFilesAsync" name="SocialContent.Api.Services.PostService.DeleteUnusedFilesAsync">
+<area shape="rect" id="Node000001" title="Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post." alt="" coords="239,39,483,81"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,43,191,41,191,36,226,42"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,78,192,84,191,79,226,77"/>
+</map>

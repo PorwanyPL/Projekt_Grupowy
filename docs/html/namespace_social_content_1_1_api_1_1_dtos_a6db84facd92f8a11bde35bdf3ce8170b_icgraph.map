@@ -1,0 +1,16 @@
+<map id="SocialContent.Api.Dtos.PostDto" name="SocialContent.Api.Dtos.PostDto">
+<area shape="rect" id="Node000001" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="472,80,682,107"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="618,65,606,61,577,59,551,61,537,65,534,71,541,80,536,79,529,71,534,61,550,55,577,53,607,56,624,65"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_mapping_1_1_post_profile.html#a8cff7bc9167b64755331f6c7142f5ac2" title=" " alt="" coords="240,39,423,81"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="456,78,424,75,423,70,461,77"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="239,105,424,148"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="456,110,425,117,424,111,461,109"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="247,99,237,96,213,79,189,62,166,51,165,46,192,58,216,74,240,91,252,99"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="221,112,192,109,191,104,226,110"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="5,139,191,181"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="221,143,192,149,190,144,226,141"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,205,191,248"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="276,154,192,196,163,207,161,202,190,191,271,156"/>
+</map>

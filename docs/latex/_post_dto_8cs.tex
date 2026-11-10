@@ -1,0 +1,16 @@
+\doxysection{Dokumentacja pliku backend/\+\+Social\+Content.Api/\+\+Dtos/\+\+Post\+Dto.cs}
+\hypertarget{_post_dto_8cs}{}\label{_post_dto_8cs}\index{backend/SocialContent.Api/Dtos/PostDto.cs@{backend/SocialContent.Api/Dtos/PostDto.cs}}
+\doxysubsubsection*{Przestrzenie nazw}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content}{Social\+Content}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api}{Social\+Content.\+Api}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos}{Social\+Content.\+Api.\+Dtos}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Social\+Content.\+Api.\+Dtos.\+Post\+Dto}} (Guid Id, string Title, Date\+Time Created\+At, string Description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} Visibility, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aadf4c4e7eaba770fe7840988564635c8}{Picture\+Dto}} $>$ Pictures, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a847506c916704f10e02d71e58eaf822a}{Video\+Dto}} $>$ Videos, List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ Manager\+Users, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af3e3ea6c27a6d6b271f34baf8522450d}{Post\+Status}} Status, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}}? Platform, Date\+Time? Scheduled\+At, Date\+Time? Published\+At, string? External\+Post\+Id, string? Error\+Message, Guid? Target\+Account\+Id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_facebook_post_details_dto}{Facebook\+Post\+Details\+Dto}}? Facebook, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_instagram_post_details_dto}{Instagram\+Post\+Details\+Dto}}? Instagram, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_tik_tok_post_details_dto}{Tik\+Tok\+Post\+Details\+Dto}}? Tik\+Tok, bool Can\+Edit=false, bool Can\+Delete=false, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}}? Lock=null)
+\begin{DoxyCompactList}\small\item\em Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy. \end{DoxyCompactList}\end{DoxyCompactItemize}

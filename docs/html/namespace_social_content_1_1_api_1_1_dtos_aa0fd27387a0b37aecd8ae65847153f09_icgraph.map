@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Dtos.MediaUploadDto" name="SocialContent.Api.Dtos.MediaUploadDto">
+<area shape="rect" id="Node000001" title="Wynik przesłania pliku. StorageKey i FileName przekazuje się w pictures/videos przy tworzeniu posta." alt="" coords="239,29,436,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="375,13,362,10,337,8,315,10,301,15,295,21,297,30,292,27,290,19,298,10,314,5,337,3,363,5,380,14"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_media_service.html#af937b77cb1cb7b6a758d63198d6e7b87" title=" " alt="" coords="5,29,191,72"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="220,51,191,53,191,48,226,50"/>
+</map>

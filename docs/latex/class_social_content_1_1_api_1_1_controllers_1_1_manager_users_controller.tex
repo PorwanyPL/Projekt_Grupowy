@@ -1,0 +1,237 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller(IManager\+User\+Service service)}
+\hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller}{}\label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+
+
+Zarządzanie managerami (Manager\+User) przez firmę. Dostępne wyłącznie dla roli Company\+User i tylko dla managerów jej firmy.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a05dcc00280ebb176ded8e58895e2a57f}{Get\+All}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz listę managerów firmy. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1f4b1b8f02106414b6de5551a8c42b6c}{Get}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz managera po identyfikatorze. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a858ee3f8ddf98c8af85a3c61c224ccab}{Create}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto}{Manager\+User\+Create\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Utwórz managera w swojej firmie. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a8c94f4469ca848578fe3424aa92ece29}{Update}} (Guid id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto}{Manager\+User\+Write\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zaktualizuj managera. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a2a3f14e2846e08ad2a0039d2f3d4c3d4}{Delete}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Usuń managera (tylko bez powiązań). \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1070494667ef60d1a233bce2150bfb77}{Set\+Access}} (Guid id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_access_dto}{Manager\+Access\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zablokuj lub odblokuj dostęp managera. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_abe414f080bfb158616f7d44ba057db80}{Update\+Credentials}} (Guid id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto}{Manager\+Credentials\+Update\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zmień e-\/mail i hasło managera. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_abb1fe95d328eec3093412a90531e5efa}{Anonymize}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zanonimizuj managera (skasowanie danych osobowych). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a6d7715f458fa8b689f3e1a55a3ce4d61}{Company\+Id}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Zarządzanie managerami (Manager\+User) przez firmę. Dostępne wyłącznie dla roli Company\+User i tylko dla managerów jej firmy. 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_abb1fe95d328eec3093412a90531e5efa}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!Anonymize@{Anonymize}}
+\index{Anonymize@{Anonymize}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{Anonymize()}{Anonymize()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_abb1fe95d328eec3093412a90531e5efa} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Anonymize (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zanonimizuj managera (skasowanie danych osobowych). 
+
+Przeznaczone dla próśb o skasowanie danych. Zamienia imię i nazwisko na "{}\+Usunięty użytkownik"{}, zastępuje opis informacją o usunięciu danych i usuwa konto logowania (e-\/mail i hasło), co natychmiast unieważnia wydane tokeny.
+
+Powiązania z postami oraz z kontami społecznościowymi pozostają nienaruszone, więc historia publikacji jest zachowana. Wiek nie jest zmieniany. Operacji nie można cofnąć. Można ją wykonać na każdym managerze firmy, także bez powiązań i bez konta logowania.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator managera (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Manager po anonimizacji.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Manager o podanym identyfikatorze nie istnieje w tej firmie.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a858ee3f8ddf98c8af85a3c61c224ccab}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a858ee3f8ddf98c8af85a3c61c224ccab} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto}{Manager\+User\+Create\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utwórz managera w swojej firmie. 
+
+Tworzy managera (imię, nazwisko, wiek, opis) przypisanego do firmy zalogowanego Company\+User. Email i password są wymagane: każdy nowy manager dostaje konto logowania i może tworzyć posty na przypisanych kontach.
+
+Wymagane pola: first\+Name i last\+Name (1-\/50 znaków; litery, myślnik, apostrof), age (18-\/100), description (1-\/2000 znaków). Adres e-\/mail musi być unikalny we wszystkich rolach, a hasło ma mieć 8-\/128 znaków, w tym małą literę, wielką literę i cyfrę.
+
+$<$response code="{}201"{}$>$Manager został utworzony; w nagłówku Location adres nowego zasobu.$<$/\+response$>$ $<$response code="{}400"{}$>$Dane nie spełniają reguł walidacji (w tym brak lub niepoprawny e-\/mail albo hasło).$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}409"{}$>$Konto z tym adresem e-\/mail już istnieje.$<$/\+response$>$ Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a858ee3f8ddf98c8af85a3c61c224ccab_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a2a3f14e2846e08ad2a0039d2f3d4c3d4}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!Delete@{Delete}}
+\index{Delete@{Delete}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a2a3f14e2846e08ad2a0039d2f3d4c3d4} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Delete (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Usuń managera (tylko bez powiązań). 
+
+Trwale usuwa managera wraz z jego danymi logowania (jeśli istnieją). Dozwolone wyłącznie wtedy, gdy manager nie ma powiązanych postów ani kont społecznościowych. Operacji nie można cofnąć.
+
+Jeśli powiązania istnieją, zwracany jest 409 Conflict -\/ historia publikacji musi zostać zachowana. Zamiast usuwać, zablokuj dostęp (PUT /\+api/\+\+Manager\+Users/\{id\}/\+access) albo zanonimizuj dane (POST /\+api/\+\+Manager\+Users/\{id\}/\+anonymize).
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator managera (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}204"{}$>$Manager został usunięty.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Manager o podanym identyfikatorze nie istnieje w tej firmie.$<$/\+response$>$ $<$response code="{}409"{}$>$Manager ma powiązane posty lub konta społecznościowe -\/ zablokuj dostęp zamiast usuwać.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1f4b1b8f02106414b6de5551a8c42b6c}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!Get@{Get}}
+\index{Get@{Get}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1f4b1b8f02106414b6de5551a8c42b6c} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Get (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz managera po identyfikatorze. 
+
+Zwraca dane jednego managera swojej firmy. Manager innej firmy jest traktowany jak nieistniejący. Nie zwraca adresu e-\/mail ani danych logowania.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator managera (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Znaleziony manager.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Manager o podanym identyfikatorze nie istnieje w tej firmie.$<$/\+response$>$ Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1f4b1b8f02106414b6de5551a8c42b6c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a05dcc00280ebb176ded8e58895e2a57f}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a05dcc00280ebb176ded8e58895e2a57f} 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Get\+All (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz listę managerów firmy. 
+
+Zwraca wszystkich managerów zalogowanej firmy posortowanych alfabetycznie (nazwisko, potem imię). Wymaga tokenu JWT z rolą Company\+User.
+
+Odpowiedź nie zawiera adresów e-\/mail ani danych logowania. Pole social\+Account\+Ids wskazuje konta społecznościowe przypisane managerowi, a has\+Login\+Account i is\+Access\+Blocked mówią, czy manager ma konto logowania i czy jego dostęp jest zablokowany.
+
+$<$response code="{}200"{}$>$Lista managerów; pusta tablica, gdy nikogo jeszcze nie dodano.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1070494667ef60d1a233bce2150bfb77}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!SetAccess@{SetAccess}}
+\index{SetAccess@{SetAccess}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{SetAccess()}{SetAccess()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a1070494667ef60d1a233bce2150bfb77} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Set\+Access (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_access_dto}{Manager\+Access\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zablokuj lub odblokuj dostęp managera. 
+
+Ustawia blokadę logowania managera (blocked = true) albo ją zdejmuje (blocked = false). Zablokowany manager zostaje w systemie wraz z powiązaniami z postami, ale nie może się zalogować, a jego wcześniej wydany token przestaje działać od razu.
+
+Dotyczy tylko managerów mających konto logowania.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator managera (GUID).\\
+\hline
+{\em dto} & Pole blocked: true = zablokuj, false = odblokuj.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Manager po zmianie; pole is\+Access\+Blocked odzwierciedla nowy stan.$<$/\+response$>$ $<$response code="{}400"{}$>$Brak pola blocked albo manager nie ma konta logowania.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Manager o podanym identyfikatorze nie istnieje w tej firmie.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a8c94f4469ca848578fe3424aa92ece29}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!Update@{Update}}
+\index{Update@{Update}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a8c94f4469ca848578fe3424aa92ece29} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Update (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto}{Manager\+User\+Write\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zaktualizuj managera. 
+
+Pełna aktualizacja: zastępuje imię, nazwisko, wiek i opis, więc wszystkie cztery pola muszą być podane.
+
+Nie zmienia danych logowania (służy do tego PUT /\+api/\+\+Manager\+Users/\{id\}/\+credentials) ani przypisań do kont społecznościowych -\/ te ustawia się przez PUT /\+api/\+\+Social\+Accounts/\{id\}/\+managers.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator managera (GUID).\\
+\hline
+{\em dto} & Nowe dane managera.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Manager po aktualizacji.$<$/\+response$>$ $<$response code="{}400"{}$>$Dane nie spełniają reguł walidacji.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Manager o podanym identyfikatorze nie istnieje w tej firmie.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_abe414f080bfb158616f7d44ba057db80}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!UpdateCredentials@{UpdateCredentials}}
+\index{UpdateCredentials@{UpdateCredentials}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{UpdateCredentials()}{UpdateCredentials()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_abe414f080bfb158616f7d44ba057db80} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a495242330434158f8c18ed9aacb00d55}{Manager\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Update\+Credentials (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto}{Manager\+Credentials\+Update\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zmień e-\/mail i hasło managera. 
+
+Ustawia nowy adres e-\/mail (wymagany; unikalny we wszystkich rolach) i opcjonalnie nowe hasło (8-\/128 znaków, mała i wielka litera, cyfra). Pominięte password zostawia dotychczasowe hasło. Walidacja jest ta sama co przy tworzeniu managera (klasa Validate).
+
+Manager bez konta logowania (np. zanonimizowany) dostaje je dopiero po podaniu hasła.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator managera (GUID).\\
+\hline
+{\em dto} & Nowy e-\/mail i opcjonalnie nowe hasło.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Manager po zmianie.$<$/\+response$>$ $<$response code="{}400"{}$>$Niepoprawny e-\/mail lub hasło.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Manager nie istnieje w tej firmie.$<$/\+response$>$ $<$response code="{}409"{}$>$Konto z tym adresem e-\/mail już istnieje.$<$/\+response$>$ 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a6d7715f458fa8b689f3e1a55a3ce4d61}\index{SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}!CompanyId@{CompanyId}}
+\index{CompanyId@{CompanyId}!SocialContent.Api.Controllers.ManagerUsersController@{SocialContent.Api.Controllers.ManagerUsersController}}
+\doxysubsubsection{\texorpdfstring{CompanyId}{CompanyId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller_a6d7715f458fa8b689f3e1a55a3ce4d61} 
+Guid Social\+Content.\+Api.\+Controllers.\+Manager\+Users\+Controller.\+Company\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Controllers/\doxymbox{\hyperlink{_manager_users_controller_8cs}{Manager\+Users\+Controller.\+cs}}\end{DoxyCompactItemize}

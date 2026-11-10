@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.PostPublisher(AppDbContext db, INotificationService notifications)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_post_publisher.html','','class_social_content_1_1_api_1_1_services_1_1_post_publisher-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.PostPublisher(AppDbContext db, INotificationService notifications)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.PostPublisher</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_publisher__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_post_publisher_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_post_publisher_inherit__map" id="a_social_content_8_api_8_services_8_post_publisher_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,160,180,267"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher.html" title="Publikacja postów. Prototyp nie ma integracji z API Facebooka, Instagrama ani TikToka: publikacja spr..." alt="" coords="5,5,180,112"/>
+<area shape="poly" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.PostPublisher:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_publisher__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_post_publisher_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_post_publisher_coll__map" id="a_social_content_8_api_8_services_8_post_publisher_coll__map">
+<area shape="rect" title=" " alt="" coords="5,160,180,267"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher.html" title="Publikacja postów. Prototyp nie ma integracji z API Facebooka, Instagrama ani TikToka: publikacja spr..." alt="" coords="5,5,180,112"/>
+<area shape="poly" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a654ed95626fdcc42926432fecebdbba7" id="r_a654ed95626fdcc42926432fecebdbba7"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a654ed95626fdcc42926432fecebdbba7">PublishAsync</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> post, CancellationToken ct)</td></tr>
+<tr class="memdesc:a654ed95626fdcc42926432fecebdbba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publikuje post (Draft/Scheduled/Failed -&gt; Published albo Failed). Wywołujący zapisał już post w bazie.  <br /></td></tr>
+<tr class="memitem:a64a6a5f07e3e948dccb74c99ad6634a7" id="r_a64a6a5f07e3e948dccb74c99ad6634a7"><td class="memItemLeft">async Task&lt; int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a64a6a5f07e3e948dccb74c99ad6634a7">PublishDueAsync</a> (CancellationToken ct)</td></tr>
+<tr class="memdesc:a64a6a5f07e3e948dccb74c99ad6634a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a654ed95626fdcc42926432fecebdbba7" name="a654ed95626fdcc42926432fecebdbba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a654ed95626fdcc42926432fecebdbba7">&#9670;&#160;</a></span>PublishAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.PostPublisher.PublishAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a></td>          <td class="paramname"><span class="paramname"><em>post</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Publikuje post (Draft/Scheduled/Failed -&gt; Published albo Failed). Wywołujący zapisał już post w bazie. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher.html#a3c43ccc053f4a2214be0ea747687bbc7">SocialContent.Api.Services.IPostPublisher</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_cgraph">
+<area shape="rect" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="5,105,192,148"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#adcf846c51cc58942916400be9ae60875" title="Kończy publikację błędem: Publishing &#45;&gt; Failed (komunikat jest przycinany do 1000 znaków)." alt="" coords="286,5,465,48"/>
+<area shape="poly" title=" " alt="" coords="138,103,186,79,239,57,273,49,268,51,241,63,188,84,141,107"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa540643b7b110f2d9e9d57818ab59787" title="Kończy publikację sukcesem: Publishing &#45;&gt; Published." alt="" coords="282,72,468,115"/>
+<area shape="poly" title=" " alt="" coords="192,113,269,105,264,108,193,118"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ad965fcf4eb8aecf2ac2321a983052517" title="Rozpoczyna publikację: Draft/Scheduled &#45;&gt; Publishing (wywoływane przez warstwę integracji z platformą..." alt="" coords="281,139,470,181"/>
+<area shape="poly" title=" " alt="" coords="192,135,267,146,262,148,192,141"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a212049dbff1e506e4101c8fbd13dc22d" title="Zapisuje wynik kontroli połączenia (Validate.VerifyConnection): przyczynę błędu albo null,..." alt="" coords="240,205,511,248"/>
+<area shape="poly" title=" " alt="" coords="140,146,188,169,241,191,264,201,259,200,239,196,186,174,140,151"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_icgraph">
+<area shape="rect" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,5,450,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a64a6a5f07e3e948dccb74c99ad6634a7" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,5,216,48"/>
+<area shape="poly" title=" " alt="" coords="245,27,216,29,216,24,250,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a64a6a5f07e3e948dccb74c99ad6634a7" name="a64a6a5f07e3e948dccb74c99ad6634a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a6a5f07e3e948dccb74c99ad6634a7">&#9670;&#160;</a></span>PublishDueAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; int &gt; SocialContent.Api.Services.PostPublisher.PublishDueAsync </td>
+          <td>(</td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher.html#ab50ad44ab30c92fd7d05bf9b17c0426e">SocialContent.Api.Services.IPostPublisher</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7_cgraph">
+<area shape="rect" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,105,216,148"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a654ed95626fdcc42926432fecebdbba7" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,105,450,148"/>
+<area shape="poly" title=" " alt="" coords="216,124,250,126,245,127,217,129"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#adcf846c51cc58942916400be9ae60875" title="Kończy publikację błędem: Publishing &#45;&gt; Failed (komunikat jest przycinany do 1000 znaków)." alt="" coords="544,5,723,48"/>
+<area shape="poly" title=" " alt="" coords="397,102,444,79,497,57,531,49,526,51,499,63,447,84,399,107"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa540643b7b110f2d9e9d57818ab59787" title="Kończy publikację sukcesem: Publishing &#45;&gt; Published." alt="" coords="540,72,727,115"/>
+<area shape="poly" title=" " alt="" coords="450,113,528,106,523,107,451,118"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ad965fcf4eb8aecf2ac2321a983052517" title="Rozpoczyna publikację: Draft/Scheduled &#45;&gt; Publishing (wywoływane przez warstwę integracji z platformą..." alt="" coords="539,139,728,181"/>
+<area shape="poly" title=" " alt="" coords="451,135,526,146,521,147,451,141"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a212049dbff1e506e4101c8fbd13dc22d" title="Zapisuje wynik kontroli połączenia (Validate.VerifyConnection): przyczynę błędu albo null,..." alt="" coords="498,205,769,248"/>
+<area shape="poly" title=" " alt="" coords="399,146,447,169,499,191,522,201,517,200,497,196,444,174,398,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_post_publisher_8cs.html">PostPublisher.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html">PostPublisher</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<map id="SocialContent.Api.Services.ManagerUserService.ToDto" name="SocialContent.Api.Services.ManagerUserService.ToDto">
+<area shape="rect" id="Node000001" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="620,172,805,215"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#acd59b45b8d109804e76bd6da2f668618" title=" " alt="" coords="301,5,550,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="683,159,635,110,604,84,571,62,547,51,546,46,573,58,607,80,638,106,688,160"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9d43a7e47e9cbad63829d29fe995ca10" title=" " alt="" coords="314,72,538,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="655,165,571,129,535,118,535,113,573,124,661,164"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5282b62b1fe232ce0fd9cf6fcf7ec3fe" title=" " alt="" coords="316,139,536,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="602,181,537,175,536,170,607,180"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5cc7cc42cedd0265fe394c002f158c2b" title=" " alt="" coords="302,205,550,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="602,206,551,215,550,210,607,205"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae9680abfcadb03e2d7ba8e31f89780cd" title=" " alt="" coords="316,272,536,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="661,221,573,263,535,274,534,269,571,257,655,223"/>
+<area shape="rect" id="Node000009" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a91f8798ad94b9d64d0be44583236b7b1" title=" " alt="" coords="280,339,572,381"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="688,226,638,281,607,307,573,329,547,341,546,336,571,324,604,303,635,277,683,228"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae8f2cdc589538498ecb1d42e5f5d6ff2" title=" " alt="" coords="16,239,221,281"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="298,281,222,274,221,268,303,279"/>
+<area shape="rect" id="Node000008" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#aefa701e10d1dde1407e9d347bfd69fbd" title=" " alt="" coords="5,305,232,348"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="298,307,233,317,232,312,304,306"/>
+</map>

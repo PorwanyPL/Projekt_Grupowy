@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Services.SocialAccountService.VisibleTo" name="SocialContent.Api.Services.SocialAccountService.VisibleTo">
+<area shape="rect" id="Node000001" title="CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany." alt="" coords="280,39,486,81"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a490c652f2c38eb907c790dd3762939de" title=" " alt="" coords="5,5,232,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,45,232,44,232,38,267,45"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#ae72978372693b3a3b6f3ef2b23108735" title=" " alt="" coords="13,72,224,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,75,225,83,224,77,267,75"/>
+</map>

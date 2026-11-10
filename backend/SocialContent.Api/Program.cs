@@ -125,7 +125,11 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    DatabaseInitializer.Initialize(scope.ServiceProvider.GetRequiredService<AppDbContext>(), app.Logger);
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    DatabaseInitializer.Initialize(db, app.Logger);
+    // Dane demo tylko lokalnie (dotnet run domyślnie działa jako Development).
+    if (app.Environment.IsDevelopment())
+        DatabaseSeeder.Seed(db, scope.ServiceProvider.GetRequiredService<IPasswordHasher>(), app.Logger);
 }
 
 app.UseMiddleware<ExceptionMiddleware>();
@@ -136,3 +140,5 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
 app.Run();
+
+

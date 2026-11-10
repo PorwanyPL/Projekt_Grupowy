@@ -1,0 +1,19 @@
+<map id="frontend/social_content_app/windows/runner/win32_window.cpp" name="frontend/social_content_app/windows/runner/win32_window.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="290,5,473,64"/>
+<area shape="rect" id="Node000002" href="$win32__window_8h.html" title=" " alt="" coords="141,112,257,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,63,240,107,238,102,320,66"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="282,112,359,139"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="364,63,339,101,336,97,360,66"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="383,112,506,139"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="403,62,429,100,424,98,401,67"/>
+<area shape="rect" id="Node000009" href="$resource_8h.html" title=" " alt="" coords="530,112,612,139"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="444,62,533,105,528,105,443,67"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,89,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,141,88,182,86,177,171,137"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="112,187,190,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="193,138,169,176,166,172,188,141"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="214,187,282,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="209,137,234,174,229,173,206,142"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="307,187,360,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="223,137,299,179,294,179,222,142"/>
+</map>

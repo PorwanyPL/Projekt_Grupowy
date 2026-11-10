@@ -1,0 +1,13 @@
+<map id="Win32Window::WndProc" name="Win32Window::WndProc">
+<area shape="rect" id="Node000001" title=" " alt="" coords="578,75,746,101"/>
+<area shape="rect" id="Node000002" href="$class_window_class_registrar.html#a8a12e129ba5e8db3ea9de3ec3833487e" title=" " alt="" coords="356,21,511,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="574,71,511,61,512,55,579,71"/>
+<area shape="rect" id="Node000005" href="$class_win32_window.html#a2165038b6b2c1445abc8e50b4dd18768" title=" " alt="" coords="336,112,530,155"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="579,105,531,117,530,111,574,105"/>
+<area shape="rect" id="Node000003" href="$class_win32_window.html#a6c102372e565aeafe3045fa066df3a92" title=" " alt="" coords="136,29,288,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="338,43,289,45,288,40,343,42"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="5,29,88,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="118,44,89,45,87,40,122,41"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="73,15,65,10,46,8,29,10,20,15,18,20,23,28,18,29,13,21,16,11,28,5,47,3,66,5,78,13"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="467,96,456,93,433,91,412,93,400,97,395,103,396,113,391,110,389,102,396,93,411,87,433,85,457,88,473,97"/>
+</map>

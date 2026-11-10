@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Domain.Entities.Post.MarkPublishing" name="SocialContent.Api.Domain.Entities.Post.MarkPublishing">
+<area shape="rect" id="Node000001" title="Rozpoczyna publikację: Draft/Scheduled &#45;&gt; Publishing (wywoływane przez warstwę integracji z platformą..." alt="" coords="498,5,687,48"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a654ed95626fdcc42926432fecebdbba7" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,5,450,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,27,450,29,450,24,485,27"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a64a6a5f07e3e948dccb74c99ad6634a7" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,5,216,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,27,216,29,216,24,250,27"/>
+</map>

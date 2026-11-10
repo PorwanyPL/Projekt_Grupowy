@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Services.ScheduledPostWorker" name="SocialContent.Api.Services.ScheduledPostWorker">
+<area shape="rect" id="Node000001" title="Co kilkadziesiąt sekund publikuje zaplanowane posty, których termin już nadszedł." alt="" coords="5,123,180,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="31,5,154,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,87,95,123,90,122,91,92"/>
+</map>

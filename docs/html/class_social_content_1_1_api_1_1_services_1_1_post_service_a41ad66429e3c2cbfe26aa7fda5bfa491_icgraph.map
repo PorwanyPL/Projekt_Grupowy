@@ -1,0 +1,15 @@
+<map id="SocialContent.Api.Services.PostService.VisibleTo" name="SocialContent.Api.Services.PostService.VisibleTo">
+<area shape="rect" id="Node000001" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="492,139,677,181"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,72,444,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="491,134,429,118,429,113,496,134"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="259,139,444,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="474,160,445,163,444,157,479,160"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="259,205,444,248"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="496,186,429,207,428,202,491,186"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8a3547823b49efc0a3ec7bcd9fe74903" title=" " alt="" coords="5,5,211,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,68,189,51,188,46,259,66"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="15,72,201,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="241,94,202,96,200,91,246,92"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="15,139,201,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="254,120,189,141,188,136,259,118"/>
+</map>

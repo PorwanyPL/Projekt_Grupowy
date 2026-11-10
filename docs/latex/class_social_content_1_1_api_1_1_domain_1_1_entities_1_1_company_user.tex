@@ -1,0 +1,196 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User}
+\hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{}\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+
+
+Administrator firmy. Rejestruje się jako pierwszy, tworzy \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} i \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} oraz ustala relacje między nimi. Dane logowania (e-\/mail, hasz hasła) są częścią encji, tak jak na diagramie.  
+
+
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a38720300fa31a43c63e3bab0d182c25a}{Set\+Access\+Blocked}} (bool blocked)
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_acf7474c7f54ec1a9342af8834dc33fa2}{Add\+Client}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}} client)
+\begin{DoxyCompactList}\small\item\em Dodaje klienta do firmy; ponowne dodanie tego samego klienta jest błędem. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_addaf921b03ece1138838d7bc75927fca}{Remove\+Client}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}} client)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb}{Company\+User}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef}{Create}} (string name, string normalized\+Email, string password\+Hash)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_aaeedbc4e2d76b72ee41fed81c53572a7}{Company\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_affa92d11ff46e2c2af867ba9d6b89227}{Name}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ac2e2a489ee94c5e8c121b99445c57939}{Email}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Identyfikator logowania: adres e-\/mail w postaci znormalizowanej. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ae8a59ab50e05ea6525ee3e54066bffad}{Password\+Hash}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Hasz PBKDF2 w formacie "{}v1.\+iteracje.\+sól.\+hasz"{}. Nigdy nie opuszcza warstwy serwisów. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ab0f0564f066a3bd6a15196a0a234155f}{Is\+Access\+Blocked}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_adc0919b7210b3c62f0f92681db2fe7b1}{Manager\+Users}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a73038e241d591f9bc17497abab0e841a}{Social\+Accounts}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a1c1e015d26b6bd8e71106b757b239335}{Client\+Users}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Klienci firmy (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb}{Company\+User}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Administrator firmy. Rejestruje się jako pierwszy, tworzy \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} i \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} oraz ustala relacje między nimi. Dane logowania (e-\/mail, hasz hasła) są częścią encji, tak jak na diagramie. 
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_doc-constructors}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_doc-constructors}
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!CompanyUser@{CompanyUser}}
+\index{CompanyUser@{CompanyUser}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{CompanyUser()}{CompanyUser()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb} 
+Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Company\+User (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_acf7474c7f54ec1a9342af8834dc33fa2}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!AddClient@{AddClient}}
+\index{AddClient@{AddClient}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{AddClient()}{AddClient()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_acf7474c7f54ec1a9342af8834dc33fa2} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Add\+Client (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}}}]{client}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dodaje klienta do firmy; ponowne dodanie tego samego klienta jest błędem. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef} 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb}{Company\+User}} Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Create (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{string}]{normalized\+Email}{, }\item[{string}]{password\+Hash}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_addaf921b03ece1138838d7bc75927fca}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!RemoveClient@{RemoveClient}}
+\index{RemoveClient@{RemoveClient}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{RemoveClient()}{RemoveClient()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_addaf921b03ece1138838d7bc75927fca} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Remove\+Client (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}}}]{client}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a38720300fa31a43c63e3bab0d182c25a}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!SetAccessBlocked@{SetAccessBlocked}}
+\index{SetAccessBlocked@{SetAccessBlocked}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{SetAccessBlocked()}{SetAccessBlocked()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a38720300fa31a43c63e3bab0d182c25a} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Set\+Access\+Blocked (\begin{DoxyParamCaption}\item[{bool}]{blocked}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a1c1e015d26b6bd8e71106b757b239335}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!ClientUsers@{ClientUsers}}
+\index{ClientUsers@{ClientUsers}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{ClientUsers}{ClientUsers}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a1c1e015d26b6bd8e71106b757b239335} 
+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Client\+Users = new()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Klienci firmy (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}). 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_aaeedbc4e2d76b72ee41fed81c53572a7}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!CompanyId@{CompanyId}}
+\index{CompanyId@{CompanyId}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{CompanyId}{CompanyId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_aaeedbc4e2d76b72ee41fed81c53572a7} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Company\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ac2e2a489ee94c5e8c121b99445c57939}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!Email@{Email}}
+\index{Email@{Email}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{Email}{Email}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ac2e2a489ee94c5e8c121b99445c57939} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Email = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Identyfikator logowania: adres e-\/mail w postaci znormalizowanej. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ab0f0564f066a3bd6a15196a0a234155f}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!IsAccessBlocked@{IsAccessBlocked}}
+\index{IsAccessBlocked@{IsAccessBlocked}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{IsAccessBlocked}{IsAccessBlocked}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ab0f0564f066a3bd6a15196a0a234155f} 
+bool Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Is\+Access\+Blocked\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_adc0919b7210b3c62f0f92681db2fe7b1}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!ManagerUsers@{ManagerUsers}}
+\index{ManagerUsers@{ManagerUsers}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{ManagerUsers}{ManagerUsers}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_adc0919b7210b3c62f0f92681db2fe7b1} 
+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Manager\+Users = new()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_affa92d11ff46e2c2af867ba9d6b89227}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!Name@{Name}}
+\index{Name@{Name}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_affa92d11ff46e2c2af867ba9d6b89227} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Name = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ae8a59ab50e05ea6525ee3e54066bffad}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!PasswordHash@{PasswordHash}}
+\index{PasswordHash@{PasswordHash}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{PasswordHash}{PasswordHash}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_ae8a59ab50e05ea6525ee3e54066bffad} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Password\+Hash = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Hasz PBKDF2 w formacie "{}v1.\+iteracje.\+sól.\+hasz"{}. Nigdy nie opuszcza warstwy serwisów. 
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a73038e241d591f9bc17497abab0e841a}\index{SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}!SocialAccounts@{SocialAccounts}}
+\index{SocialAccounts@{SocialAccounts}!SocialContent.Api.Domain.Entities.CompanyUser@{SocialContent.Api.Domain.Entities.CompanyUser}}
+\doxysubsubsection{\texorpdfstring{SocialAccounts}{SocialAccounts}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a73038e241d591f9bc17497abab0e841a} 
+List$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}$>$ Social\+Content.\+Api.\+Domain.\+Entities.\+Company\+User.\+Social\+Accounts = new()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Domain/\+\+Entities/\doxymbox{\hyperlink{_company_user_8cs}{Company\+User.\+cs}}\end{DoxyCompactItemize}

@@ -1815,11 +1815,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+      "projectUniqueName": "C:\\Studia\\Sem7\\projektGrupowy\\Projekt_Grupowy\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
       "projectName": "SocialContent.Api",
-      "projectPath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+      "projectPath": "C:\\Studia\\Sem7\\projektGrupowy\\Projekt_Grupowy\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
       "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
-      "outputPath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\obj\\",
+      "outputPath": "C:\\Studia\\Sem7\\projektGrupowy\\Projekt_Grupowy\\backend\\SocialContent.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

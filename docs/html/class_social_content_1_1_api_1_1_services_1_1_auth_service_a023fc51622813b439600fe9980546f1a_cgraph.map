@@ -1,0 +1,20 @@
+<map id="SocialContent.Api.Services.AuthService.RegisterCompanyAsync" name="SocialContent.Api.Services.AuthService.RegisterCompanyAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,180,244,223"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#adc100c67a5389ea3e3dba008ea2d9310" title="Wynik rejestracji lub logowania." alt="" coords="314,29,503,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,177,214,133,290,88,322,77,318,80,293,93,217,138,156,181"/>
+<area shape="rect" id="Node000003" href="$namespace_social_content_1_1_api_1_1_dtos.html#a54fa4a1178843b0d4b61dbaa9a6c64f9" title="Zalogowany użytkownik wraz z rolą i adresem e&#45;mail (widocznym tylko dla niego samego)." alt="" coords="598,55,789,97"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="171,177,228,153,291,132,366,114,443,100,586,84,581,86,444,106,367,120,292,137,229,158,173,182"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html#a910cc2d453187896e555d2e4273fa7ef" title=" " alt="" coords="310,147,506,189"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="243,185,297,180,292,183,245,190"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a3fb8d2c31df1398b5de93bc7152a13cd" title=" " alt="" coords="292,213,525,256"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="244,213,279,218,274,220,245,218"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#ae541ee433369e1593657d2791b6ea7a4" title=" " alt="" coords="292,280,525,323"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="177,221,293,265,315,275,310,275,291,271,176,226"/>
+<area shape="rect" id="Node000008" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#af3daa7b17c91cc74a302a16bb48d75fb" title="Normalizuje i waliduje e&#45;mail oraz hasło; zwraca znormalizowany e&#45;mail." alt="" coords="304,347,512,389"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="148,220,210,276,250,306,293,332,307,341,302,340,290,337,247,311,207,281,146,226"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="355,28,353,19,362,10,380,5,408,3,439,5,459,13,453,14,438,10,408,8,381,10,365,15,358,21,360,29"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="503,56,585,65,580,67,504,62"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="640,53,638,45,647,35,666,30,694,28,724,30,744,39,739,39,723,36,694,33,667,35,650,40,643,46,645,55"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html#a76d7f6c0744d141596c86093a3f7e3cb" title=" " alt="" coords="573,147,814,189"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="506,165,560,167,555,169,507,171"/>
+</map>

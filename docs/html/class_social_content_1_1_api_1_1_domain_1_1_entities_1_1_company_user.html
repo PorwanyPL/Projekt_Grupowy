@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Domain.Entities.CompanyUser</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html','','class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Domain.Entities.CompanyUser</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Administrator firmy. Rejestruje się jako pierwszy, tworzy <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> i <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html" title="Konto w mediach społecznościowych (Facebook, Instagram, TikTok). Relacje z diagramu: n - m ManagerUse...">SocialAccount</a> oraz ustala relacje między nimi. Dane logowania (e-mail, hasz hasła) są częścią encji, tak jak na diagramie.  
+ <a href="#details">Więcej...</a></p>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Domain.Entities.CompanyUser:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_domain_8_entities_8_company_user_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_domain_8_entities_8_company_user_coll__map" id="a_social_content_8_api_8_domain_8_entities_8_company_user_coll__map">
+<area shape="rect" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel..." alt="" coords="5,5,174,325"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a38720300fa31a43c63e3bab0d182c25a" id="r_a38720300fa31a43c63e3bab0d182c25a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a38720300fa31a43c63e3bab0d182c25a">SetAccessBlocked</a> (bool blocked)</td></tr>
+<tr class="memitem:acf7474c7f54ec1a9342af8834dc33fa2" id="r_acf7474c7f54ec1a9342af8834dc33fa2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf7474c7f54ec1a9342af8834dc33fa2">AddClient</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html">ClientUser</a> client)</td></tr>
+<tr class="memdesc:acf7474c7f54ec1a9342af8834dc33fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje klienta do firmy; ponowne dodanie tego samego klienta jest błędem.  <br /></td></tr>
+<tr class="memitem:addaf921b03ece1138838d7bc75927fca" id="r_addaf921b03ece1138838d7bc75927fca"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#addaf921b03ece1138838d7bc75927fca">RemoveClient</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html">ClientUser</a> client)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Statyczne metody publiczne</h2></td></tr>
+<tr class="memitem:a910cc2d453187896e555d2e4273fa7ef" id="r_a910cc2d453187896e555d2e4273fa7ef"><td class="memItemLeft">static <a class="el" href="#a76d7f6c0744d141596c86093a3f7e3cb">CompanyUser</a>&#160;</td><td class="memItemRight"><a class="el" href="#a910cc2d453187896e555d2e4273fa7ef">Create</a> (string name, string normalizedEmail, string passwordHash)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
+Właściwości</h2></td></tr>
+<tr class="memitem:aaeedbc4e2d76b72ee41fed81c53572a7" id="r_aaeedbc4e2d76b72ee41fed81c53572a7"><td class="memItemLeft">Guid&#160;</td><td class="memItemRight"><a class="el" href="#aaeedbc4e2d76b72ee41fed81c53572a7">CompanyId</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:affa92d11ff46e2c2af867ba9d6b89227" id="r_affa92d11ff46e2c2af867ba9d6b89227"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#affa92d11ff46e2c2af867ba9d6b89227">Name</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memitem:ac2e2a489ee94c5e8c121b99445c57939" id="r_ac2e2a489ee94c5e8c121b99445c57939"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ac2e2a489ee94c5e8c121b99445c57939">Email</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memdesc:ac2e2a489ee94c5e8c121b99445c57939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identyfikator logowania: adres e-mail w postaci znormalizowanej.  <br /></td></tr>
+<tr class="memitem:ae8a59ab50e05ea6525ee3e54066bffad" id="r_ae8a59ab50e05ea6525ee3e54066bffad"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ae8a59ab50e05ea6525ee3e54066bffad">PasswordHash</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memdesc:ae8a59ab50e05ea6525ee3e54066bffad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hasz PBKDF2 w formacie "v1.iteracje.sól.hasz". Nigdy nie opuszcza warstwy serwisów.  <br /></td></tr>
+<tr class="memitem:ab0f0564f066a3bd6a15196a0a234155f" id="r_ab0f0564f066a3bd6a15196a0a234155f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab0f0564f066a3bd6a15196a0a234155f">IsAccessBlocked</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:adc0919b7210b3c62f0f92681db2fe7b1" id="r_adc0919b7210b3c62f0f92681db2fe7b1"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adc0919b7210b3c62f0f92681db2fe7b1">ManagerUsers</a> = new()<code> [get, private set]</code></td></tr>
+<tr class="memitem:a73038e241d591f9bc17497abab0e841a" id="r_a73038e241d591f9bc17497abab0e841a"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a73038e241d591f9bc17497abab0e841a">SocialAccounts</a> = new()<code> [get, private set]</code></td></tr>
+<tr class="memitem:a1c1e015d26b6bd8e71106b757b239335" id="r_a1c1e015d26b6bd8e71106b757b239335"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html">ClientUser</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1c1e015d26b6bd8e71106b757b239335">ClientUsers</a> = new()<code> [get, private set]</code></td></tr>
+<tr class="memdesc:a1c1e015d26b6bd8e71106b757b239335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klienci firmy (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> n - m <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html" title="Klient firm. Rejestruje się samodzielnie i może być powiązany z wieloma firmami (ClientUser n - m Com...">ClientUser</a>).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:a76d7f6c0744d141596c86093a3f7e3cb" id="r_a76d7f6c0744d141596c86093a3f7e3cb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a76d7f6c0744d141596c86093a3f7e3cb">CompanyUser</a> ()</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Administrator firmy. Rejestruje się jako pierwszy, tworzy <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> i <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html" title="Konto w mediach społecznościowych (Facebook, Instagram, TikTok). Relacje z diagramu: n - m ManagerUse...">SocialAccount</a> oraz ustala relacje między nimi. Dane logowania (e-mail, hasz hasła) są częścią encji, tak jak na diagramie. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a76d7f6c0744d141596c86093a3f7e3cb" name="a76d7f6c0744d141596c86093a3f7e3cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d7f6c0744d141596c86093a3f7e3cb">&#9670;&#160;</a></span>CompanyUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SocialContent.Api.Domain.Entities.CompanyUser.CompanyUser </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a76d7f6c0744d141596c86093a3f7e3cb_icgraph">
+<area shape="rect" title=" " alt="" coords="536,5,777,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html#a910cc2d453187896e555d2e4273fa7ef" title=" " alt="" coords="292,5,488,48"/>
+<area shape="poly" title=" " alt="" coords="518,27,488,29,488,24,523,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a023fc51622813b439600fe9980546f1a" title=" " alt="" coords="5,5,244,48"/>
+<area shape="poly" title=" " alt="" coords="273,27,244,29,244,24,278,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="acf7474c7f54ec1a9342af8834dc33fa2" name="acf7474c7f54ec1a9342af8834dc33fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf7474c7f54ec1a9342af8834dc33fa2">&#9670;&#160;</a></span>AddClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.CompanyUser.AddClient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html">ClientUser</a></td>          <td class="paramname"><span class="paramname"><em>client</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dodaje klienta do firmy; ponowne dodanie tego samego klienta jest błędem. </p>
+
+</div>
+</div>
+<a id="a910cc2d453187896e555d2e4273fa7ef" name="a910cc2d453187896e555d2e4273fa7ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a910cc2d453187896e555d2e4273fa7ef">&#9670;&#160;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a76d7f6c0744d141596c86093a3f7e3cb">CompanyUser</a> SocialContent.Api.Domain.Entities.CompanyUser.Create </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>normalizedEmail</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>passwordHash</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_cgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,202,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html#a76d7f6c0744d141596c86093a3f7e3cb" title=" " alt="" coords="250,5,491,48"/>
+<area shape="poly" title=" " alt="" coords="202,24,237,26,231,27,202,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user_a910cc2d453187896e555d2e4273fa7ef_icgraph">
+<area shape="rect" title=" " alt="" coords="292,5,488,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a023fc51622813b439600fe9980546f1a" title=" " alt="" coords="5,5,244,48"/>
+<area shape="poly" title=" " alt="" coords="273,27,244,29,244,24,278,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="addaf921b03ece1138838d7bc75927fca" name="addaf921b03ece1138838d7bc75927fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addaf921b03ece1138838d7bc75927fca">&#9670;&#160;</a></span>RemoveClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.CompanyUser.RemoveClient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html">ClientUser</a></td>          <td class="paramname"><span class="paramname"><em>client</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38720300fa31a43c63e3bab0d182c25a" name="a38720300fa31a43c63e3bab0d182c25a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38720300fa31a43c63e3bab0d182c25a">&#9670;&#160;</a></span>SetAccessBlocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.CompanyUser.SetAccessBlocked </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>blocked</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Dokumentacja właściwości</h2>
+<a id="a1c1e015d26b6bd8e71106b757b239335" name="a1c1e015d26b6bd8e71106b757b239335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c1e015d26b6bd8e71106b757b239335">&#9670;&#160;</a></span>ClientUsers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html">ClientUser</a>&gt; SocialContent.Api.Domain.Entities.CompanyUser.ClientUsers = new()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Klienci firmy (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> n - m <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user.html" title="Klient firm. Rejestruje się samodzielnie i może być powiązany z wieloma firmami (ClientUser n - m Com...">ClientUser</a>). </p>
+
+</div>
+</div>
+<a id="aaeedbc4e2d76b72ee41fed81c53572a7" name="aaeedbc4e2d76b72ee41fed81c53572a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeedbc4e2d76b72ee41fed81c53572a7">&#9670;&#160;</a></span>CompanyId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Guid SocialContent.Api.Domain.Entities.CompanyUser.CompanyId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2e2a489ee94c5e8c121b99445c57939" name="ac2e2a489ee94c5e8c121b99445c57939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e2a489ee94c5e8c121b99445c57939">&#9670;&#160;</a></span>Email</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SocialContent.Api.Domain.Entities.CompanyUser.Email = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identyfikator logowania: adres e-mail w postaci znormalizowanej. </p>
+
+</div>
+</div>
+<a id="ab0f0564f066a3bd6a15196a0a234155f" name="ab0f0564f066a3bd6a15196a0a234155f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f0564f066a3bd6a15196a0a234155f">&#9670;&#160;</a></span>IsAccessBlocked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SocialContent.Api.Domain.Entities.CompanyUser.IsAccessBlocked</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc0919b7210b3c62f0f92681db2fe7b1" name="adc0919b7210b3c62f0f92681db2fe7b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc0919b7210b3c62f0f92681db2fe7b1">&#9670;&#160;</a></span>ManagerUsers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a>&gt; SocialContent.Api.Domain.Entities.CompanyUser.ManagerUsers = new()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affa92d11ff46e2c2af867ba9d6b89227" name="affa92d11ff46e2c2af867ba9d6b89227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affa92d11ff46e2c2af867ba9d6b89227">&#9670;&#160;</a></span>Name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SocialContent.Api.Domain.Entities.CompanyUser.Name = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8a59ab50e05ea6525ee3e54066bffad" name="ae8a59ab50e05ea6525ee3e54066bffad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a59ab50e05ea6525ee3e54066bffad">&#9670;&#160;</a></span>PasswordHash</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SocialContent.Api.Domain.Entities.CompanyUser.PasswordHash = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Hasz PBKDF2 w formacie "v1.iteracje.sól.hasz". Nigdy nie opuszcza warstwy serwisów. </p>
+
+</div>
+</div>
+<a id="a73038e241d591f9bc17497abab0e841a" name="a73038e241d591f9bc17497abab0e841a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73038e241d591f9bc17497abab0e841a">&#9670;&#160;</a></span>SocialAccounts</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>&gt; SocialContent.Api.Domain.Entities.CompanyUser.SocialAccounts = new()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Domain/Entities/<a class="el" href="_company_user_8cs.html">CompanyUser.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_domain.html">Domain</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_domain_1_1_entities.html">Entities</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html">CompanyUser</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

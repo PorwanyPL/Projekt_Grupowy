@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Controllers.ClientUsersController" name="SocialContent.Api.Controllers.ClientUsersController">
+<area shape="rect" id="Node000001" title="Relacja firma &#45; klient (n &#45; m). Firma zarządza swoimi klientami, klient widzi firmy,..." alt="" coords="5,123,192,272"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,147,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,87,101,123,96,122,98,92"/>
+</map>

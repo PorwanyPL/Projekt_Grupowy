@@ -1,0 +1,55 @@
+<map id="SocialContent.Api.Services.PostService.UpdateAsync" name="SocialContent.Api.Services.PostService.UpdateAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,356,191,399"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a56c9a76850bedf7a47cc7ed0c828037f" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="268,5,454,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,355,112,296,136,216,154,173,177,131,204,92,237,58,256,47,253,51,240,62,208,95,181,134,159,175,141,218,117,297,105,356"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a40e4d422d4ef5de965b08b5963be8618" title=" " alt="" coords="268,72,454,115"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="103,355,119,307,146,245,185,180,209,150,237,125,256,114,253,119,240,129,213,154,189,183,150,247,124,309,108,356"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6939100e6f8a6bfee3b093245bd968f0" title=" " alt="" coords="268,139,454,181"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="108,354,158,278,194,235,237,198,260,186,257,190,240,202,198,239,162,281,113,357"/>
+<area shape="rect" id="Node000007" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="841,381,1027,424"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="111,354,133,326,162,294,197,264,238,242,273,230,304,224,358,224,414,233,483,241,571,241,642,238,675,240,710,245,748,255,792,272,827,292,859,316,909,369,904,369,855,320,824,296,790,277,747,260,709,250,674,245,642,244,572,246,483,247,413,239,358,229,304,229,274,235,240,246,200,269,165,298,137,330,116,357"/>
+<area shape="rect" id="Node000008" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a9ceb09f9186bc3278808956aa0196e93" title="Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post." alt="" coords="239,256,483,299"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="138,354,238,308,261,302,257,305,240,313,142,357"/>
+<area shape="rect" id="Node000009" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="268,323,454,365"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="190,363,255,356,251,359,193,368"/>
+<area shape="rect" id="Node000012" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f62db4b010709a19b5154487409a487" title=" " alt="" coords="266,389,456,432"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="190,387,253,395,248,398,192,392"/>
+<area shape="rect" id="Node000013" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#aaf94be54b707eab518ad610ad960a8da" title=" " alt="" coords="268,456,454,499"/>
+<area shape="poly" id="edge17_Node000001_Node000013" title=" " alt="" coords="139,397,240,442,261,450,256,452,238,446,141,402"/>
+<area shape="rect" id="Node000014" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6cfb44f43718ebea57103fe41dda8fcb" title="Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd." alt="" coords="257,523,465,565"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="116,397,169,453,203,483,240,508,251,515,246,517,237,513,200,487,165,457,116,402"/>
+<area shape="rect" id="Node000015" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3bcdf77fff1b722764e4cf9f99aba15f" title="Reguła tworzenia postów: tylko z poziomu konta społecznościowego. CompanyUser może tworzyć na każdym ..." alt="" coords="531,448,791,491"/>
+<area shape="poly" id="edge19_Node000001_Node000015" title=" " alt="" coords="107,396,126,439,153,489,191,538,214,558,240,575,305,603,333,610,361,612,388,610,417,603,482,575,498,561,506,544,513,525,529,507,553,496,548,499,533,511,518,528,511,546,502,564,484,580,419,608,389,615,361,618,332,615,303,608,237,580,211,563,187,541,149,492,121,441,107,402"/>
+<area shape="rect" id="Node000016" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="268,640,454,683"/>
+<area shape="poly" id="edge21_Node000001_Node000016" title=" " alt="" coords="106,396,125,444,152,504,191,566,214,594,240,619,258,632,253,633,237,623,210,598,186,569,147,506,120,446,106,402"/>
+<area shape="rect" id="Node000020" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#a96595df95422e1eaab16fcd69c1f6843" title=" " alt="" coords="270,757,452,800"/>
+<area shape="poly" id="edge29_Node000001_Node000020" title=" " alt="" coords="105,396,123,454,150,531,189,615,213,655,241,693,271,723,307,749,301,749,268,727,237,696,209,658,184,617,145,533,118,456,104,402"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8840e392e2a0bdfdda394ec624af3c28" title=" " alt="" coords="568,72,754,115"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="453,45,556,68,551,71,455,50"/>
+<area shape="rect" id="Node000004" href="$namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="841,72,1027,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="753,91,828,92,823,94,755,96"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="883,71,881,62,889,53,907,47,934,45,963,48,982,56,977,57,962,53,934,51,908,53,892,57,886,63,888,72"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="453,137,555,116,551,119,455,142"/>
+<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="883,380,881,371,889,362,907,357,934,355,963,357,982,366,977,366,962,362,934,360,908,362,892,367,886,373,888,382"/>
+<area shape="poly" id="edge12_Node000009_Node000007" title=" " alt="" coords="434,320,531,300,663,282,721,283,792,300,823,313,853,330,903,371,897,371,850,335,821,318,791,305,720,289,663,287,531,305,437,324"/>
+<area shape="rect" id="Node000010" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="568,315,754,357"/>
+<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="453,339,555,338,550,340,455,344"/>
+<area shape="rect" id="Node000011" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="568,381,754,424"/>
+<area shape="poly" id="edge14_Node000009_Node000011" title=" " alt="" coords="453,359,556,381,551,383,454,365"/>
+<area shape="poly" id="edge15_Node000011_Node000007" title=" " alt="" coords="754,400,828,402,823,403,755,405"/>
+<area shape="poly" id="edge20_Node000015_Node000007" title=" " alt="" coords="750,445,831,427,826,429,752,450"/>
+<area shape="poly" id="edge22_Node000016_Node000007" title=" " alt="" coords="447,637,481,618,496,602,504,585,512,567,529,551,565,532,598,523,628,519,658,519,719,519,752,513,790,500,847,468,895,436,899,433,850,473,792,505,754,518,719,524,658,524,629,524,599,528,567,537,533,555,517,571,509,587,501,605,485,622,449,642"/>
+<area shape="rect" id="Node000017" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="558,565,764,608"/>
+<area shape="poly" id="edge23_Node000016_Node000017" title=" " alt="" coords="449,637,560,611,555,613,451,642"/>
+<area shape="rect" id="Node000018" href="$namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="556,656,766,683"/>
+<area shape="poly" id="edge24_Node000016_Node000018" title=" " alt="" coords="454,661,543,665,537,667,454,666"/>
+<area shape="rect" id="Node000019" href="$namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="839,673,1029,716"/>
+<area shape="poly" id="edge28_Node000016_Node000019" title=" " alt="" coords="454,680,531,692,684,700,826,700,821,701,684,705,531,697,454,686"/>
+<area shape="poly" id="edge25_Node000018_Node000018" title=" " alt="" coords="615,655,607,647,613,637,631,631,661,629,694,632,713,641,707,641,693,637,661,635,632,637,616,642,613,647,620,656"/>
+<area shape="poly" id="edge26_Node000018_Node000019" title=" " alt="" coords="767,676,827,684,821,685,767,682"/>
+<area shape="poly" id="edge27_Node000019_Node000019" title=" " alt="" coords="883,671,881,663,889,654,907,649,934,647,963,649,982,658,977,658,962,654,934,652,908,654,892,659,886,665,888,674"/>
+<area shape="rect" id="Node000021" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a028b9d7b01d44c5306e7ace2dca5d94b" title=" " alt="" coords="572,757,751,800"/>
+<area shape="poly" id="edge30_Node000020_Node000021" title=" " alt="" coords="452,776,559,778,553,779,452,781"/>
+<area shape="rect" id="Node000022" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#abb2d5adb0bbb9747723d4eaab4b5bad0" title=" " alt="" coords="561,824,761,867"/>
+<area shape="poly" id="edge31_Node000020_Node000022" title=" " alt="" coords="452,796,550,820,545,820,452,801"/>
+</map>

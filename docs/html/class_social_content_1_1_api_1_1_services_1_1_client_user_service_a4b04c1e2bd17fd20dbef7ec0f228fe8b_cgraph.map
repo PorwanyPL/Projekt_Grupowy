@@ -1,0 +1,8 @@
+<map id="SocialContent.Api.Services.ClientUserService.GetForCompanyAsync" name="SocialContent.Api.Services.ClientUserService.GetForCompanyAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,63,270,105"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af" title="Klient (ClientUser) widziany przez firmę, z którą jest powiązany." alt="" coords="327,29,524,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,66,314,63,309,64,271,71"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#aedad7d173844745494010b6c959d0c0b" title=" " alt="" coords="318,96,533,139"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="270,97,305,103,300,103,270,102"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="372,27,369,19,378,10,397,5,425,3,456,5,476,14,471,14,455,10,425,8,398,10,381,15,374,21,376,30"/>
+</map>

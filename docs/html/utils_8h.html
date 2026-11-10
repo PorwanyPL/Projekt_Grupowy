@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja pliku frontend/social_content_app/windows/runner/utils.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('utils_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja pliku utils.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla utils.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h__incl.png" border="0" usemap="#afrontend_2social__content__app_2windows_2runner_2utils_8h" loading="lazy" alt=""/></div>
+<map name="afrontend_2social__content__app_2windows_2runner_2utils_8h" id="afrontend_2social__content__app_2windows_2runner_2utils_8h">
+<area shape="rect" title=" " alt="" coords="5,5,189,48"/>
+<area shape="rect" title=" " alt="" coords="30,96,84,123"/>
+<area shape="poly" title=" " alt="" coords="89,47,72,84,68,81,85,50"/>
+<area shape="rect" title=" " alt="" coords="108,96,166,123"/>
+<area shape="poly" title=" " alt="" coords="109,46,127,82,121,82,106,51"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h__dep__incl.png" border="0" usemap="#afrontend_2social__content__app_2windows_2runner_2utils_8hdep" loading="lazy" alt=""/></div>
+<map name="afrontend_2social__content__app_2windows_2runner_2utils_8hdep" id="afrontend_2social__content__app_2windows_2runner_2utils_8hdep">
+<area shape="rect" title=" " alt="" coords="126,5,310,48"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,96,207,139"/>
+<area shape="poly" title=" " alt="" coords="182,57,134,98,131,93,177,59"/>
+<area shape="rect" href="utils_8cpp.html" title=" " alt="" coords="231,96,429,139"/>
+<area shape="poly" title=" " alt="" coords="257,55,306,96,301,95,255,60"/>
+</map>
+</div>
+</div>
+<p><a href="utils_8h_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:ac206058cc96ec64c967460335f120c71" id="r_ac206058cc96ec64c967460335f120c71"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac206058cc96ec64c967460335f120c71">CreateAndAttachConsole</a> ()</td></tr>
+<tr class="memitem:a44154bf7502183f7c1a1b86b2445d7c6" id="r_a44154bf7502183f7c1a1b86b2445d7c6"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a44154bf7502183f7c1a1b86b2445d7c6">Utf8FromUtf16</a> (const wchar_t *utf16_string)</td></tr>
+<tr class="memitem:af4b26a427bd4b9434ac8583c2e3f8049" id="r_af4b26a427bd4b9434ac8583c2e3f8049"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af4b26a427bd4b9434ac8583c2e3f8049">GetCommandLineArguments</a> ()</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji</h2>
+<a id="ac206058cc96ec64c967460335f120c71" name="ac206058cc96ec64c967460335f120c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac206058cc96ec64c967460335f120c71">&#9670;&#160;</a></span>CreateAndAttachConsole()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CreateAndAttachConsole </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_ac206058cc96ec64c967460335f120c71_cgraph.png" border="0" usemap="#autils_8h_ac206058cc96ec64c967460335f120c71_cgraph" loading="lazy" alt=""/></div>
+<map name="autils_8h_ac206058cc96ec64c967460335f120c71_cgraph" id="autils_8h_ac206058cc96ec64c967460335f120c71_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,175,56"/>
+<area shape="poly" title=" " alt="" coords="60,28,56,21,59,11,71,5,90,3,110,5,123,14,117,14,109,10,90,8,73,10,63,15,61,20,66,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_ac206058cc96ec64c967460335f120c71_icgraph.png" border="0" usemap="#autils_8h_ac206058cc96ec64c967460335f120c71_icgraph" loading="lazy" alt=""/></div>
+<map name="autils_8h_ac206058cc96ec64c967460335f120c71_icgraph" id="autils_8h_ac206058cc96ec64c967460335f120c71_icgraph">
+<area shape="rect" title=" " alt="" coords="136,29,305,56"/>
+<area shape="poly" title=" " alt="" coords="248,14,240,10,220,8,202,10,193,15,190,20,195,30,190,28,185,21,189,11,201,5,220,3,241,5,254,14"/>
+<area shape="rect" href="main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="5,29,88,56"/>
+<area shape="poly" title=" " alt="" coords="118,43,88,45,88,40,123,42"/>
+<area shape="poly" title=" " alt="" coords="75,14,66,10,46,8,29,10,19,15,17,20,21,28,16,29,11,21,15,11,27,5,47,3,67,5,80,14"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af4b26a427bd4b9434ac8583c2e3f8049" name="af4b26a427bd4b9434ac8583c2e3f8049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b26a427bd4b9434ac8583c2e3f8049">&#9670;&#160;</a></span>GetCommandLineArguments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; GetCommandLineArguments </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_af4b26a427bd4b9434ac8583c2e3f8049_cgraph.png" border="0" usemap="#autils_8h_af4b26a427bd4b9434ac8583c2e3f8049_cgraph" loading="lazy" alt=""/></div>
+<map name="autils_8h_af4b26a427bd4b9434ac8583c2e3f8049_cgraph" id="autils_8h_af4b26a427bd4b9434ac8583c2e3f8049_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,195,56"/>
+<area shape="poly" title=" " alt="" coords="66,28,61,21,65,11,78,5,100,3,124,5,137,14,132,14,122,10,100,8,79,10,68,15,66,20,71,29"/>
+<area shape="rect" href="utils_8cpp.html#a44154bf7502183f7c1a1b86b2445d7c6" title=" " alt="" coords="243,29,351,56"/>
+<area shape="poly" title=" " alt="" coords="195,40,230,43,224,43,195,45"/>
+<area shape="poly" title=" " alt="" coords="263,28,257,21,261,11,275,5,297,3,320,5,334,14,329,14,319,10,297,8,276,10,265,15,263,20,268,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_af4b26a427bd4b9434ac8583c2e3f8049_icgraph.png" border="0" usemap="#autils_8h_af4b26a427bd4b9434ac8583c2e3f8049_icgraph" loading="lazy" alt=""/></div>
+<map name="autils_8h_af4b26a427bd4b9434ac8583c2e3f8049_icgraph" id="autils_8h_af4b26a427bd4b9434ac8583c2e3f8049_icgraph">
+<area shape="rect" title=" " alt="" coords="136,29,325,56"/>
+<area shape="poly" title=" " alt="" coords="260,14,251,10,230,8,211,10,201,15,199,20,204,30,199,28,193,21,197,11,210,5,230,3,252,5,265,14"/>
+<area shape="rect" href="main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="5,29,88,56"/>
+<area shape="poly" title=" " alt="" coords="118,43,88,45,88,40,123,42"/>
+<area shape="poly" title=" " alt="" coords="76,14,67,10,46,8,27,10,17,15,15,20,20,28,15,30,9,21,13,11,26,5,47,3,69,5,82,14"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a44154bf7502183f7c1a1b86b2445d7c6" name="a44154bf7502183f7c1a1b86b2445d7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44154bf7502183f7c1a1b86b2445d7c6">&#9670;&#160;</a></span>Utf8FromUtf16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Utf8FromUtf16 </td>
+          <td>(</td>
+          <td class="paramtype">const wchar_t *</td>          <td class="paramname"><span class="paramname"><em>utf16_string</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_a44154bf7502183f7c1a1b86b2445d7c6_cgraph.png" border="0" usemap="#autils_8h_a44154bf7502183f7c1a1b86b2445d7c6_cgraph" loading="lazy" alt=""/></div>
+<map name="autils_8h_a44154bf7502183f7c1a1b86b2445d7c6_cgraph" id="autils_8h_a44154bf7502183f7c1a1b86b2445d7c6_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,114,56"/>
+<area shape="poly" title=" " alt="" coords="40,29,37,20,39,11,47,5,60,3,73,5,81,14,76,14,71,10,59,8,49,10,43,14,42,20,45,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h_a44154bf7502183f7c1a1b86b2445d7c6_icgraph.png" border="0" usemap="#autils_8h_a44154bf7502183f7c1a1b86b2445d7c6_icgraph" loading="lazy" alt=""/></div>
+<map name="autils_8h_a44154bf7502183f7c1a1b86b2445d7c6_icgraph" id="autils_8h_a44154bf7502183f7c1a1b86b2445d7c6_icgraph">
+<area shape="rect" title=" " alt="" coords="373,29,481,56"/>
+<area shape="poly" title=" " alt="" coords="459,14,449,10,427,8,407,10,396,15,393,20,398,30,393,28,388,21,392,11,405,5,427,3,451,5,465,15"/>
+<area shape="rect" href="utils_8cpp.html#af4b26a427bd4b9434ac8583c2e3f8049" title=" " alt="" coords="136,29,325,56"/>
+<area shape="poly" title=" " alt="" coords="355,43,325,45,325,40,360,43"/>
+<area shape="poly" title=" " alt="" coords="260,14,251,10,230,8,211,10,201,15,199,20,204,30,199,28,193,21,197,11,210,5,230,3,252,5,265,14"/>
+<area shape="rect" href="main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="5,29,88,56"/>
+<area shape="poly" title=" " alt="" coords="118,43,88,45,88,40,123,42"/>
+<area shape="poly" title=" " alt="" coords="76,14,67,10,46,8,27,10,17,15,15,20,20,28,15,30,9,21,13,11,26,5,47,3,69,5,82,14"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_ca0386ec887ae6362f93b0d653b52e0c.html">frontend</a></li><li class="navelem"><a href="dir_ad020450540a24c70efa4b074932d3d7.html">social_content_app</a></li><li class="navelem"><a href="dir_7fa4a51aecb2eb41f8d981fb4941832b.html">windows</a></li><li class="navelem"><a href="dir_b2a93cddb3aa6c8597695b4ce8e8acac.html">runner</a></li><li class="navelem"><a href="utils_8h.html">utils.h</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

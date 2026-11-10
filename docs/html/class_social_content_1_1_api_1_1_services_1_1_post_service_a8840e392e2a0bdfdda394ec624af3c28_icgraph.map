@@ -1,0 +1,13 @@
+<map id="SocialContent.Api.Services.PostService.FindUploaded" name="SocialContent.Api.Services.PostService.FindUploaded">
+<area shape="rect" id="Node000001" title=" " alt="" coords="472,39,657,81"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a56c9a76850bedf7a47cc7ed0c828037f" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="239,5,424,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,45,425,43,425,37,459,44"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6939100e6f8a6bfee3b093245bd968f0" title=" " alt="" coords="239,72,424,115"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="459,75,425,83,424,77,454,76"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,27,192,29,191,24,226,26"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="243,52,176,74,175,69,237,53"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="237,68,175,51,176,46,243,67"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="221,94,191,96,191,91,226,93"/>
+</map>

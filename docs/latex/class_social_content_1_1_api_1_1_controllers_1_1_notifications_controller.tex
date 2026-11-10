@@ -1,0 +1,86 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Controllers.\+Notifications\+Controller(INotification\+Service service)}
+\hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller}{}\label{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller}\index{SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}}
+
+
+Powiadomienia zalogowanego użytkownika (np. o nieudanej publikacji posta).  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Controllers.\+Notifications\+Controller
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Controllers.\+Notifications\+Controller:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59}{Notification\+Dto}} $>$ $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_af3dc1fd0114269ab26b130d9d1c0b4f4}{Get\+All}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz swoje powiadomienia. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_a3c117fce0fd2b89732a75387996aa971}{Mark\+Read}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Oznacz powiadomienie jako przeczytane. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_a36d115f7bc380ba6e20b8d339e79fd9c}{Mark\+All\+Read}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Oznacz wszystkie powiadomienia jako przeczytane. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Powiadomienia zalogowanego użytkownika (np. o nieudanej publikacji posta). 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_af3dc1fd0114269ab26b130d9d1c0b4f4}\index{SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_af3dc1fd0114269ab26b130d9d1c0b4f4} 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_addd0ac2428a8305592b699a2d4e56a59}{Notification\+Dto}} $>$ $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Notifications\+Controller.\+Get\+All (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz swoje powiadomienia. 
+
+Od najnowszych. Powiadomienia dostają firma i autorzy posta, którego publikacja się nie udała.
+
+$<$response code="{}200"{}$>$Lista powiadomień.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_a36d115f7bc380ba6e20b8d339e79fd9c}\index{SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}!MarkAllRead@{MarkAllRead}}
+\index{MarkAllRead@{MarkAllRead}!SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}}
+\doxysubsubsection{\texorpdfstring{MarkAllRead()}{MarkAllRead()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_a36d115f7bc380ba6e20b8d339e79fd9c} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Notifications\+Controller.\+Mark\+All\+Read (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Oznacz wszystkie powiadomienia jako przeczytane. 
+
+$<$response code="{}204"{}$>$Oznaczono.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_a3c117fce0fd2b89732a75387996aa971}\index{SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}!MarkRead@{MarkRead}}
+\index{MarkRead@{MarkRead}!SocialContent.Api.Controllers.NotificationsController@{SocialContent.Api.Controllers.NotificationsController}}
+\doxysubsubsection{\texorpdfstring{MarkRead()}{MarkRead()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller_a3c117fce0fd2b89732a75387996aa971} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Notifications\+Controller.\+Mark\+Read (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Oznacz powiadomienie jako przeczytane. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator powiadomienia.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}204"{}$>$Oznaczono.$<$/\+response$>$ $<$response code="{}404"{}$>$Powiadomienie nie istnieje.$<$/\+response$>$ 
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Controllers/\doxymbox{\hyperlink{_notifications_controller_8cs}{Notifications\+Controller.\+cs}}\end{DoxyCompactItemize}

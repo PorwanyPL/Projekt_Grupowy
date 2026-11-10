@@ -1,0 +1,11 @@
+<map id="SocialContent.Api.Services.PostPublisher.PublishAsync" name="SocialContent.Api.Services.PostPublisher.PublishAsync">
+<area shape="rect" id="Node000001" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="5,105,192,148"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#adcf846c51cc58942916400be9ae60875" title="Kończy publikację błędem: Publishing &#45;&gt; Failed (komunikat jest przycinany do 1000 znaków)." alt="" coords="286,5,465,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,103,186,79,239,57,273,49,268,51,241,63,188,84,141,107"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa540643b7b110f2d9e9d57818ab59787" title="Kończy publikację sukcesem: Publishing &#45;&gt; Published." alt="" coords="282,72,468,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,113,269,105,264,108,193,118"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ad965fcf4eb8aecf2ac2321a983052517" title="Rozpoczyna publikację: Draft/Scheduled &#45;&gt; Publishing (wywoływane przez warstwę integracji z platformą..." alt="" coords="281,139,470,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="192,135,267,146,262,148,192,141"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a212049dbff1e506e4101c8fbd13dc22d" title="Zapisuje wynik kontroli połączenia (Validate.VerifyConnection): przyczynę błędu albo null,..." alt="" coords="240,205,511,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="140,146,188,169,241,191,264,201,259,200,239,196,186,174,140,151"/>
+</map>

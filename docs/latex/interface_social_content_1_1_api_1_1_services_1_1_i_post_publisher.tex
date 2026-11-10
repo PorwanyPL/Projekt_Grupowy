@@ -1,0 +1,83 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IPost\+Publisher}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher}\index{SocialContent.Api.Services.IPostPublisher@{SocialContent.Api.Services.IPostPublisher}}
+
+
+Publikacja postów. Prototyp nie ma integracji z API Facebooka, Instagrama ani Tik\+Toka: publikacja sprawdza lokalnie połączenie z kontem (Validate.\+Verify\+Connection) i, gdy jest poprawne, oznacza post jako opublikowany z symulowanym identyfikatorem zewnętrznym. Gdy połączenie jest niepoprawne, post dostaje status Failed, a administrator firmy i managerowie posta dostają powiadomienie.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IPost\+Publisher
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IPost\+Publisher:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_a3c43ccc053f4a2214be0ea747687bbc7}{Publish\+Async}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}} post, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Publikuje post (Draft/\+\+Scheduled/\+\+Failed -\/\texorpdfstring{$>$}{>} Published albo Failed). Wywołujący zapisał już post w bazie. \end{DoxyCompactList}\item 
+Task$<$ int $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_ab50ad44ab30c92fd7d05bf9b17c0426e}{Publish\+Due\+Async}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Publikacja postów. Prototyp nie ma integracji z API Facebooka, Instagrama ani Tik\+Toka: publikacja sprawdza lokalnie połączenie z kontem (Validate.\+Verify\+Connection) i, gdy jest poprawne, oznacza post jako opublikowany z symulowanym identyfikatorem zewnętrznym. Gdy połączenie jest niepoprawne, post dostaje status Failed, a administrator firmy i managerowie posta dostają powiadomienie. 
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_a3c43ccc053f4a2214be0ea747687bbc7}\index{SocialContent.Api.Services.IPostPublisher@{SocialContent.Api.Services.IPostPublisher}!PublishAsync@{PublishAsync}}
+\index{PublishAsync@{PublishAsync}!SocialContent.Api.Services.IPostPublisher@{SocialContent.Api.Services.IPostPublisher}}
+\doxysubsubsection{\texorpdfstring{PublishAsync()}{PublishAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_a3c43ccc053f4a2214be0ea747687bbc7} 
+Task Social\+Content.\+Api.\+Services.\+IPost\+Publisher.\+Publish\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}}}]{post}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Publikuje post (Draft/\+\+Scheduled/\+\+Failed -\/\texorpdfstring{$>$}{>} Published albo Failed). Wywołujący zapisał już post w bazie. 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7}{Social\+Content.\+Api.\+Services.\+Post\+Publisher}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_ab50ad44ab30c92fd7d05bf9b17c0426e}\index{SocialContent.Api.Services.IPostPublisher@{SocialContent.Api.Services.IPostPublisher}!PublishDueAsync@{PublishDueAsync}}
+\index{PublishDueAsync@{PublishDueAsync}!SocialContent.Api.Services.IPostPublisher@{SocialContent.Api.Services.IPostPublisher}}
+\doxysubsubsection{\texorpdfstring{PublishDueAsync()}{PublishDueAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_ab50ad44ab30c92fd7d05bf9b17c0426e} 
+Task$<$ int $>$ Social\+Content.\+Api.\+Services.\+IPost\+Publisher.\+Publish\+Due\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych. 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7}{Social\+Content.\+Api.\+Services.\+Post\+Publisher}}.
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_ab50ad44ab30c92fd7d05bf9b17c0426e_icgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_post_publisher_8cs}{Post\+Publisher.\+cs}}\end{DoxyCompactItemize}

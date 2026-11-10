@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja pliku backend/SocialContent.Api/Program.cs</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_program_8cs.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja pliku Program.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Definicje typów</h2></td></tr>
+<tr class="memitem:a6d8c3289d428b637dfaaca5ea46ae5ed" id="r_a6d8c3289d428b637dfaaca5ea46ae5ed"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a6d8c3289d428b637dfaaca5ea46ae5ed">scope</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a5833ae5c758b859235144a19b9644918" id="r_a5833ae5c758b859235144a19b9644918"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5833ae5c758b859235144a19b9644918">if</a> (Encoding.UTF8.GetByteCount(jwt.Key ?? &quot;&quot;)&lt; 32) throw new InvalidOperationException(&quot;Konfiguracja 'Jwt</td></tr>
+<tr class="memitem:a711855c639a06acae9d07805cb51f9b1" id="r_a711855c639a06acae9d07805cb51f9b1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a711855c639a06acae9d07805cb51f9b1">if</a> (File.Exists(<a class="el" href="#a522fb8db8e9d25f5545f0a97d2b51ea4">xmlPath</a>)) o.IncludeXmlComments(<a class="el" href="#a522fb8db8e9d25f5545f0a97d2b51ea4">xmlPath</a></td></tr>
+<tr class="memitem:a4e69d5d7bd4e11782e3b0edcde7d4520" id="r_a4e69d5d7bd4e11782e3b0edcde7d4520"><td class="memItemLeft">o.&#160;</td><td class="memItemRight"><a class="el" href="#a4e69d5d7bd4e11782e3b0edcde7d4520">AddSecurityDefinition</a> (&quot;Bearer&quot;, new OpenApiSecurityScheme { Name=&quot;Authorization&quot;, Type=SecuritySchemeType.Http, Scheme=&quot;bearer&quot;, BearerFormat=&quot;JWT&quot;, In=ParameterLocation.Header, Description=&quot;Wklej token JWT otrzymany z /api/Auth/login, /api/Auth/register-company lub /api/Auth/register-client (bez słowa Bearer).&quot; })</td></tr>
+<tr class="memitem:a70fac86275ed1baa171082f3f8de6a6e" id="r_a70fac86275ed1baa171082f3f8de6a6e"><td class="memItemLeft">o.&#160;</td><td class="memItemRight"><a class="el" href="#a70fac86275ed1baa171082f3f8de6a6e">OperationFilter&lt; AuthorizeOperationFilter &gt;</a> ()</td></tr>
+<tr class="memitem:a22b0dc6e41ce92ffa45875e65c5f489f" id="r_a22b0dc6e41ce92ffa45875e65c5f489f"><td class="memItemLeft">builder.Services.&#160;</td><td class="memItemRight"><a class="el" href="#a22b0dc6e41ce92ffa45875e65c5f489f">AddCors</a> (o=&gt; o.AddDefaultPolicy(p=&gt; p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()))</td></tr>
+<tr class="memitem:a0a7b080f8fbf578227b41f824d2bcec5" id="r_a0a7b080f8fbf578227b41f824d2bcec5"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#a0a7b080f8fbf578227b41f824d2bcec5">UseCors</a> ()</td></tr>
+<tr class="memitem:a6435d8beeff4999dc0b0c6d60a86a4e2" id="r_a6435d8beeff4999dc0b0c6d60a86a4e2"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#a6435d8beeff4999dc0b0c6d60a86a4e2">UseAuthentication</a> ()</td></tr>
+<tr class="memitem:af6f72d752b2e73aa0292f74bd13237ab" id="r_af6f72d752b2e73aa0292f74bd13237ab"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#af6f72d752b2e73aa0292f74bd13237ab">UseAuthorization</a> ()</td></tr>
+<tr class="memitem:a9a5cfe7fee09f478241b98af703affea" id="r_a9a5cfe7fee09f478241b98af703affea"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#a9a5cfe7fee09f478241b98af703affea">UseSwagger</a> ()</td></tr>
+<tr class="memitem:a968f30949d31f6febdcf7f3fe40bfa42" id="r_a968f30949d31f6febdcf7f3fe40bfa42"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#a968f30949d31f6febdcf7f3fe40bfa42">UseSwaggerUI</a> ()</td></tr>
+<tr class="memitem:a9e2ee3170aa6279b68eefd1651f7d96c" id="r_a9e2ee3170aa6279b68eefd1651f7d96c"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#a9e2ee3170aa6279b68eefd1651f7d96c">MapControllers</a> ()</td></tr>
+<tr class="memitem:aaa3dbf02e269c3ef7e8546d290c6b3dd" id="r_aaa3dbf02e269c3ef7e8546d290c6b3dd"><td class="memItemLeft">app.&#160;</td><td class="memItemRight"><a class="el" href="#aaa3dbf02e269c3ef7e8546d290c6b3dd">Run</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Zmienne</h2></td></tr>
+<tr class="memitem:a2f78352277081c620fd4cf92a5ce15e5" id="r_a2f78352277081c620fd4cf92a5ce15e5"><td class="memItemLeft">var&#160;</td><td class="memItemRight"><a class="el" href="#a2f78352277081c620fd4cf92a5ce15e5">builder</a> = WebApplication.CreateBuilder(args)</td></tr>
+<tr class="memitem:a91962682500569d692e984e14d3723e8" id="r_a91962682500569d692e984e14d3723e8"><td class="memItemLeft">var&#160;</td><td class="memItemRight"><a class="el" href="#a91962682500569d692e984e14d3723e8">jwt</a> = builder.Configuration.GetSection(<a class="el" href="class_social_content_1_1_api_1_1_services_1_1_jwt_options.html#acecf55931494d0cb2f96cd56dc8affbe">JwtOptions.SectionName</a>).Get&lt;<a class="el" href="class_social_content_1_1_api_1_1_services_1_1_jwt_options.html">JwtOptions</a>&gt;() ?? new <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_jwt_options.html">JwtOptions</a>()</td></tr>
+<tr class="memitem:aa68955b0cb64b0e71d25f23d773b3845" id="r_aa68955b0cb64b0e71d25f23d773b3845"><td class="memItemLeft">.&#160;</td><td class="memItemRight"><a class="el" href="#aa68955b0cb64b0e71d25f23d773b3845">xml</a></td></tr>
+<tr class="memitem:a522fb8db8e9d25f5545f0a97d2b51ea4" id="r_a522fb8db8e9d25f5545f0a97d2b51ea4"><td class="memItemLeft">var&#160;</td><td class="memItemRight"><a class="el" href="#a522fb8db8e9d25f5545f0a97d2b51ea4">xmlPath</a> = Path.Combine(AppContext.BaseDirectory, xmlFile)</td></tr>
+<tr class="memitem:a5dc4d4d086df133c4e7c08e07e0cd8ea" id="r_a5dc4d4d086df133c4e7c08e07e0cd8ea"><td class="memItemLeft">includeControllerXmlComments&#160;</td><td class="memItemRight"><a class="el" href="#a5dc4d4d086df133c4e7c08e07e0cd8ea">__pad0__</a></td></tr>
+<tr class="memitem:a7b225fcb720e4d5ed2bbf60e28a25e6d" id="r_a7b225fcb720e4d5ed2bbf60e28a25e6d"><td class="memItemLeft">var&#160;</td><td class="memItemRight"><a class="el" href="#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a> = builder.Build()</td></tr>
+</table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Dokumentacja definicji typów</h2>
+<a id="a6d8c3289d428b637dfaaca5ea46ae5ed" name="a6d8c3289d428b637dfaaca5ea46ae5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d8c3289d428b637dfaaca5ea46ae5ed">&#9670;&#160;</a></span>scope</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a6d8c3289d428b637dfaaca5ea46ae5ed">scope</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><div class="line"> <a class="code hl_variable" href="#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.Services.CreateScope())</div>
+<div class="line">{</div>
+<div class="line">    DatabaseInitializer.Initialize(<a class="code hl_typedef" href="#a6d8c3289d428b637dfaaca5ea46ae5ed">scope</a>.ServiceProvider.GetRequiredService&lt;<a class="code hl_class" href="class_social_content_1_1_api_1_1_data_1_1_app_db_context.html">AppDbContext</a>&gt;(), <a class="code hl_variable" href="#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.Logger);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseMiddleware&lt;<a class="code hl_class" href="class_social_content_1_1_api_1_1_middleware_1_1_exception_middleware.html">ExceptionMiddleware</a>&gt;()</div>
+<div class="ttc" id="a_program_8cs_html_a6d8c3289d428b637dfaaca5ea46ae5ed"><div class="ttname"><a href="#a6d8c3289d428b637dfaaca5ea46ae5ed">scope</a></div><div class="ttdeci">app.Services.CreateScope()) { DatabaseInitializer.Initialize(scope.ServiceProvider.GetRequiredService&lt; AppDbContext &gt;(), app.Logger);} app.UseMiddleware&lt; ExceptionMiddleware &gt;() scope</div><div class="ttdef"><b>Definicja</b> Program.cs:126</div></div>
+<div class="ttc" id="a_program_8cs_html_a7b225fcb720e4d5ed2bbf60e28a25e6d"><div class="ttname"><a href="#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a></div><div class="ttdeci">var app</div><div class="ttdef"><b>Definicja</b> Program.cs:124</div></div>
+<div class="ttc" id="aclass_social_content_1_1_api_1_1_data_1_1_app_db_context_html"><div class="ttname"><a href="class_social_content_1_1_api_1_1_data_1_1_app_db_context.html">SocialContent.Api.Data.AppDbContext</a></div><div class="ttdef"><b>Definicja</b> AppDbContext.cs:8</div></div>
+<div class="ttc" id="aclass_social_content_1_1_api_1_1_middleware_1_1_exception_middleware_html"><div class="ttname"><a href="class_social_content_1_1_api_1_1_middleware_1_1_exception_middleware.html">SocialContent.Api.Middleware.ExceptionMiddleware</a></div><div class="ttdef"><b>Definicja</b> ExceptionMiddleware.cs:7</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji</h2>
+<a id="a22b0dc6e41ce92ffa45875e65c5f489f" name="a22b0dc6e41ce92ffa45875e65c5f489f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b0dc6e41ce92ffa45875e65c5f489f">&#9670;&#160;</a></span>AddCors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">builder.Services. AddCors </td>
+          <td>(</td>
+          <td class="paramtype">o</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">o.</td>          <td class="paramname"><span class="paramname"><em>AddDefaultPolicy</em></span>p=&gt; p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e69d5d7bd4e11782e3b0edcde7d4520" name="a4e69d5d7bd4e11782e3b0edcde7d4520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e69d5d7bd4e11782e3b0edcde7d4520">&#9670;&#160;</a></span>AddSecurityDefinition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">o. AddSecurityDefinition </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Bearer&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">new OpenApiSecurityScheme { Name=&quot;Authorization&quot;, Type=SecuritySchemeType.Http, Scheme=&quot;bearer&quot;, BearerFormat=&quot;JWT&quot;, In=ParameterLocation.Header, Description=&quot;Wklej token JWT otrzymany z /api/Auth/login, /api/Auth/register-company lub /api/Auth/register-client (bez słowa Bearer).&quot; }</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5833ae5c758b859235144a19b9644918" name="a5833ae5c758b859235144a19b9644918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5833ae5c758b859235144a19b9644918">&#9670;&#160;</a></span>if() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">if </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel new">new</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a711855c639a06acae9d07805cb51f9b1" name="a711855c639a06acae9d07805cb51f9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711855c639a06acae9d07805cb51f9b1">&#9670;&#160;</a></span>if() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">if </td>
+          <td>(</td>
+          <td class="paramtype">File.Exists(<a class="el" href="#a522fb8db8e9d25f5545f0a97d2b51ea4">xmlPath</a>)</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e2ee3170aa6279b68eefd1651f7d96c" name="a9e2ee3170aa6279b68eefd1651f7d96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2ee3170aa6279b68eefd1651f7d96c">&#9670;&#160;</a></span>MapControllers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. MapControllers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a70fac86275ed1baa171082f3f8de6a6e" name="a70fac86275ed1baa171082f3f8de6a6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70fac86275ed1baa171082f3f8de6a6e">&#9670;&#160;</a></span>OperationFilter&lt; AuthorizeOperationFilter &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">o. OperationFilter&lt; <a class="el" href="class_social_content_1_1_api_1_1_swagger_1_1_authorize_operation_filter.html">AuthorizeOperationFilter</a> &gt; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa3dbf02e269c3ef7e8546d290c6b3dd" name="aaa3dbf02e269c3ef7e8546d290c6b3dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa3dbf02e269c3ef7e8546d290c6b3dd">&#9670;&#160;</a></span>Run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. Run </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6435d8beeff4999dc0b0c6d60a86a4e2" name="a6435d8beeff4999dc0b0c6d60a86a4e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6435d8beeff4999dc0b0c6d60a86a4e2">&#9670;&#160;</a></span>UseAuthentication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. UseAuthentication </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6f72d752b2e73aa0292f74bd13237ab" name="af6f72d752b2e73aa0292f74bd13237ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6f72d752b2e73aa0292f74bd13237ab">&#9670;&#160;</a></span>UseAuthorization()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. UseAuthorization </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a7b080f8fbf578227b41f824d2bcec5" name="a0a7b080f8fbf578227b41f824d2bcec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a7b080f8fbf578227b41f824d2bcec5">&#9670;&#160;</a></span>UseCors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. UseCors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a5cfe7fee09f478241b98af703affea" name="a9a5cfe7fee09f478241b98af703affea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5cfe7fee09f478241b98af703affea">&#9670;&#160;</a></span>UseSwagger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. UseSwagger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a968f30949d31f6febdcf7f3fe40bfa42" name="a968f30949d31f6febdcf7f3fe40bfa42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968f30949d31f6febdcf7f3fe40bfa42">&#9670;&#160;</a></span>UseSwaggerUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">app. UseSwaggerUI </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Dokumentacja zmiennych</h2>
+<a id="a5dc4d4d086df133c4e7c08e07e0cd8ea" name="a5dc4d4d086df133c4e7c08e07e0cd8ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc4d4d086df133c4e7c08e07e0cd8ea">&#9670;&#160;</a></span>__pad0__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">includeControllerXmlComments __pad0__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b225fcb720e4d5ed2bbf60e28a25e6d" name="a7b225fcb720e4d5ed2bbf60e28a25e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b225fcb720e4d5ed2bbf60e28a25e6d">&#9670;&#160;</a></span>app</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">var app = builder.Build()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f78352277081c620fd4cf92a5ce15e5" name="a2f78352277081c620fd4cf92a5ce15e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f78352277081c620fd4cf92a5ce15e5">&#9670;&#160;</a></span>builder</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">var builder = WebApplication.CreateBuilder(args)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91962682500569d692e984e14d3723e8" name="a91962682500569d692e984e14d3723e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91962682500569d692e984e14d3723e8">&#9670;&#160;</a></span>jwt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">var jwt = builder.Configuration.GetSection(<a class="el" href="class_social_content_1_1_api_1_1_services_1_1_jwt_options.html#acecf55931494d0cb2f96cd56dc8affbe">JwtOptions.SectionName</a>).Get&lt;<a class="el" href="class_social_content_1_1_api_1_1_services_1_1_jwt_options.html">JwtOptions</a>&gt;() ?? new <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_jwt_options.html">JwtOptions</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa68955b0cb64b0e71d25f23d773b3845" name="aa68955b0cb64b0e71d25f23d773b3845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa68955b0cb64b0e71d25f23d773b3845">&#9670;&#160;</a></span>xml</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">. xml</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a522fb8db8e9d25f5545f0a97d2b51ea4" name="a522fb8db8e9d25f5545f0a97d2b51ea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a522fb8db8e9d25f5545f0a97d2b51ea4">&#9670;&#160;</a></span>xmlPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_8c739bbef76d64b22d6b0911c526dd76.html">backend</a></li><li class="navelem"><a href="dir_c0117e7bc50ca02621150550e606a343.html">SocialContent.Api</a></li><li class="navelem"><a href="_program_8cs.html">Program.cs</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

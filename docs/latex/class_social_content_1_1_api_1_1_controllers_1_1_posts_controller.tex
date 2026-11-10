@@ -1,0 +1,210 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Controllers.\+Posts\+Controller(IPost\+Service service)}
+\hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller}{}\label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+
+
+Posty do mediów społecznościowych. Odczyt: firma (wszystkie posty) i manager (tylko własne); zapis: Company\+User (każde konto firmy) i Manager\+User przypisany do konta.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Controllers.\+Posts\+Controller
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Controllers.\+Posts\+Controller:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a8c381a7d425cf4705b8709ebb1129677}{Get\+All}} (\+[From\+Query]\+ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}? type, \+[From\+Query]\+ Guid? account\+Id, \+[From\+Query]\+ Guid? manager\+Id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz listę postów. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a9958bf29d315dff787626ed682e8384b}{Get}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz post po identyfikatorze. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a347d4904f8ed4472d121382affe9ecb6}{Create}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Utwórz post. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_aca1edf9878e794cfa9003d4fe2b47ec3}{Update}} (Guid id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zaktualizuj post. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_adec1a1469c653c1999f7f2638fef69d8}{Delete}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Usuń post. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a72888c2257406c7bb2e36855ec791f35}{Acquire\+Lock}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zajmij lub odnów blokadę edycji posta. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a48f6492e8e7f193fa811a69898a75a82}{Release\+Lock}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zwolnij blokadę edycji posta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Posty do mediów społecznościowych. Odczyt: firma (wszystkie posty) i manager (tylko własne); zapis: Company\+User (każde konto firmy) i Manager\+User przypisany do konta. 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a72888c2257406c7bb2e36855ec791f35}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!AcquireLock@{AcquireLock}}
+\index{AcquireLock@{AcquireLock}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{AcquireLock()}{AcquireLock()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a72888c2257406c7bb2e36855ec791f35} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Acquire\+Lock (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zajmij lub odnów blokadę edycji posta. 
+
+Blokada wygasa sama po kilku minutach bez odnowienia (klient odnawia ją co ok. minutę). Gdy post edytuje ktoś inny, odpowiedź to 409 z jego imieniem i nazwiskiem.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator posta (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Blokada należy do wywołującego; zwraca czas wygaśnięcia.$<$/\+response$>$ $<$response code="{}403"{}$>$Brak prawa zmiany posta.$<$/\+response$>$ $<$response code="{}404"{}$>$Post nie istnieje albo nie jest widoczny.$<$/\+response$>$ $<$response code="{}409"{}$>$Post jest edytowany przez inną osobę.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a347d4904f8ed4472d121382affe9ecb6}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a347d4904f8ed4472d121382affe9ecb6} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utwórz post. 
+
+Tworzy post ogólny albo post platformy. Aby utworzyć post platformy, wypełnij dokładnie jeden blok: facebook, instagram lub tik\+Tok. Bez bloku powstaje post ogólny. Rodzaju posta nie da się później zmienić.
+
+Reguły mediów zależą od pola visibility: Text nie może mieć zdjęć ani wideo, Photo wymaga co najmniej jednego zdjęcia i nie dopuszcza wideo, Video wymaga co najmniej jednego wideo. Pliki najpierw przesyła się przez POST /\+api/\+\+Media (multipart), a w poście podaje się zwrócony storage\+Key i nazwę pliku; format i rozmiar ustala serwer.
+
+Status ustawia serwer: bez scheduled\+At post jest szkicem (Draft), z terminem w przyszłości (UTC) -\/ zaplanowanym (Scheduled), a z publish\+Now=true publikowany jest od razu (Published albo Failed z komunikatem; o błędzie dostają powiadomienie firma i autorzy). Publikacja jest symulowana. Pole created\+At nadaje serwer.
+
+Company\+User tworzy posty na każdym koncie swojej firmy (bez względu na przypisanych managerów), Manager\+User tylko na koncie, do którego jest przypisany. target\+Account\+Id jest wymagane; dla posta platformy musi to być konto tej samej platformy. Autorami są od razu wszyscy managerowie przypisani do konta (współautorzy) -\/ lista nie jest podawana w żądaniu.
+
+
+\begin{DoxyParams}{Parametry}
+{\em dto} & Dane nowego posta.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}201"{}$>$Post został utworzony; w nagłówku Location adres nowego zasobu.$<$/\+response$>$ $<$response code="{}400"{}$>$Dane nie spełniają reguł walidacji (m.\+in. media niezgodne z visibility, termin z przeszłości, kilka bloków platform naraz, konto innej platformy).$<$/\+response$>$ $<$response code="{}403"{}$>$Manager nie jest przypisany do konta docelowego albo stracił do niego prawa (wtedy post można tylko przeglądać).$<$/\+response$>$ $<$response code="{}404"{}$>$Konto docelowe nie istnieje (lub należy do innej firmy).$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a347d4904f8ed4472d121382affe9ecb6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_adec1a1469c653c1999f7f2638fef69d8}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!Delete@{Delete}}
+\index{Delete@{Delete}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_adec1a1469c653c1999f7f2638fef69d8} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Delete (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Usuń post. 
+
+Company\+User usuwa posty kont swojej firmy, Manager\+User własne posty na koncie, do którego nadal jest przypisany. Trwale usuwa post razem z jego zdjęciami i wideo oraz powiązaniami z managerami. Managerowie i konta społecznościowe pozostają. Operacji nie można cofnąć.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator posta (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}204"{}$>$Post został usunięty.$<$/\+response$>$ $<$response code="{}403"{}$>$Manager stracił prawa do konta posta (tylko podgląd).$<$/\+response$>$ $<$response code="{}404"{}$>$Post nie istnieje albo nie jest widoczny dla użytkownika.$<$/\+response$>$ $<$response code="{}409"{}$>$Post jest właśnie edytowany przez inną osobę.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a9958bf29d315dff787626ed682e8384b}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!Get@{Get}}
+\index{Get@{Get}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a9958bf29d315dff787626ed682e8384b} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Get (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz post po identyfikatorze. 
+
+Zwraca jeden post ze wszystkimi polami: statusem publikacji, terminami, kontem docelowym, mediami, managerami i danymi platformy.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator posta (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Znaleziony post.$<$/\+response$>$ $<$response code="{}404"{}$>$Post nie istnieje albo nie jest widoczny dla zalogowanego użytkownika.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a9958bf29d315dff787626ed682e8384b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a8c381a7d425cf4705b8709ebb1129677}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a8c381a7d425cf4705b8709ebb1129677} 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Get\+All (\begin{DoxyParamCaption}\item[{\+[\+From\+Query]\+ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}?}]{type}{, }\item[{\+[\+From\+Query]\+ Guid?}]{account\+Id}{, }\item[{\+[\+From\+Query]\+ Guid?}]{manager\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz listę postów. 
+
+Zwraca posty od najnowszego (created\+At malejąco) wraz ze zdjęciami, wideo i autorami. Company\+User widzi posty całej firmy, Manager\+User -\/ wyłącznie posty, których jest autorem. Wymaga tokenu JWT (nagłówek Authorization: Bearer).
+
+Parametry account\+Id (konto docelowe) i manager\+Id (autor) zawężają wynik; manager może podać wyłącznie własny identyfikator (inny kończy się odpowiedzią 403). Opcjonalny parametr type zawęża wynik do postów o danym polu visibility (Text, Photo, Video). Pole platform wskazuje rodzaj posta (Facebook, Instagram, Tik\+Tok; null dla posta ogólnego), a odpowiedni blok facebook, instagram lub tik\+Tok zawiera dane platformy.
+
+
+\begin{DoxyParams}{Parametry}
+{\em type} & Filtr po typie treści (visibility); pominięty = wszystkie posty.\\
+\hline
+{\em account\+Id} & Filtr po koncie społecznościowym (id w systemie).\\
+\hline
+{\em manager\+Id} & Filtr po autorze (id managera); używane przez firmę do podglądu postów danego managera.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Lista postów; pusta tablica, gdy nic nie pasuje.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Manager próbuje przeglądać posty innego managera.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a48f6492e8e7f193fa811a69898a75a82}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!ReleaseLock@{ReleaseLock}}
+\index{ReleaseLock@{ReleaseLock}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{ReleaseLock()}{ReleaseLock()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_a48f6492e8e7f193fa811a69898a75a82} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Release\+Lock (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwolnij blokadę edycji posta. 
+
+Zwalnia blokadę tylko jej posiadacz; w innym przypadku nic się nie dzieje.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator posta (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}204"{}$>$Blokada zwolniona (lub nie istniała).$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_aca1edf9878e794cfa9003d4fe2b47ec3}\index{SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}!Update@{Update}}
+\index{Update@{Update}!SocialContent.Api.Controllers.PostsController@{SocialContent.Api.Controllers.PostsController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_posts_controller_aca1edf9878e794cfa9003d4fe2b47ec3} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a6db84facd92f8a11bde35bdf3ce8170b}{Post\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Posts\+Controller.\+Update (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto}{Post\+Write\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zaktualizuj post. 
+
+Pełna aktualizacja: zastępuje treść, media, termin i konto docelowe wartościami z żądania; dotychczasowe media są usuwane i zastępowane nowymi.
+
+Żądanie musi mieć blok platformy zgodny z rodzajem posta (post Facebooka -\/ blok facebook, i tak dalej; post ogólny -\/ żadnego). Tych samych reguł mediów, terminu i konta co przy tworzeniu pilnuje walidacja.
+
+Status jest wyliczany od nowa: bez scheduled\+At -\/ Draft, z terminem -\/ Scheduled; ewentualny komunikat błędu po nieudanej publikacji jest czyszczony. Posta w statusie Publishing lub Published nie można edytować. Zapis wymaga blokady edycji: gdy post edytuje ktoś inny, odpowiedź to 409 z imieniem edytującego. Dotychczasowi autorzy zostają, a managerowie przypisani do konta są dopisywani.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator posta (GUID).\\
+\hline
+{\em dto} & Nowe dane posta.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Post po aktualizacji.$<$/\+response$>$ $<$response code="{}400"{}$>$Dane nie spełniają reguł walidacji, blok platformy nie pasuje do posta albo post ma status Publishing lub Published.$<$/\+response$>$ $<$response code="{}403"{}$>$Manager nie jest przypisany do konta docelowego albo stracił do niego prawa (wtedy post można tylko przeglądać).$<$/\+response$>$ $<$response code="{}404"{}$>$Post (niewidoczny dla użytkownika) lub konto docelowe nie istnieje.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ 
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Controllers/\doxymbox{\hyperlink{_posts_controller_8cs}{Posts\+Controller.\+cs}}\end{DoxyCompactItemize}

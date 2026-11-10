@@ -1,0 +1,13 @@
+<map id="SocialContent.Api.Services.PostPublisher.PublishDueAsync" name="SocialContent.Api.Services.PostPublisher.PublishDueAsync">
+<area shape="rect" id="Node000001" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,105,216,148"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a654ed95626fdcc42926432fecebdbba7" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,105,450,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,124,250,126,245,127,217,129"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#adcf846c51cc58942916400be9ae60875" title="Kończy publikację błędem: Publishing &#45;&gt; Failed (komunikat jest przycinany do 1000 znaków)." alt="" coords="544,5,723,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,102,444,79,497,57,531,49,526,51,499,63,447,84,399,107"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa540643b7b110f2d9e9d57818ab59787" title="Kończy publikację sukcesem: Publishing &#45;&gt; Published." alt="" coords="540,72,727,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="450,113,528,106,523,107,451,118"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ad965fcf4eb8aecf2ac2321a983052517" title="Rozpoczyna publikację: Draft/Scheduled &#45;&gt; Publishing (wywoływane przez warstwę integracji z platformą..." alt="" coords="539,139,728,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="451,135,526,146,521,147,451,141"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a212049dbff1e506e4101c8fbd13dc22d" title="Zapisuje wynik kontroli połączenia (Validate.VerifyConnection): przyczynę błędu albo null,..." alt="" coords="498,205,769,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="399,146,447,169,499,191,522,201,517,200,497,196,444,174,398,151"/>
+</map>

@@ -1,0 +1,38 @@
+\doxysection{Dokumentacja pliku frontend/\+social\+\_\+content\+\_\+app/\+windows/\+runner/\+win32\+\_\+window.cpp}
+\hypertarget{win32__window_8cpp}{}\label{win32__window_8cpp}\index{frontend/social\_content\_app/windows/runner/win32\_window.cpp@{frontend/social\_content\_app/windows/runner/win32\_window.cpp}}
+{\ttfamily \+\#include "{}win32\+\_\+window.\+h"{}}\newline
+{\ttfamily \+\#include $<$dwmapi.\+h$>$}\newline
+{\ttfamily \+\#include $<$flutter\+\_\+windows.\+h$>$}\newline
+{\ttfamily \+\#include "{}resource.\+h"{}}\newline
+Wykres zależności załączania dla win32\+\_\+window.\+cpp:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{win32__window_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_window_class_registrar}{Window\+Class\+Registrar}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Definicje}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{win32__window_8cpp_a6d61a4a3148cd60d61a00ffa17a2790b}{DWMWA\+\_\+\+USE\+\_\+\+IMMERSIVE\+\_\+\+DARK\+\_\+\+MODE}}~20
+\end{DoxyCompactItemize}
+
+
+\label{win32__window_8cpp_doc-define-members}
+\Hypertarget{win32__window_8cpp_doc-define-members}
+\doxysubsection{Dokumentacja definicji}
+\Hypertarget{win32__window_8cpp_a6d61a4a3148cd60d61a00ffa17a2790b}\index{win32\_window.cpp@{win32\_window.cpp}!DWMWA\_USE\_IMMERSIVE\_DARK\_MODE@{DWMWA\_USE\_IMMERSIVE\_DARK\_MODE}}
+\index{DWMWA\_USE\_IMMERSIVE\_DARK\_MODE@{DWMWA\_USE\_IMMERSIVE\_DARK\_MODE}!win32\_window.cpp@{win32\_window.cpp}}
+\doxysubsubsection{\texorpdfstring{DWMWA\_USE\_IMMERSIVE\_DARK\_MODE}{DWMWA\_USE\_IMMERSIVE\_DARK\_MODE}}
+{\footnotesize\ttfamily \label{win32__window_8cpp_a6d61a4a3148cd60d61a00ffa17a2790b} 
+\+\#define DWMWA\+\_\+\+USE\+\_\+\+IMMERSIVE\+\_\+\+DARK\+\_\+\+MODE~20}
+
+Window attribute that enables dark mode window decorations.
+
+Redefined in case the developer\textquotesingle{}s machine has a Windows SDK older than version 10.\+0.\+22000.\+0. See: \href{https://docs.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute}{\texttt{https:\+/\+/\+docs.\+microsoft.\+com/\+windows/\+win32/\+api/\+dwmapi/\+ne-\/dwmapi-\/dwmwindowattribute}} 

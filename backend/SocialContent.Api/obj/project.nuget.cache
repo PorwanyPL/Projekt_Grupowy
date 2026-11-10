@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nlQVTbC5dC4=",
+  "dgSpecHash": "49eZBNgTepg=",
   "success": true,
-  "projectFilePath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v5\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+  "projectFilePath": "C:\\Studia\\Sem7\\projektGrupowy\\Projekt_Grupowy\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\domin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\domin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.10\\microsoft.aspnetcore.authentication.jwtbearer.8.0.10.nupkg.sha512",

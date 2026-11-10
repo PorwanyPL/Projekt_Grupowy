@@ -1,0 +1,109 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller(IClient\+User\+Service service)}
+\hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller}{}\label{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller}\index{SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}}
+
+
+Relacja firma -\/ klient (n -\/ m). Firma zarządza swoimi klientami, klient widzi firmy, z którymi jest powiązany.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a817f6a6a7f54b180baed9156e2fcd735}{Get\+For\+Company}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz klientów firmy. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a140a37b074048a8652d3da704705d6cc}{Link}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Powiąż klienta z firmą \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_afb8f43a22d314de9fa2b083a76e1df6c}{Unlink}} (Guid id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Odepnij klienta od firmy. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} $>$ $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a74777841f90a9a4c5e8bf2514334510d}{My\+Companies}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz firmy zalogowanego klienta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Relacja firma -\/ klient (n -\/ m). Firma zarządza swoimi klientami, klient widzi firmy, z którymi jest powiązany. 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a817f6a6a7f54b180baed9156e2fcd735}\index{SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}!GetForCompany@{GetForCompany}}
+\index{GetForCompany@{GetForCompany}!SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}}
+\doxysubsubsection{\texorpdfstring{GetForCompany()}{GetForCompany()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a817f6a6a7f54b180baed9156e2fcd735} 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller.\+Get\+For\+Company (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz klientów firmy. 
+
+Zwraca klientów powiązanych z zalogowaną firmą, alfabetycznie. Tylko dla Company\+User.
+
+$<$response code="{}200"{}$>$Lista klientów firmy; pusta tablica, gdy nikogo nie powiązano.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a140a37b074048a8652d3da704705d6cc}\index{SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}!Link@{Link}}
+\index{Link@{Link}!SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}}
+\doxysubsubsection{\texorpdfstring{Link()}{Link()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a140a37b074048a8652d3da704705d6cc} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller.\+Link (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Powiąż klienta z firmą 
+
+Dodaje do firmy klienta, który wcześniej sam się zarejestrował (POST /\+api/\+\+Auth/\+register-\/client). Klienta wskazuje się adresem e-\/mail użytym przy rejestracji. Klient może być powiązany z wieloma firmami, a firma z wieloma klientami.
+
+
+\begin{DoxyParams}{Parametry}
+{\em dto} & Adres e-\/mail klienta.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}201"{}$>$Klient został powiązany z firmą.$<$/\+response$>$ $<$response code="{}400"{}$>$Błędny adres e-\/mail.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Nie ma zarejestrowanego klienta o takim adresie e-\/mail.$<$/\+response$>$ $<$response code="{}409"{}$>$Klient jest już powiązany z tą firmą.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a74777841f90a9a4c5e8bf2514334510d}\index{SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}!MyCompanies@{MyCompanies}}
+\index{MyCompanies@{MyCompanies}!SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}}
+\doxysubsubsection{\texorpdfstring{MyCompanies()}{MyCompanies()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_a74777841f90a9a4c5e8bf2514334510d} 
+async Task$<$ Action\+Result$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} $>$ $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller.\+My\+Companies (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz firmy zalogowanego klienta. 
+
+Zwraca firmy, z którymi powiązany jest zalogowany klient. Tylko dla Client\+User.
+
+$<$response code="{}200"{}$>$Lista firm; pusta tablica, gdy żadna firma jeszcze nie dodała klienta.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo konto nie istnieje.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Client\+User.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_afb8f43a22d314de9fa2b083a76e1df6c}\index{SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}!Unlink@{Unlink}}
+\index{Unlink@{Unlink}!SocialContent.Api.Controllers.ClientUsersController@{SocialContent.Api.Controllers.ClientUsersController}}
+\doxysubsubsection{\texorpdfstring{Unlink()}{Unlink()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller_afb8f43a22d314de9fa2b083a76e1df6c} 
+async Task$<$ IAction\+Result $>$ Social\+Content.\+Api.\+Controllers.\+Client\+Users\+Controller.\+Unlink (\begin{DoxyParamCaption}\item[{Guid}]{id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Odepnij klienta od firmy. 
+
+Usuwa powiązanie firma -\/ klient; konto klienta zostaje, a powiązania z innymi firmami nie są zmieniane.
+
+
+\begin{DoxyParams}{Parametry}
+{\em id} & Identyfikator klienta (GUID).\\
+\hline
+\end{DoxyParams}
+$<$response code="{}204"{}$>$Powiązanie zostało usunięte.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.$<$/\+response$>$ $<$response code="{}403"{}$>$Zalogowany użytkownik nie ma roli Company\+User.$<$/\+response$>$ $<$response code="{}404"{}$>$Klient nie jest powiązany z tą firmą.$<$/\+response$>$ 
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Controllers/\doxymbox{\hyperlink{_client_users_controller_8cs}{Client\+Users\+Controller.\+cs}}\end{DoxyCompactItemize}

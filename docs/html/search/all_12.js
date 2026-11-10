@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['recipientid_1',['RecipientId',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification.html#a006d2836ac9e7a6c5f8df1f929d1ea35',1,'SocialContent::Api::Domain::Entities::Notification']]],
+  ['recipientrole_2',['RecipientRole',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification.html#aa5437185da9f74afab513a4925922ff3',1,'SocialContent::Api::Domain::Entities::Notification']]],
+  ['reels_3',['REELS',['../namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a5fdfb97e47ce6fb595c3781fc2a9d897ad9ced5519690f802e3011fbbae1257c0',1,'SocialContent::Api::Domain::Enums']]],
+  ['refreshtoken_4',['RefreshToken',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a51e9175783547417fb851967f1e8b437',1,'SocialContent.Api.Domain.Entities.SocialAccount.RefreshToken'],['../class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto.html#a47b5032fb1f9d976db63f018b1e3fb2f',1,'SocialContent.Api.Dtos.SocialAccountWriteDto.RefreshToken']]],
+  ['registerclient_5',['RegisterClient',['../class_social_content_1_1_api_1_1_controllers_1_1_auth_controller.html#ab8626b58c7546071023e43271d4581c8',1,'SocialContent::Api::Controllers::AuthController']]],
+  ['registerclientasync_6',['RegisterClientAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_auth_service.html#a52b1e3c959292a3f39434432a82cc5ab',1,'SocialContent.Api.Services.IAuthService.RegisterClientAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_auth_service.html#ac7fd31b220f6512ca8728d56f7942772',1,'SocialContent.Api.Services.AuthService.RegisterClientAsync()']]],
+  ['registerclientdto_7',['RegisterClientDto',['../class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto.html',1,'SocialContent::Api::Dtos']]],
+  ['registerclientdto_2ecs_8',['RegisterClientDto.cs',['../_register_client_dto_8cs.html',1,'']]],
+  ['registercompany_9',['RegisterCompany',['../class_social_content_1_1_api_1_1_controllers_1_1_auth_controller.html#a053d33ffaac40c5f4b811aa701ab6da8',1,'SocialContent::Api::Controllers::AuthController']]],
+  ['registercompanyasync_10',['RegisterCompanyAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_auth_service.html#ad39298a2b5e69dbae240a174ae3aa7d1',1,'SocialContent.Api.Services.IAuthService.RegisterCompanyAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a023fc51622813b439600fe9980546f1a',1,'SocialContent.Api.Services.AuthService.RegisterCompanyAsync()']]],
+  ['registercompanydto_11',['RegisterCompanyDto',['../class_social_content_1_1_api_1_1_dtos_1_1_register_company_dto.html',1,'SocialContent::Api::Dtos']]],
+  ['registercompanydto_2ecs_12',['RegisterCompanyDto.cs',['../_register_company_dto_8cs.html',1,'']]],
+  ['registerplugins_13',['RegisterPlugins',['../generated__plugin__registrant_8cc.html#a100d3a635c44ec220c0929d56b06553f',1,'RegisterPlugins(flutter::PluginRegistry *registry):&#160;generated_plugin_registrant.cc'],['../generated__plugin__registrant_8h.html#a100d3a635c44ec220c0929d56b06553f',1,'RegisterPlugins(flutter::PluginRegistry *registry):&#160;generated_plugin_registrant.cc']]],
+  ['releaseasync_14',['ReleaseAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service.html#a3f476becabbee92749b9ef51be224583',1,'SocialContent.Api.Services.IPostEditLockService.ReleaseAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#ac653981125691ee3b695d80c5ecbda31',1,'SocialContent.Api.Services.PostEditLockService.ReleaseAsync()']]],
+  ['releaselock_15',['ReleaseLock',['../class_social_content_1_1_api_1_1_controllers_1_1_posts_controller.html#a48f6492e8e7f193fa811a69898a75a82',1,'SocialContent::Api::Controllers::PostsController']]],
+  ['releaselockasync_16',['ReleaseLockAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#ab4e8c305bfa6f501c5d4a833d3cfcba5',1,'SocialContent.Api.Services.IPostService.ReleaseLockAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3d5d4413df50ff2407eb825ba8151e14',1,'SocialContent.Api.Services.PostService.ReleaseLockAsync()']]],
+  ['removeclient_17',['RemoveClient',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html#addaf921b03ece1138838d7bc75927fca',1,'SocialContent::Api::Domain::Entities::CompanyUser']]],
+  ['renew_18',['Renew',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#ad3fd0a51753233a38f0e7ab921653b84',1,'SocialContent::Api::Domain::Entities::PostEditLock']]],
+  ['requestedplatform_19',['RequestedPlatform',['../class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6cfb44f43718ebea57103fe41dda8fcb',1,'SocialContent::Api::Services::PostService']]],
+  ['resolveaccountandauthors_20',['ResolveAccountAndAuthors',['../class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3bcdf77fff1b722764e4cf9f99aba15f',1,'SocialContent::Api::Services::PostService']]],
+  ['resource_2eh_21',['resource.h',['../resource_8h.html',1,'']]],
+  ['roles_2ecs_22',['Roles.cs',['../_roles_8cs.html',1,'']]],
+  ['run_23',['Run',['../_program_8cs.html#aaa3dbf02e269c3ef7e8546d290c6b3dd',1,'Program.cs']]]
+];

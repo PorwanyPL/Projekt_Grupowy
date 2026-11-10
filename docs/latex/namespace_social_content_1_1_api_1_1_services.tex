@@ -1,0 +1,134 @@
+\doxysection{Dokumentacja przestrzeni nazw Social\+Content.\+Api.\+Services}
+\hypertarget{namespace_social_content_1_1_api_1_1_services}{}\label{namespace_social_content_1_1_api_1_1_services}\index{SocialContent.Api.Services@{SocialContent.Api.Services}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_auth_service}{Auth\+Service}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service}{Client\+User\+Service}}
+\item 
+class {\bfseries Current\+User\+Extensions}
+\item 
+class {\bfseries Email\+Directory}
+\begin{DoxyCompactList}\small\item\em Adres e-\/mail jest identyfikatorem logowania i musi być unikalny we wszystkich rolach naraz (Company\+User, Manager\+User, Client\+User), bo logowanie jest jedno. Indeksy unikalne w bazie działają tylko per tabela. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service}{IAuth\+Service}}
+\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service}{IClient\+User\+Service}}
+\begin{DoxyCompactList}\small\item\em Relacja firma -\/ klient (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}). Klient rejestruje się sam, a firma dodaje go po adresie e-\/mail. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service}{IManager\+User\+Service}}
+\begin{DoxyCompactList}\small\item\em Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy {\ttfamily company\+Id}. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_service}{IMedia\+Service}}
+\begin{DoxyCompactList}\small\item\em Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage}{IMedia\+Storage}}
+\begin{DoxyCompactList}\small\item\em Magazyn przesłanych plików: katalog na dysku serwera, osobny podkatalog dla każdej firmy. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_notification_service}{INotification\+Service}}
+\begin{DoxyCompactList}\small\item\em Powiadomienia w aplikacji (brak wcześniejszego mechanizmu, więc najprostsze rozwiązanie zgodne ze stosem: tabela w bazie odczytywana przez API). Odbiorcy: administrator firmy i managerowie powiązani z postem. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_password_hasher}{IPassword\+Hasher}}
+\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service}{IPost\+Edit\+Lock\+Service}}
+\begin{DoxyCompactList}\small\item\em Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (Post\+Edit\+Lock\+Service.\+Ttl); edytor odnawia ją co jakiś czas, a zamknięcie formularza ją zwalnia. Porzucona sesja wygasa sama, więc nikt nie zostaje zablokowany na stałe. Serwer wymusza blokadę przy zapisie i usuwaniu posta (\doxylink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Post\+Service}), nie tylko w widoku. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher}{IPost\+Publisher}}
+\begin{DoxyCompactList}\small\item\em Publikacja postów. Prototyp nie ma integracji z API Facebooka, Instagrama ani Tik\+Toka: publikacja sprawdza lokalnie połączenie z kontem (Validate.\+Verify\+Connection) i, gdy jest poprawne, oznacza post jako opublikowany z symulowanym identyfikatorem zewnętrznym. Gdy połączenie jest niepoprawne, post dostaje status Failed, a administrator firmy i managerowie posta dostają powiadomienie. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service}{IPost\+Service}}
+\begin{DoxyCompactList}\small\item\em Posty. Odczyt: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} widzi posty kont swojej firmy, \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} tylko posty, których jest autorem. Tworzenie, zmiana i usuwanie: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} na każdym koncie swojej firmy oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} na koncie, do którego jest przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty. Autorami nowego posta są od razu wszyscy managerowie przypisani do konta. Edycję jednego posta wykonuje naraz jedna osoba (blokada edycji). \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service}{ISocial\+Account\+Service}}
+\begin{DoxyCompactList}\small\item\em Konta społecznościowe firmy. Odczyt: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} widzi wszystkie konta firmy, \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} tylko przypisane do siebie. Zapis (tworzenie, zmiana, usuwanie, przypisywanie managerów): wyłącznie firma, przez {\ttfamily company\+Id}. \end{DoxyCompactList}\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_token_service}{IToken\+Service}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options}{Jwt\+Options}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_token_service}{Jwt\+Token\+Service}}
+\item 
+class {\bfseries Manager\+Lookup}
+\begin{DoxyCompactList}\small\item\em Wspólne ładowanie managerów firmy po identyfikatorach (konta społecznościowe i posty). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_manager_user_service}{Manager\+User\+Service}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service}{Media\+Service}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_storage}{Media\+Storage}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_notification_service}{Notification\+Service}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_pbkdf2_password_hasher}{Pbkdf2\+Password\+Hasher}}
+\begin{DoxyCompactList}\small\item\em PBKDF2-\/\+HMAC-\/\+SHA256 z losową solą (16 B) i 600 000 iteracji (zalecenie OWASP). Format: "{}v1.\+iteracje.\+sól(base64).\+hasz(base64)"{} -\/ parametry są w haszu, więc można je później podnieść. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service}{Post\+Edit\+Lock\+Service}}
+\item 
+class {\bfseries Post\+Permissions}
+\begin{DoxyCompactList}\small\item\em Reguły dostępu do postów w jednym miejscu (używają ich \doxylink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Post\+Service} i serwis blokad). Wymaga załadowanych: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa050f799852a87da89ae71e4d553eed9}{Post.\+Manager\+Users} oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a4c9c2a47c602b2c724c1d2ca29456f3f}{Post.\+Target\+Account} z Manager\+Users. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_publisher}{Post\+Publisher}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Post\+Service}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_scheduled_post_worker}{Scheduled\+Post\+Worker}}
+\begin{DoxyCompactList}\small\item\em Co kilkadziesiąt sekund publikuje zaplanowane posty, których termin już nadszedł. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_social_account_service}{Social\+Account\+Service}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} (Guid Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} Role)
+\begin{DoxyCompactList}\small\item\em Tożsamość zalogowanego użytkownika odczytana z tokenu JWT. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}{Stored\+Media}} (string Storage\+Key, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a69fa4d0e7790a5208a0e053b4f1f8990}{Media\+Kind}} Kind, Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}, int Size\+Kb)
+\begin{DoxyCompactList}\small\item\em Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{namespace_social_content_1_1_api_1_1_services_doc-func-members}
+\Hypertarget{namespace_social_content_1_1_api_1_1_services_doc-func-members}
+\doxysubsection{Dokumentacja funkcji}
+\Hypertarget{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}\index{SocialContent.Api.Services@{SocialContent.Api.Services}!CurrentUser@{CurrentUser}}
+\index{CurrentUser@{CurrentUser}!SocialContent.Api.Services@{SocialContent.Api.Services}}
+\doxysubsubsection{\texorpdfstring{CurrentUser()}{CurrentUser()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5} 
+record Social\+Content.\+Api.\+Services.\+Current\+User (\begin{DoxyParamCaption}\item[{Guid}]{Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}}}]{Role}{}\end{DoxyParamCaption})}
+
+
+
+Tożsamość zalogowanego użytkownika odczytana z tokenu JWT. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em Id} & Company\+Id (Company\+User), Id managera (Manager\+User) albo Id klienta (Client\+User).\\
+\hline
+\end{DoxyParams}
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}\index{SocialContent.Api.Services@{SocialContent.Api.Services}!StoredMedia@{StoredMedia}}
+\index{StoredMedia@{StoredMedia}!SocialContent.Api.Services@{SocialContent.Api.Services}}
+\doxysubsubsection{\texorpdfstring{StoredMedia()}{StoredMedia()}}
+{\footnotesize\ttfamily \label{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8} 
+record Social\+Content.\+Api.\+Services.\+Stored\+Media (\begin{DoxyParamCaption}\item[{string}]{Storage\+Key}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a69fa4d0e7790a5208a0e053b4f1f8990}{Media\+Kind}}}]{Kind}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}}]{Format}{, }\item[{int}]{Size\+Kb}{}\end{DoxyParamCaption})}
+
+
+
+Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta. 
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8_icgraph}
+\end{center}
+\end{figure}

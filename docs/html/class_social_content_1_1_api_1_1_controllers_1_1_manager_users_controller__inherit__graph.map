@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Controllers.ManagerUsersController" name="SocialContent.Api.Controllers.ManagerUsersController">
+<area shape="rect" id="Node000001" title="Zarządzanie managerami (ManagerUser) przez firmę. Dostępne wyłącznie dla roli CompanyUser i tylko dla..." alt="" coords="5,123,192,357"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,147,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,87,101,123,96,122,98,92"/>
+</map>

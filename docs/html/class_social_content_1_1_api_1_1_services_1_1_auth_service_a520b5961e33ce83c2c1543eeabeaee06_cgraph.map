@@ -1,0 +1,10 @@
+<map id="SocialContent.Api.Services.AuthService.LoginAsync" name="SocialContent.Api.Services.AuthService.LoginAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,59,191,101"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#adc100c67a5389ea3e3dba008ea2d9310" title="Wynik rejestracji lub logowania." alt="" coords="239,29,428,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,66,226,64,220,65,192,71"/>
+<area shape="rect" id="Node000003" href="$namespace_social_content_1_1_api_1_1_dtos.html#a54fa4a1178843b0d4b61dbaa9a6c64f9" title="Zalogowany użytkownik wraz z rolą i adresem e&#45;mail (widocznym tylko dla niego samego)." alt="" coords="476,59,666,101"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="191,80,239,81,428,81,463,83,458,83,428,87,239,87,191,86"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="289,27,287,19,294,10,310,5,333,3,358,5,375,14,370,14,357,10,333,8,311,10,297,15,292,21,294,30"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="429,60,463,66,458,66,429,65"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="527,57,524,49,532,40,548,34,571,32,597,34,613,43,608,43,595,40,571,37,549,39,535,44,529,50,531,60"/>
+</map>

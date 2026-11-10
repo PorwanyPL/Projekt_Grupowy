@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Dtos.ManagerUserWriteDto" name="SocialContent.Api.Dtos.ManagerUserWriteDto">
+<area shape="rect" id="Node000001" title="Dane managera przy tworzeniu i pełnej aktualizacji (wszystkie pola wymagane)." alt="" coords="117,5,319,155"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto.html" title="Dane nowego managera tworzonego przez firmę. Konto logowania (e&#45;mail i hasło) powstaje zawsze razem z..." alt="" coords="5,203,207,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,165,142,204,138,201,161,169"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto.html" title="Samodzielna rejestracja klienta (ClientUser): dane osobowe (jak w ManagerUserWriteDto) oraz dane logo..." alt="" coords="231,203,432,309"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,165,300,203,295,202,273,169"/>
+</map>

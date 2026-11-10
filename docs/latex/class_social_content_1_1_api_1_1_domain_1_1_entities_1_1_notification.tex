@@ -1,0 +1,156 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Domain.\+Entities.\+Notification}
+\hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification}{}\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+
+
+Powiadomienie w aplikacji (np. o nieudanej publikacji posta) dla administratora firmy lub managera.  
+
+
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Domain.\+Entities.\+Notification:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a3ba55e2b84f8a55e326817ae8e9e8591}{Mark\+Read}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aeb05f17792d4b0458ce270f5ca6d92ed}{Notification}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a6bd81ee9f897ce7e55c9a8dc14773e9d}{Create}} (Guid recipient\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} recipient\+Role, Guid? post\+Id, string message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a088243f8db72a90d5ff81cea7219d4bd}{Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a006d2836ac9e7a6c5f8df1f929d1ea35}{Recipient\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aa5437185da9f74afab513a4925922ff3}{Recipient\+Role}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Guid? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a756d85c14ff869d89fa727872851245b}{Post\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a15c1e166e2c0dcab08a342a383fdbc8f}{Message}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Date\+Time \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a9104abb81edf49949b3d26e58cb4f008}{Created\+At}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+bool \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a1866283330ed11a02f160cfa097bc56e}{Is\+Read}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aeb05f17792d4b0458ce270f5ca6d92ed}{Notification}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Powiadomienie w aplikacji (np. o nieudanej publikacji posta) dla administratora firmy lub managera. 
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_doc-constructors}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_doc-constructors}
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aeb05f17792d4b0458ce270f5ca6d92ed}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!Notification@{Notification}}
+\index{Notification@{Notification}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{Notification()}{Notification()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aeb05f17792d4b0458ce270f5ca6d92ed} 
+Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Notification (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aeb05f17792d4b0458ce270f5ca6d92ed_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a6bd81ee9f897ce7e55c9a8dc14773e9d}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a6bd81ee9f897ce7e55c9a8dc14773e9d} 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aeb05f17792d4b0458ce270f5ca6d92ed}{Notification}} Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Create (\begin{DoxyParamCaption}\item[{Guid}]{recipient\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}}}]{recipient\+Role}{, }\item[{Guid?}]{post\+Id}{, }\item[{string}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a6bd81ee9f897ce7e55c9a8dc14773e9d_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a6bd81ee9f897ce7e55c9a8dc14773e9d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a3ba55e2b84f8a55e326817ae8e9e8591}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!MarkRead@{MarkRead}}
+\index{MarkRead@{MarkRead}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{MarkRead()}{MarkRead()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a3ba55e2b84f8a55e326817ae8e9e8591} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Mark\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a9104abb81edf49949b3d26e58cb4f008}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!CreatedAt@{CreatedAt}}
+\index{CreatedAt@{CreatedAt}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{CreatedAt}{CreatedAt}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a9104abb81edf49949b3d26e58cb4f008} 
+Date\+Time Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Created\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a088243f8db72a90d5ff81cea7219d4bd}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!Id@{Id}}
+\index{Id@{Id}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{Id}{Id}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a088243f8db72a90d5ff81cea7219d4bd} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a1866283330ed11a02f160cfa097bc56e}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!IsRead@{IsRead}}
+\index{IsRead@{IsRead}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{IsRead}{IsRead}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a1866283330ed11a02f160cfa097bc56e} 
+bool Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Is\+Read\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a15c1e166e2c0dcab08a342a383fdbc8f}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!Message@{Message}}
+\index{Message@{Message}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{Message}{Message}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a15c1e166e2c0dcab08a342a383fdbc8f} 
+string Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Message = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a756d85c14ff869d89fa727872851245b}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!PostId@{PostId}}
+\index{PostId@{PostId}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{PostId}{PostId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a756d85c14ff869d89fa727872851245b} 
+Guid? Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Post\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a006d2836ac9e7a6c5f8df1f929d1ea35}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!RecipientId@{RecipientId}}
+\index{RecipientId@{RecipientId}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{RecipientId}{RecipientId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_a006d2836ac9e7a6c5f8df1f929d1ea35} 
+Guid Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Recipient\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aa5437185da9f74afab513a4925922ff3}\index{SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}!RecipientRole@{RecipientRole}}
+\index{RecipientRole@{RecipientRole}!SocialContent.Api.Domain.Entities.Notification@{SocialContent.Api.Domain.Entities.Notification}}
+\doxysubsubsection{\texorpdfstring{RecipientRole}{RecipientRole}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification_aa5437185da9f74afab513a4925922ff3} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a2adf2fac8bbf2b0d3e29a8d90a5fb38c}{User\+Role}} Social\+Content.\+Api.\+Domain.\+Entities.\+Notification.\+Recipient\+Role\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Domain/\+\+Entities/\doxymbox{\hyperlink{_notification_8cs}{Notification.\+cs}}\end{DoxyCompactItemize}

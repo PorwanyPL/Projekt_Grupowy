@@ -1,0 +1,10 @@
+<map id="SocialContent.Api.Services.ManagerUserService.AnonymizeAsync" name="SocialContent.Api.Services.ManagerUserService.AnonymizeAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,255,81"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="303,5,488,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,42,289,40,284,41,255,47"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="303,72,488,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,73,289,80,284,80,255,78"/>
+<area shape="rect" id="Node000004" href="$namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="536,72,748,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="489,91,523,93,518,93,489,96"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="596,70,594,62,601,53,618,47,642,45,668,48,686,57,681,56,667,53,642,51,619,53,604,57,599,63,600,73"/>
+</map>

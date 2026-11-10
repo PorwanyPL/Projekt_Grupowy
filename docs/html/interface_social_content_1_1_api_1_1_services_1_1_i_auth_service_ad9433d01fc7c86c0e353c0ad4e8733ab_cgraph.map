@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Services.IAuthService.IsSessionValidAsync" name="SocialContent.Api.Services.IAuthService.IsSessionValidAsync">
+<area shape="rect" id="Node000001" title="Czy konto z tokenu nadal istnieje i nie jest zablokowane (sprawdzane przy każdym żądaniu)." alt="" coords="5,29,229,72"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="277,29,462,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,48,264,51,258,51,229,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="322,27,320,19,328,10,344,5,369,3,396,5,414,14,409,13,395,10,369,8,345,10,331,15,325,21,327,30"/>
+</map>

@@ -1,0 +1,994 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Domain.Entities.Post</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html','','class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Domain.Entities.Post</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH).">Post</a> ogólny (bez platformy). Klasy <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html">FacebookPost</a>, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html">InstagramPost</a> i <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html">TikTokPost</a> dziedziczą po nim (TPH).  
+ <a href="#details">Więcej...</a></p>
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Domain.Entities.Post</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_domain_8_entities_8_post_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_domain_8_entities_8_post_inherit__map" id="a_social_content_8_api_8_domain_8_entities_8_post_inherit__map">
+<area shape="rect" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH)." alt="" coords="199,5,367,453"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html" title=" " alt="" coords="5,523,174,779"/>
+<area shape="poly" title=" " alt="" coords="194,425,150,524,146,522,191,429"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html" title=" " alt="" coords="199,523,367,779"/>
+<area shape="poly" title=" " alt="" coords="284,466,286,524,280,522,282,470"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html" title=" " alt="" coords="392,501,561,800"/>
+<area shape="poly" title=" " alt="" coords="375,424,411,502,405,501,373,429"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Domain.Entities.Post:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_domain_8_entities_8_post_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_domain_8_entities_8_post_coll__map" id="a_social_content_8_api_8_domain_8_entities_8_post_coll__map">
+<area shape="rect" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH)." alt="" coords="5,5,174,453"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a2981d216f7f78449ed11aeea563ac4ec" id="r_a2981d216f7f78449ed11aeea563ac4ec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2981d216f7f78449ed11aeea563ac4ec">Update</a> (<a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a> title, <a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a> description, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a> type, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt; pictures, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt; videos, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt; managers, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>? scheduledAt, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>? targetAccount)</td></tr>
+<tr class="memitem:ad965fcf4eb8aecf2ac2321a983052517" id="r_ad965fcf4eb8aecf2ac2321a983052517"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad965fcf4eb8aecf2ac2321a983052517">MarkPublishing</a> ()</td></tr>
+<tr class="memdesc:ad965fcf4eb8aecf2ac2321a983052517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozpoczyna publikację: Draft/Scheduled -&gt; Publishing (wywoływane przez warstwę integracji z platformą).  <br /></td></tr>
+<tr class="memitem:aa540643b7b110f2d9e9d57818ab59787" id="r_aa540643b7b110f2d9e9d57818ab59787"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa540643b7b110f2d9e9d57818ab59787">MarkPublished</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#accb1b3c4c65f8cbc043c756bddbfbaa6">ExternalId</a> externalPostId, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a> publishedAt)</td></tr>
+<tr class="memdesc:aa540643b7b110f2d9e9d57818ab59787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kończy publikację sukcesem: Publishing -&gt; Published.  <br /></td></tr>
+<tr class="memitem:adcf846c51cc58942916400be9ae60875" id="r_adcf846c51cc58942916400be9ae60875"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adcf846c51cc58942916400be9ae60875">MarkFailed</a> (string error)</td></tr>
+<tr class="memdesc:adcf846c51cc58942916400be9ae60875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kończy publikację błędem: Publishing -&gt; Failed (komunikat jest przycinany do 1000 znaków).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Statyczne metody publiczne</h2></td></tr>
+<tr class="memitem:a029ae3de4c51790b3a25cef63ecbc90e" id="r_a029ae3de4c51790b3a25cef63ecbc90e"><td class="memItemLeft">static <a class="el" href="#a08a87558243a006a437600a74148d346">Post</a>&#160;</td><td class="memItemRight"><a class="el" href="#a029ae3de4c51790b3a25cef63ecbc90e">Create</a> (<a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a> title, <a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a> description, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a> type, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt; pictures, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt; videos, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt; managers, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>? scheduledAt, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>? targetAccount)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Metody chronione</h2></td></tr>
+<tr class="memitem:a08a87558243a006a437600a74148d346" id="r_a08a87558243a006a437600a74148d346"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a08a87558243a006a437600a74148d346">Post</a> ()</td></tr>
+<tr class="memitem:a867d0e847a7bb8b3aa26650baa8a743c" id="r_a867d0e847a7bb8b3aa26650baa8a743c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a867d0e847a7bb8b3aa26650baa8a743c">InitNew</a> ()</td></tr>
+<tr class="memitem:a028b9d7b01d44c5306e7ace2dca5d94b" id="r_a028b9d7b01d44c5306e7ace2dca5d94b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a028b9d7b01d44c5306e7ace2dca5d94b">Apply</a> (<a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a> title, <a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a> description, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a> type, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt; pictures, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt; videos, IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt; managers, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>? scheduledAt, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>? targetAccount)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
+Właściwości</h2></td></tr>
+<tr class="memitem:a1533470fad18fd19a56a6525d5257e86" id="r_a1533470fad18fd19a56a6525d5257e86"><td class="memItemLeft">Guid&#160;</td><td class="memItemRight"><a class="el" href="#a1533470fad18fd19a56a6525d5257e86">Id</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:aaf3f3c8cb24f4f786313f149c28b9df1" id="r_aaf3f3c8cb24f4f786313f149c28b9df1"><td class="memItemLeft">Title&#160;</td><td class="memItemRight"><a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memitem:a96711e062a97c161697a1346e24a2727" id="r_a96711e062a97c161697a1346e24a2727"><td class="memItemLeft">CreatedAt&#160;</td><td class="memItemRight"><a class="el" href="#a96711e062a97c161697a1346e24a2727">CreatedAt</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memitem:a0e83958fb76c789e1fd14705f0492dcf" id="r_a0e83958fb76c789e1fd14705f0492dcf"><td class="memItemLeft">Description&#160;</td><td class="memItemRight"><a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memitem:a83d632b7551bbf0fdc19551234f1343b" id="r_a83d632b7551bbf0fdc19551234f1343b"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#af3e3ea6c27a6d6b271f34baf8522450d">PostStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a83d632b7551bbf0fdc19551234f1343b">Status</a> = PostStatus.Draft<code> [get, private set]</code></td></tr>
+<tr class="memitem:a73d7228282e77d1adacc1938eb23d958" id="r_a73d7228282e77d1adacc1938eb23d958"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73d7228282e77d1adacc1938eb23d958">Visibility</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:a382b1243727b8db4bad69860340fdf0a" id="r_a382b1243727b8db4bad69860340fdf0a"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>?&#160;</td><td class="memItemRight"><a class="el" href="#a382b1243727b8db4bad69860340fdf0a">ScheduledAt</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:ab706d7388a20109a2f1d64237f48adea" id="r_ab706d7388a20109a2f1d64237f48adea"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>?&#160;</td><td class="memItemRight"><a class="el" href="#ab706d7388a20109a2f1d64237f48adea">PublishedAt</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:a2bb01340b9f13edfa842f9ae19e195c1" id="r_a2bb01340b9f13edfa842f9ae19e195c1"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#accb1b3c4c65f8cbc043c756bddbfbaa6">ExternalId</a>?&#160;</td><td class="memItemRight"><a class="el" href="#a2bb01340b9f13edfa842f9ae19e195c1">ExternalPostId</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:acce6e436a136d79fc0095f24b41cdf7e" id="r_acce6e436a136d79fc0095f24b41cdf7e"><td class="memItemLeft">string?&#160;</td><td class="memItemRight"><a class="el" href="#acce6e436a136d79fc0095f24b41cdf7e">ErrorMessage</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:a24c4ebda71091d7302e37ba54a639d2a" id="r_a24c4ebda71091d7302e37ba54a639d2a"><td class="memItemLeft">Guid?&#160;</td><td class="memItemRight"><a class="el" href="#a24c4ebda71091d7302e37ba54a639d2a">TargetAccountId</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:a24c4ebda71091d7302e37ba54a639d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konto docelowe publikacji (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html" title="Konto w mediach społecznościowych (Facebook, Instagram, TikTok). Relacje z diagramu: n - m ManagerUse...">SocialAccount</a> 1 - n <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH).">Post</a>; opcjonalne, bo szkic może go jeszcze nie mieć).  <br /></td></tr>
+<tr class="memitem:a4c9c2a47c602b2c724c1d2ca29456f3f" id="r_a4c9c2a47c602b2c724c1d2ca29456f3f"><td class="memItemLeft"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>?&#160;</td><td class="memItemRight"><a class="el" href="#a4c9c2a47c602b2c724c1d2ca29456f3f">TargetAccount</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:a0c60bb5594072a9565c963ecb55c5742" id="r_a0c60bb5594072a9565c963ecb55c5742"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type.html">FileType</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0c60bb5594072a9565c963ecb55c5742">Files</a> = new()<code> [get, private set]</code></td></tr>
+<tr class="memitem:aa050f799852a87da89ae71e4d553eed9" id="r_aa050f799852a87da89ae71e4d553eed9"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa050f799852a87da89ae71e4d553eed9">ManagerUsers</a> = new()<code> [get, private set]</code></td></tr>
+<tr class="memitem:a36ee47f514ca24e85674ae326a9e719d" id="r_a36ee47f514ca24e85674ae326a9e719d"><td class="memItemLeft">IReadOnlyList&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a36ee47f514ca24e85674ae326a9e719d">Pictures</a><code> [get]</code></td></tr>
+<tr class="memitem:a27ba4073df866feb87147fc915c5cf3b" id="r_a27ba4073df866feb87147fc915c5cf3b"><td class="memItemLeft">IReadOnlyList&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a27ba4073df866feb87147fc915c5cf3b">Videos</a><code> [get]</code></td></tr>
+<tr class="memitem:a88a940633774838ece5918af8ee83b92" id="r_a88a940633774838ece5918af8ee83b92"><td class="memItemLeft">virtual ? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#af84d315bd8f627a2df46fda79fa38ff4">SocialPlatform</a>&#160;</td><td class="memItemRight"><a class="el" href="#a88a940633774838ece5918af8ee83b92">Platform</a><code> [get]</code></td></tr>
+<tr class="memdesc:a88a940633774838ece5918af8ee83b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platforma posta; null dla posta ogólnego. Nadpisywane w podklasach.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH).">Post</a> ogólny (bez platformy). Klasy <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html">FacebookPost</a>, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html">InstagramPost</a> i <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html">TikTokPost</a> dziedziczą po nim (TPH). </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a08a87558243a006a437600a74148d346" name="a08a87558243a006a437600a74148d346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a87558243a006a437600a74148d346">&#9670;&#160;</a></span>Post()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SocialContent.Api.Domain.Entities.Post.Post </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a08a87558243a006a437600a74148d346_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a08a87558243a006a437600a74148d346_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a08a87558243a006a437600a74148d346_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a08a87558243a006a437600a74148d346_icgraph">
+<area shape="rect" title=" " alt="" coords="466,5,645,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a029ae3de4c51790b3a25cef63ecbc90e" title=" " alt="" coords="239,5,418,48"/>
+<area shape="poly" title=" " alt="" coords="448,27,419,29,418,24,453,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,27,191,29,191,24,226,26"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a028b9d7b01d44c5306e7ace2dca5d94b" name="a028b9d7b01d44c5306e7ace2dca5d94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a028b9d7b01d44c5306e7ace2dca5d94b">&#9670;&#160;</a></span>Apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.Post.Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a></td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a></td>          <td class="paramname"><span class="paramname"><em>description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>pictures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>videos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>managers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>?</td>          <td class="paramname"><span class="paramname"><em>scheduledAt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>?</td>          <td class="paramname"><span class="paramname"><em>targetAccount</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a028b9d7b01d44c5306e7ace2dca5d94b_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a028b9d7b01d44c5306e7ace2dca5d94b_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a028b9d7b01d44c5306e7ace2dca5d94b_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a028b9d7b01d44c5306e7ace2dca5d94b_icgraph">
+<area shape="rect" title=" " alt="" coords="487,105,666,148"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html#a4646da7bbcbdf902e2328e0ed02d912a" title=" " alt="" coords="239,5,438,48"/>
+<area shape="poly" title=" " alt="" coords="518,98,438,62,409,51,409,46,440,58,523,98"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html#ad33dadf0d8f8a14c3ced83cecb3d508a" title=" " alt="" coords="239,72,439,115"/>
+<area shape="poly" title=" " alt="" coords="469,112,440,110,439,105,474,112"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a2981d216f7f78449ed11aeea563ac4ec" title=" " alt="" coords="249,139,428,181"/>
+<area shape="poly" title=" " alt="" coords="469,142,429,150,428,145,474,141"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#a96595df95422e1eaab16fcd69c1f6843" title=" " alt="" coords="248,205,430,248"/>
+<area shape="poly" title=" " alt="" coords="523,155,440,196,410,207,409,202,438,191,518,156"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,205,191,248"/>
+<area shape="poly" title=" " alt="" coords="230,227,191,229,191,224,235,226"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a029ae3de4c51790b3a25cef63ecbc90e" name="a029ae3de4c51790b3a25cef63ecbc90e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a029ae3de4c51790b3a25cef63ecbc90e">&#9670;&#160;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a08a87558243a006a437600a74148d346">Post</a> SocialContent.Api.Domain.Entities.Post.Create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a></td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a></td>          <td class="paramname"><span class="paramname"><em>description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>pictures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>videos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>managers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>?</td>          <td class="paramname"><span class="paramname"><em>scheduledAt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>?</td>          <td class="paramname"><span class="paramname"><em>targetAccount</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_cgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,185,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a08a87558243a006a437600a74148d346" title=" " alt="" coords="233,5,412,48"/>
+<area shape="poly" title=" " alt="" coords="185,24,220,26,214,27,185,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e_icgraph">
+<area shape="rect" title=" " alt="" coords="239,5,418,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,27,191,29,191,24,226,26"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a867d0e847a7bb8b3aa26650baa8a743c" name="a867d0e847a7bb8b3aa26650baa8a743c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867d0e847a7bb8b3aa26650baa8a743c">&#9670;&#160;</a></span>InitNew()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.Post.InitNew </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcf846c51cc58942916400be9ae60875" name="adcf846c51cc58942916400be9ae60875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcf846c51cc58942916400be9ae60875">&#9670;&#160;</a></span>MarkFailed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.Post.MarkFailed </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kończy publikację błędem: Publishing -&gt; Failed (komunikat jest przycinany do 1000 znaków). </p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_adcf846c51cc58942916400be9ae60875_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_adcf846c51cc58942916400be9ae60875_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_adcf846c51cc58942916400be9ae60875_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_adcf846c51cc58942916400be9ae60875_icgraph">
+<area shape="rect" title="Kończy publikację błędem: Publishing &#45;&gt; Failed (komunikat jest przycinany do 1000 znaków)." alt="" coords="498,5,677,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a654ed95626fdcc42926432fecebdbba7" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,5,450,48"/>
+<area shape="poly" title=" " alt="" coords="479,27,451,29,451,24,485,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a64a6a5f07e3e948dccb74c99ad6634a7" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,5,216,48"/>
+<area shape="poly" title=" " alt="" coords="245,27,216,29,216,24,250,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa540643b7b110f2d9e9d57818ab59787" name="aa540643b7b110f2d9e9d57818ab59787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa540643b7b110f2d9e9d57818ab59787">&#9670;&#160;</a></span>MarkPublished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.Post.MarkPublished </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#accb1b3c4c65f8cbc043c756bddbfbaa6">ExternalId</a></td>          <td class="paramname"><span class="paramname"><em>externalPostId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a></td>          <td class="paramname"><span class="paramname"><em>publishedAt</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kończy publikację sukcesem: Publishing -&gt; Published. </p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa540643b7b110f2d9e9d57818ab59787_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa540643b7b110f2d9e9d57818ab59787_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa540643b7b110f2d9e9d57818ab59787_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa540643b7b110f2d9e9d57818ab59787_icgraph">
+<area shape="rect" title="Kończy publikację sukcesem: Publishing &#45;&gt; Published." alt="" coords="498,5,684,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a654ed95626fdcc42926432fecebdbba7" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,5,450,48"/>
+<area shape="poly" title=" " alt="" coords="480,27,451,29,450,24,485,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a64a6a5f07e3e948dccb74c99ad6634a7" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,5,216,48"/>
+<area shape="poly" title=" " alt="" coords="245,27,216,29,216,24,250,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad965fcf4eb8aecf2ac2321a983052517" name="ad965fcf4eb8aecf2ac2321a983052517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad965fcf4eb8aecf2ac2321a983052517">&#9670;&#160;</a></span>MarkPublishing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.Post.MarkPublishing </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rozpoczyna publikację: Draft/Scheduled -&gt; Publishing (wywoływane przez warstwę integracji z platformą). </p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_ad965fcf4eb8aecf2ac2321a983052517_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_ad965fcf4eb8aecf2ac2321a983052517_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_ad965fcf4eb8aecf2ac2321a983052517_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_ad965fcf4eb8aecf2ac2321a983052517_icgraph">
+<area shape="rect" title="Rozpoczyna publikację: Draft/Scheduled &#45;&gt; Publishing (wywoływane przez warstwę integracji z platformą..." alt="" coords="498,5,687,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a654ed95626fdcc42926432fecebdbba7" title="Publikuje post (Draft/Scheduled/Failed &#45;&gt; Published albo Failed). Wywołujący zapisał już post w bazie..." alt="" coords="264,5,450,48"/>
+<area shape="poly" title=" " alt="" coords="480,27,450,29,450,24,485,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_publisher.html#a64a6a5f07e3e948dccb74c99ad6634a7" title="Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych." alt="" coords="5,5,216,48"/>
+<area shape="poly" title=" " alt="" coords="245,27,216,29,216,24,250,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2981d216f7f78449ed11aeea563ac4ec" name="a2981d216f7f78449ed11aeea563ac4ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2981d216f7f78449ed11aeea563ac4ec">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.Post.Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aaf3f3c8cb24f4f786313f149c28b9df1">Title</a></td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0e83958fb76c789e1fd14705f0492dcf">Description</a></td>          <td class="paramname"><span class="paramname"><em>description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>pictures</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>videos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>managers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>?</td>          <td class="paramname"><span class="paramname"><em>scheduledAt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>?</td>          <td class="paramname"><span class="paramname"><em>targetAccount</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a2981d216f7f78449ed11aeea563ac4ec_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a2981d216f7f78449ed11aeea563ac4ec_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a2981d216f7f78449ed11aeea563ac4ec_cgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a2981d216f7f78449ed11aeea563ac4ec_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,185,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a028b9d7b01d44c5306e7ace2dca5d94b" title=" " alt="" coords="233,5,412,48"/>
+<area shape="poly" title=" " alt="" coords="185,24,220,26,214,27,185,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Dokumentacja właściwości</h2>
+<a id="a96711e062a97c161697a1346e24a2727" name="a96711e062a97c161697a1346e24a2727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96711e062a97c161697a1346e24a2727">&#9670;&#160;</a></span>CreatedAt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CreatedAt SocialContent.Api.Domain.Entities.Post.CreatedAt = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e83958fb76c789e1fd14705f0492dcf" name="a0e83958fb76c789e1fd14705f0492dcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e83958fb76c789e1fd14705f0492dcf">&#9670;&#160;</a></span>Description</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Description SocialContent.Api.Domain.Entities.Post.Description = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acce6e436a136d79fc0095f24b41cdf7e" name="acce6e436a136d79fc0095f24b41cdf7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce6e436a136d79fc0095f24b41cdf7e">&#9670;&#160;</a></span>ErrorMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string? SocialContent.Api.Domain.Entities.Post.ErrorMessage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bb01340b9f13edfa842f9ae19e195c1" name="a2bb01340b9f13edfa842f9ae19e195c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bb01340b9f13edfa842f9ae19e195c1">&#9670;&#160;</a></span>ExternalPostId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#accb1b3c4c65f8cbc043c756bddbfbaa6">ExternalId</a>? SocialContent.Api.Domain.Entities.Post.ExternalPostId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c60bb5594072a9565c963ecb55c5742" name="a0c60bb5594072a9565c963ecb55c5742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c60bb5594072a9565c963ecb55c5742">&#9670;&#160;</a></span>Files</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type.html">FileType</a>&gt; SocialContent.Api.Domain.Entities.Post.Files = new()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1533470fad18fd19a56a6525d5257e86" name="a1533470fad18fd19a56a6525d5257e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1533470fad18fd19a56a6525d5257e86">&#9670;&#160;</a></span>Id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Guid SocialContent.Api.Domain.Entities.Post.Id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa050f799852a87da89ae71e4d553eed9" name="aa050f799852a87da89ae71e4d553eed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa050f799852a87da89ae71e4d553eed9">&#9670;&#160;</a></span>ManagerUsers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a>&gt; SocialContent.Api.Domain.Entities.Post.ManagerUsers = new()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36ee47f514ca24e85674ae326a9e719d" name="a36ee47f514ca24e85674ae326a9e719d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ee47f514ca24e85674ae326a9e719d">&#9670;&#160;</a></span>Pictures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IReadOnlyList&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a>&gt; SocialContent.Api.Domain.Entities.Post.Pictures</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88a940633774838ece5918af8ee83b92" name="a88a940633774838ece5918af8ee83b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a940633774838ece5918af8ee83b92">&#9670;&#160;</a></span>Platform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#af84d315bd8f627a2df46fda79fa38ff4">SocialPlatform</a> SocialContent.Api.Domain.Entities.Post.Platform</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Platforma posta; null dla posta ogólnego. Nadpisywane w podklasach. </p>
+
+</div>
+</div>
+<a id="ab706d7388a20109a2f1d64237f48adea" name="ab706d7388a20109a2f1d64237f48adea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab706d7388a20109a2f1d64237f48adea">&#9670;&#160;</a></span>PublishedAt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>? SocialContent.Api.Domain.Entities.Post.PublishedAt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a382b1243727b8db4bad69860340fdf0a" name="a382b1243727b8db4bad69860340fdf0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382b1243727b8db4bad69860340fdf0a">&#9670;&#160;</a></span>ScheduledAt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>? SocialContent.Api.Domain.Entities.Post.ScheduledAt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83d632b7551bbf0fdc19551234f1343b" name="a83d632b7551bbf0fdc19551234f1343b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d632b7551bbf0fdc19551234f1343b">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#af3e3ea6c27a6d6b271f34baf8522450d">PostStatus</a> SocialContent.Api.Domain.Entities.Post.Status = PostStatus.Draft</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c9c2a47c602b2c724c1d2ca29456f3f" name="a4c9c2a47c602b2c724c1d2ca29456f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c9c2a47c602b2c724c1d2ca29456f3f">&#9670;&#160;</a></span>TargetAccount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a>? SocialContent.Api.Domain.Entities.Post.TargetAccount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24c4ebda71091d7302e37ba54a639d2a" name="a24c4ebda71091d7302e37ba54a639d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24c4ebda71091d7302e37ba54a639d2a">&#9670;&#160;</a></span>TargetAccountId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Guid? SocialContent.Api.Domain.Entities.Post.TargetAccountId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konto docelowe publikacji (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html" title="Konto w mediach społecznościowych (Facebook, Instagram, TikTok). Relacje z diagramu: n - m ManagerUse...">SocialAccount</a> 1 - n <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH).">Post</a>; opcjonalne, bo szkic może go jeszcze nie mieć). </p>
+
+</div>
+</div>
+<a id="aaf3f3c8cb24f4f786313f149c28b9df1" name="aaf3f3c8cb24f4f786313f149c28b9df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf3f3c8cb24f4f786313f149c28b9df1">&#9670;&#160;</a></span>Title</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Title SocialContent.Api.Domain.Entities.Post.Title = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27ba4073df866feb87147fc915c5cf3b" name="a27ba4073df866feb87147fc915c5cf3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ba4073df866feb87147fc915c5cf3b">&#9670;&#160;</a></span>Videos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IReadOnlyList&lt;<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a>&gt; SocialContent.Api.Domain.Entities.Post.Videos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73d7228282e77d1adacc1938eb23d958" name="a73d7228282e77d1adacc1938eb23d958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d7228282e77d1adacc1938eb23d958">&#9670;&#160;</a></span>Visibility</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a> SocialContent.Api.Domain.Entities.Post.Visibility</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Domain/Entities/<a class="el" href="_post_8cs.html">Post.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_domain.html">Domain</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_domain_1_1_entities.html">Entities</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

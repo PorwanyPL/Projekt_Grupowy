@@ -1,0 +1,122 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Controllers.\+Auth\+Controller(IAuth\+Service service)}
+\hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller}{}\label{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller}\index{SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}}
+
+
+Rejestracja (firma, klient) i logowanie wszystkich ról (JWT).  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Controllers.\+Auth\+Controller
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Controllers.\+Auth\+Controller:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_a053d33ffaac40c5f4b811aa701ab6da8}{Register\+Company}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_company_dto}{Register\+Company\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zarejestruj firmę (Company\+User). \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_ab8626b58c7546071023e43271d4581c8}{Register\+Client}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto}{Register\+Client\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zarejestruj klienta (Client\+User). \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_ab7a7eca1276ca7b539493d4248295507}{Login}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_login_dto}{Login\+Dto}} dto, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zaloguj się \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_a00e87767c1a4d7d04f6f97a3ce2392c9}{Me}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Pobierz profil zalogowanego użytkownika. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Rejestracja (firma, klient) i logowanie wszystkich ról (JWT). 
+
+\label{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_ab7a7eca1276ca7b539493d4248295507}\index{SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}!Login@{Login}}
+\index{Login@{Login}!SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_ab7a7eca1276ca7b539493d4248295507} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Auth\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_login_dto}{Login\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zaloguj się 
+
+Logowanie adresem e-\/mail i hasłem dla każdej roli (Company\+User, Manager\+User, Client\+User). Zwraca token JWT, który zawiera rolę, oraz profil zalogowanego.
+
+Przy błędnym e-\/mailu lub haśle zwracany jest ten sam komunikat, aby nie ujawniać, czy konto istnieje. Managerowie utworzeni bez e-\/maila i hasła nie mają danych logowania i nie mogą się zalogować. Zablokowane konto dostaje 401 z komunikatem o blokadzie (po podaniu poprawnego hasła).
+
+
+\begin{DoxyParams}{Parametry}
+{\em dto} & Adres e-\/mail i hasło.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}200"{}$>$Logowanie udane; w odpowiedzi token i profil.$<$/\+response$>$ $<$response code="{}400"{}$>$Brakuje e-\/maila lub hasła.$<$/\+response$>$ $<$response code="{}401"{}$>$Nieprawidłowy adres e-\/mail lub hasło albo konto jest zablokowane.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_a00e87767c1a4d7d04f6f97a3ce2392c9}\index{SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}!Me@{Me}}
+\index{Me@{Me}!SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{Me()}{Me()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_a00e87767c1a4d7d04f6f97a3ce2392c9} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Auth\+Controller.\+Me (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pobierz profil zalogowanego użytkownika. 
+
+Zwraca rolę (Company\+User, Manager\+User lub Client\+User), adres e-\/mail i dane profilu na podstawie tokenu. Frontend używa go do odtworzenia sesji po ponownym uruchomieniu aplikacji.
+
+$<$response code="{}200"{}$>$Profil zalogowanego użytkownika.$<$/\+response$>$ $<$response code="{}401"{}$>$Brak tokenu, token nieprawidłowy lub wygasły albo konto już nie istnieje lub jest zablokowane.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_ab8626b58c7546071023e43271d4581c8}\index{SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}!RegisterClient@{RegisterClient}}
+\index{RegisterClient@{RegisterClient}!SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{RegisterClient()}{RegisterClient()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_ab8626b58c7546071023e43271d4581c8} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Auth\+Controller.\+Register\+Client (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto}{Register\+Client\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zarejestruj klienta (Client\+User). 
+
+Klient rejestruje się samodzielnie (imię, nazwisko, wiek, opis, e-\/mail, hasło) i od razu jest logowany. Po rejestracji nie jest powiązany z żadną firmą -\/ powiązanie tworzy firma przez POST /\+api/\+\+Client\+Users, podając adres e-\/mail klienta.
+
+Reguły adresu e-\/mail i hasła są takie same jak przy rejestracji firmy. Wymagane pola: first\+Name i last\+Name (1-\/50 znaków; litery, myślnik, apostrof), age (18-\/100), description (1-\/2000 znaków).
+
+
+\begin{DoxyParams}{Parametry}
+{\em dto} & Dane klienta oraz e-\/mail i hasło.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}201"{}$>$Konto klienta zostało utworzone; w odpowiedzi token i profil.$<$/\+response$>$ $<$response code="{}400"{}$>$Dane nie spełniają reguł walidacji.$<$/\+response$>$ $<$response code="{}409"{}$>$Konto z tym adresem e-\/mail już istnieje.$<$/\+response$>$ \Hypertarget{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_a053d33ffaac40c5f4b811aa701ab6da8}\index{SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}!RegisterCompany@{RegisterCompany}}
+\index{RegisterCompany@{RegisterCompany}!SocialContent.Api.Controllers.AuthController@{SocialContent.Api.Controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{RegisterCompany()}{RegisterCompany()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_controllers_1_1_auth_controller_a053d33ffaac40c5f4b811aa701ab6da8} 
+async Task$<$ Action\+Result$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Controllers.\+Auth\+Controller.\+Register\+Company (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_company_dto}{Register\+Company\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zarejestruj firmę (Company\+User). 
+
+Tworzy konto administratora firmy (nazwa firmy, e-\/mail, hasło) i od razu go loguje. Company\+User rejestruje się jako pierwszy: dopiero z jego konta można tworzyć managerów i konta społecznościowe. Managerowie nie rejestrują się sami, tworzy ich firma przez POST /\+api/\+\+Manager\+Users.
+
+Adres e-\/mail jest identyfikatorem logowania i musi być unikalny we wszystkich rolach (firma, manager, klient); wielkość liter nie ma znaczenia. Hasło musi mieć 8-\/128 znaków, w tym małą literę, wielką literę i cyfrę. Jest przechowywane wyłącznie jako hasz PBKDF2 i nigdy nie jest zwracane.
+
+W odpowiedzi dostajesz token JWT (access\+Token) do przekazywania w nagłówku Authorization: Bearer oraz profil z rolą Company\+User.
+
+
+\begin{DoxyParams}{Parametry}
+{\em dto} & Nazwa firmy, e-\/mail i hasło.\\
+\hline
+\end{DoxyParams}
+$<$response code="{}201"{}$>$Konto firmy zostało utworzone; w odpowiedzi token i profil.$<$/\+response$>$ $<$response code="{}400"{}$>$Dane nie spełniają reguł walidacji (np. słabe hasło, błędny e-\/mail, pusta nazwa firmy).$<$/\+response$>$ $<$response code="{}409"{}$>$Konto z tym adresem e-\/mail już istnieje.$<$/\+response$>$ 
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Controllers/\doxymbox{\hyperlink{_auth_controller_8cs}{Auth\+Controller.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Domain.Entities.FileType" name="SocialContent.Api.Domain.Entities.FileType">
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,270,197"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html" title=" " alt="" coords="5,245,174,352"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,209,117,247,113,244,131,213"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html" title=" " alt="" coords="199,245,367,352"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,208,260,246,254,245,239,213"/>
+</map>

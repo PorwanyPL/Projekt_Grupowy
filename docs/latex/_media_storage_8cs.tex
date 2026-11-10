@@ -1,0 +1,23 @@
+\doxysection{Dokumentacja pliku backend/\+\+Social\+Content.Api/\+\+Services/\+\+Media\+Storage.cs}
+\hypertarget{_media_storage_8cs}{}\label{_media_storage_8cs}\index{backend/SocialContent.Api/Services/MediaStorage.cs@{backend/SocialContent.Api/Services/MediaStorage.cs}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage}{Social\+Content.\+Api.\+Services.\+IMedia\+Storage}}
+\begin{DoxyCompactList}\small\item\em Magazyn przesłanych plików: katalog na dysku serwera, osobny podkatalog dla każdej firmy. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_storage}{Social\+Content.\+Api.\+Services.\+Media\+Storage}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Przestrzenie nazw}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content}{Social\+Content}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api}{Social\+Content.\+Api}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services}{Social\+Content.\+Api.\+Services}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}{Social\+Content.\+Api.\+Services.\+Stored\+Media}} (string Storage\+Key, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a69fa4d0e7790a5208a0e053b4f1f8990}{Media\+Kind}} Kind, Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} Format\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}, int Size\+Kb)
+\begin{DoxyCompactList}\small\item\em Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta. \end{DoxyCompactList}\end{DoxyCompactItemize}

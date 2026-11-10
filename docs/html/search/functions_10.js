@@ -1,0 +1,18 @@
+var searchData=
+[
+  ['saveasync_0',['SaveAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html#a7fe48fe98765fa8a6aa1702da0895d7a',1,'SocialContent.Api.Services.IMediaStorage.SaveAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_media_storage.html#abbbdbd97da6c54276e415c7ee3488d79',1,'SocialContent.Api.Services.MediaStorage.SaveAsync()']]],
+  ['saveregistrationasync_1',['SaveRegistrationAsync',['../class_social_content_1_1_api_1_1_services_1_1_auth_service.html#ae541ee433369e1593657d2791b6ea7a4',1,'SocialContent::Api::Services::AuthService']]],
+  ['setaccess_2',['SetAccess',['../class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller.html#a1070494667ef60d1a233bce2150bfb77',1,'SocialContent::Api::Controllers::ManagerUsersController']]],
+  ['setaccessasync_3',['SetAccessAsync',['../interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html#a09bd2c278de14186c13e3b8222328575',1,'SocialContent.Api.Services.IManagerUserService.SetAccessAsync()'],['../class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5cc7cc42cedd0265fe394c002f158c2b',1,'SocialContent.Api.Services.ManagerUserService.SetAccessAsync()']]],
+  ['setaccessblocked_4',['SetAccessBlocked',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html#a38720300fa31a43c63e3bab0d182c25a',1,'SocialContent.Api.Domain.Entities.CompanyUser.SetAccessBlocked()'],['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#a2ab651e214bb2232772f811f33ce140c',1,'SocialContent.Api.Domain.Entities.ManagerCredential.SetAccessBlocked()']]],
+  ['setchildcontent_5',['SetChildContent',['../class_win32_window.html#aaefe8ad05d18d4841a01f51e1785ff0c',1,'Win32Window']]],
+  ['setconnectionerror_6',['SetConnectionError',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a212049dbff1e506e4101c8fbd13dc22d',1,'SocialContent::Api::Domain::Entities::SocialAccount']]],
+  ['setdetails_7',['SetDetails',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html#a5f75d0f2dc74b89286f7273093392ab0',1,'SocialContent.Api.Domain.Entities.FacebookPost.SetDetails()'],['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html#a54b917ca3b81dd917ac3f1cb7bf90977',1,'SocialContent.Api.Domain.Entities.InstagramPost.SetDetails()'],['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#abb2d5adb0bbb9747723d4eaab4b5bad0',1,'SocialContent.Api.Domain.Entities.TikTokPost.SetDetails()']]],
+  ['setquitonclose_8',['SetQuitOnClose',['../class_win32_window.html#abb55283812244d63f99517bdbdde4c5a',1,'Win32Window']]],
+  ['show_9',['Show',['../class_win32_window.html#a079de4f5c5d61571ed3ef4660c8386c9',1,'Win32Window']]],
+  ['size_10',['Size',['../struct_win32_window_1_1_size.html#a3c51518e24523699539dfa87a40cb2ed',1,'Win32Window::Size']]],
+  ['socialaccount_11',['SocialAccount',['../class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a0be8fea432da39ee2a9acbfc6524086a',1,'SocialContent::Api::Domain::Entities::SocialAccount']]],
+  ['socialaccountdto_12',['SocialAccountDto',['../namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6',1,'SocialContent::Api::Dtos']]],
+  ['socialaccountprofile_13',['SocialAccountProfile',['../class_social_content_1_1_api_1_1_mapping_1_1_social_account_profile.html#a52c1f6eefc6af337715278af787ba2f4',1,'SocialContent::Api::Mapping::SocialAccountProfile']]],
+  ['storedmedia_14',['StoredMedia',['../namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8',1,'SocialContent::Api::Services']]]
+];

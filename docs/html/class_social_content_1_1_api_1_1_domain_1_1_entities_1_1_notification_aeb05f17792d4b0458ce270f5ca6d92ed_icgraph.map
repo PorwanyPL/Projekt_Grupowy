@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Domain.Entities.Notification.Notification" name="SocialContent.Api.Domain.Entities.Notification.Notification">
+<area shape="rect" id="Node000001" title=" " alt="" coords="517,5,722,48"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification.html#a6bd81ee9f897ce7e55c9a8dc14773e9d" title=" " alt="" coords="290,5,469,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="499,27,470,29,469,24,504,27"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_notification_service.html#a306141be6e38d231c617a11a028de1bb" title="Dodaje (bez zapisu &#45; zapisuje wywołujący) powiadomienia o nieudanej publikacji posta." alt="" coords="5,5,242,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="271,27,242,29,242,24,277,27"/>
+</map>

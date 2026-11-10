@@ -1,0 +1,27 @@
+var class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post =
+[
+    [ "Post", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a08a87558243a006a437600a74148d346", null ],
+    [ "Apply", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a028b9d7b01d44c5306e7ace2dca5d94b", null ],
+    [ "InitNew", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a867d0e847a7bb8b3aa26650baa8a743c", null ],
+    [ "MarkFailed", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#adcf846c51cc58942916400be9ae60875", null ],
+    [ "MarkPublished", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa540643b7b110f2d9e9d57818ab59787", null ],
+    [ "MarkPublishing", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ad965fcf4eb8aecf2ac2321a983052517", null ],
+    [ "Update", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a2981d216f7f78449ed11aeea563ac4ec", null ],
+    [ "CreatedAt", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a96711e062a97c161697a1346e24a2727", null ],
+    [ "Description", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a0e83958fb76c789e1fd14705f0492dcf", null ],
+    [ "ErrorMessage", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#acce6e436a136d79fc0095f24b41cdf7e", null ],
+    [ "ExternalPostId", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a2bb01340b9f13edfa842f9ae19e195c1", null ],
+    [ "Files", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a0c60bb5594072a9565c963ecb55c5742", null ],
+    [ "Id", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a1533470fad18fd19a56a6525d5257e86", null ],
+    [ "ManagerUsers", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aa050f799852a87da89ae71e4d553eed9", null ],
+    [ "Pictures", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a36ee47f514ca24e85674ae326a9e719d", null ],
+    [ "Platform", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a88a940633774838ece5918af8ee83b92", null ],
+    [ "PublishedAt", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#ab706d7388a20109a2f1d64237f48adea", null ],
+    [ "ScheduledAt", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a382b1243727b8db4bad69860340fdf0a", null ],
+    [ "Status", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a83d632b7551bbf0fdc19551234f1343b", null ],
+    [ "TargetAccount", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a4c9c2a47c602b2c724c1d2ca29456f3f", null ],
+    [ "TargetAccountId", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a24c4ebda71091d7302e37ba54a639d2a", null ],
+    [ "Title", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#aaf3f3c8cb24f4f786313f149c28b9df1", null ],
+    [ "Videos", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a27ba4073df866feb87147fc915c5cf3b", null ],
+    [ "Visibility", "class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a73d7228282e77d1adacc1938eb23d958", null ]
+];

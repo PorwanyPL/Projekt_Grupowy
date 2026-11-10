@@ -1,0 +1,10 @@
+<map id="SocialContent.Api.Dtos.ClientUserDto" name="SocialContent.Api.Dtos.ClientUserDto">
+<area shape="rect" id="Node000001" title="Klient (ClientUser) widziany przez firmę, z którą jest powiązany." alt="" coords="318,72,514,115"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="460,57,445,53,416,51,389,53,373,57,367,63,368,73,364,70,361,62,370,53,388,47,416,45,446,48,465,57"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_mapping_1_1_client_user_profile.html#a6ab704e6f297ece7176bb5b862dafc01" title=" " alt="" coords="26,5,249,48"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="307,69,230,51,230,46,312,67"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#a4b04c1e2bd17fd20dbef7ec0f228fe8b" title=" " alt="" coords="5,72,270,115"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="299,94,270,96,270,91,305,93"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#ad6aa701716195a92c2e7e6c099caa90f" title=" " alt="" coords="41,139,234,181"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="312,118,230,141,229,135,306,119"/>
+</map>

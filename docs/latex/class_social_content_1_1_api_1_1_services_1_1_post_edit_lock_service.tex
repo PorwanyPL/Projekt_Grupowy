@@ -1,0 +1,145 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service(App\+Db\+Context db, IMapper mapper)}
+\hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service}{}\label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service}\index{SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116}{Acquire\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid post\+Id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny. \end{DoxyCompactList}\item 
+async Task \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31}{Release\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Guid post\+Id, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Time\+Span \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7906415cac7956267b904a3bda3e619}{Ttl}} = Time\+Span.\+From\+Minutes(2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf}{Display\+Name\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static Conflict\+Exception \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe}{Busy}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock}{Post\+Edit\+Lock}} existing)
+\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116}\index{SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}!AcquireAsync@{AcquireAsync}}
+\index{AcquireAsync@{AcquireAsync}!SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}}
+\doxysubsubsection{\texorpdfstring{AcquireAsync()}{AcquireAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116} 
+async Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a7f997b5c76d2c7892a53da391a9bbbab}{Post\+Lock\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service.\+Acquire\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{post\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny. 
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a43d6b5b724ed7baf55900aac7facd6ba}{Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aef5b07d66fc3317f30b0b3c75e6b5116_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe}\index{SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}!Busy@{Busy}}
+\index{Busy@{Busy}!SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}}
+\doxysubsubsection{\texorpdfstring{Busy()}{Busy()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe} 
+Conflict\+Exception Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service.\+Busy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock}{Post\+Edit\+Lock}}}]{existing}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7bb42c9a088467e82e08f49493b52fe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf}\index{SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}!DisplayNameAsync@{DisplayNameAsync}}
+\index{DisplayNameAsync@{DisplayNameAsync}!SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}}
+\doxysubsubsection{\texorpdfstring{DisplayNameAsync()}{DisplayNameAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf} 
+async Task$<$ string $>$ Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service.\+Display\+Name\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_aeb9d2f687a7594068cad481fd45837bf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31}\index{SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}!ReleaseAsync@{ReleaseAsync}}
+\index{ReleaseAsync@{ReleaseAsync}!SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}}
+\doxysubsubsection{\texorpdfstring{ReleaseAsync()}{ReleaseAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31} 
+async Task Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service.\+Release\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Guid}]{post\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwalnia blokadę, jeśli należy do użytkownika (inaczej nic nie robi). 
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_edit_lock_service_a3f476becabbee92749b9ef51be224583}{Social\+Content.\+Api.\+Services.\+IPost\+Edit\+Lock\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_ac653981125691ee3b695d80c5ecbda31_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_doc-variable-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_doc-variable-members}
+\doxysubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7906415cac7956267b904a3bda3e619}\index{SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}!Ttl@{Ttl}}
+\index{Ttl@{Ttl}!SocialContent.Api.Services.PostEditLockService@{SocialContent.Api.Services.PostEditLockService}}
+\doxysubsubsection{\texorpdfstring{Ttl}{Ttl}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service_af7906415cac7956267b904a3bda3e619} 
+readonly Time\+Span Social\+Content.\+Api.\+Services.\+Post\+Edit\+Lock\+Service.\+Ttl = Time\+Span.\+From\+Minutes(2)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_post_edit_lock_service_8cs}{Post\+Edit\+Lock\+Service.\+cs}}\end{DoxyCompactItemize}

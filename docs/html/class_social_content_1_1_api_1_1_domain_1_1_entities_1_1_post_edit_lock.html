@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Domain.Entities.PostEditLock</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html','','class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Domain.Entities.PostEditLock</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (ExpiresAt), więc porzucona sesja edycji nie blokuje posta na zawsze; aktywny edytor ją odnawia.  
+ <a href="#details">Więcej...</a></p>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Domain.Entities.PostEditLock:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_domain_8_entities_8_post_edit_lock_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_domain_8_entities_8_post_edit_lock_coll__map" id="a_social_content_8_api_8_domain_8_entities_8_post_edit_lock_coll__map">
+<area shape="rect" title="Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (Expir..." alt="" coords="5,5,174,304"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a4e41299cdf6c44fa94836d23b98f17a0" id="r_a4e41299cdf6c44fa94836d23b98f17a0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e41299cdf6c44fa94836d23b98f17a0">IsExpired</a> (DateTime now)</td></tr>
+<tr class="memitem:adc4fbc0d1f3d93686da0cf34be4de283" id="r_adc4fbc0d1f3d93686da0cf34be4de283"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adc4fbc0d1f3d93686da0cf34be4de283">IsHeldBy</a> (Guid userId, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a> role)</td></tr>
+<tr class="memitem:ad3fd0a51753233a38f0e7ab921653b84" id="r_ad3fd0a51753233a38f0e7ab921653b84"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad3fd0a51753233a38f0e7ab921653b84">Renew</a> (DateTime now, TimeSpan ttl)</td></tr>
+<tr class="memdesc:ad3fd0a51753233a38f0e7ab921653b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odnowienie przez obecnego właściciela.  <br /></td></tr>
+<tr class="memitem:ad5ec65b71f9e76d208d5ebf36d31e639" id="r_ad5ec65b71f9e76d208d5ebf36d31e639"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad5ec65b71f9e76d208d5ebf36d31e639">TakeOver</a> (Guid holderId, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a> role, string holderName, DateTime now, TimeSpan ttl)</td></tr>
+<tr class="memdesc:ad5ec65b71f9e76d208d5ebf36d31e639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przejęcie wygasłej blokady przez inną osobę.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Statyczne metody publiczne</h2></td></tr>
+<tr class="memitem:a98d20f35bf55f86393f2a42615f46b56" id="r_a98d20f35bf55f86393f2a42615f46b56"><td class="memItemLeft">static <a class="el" href="#afaf82b614204c0d5278ff224b2c7fe27">PostEditLock</a>&#160;</td><td class="memItemRight"><a class="el" href="#a98d20f35bf55f86393f2a42615f46b56">Create</a> (Guid postId, Guid holderId, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a> role, string holderName, DateTime now, TimeSpan ttl)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
+Właściwości</h2></td></tr>
+<tr class="memitem:aaaf0838ff9fc229a2d6368318126981b" id="r_aaaf0838ff9fc229a2d6368318126981b"><td class="memItemLeft">Guid&#160;</td><td class="memItemRight"><a class="el" href="#aaaf0838ff9fc229a2d6368318126981b">PostId</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:aa97ed4aa96b02130861ad9c5b5eb2388" id="r_aa97ed4aa96b02130861ad9c5b5eb2388"><td class="memItemLeft">Guid&#160;</td><td class="memItemRight"><a class="el" href="#aa97ed4aa96b02130861ad9c5b5eb2388">HolderId</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:a10874e1ed9f1324b0be8e5ef58c7f90e" id="r_a10874e1ed9f1324b0be8e5ef58c7f90e"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a>&#160;</td><td class="memItemRight"><a class="el" href="#a10874e1ed9f1324b0be8e5ef58c7f90e">HolderRole</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:ad29655200663aafcc98e9126462024a1" id="r_ad29655200663aafcc98e9126462024a1"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ad29655200663aafcc98e9126462024a1">HolderName</a> = null!<code> [get, private set]</code></td></tr>
+<tr class="memdesc:ad29655200663aafcc98e9126462024a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imię i nazwisko albo nazwa firmy w chwili przejęcia blokady (pokazywane drugiej osobie).  <br /></td></tr>
+<tr class="memitem:afd3c7617e6a6b511803aab0e0bf56050" id="r_afd3c7617e6a6b511803aab0e0bf56050"><td class="memItemLeft">DateTime&#160;</td><td class="memItemRight"><a class="el" href="#afd3c7617e6a6b511803aab0e0bf56050">AcquiredAt</a><code> [get, private set]</code></td></tr>
+<tr class="memitem:a30d1361aced2a1f052aab970d500d836" id="r_a30d1361aced2a1f052aab970d500d836"><td class="memItemLeft">DateTime&#160;</td><td class="memItemRight"><a class="el" href="#a30d1361aced2a1f052aab970d500d836">ExpiresAt</a><code> [get, private set]</code></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:afaf82b614204c0d5278ff224b2c7fe27" id="r_afaf82b614204c0d5278ff224b2c7fe27"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afaf82b614204c0d5278ff224b2c7fe27">PostEditLock</a> ()</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (ExpiresAt), więc porzucona sesja edycji nie blokuje posta na zawsze; aktywny edytor ją odnawia. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="afaf82b614204c0d5278ff224b2c7fe27" name="afaf82b614204c0d5278ff224b2c7fe27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf82b614204c0d5278ff224b2c7fe27">&#9670;&#160;</a></span>PostEditLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SocialContent.Api.Domain.Entities.PostEditLock.PostEditLock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_afaf82b614204c0d5278ff224b2c7fe27_icgraph">
+<area shape="rect" title=" " alt="" coords="520,5,749,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#a98d20f35bf55f86393f2a42615f46b56" title=" " alt="" coords="282,5,472,48"/>
+<area shape="poly" title=" " alt="" coords="502,27,473,29,473,24,507,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#aef5b07d66fc3317f30b0b3c75e6b5116" title="Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny." alt="" coords="5,5,234,48"/>
+<area shape="poly" title=" " alt="" coords="263,27,234,29,234,24,268,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a98d20f35bf55f86393f2a42615f46b56" name="a98d20f35bf55f86393f2a42615f46b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d20f35bf55f86393f2a42615f46b56">&#9670;&#160;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#afaf82b614204c0d5278ff224b2c7fe27">PostEditLock</a> SocialContent.Api.Domain.Entities.PostEditLock.Create </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>postId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>holderId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a></td>          <td class="paramname"><span class="paramname"><em>role</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>holderName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan</td>          <td class="paramname"><span class="paramname"><em>ttl</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_cgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,196,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#afaf82b614204c0d5278ff224b2c7fe27" title=" " alt="" coords="244,5,473,48"/>
+<area shape="poly" title=" " alt="" coords="196,24,231,26,225,27,196,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_a98d20f35bf55f86393f2a42615f46b56_icgraph">
+<area shape="rect" title=" " alt="" coords="282,5,472,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#aef5b07d66fc3317f30b0b3c75e6b5116" title="Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny." alt="" coords="5,5,234,48"/>
+<area shape="poly" title=" " alt="" coords="263,27,234,29,234,24,268,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4e41299cdf6c44fa94836d23b98f17a0" name="a4e41299cdf6c44fa94836d23b98f17a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e41299cdf6c44fa94836d23b98f17a0">&#9670;&#160;</a></span>IsExpired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SocialContent.Api.Domain.Entities.PostEditLock.IsExpired </td>
+          <td>(</td>
+          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc4fbc0d1f3d93686da0cf34be4de283" name="adc4fbc0d1f3d93686da0cf34be4de283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4fbc0d1f3d93686da0cf34be4de283">&#9670;&#160;</a></span>IsHeldBy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SocialContent.Api.Domain.Entities.PostEditLock.IsHeldBy </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>userId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a></td>          <td class="paramname"><span class="paramname"><em>role</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283_icgraph" id="aclass_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock_adc4fbc0d1f3d93686da0cf34be4de283_icgraph">
+<area shape="rect" title=" " alt="" coords="472,105,677,148"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="239,105,424,148"/>
+<area shape="poly" title=" " alt="" coords="454,127,425,129,424,124,459,126"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="271,99,190,62,162,51,162,46,192,58,276,97"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,112,192,109,191,104,226,110"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="5,139,191,181"/>
+<area shape="poly" title=" " alt="" coords="221,143,192,149,190,144,226,141"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,205,191,248"/>
+<area shape="poly" title=" " alt="" coords="276,154,192,196,163,207,161,202,190,191,271,156"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad3fd0a51753233a38f0e7ab921653b84" name="ad3fd0a51753233a38f0e7ab921653b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fd0a51753233a38f0e7ab921653b84">&#9670;&#160;</a></span>Renew()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.PostEditLock.Renew </td>
+          <td>(</td>
+          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan</td>          <td class="paramname"><span class="paramname"><em>ttl</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Odnowienie przez obecnego właściciela. </p>
+
+</div>
+</div>
+<a id="ad5ec65b71f9e76d208d5ebf36d31e639" name="ad5ec65b71f9e76d208d5ebf36d31e639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ec65b71f9e76d208d5ebf36d31e639">&#9670;&#160;</a></span>TakeOver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Domain.Entities.PostEditLock.TakeOver </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>holderId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a></td>          <td class="paramname"><span class="paramname"><em>role</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>holderName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeSpan</td>          <td class="paramname"><span class="paramname"><em>ttl</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Przejęcie wygasłej blokady przez inną osobę. </p>
+
+</div>
+</div>
+<a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Dokumentacja właściwości</h2>
+<a id="afd3c7617e6a6b511803aab0e0bf56050" name="afd3c7617e6a6b511803aab0e0bf56050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3c7617e6a6b511803aab0e0bf56050">&#9670;&#160;</a></span>AcquiredAt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DateTime SocialContent.Api.Domain.Entities.PostEditLock.AcquiredAt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30d1361aced2a1f052aab970d500d836" name="a30d1361aced2a1f052aab970d500d836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d1361aced2a1f052aab970d500d836">&#9670;&#160;</a></span>ExpiresAt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DateTime SocialContent.Api.Domain.Entities.PostEditLock.ExpiresAt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa97ed4aa96b02130861ad9c5b5eb2388" name="aa97ed4aa96b02130861ad9c5b5eb2388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa97ed4aa96b02130861ad9c5b5eb2388">&#9670;&#160;</a></span>HolderId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Guid SocialContent.Api.Domain.Entities.PostEditLock.HolderId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad29655200663aafcc98e9126462024a1" name="ad29655200663aafcc98e9126462024a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29655200663aafcc98e9126462024a1">&#9670;&#160;</a></span>HolderName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SocialContent.Api.Domain.Entities.PostEditLock.HolderName = null!</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Imię i nazwisko albo nazwa firmy w chwili przejęcia blokady (pokazywane drugiej osobie). </p>
+
+</div>
+</div>
+<a id="a10874e1ed9f1324b0be8e5ef58c7f90e" name="a10874e1ed9f1324b0be8e5ef58c7f90e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10874e1ed9f1324b0be8e5ef58c7f90e">&#9670;&#160;</a></span>HolderRole</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a2adf2fac8bbf2b0d3e29a8d90a5fb38c">UserRole</a> SocialContent.Api.Domain.Entities.PostEditLock.HolderRole</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaf0838ff9fc229a2d6368318126981b" name="aaaf0838ff9fc229a2d6368318126981b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaf0838ff9fc229a2d6368318126981b">&#9670;&#160;</a></span>PostId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Guid SocialContent.Api.Domain.Entities.PostEditLock.PostId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel private-set">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Domain/Entities/<a class="el" href="_post_edit_lock_8cs.html">PostEditLock.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_domain.html">Domain</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_domain_1_1_entities.html">Entities</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

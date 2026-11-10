@@ -1,0 +1,39 @@
+\doxysection{flutter\+\_\+window.\+h}
+\hypertarget{flutter__window_8h_source}{}\label{flutter__window_8h_source}\index{frontend/social\_content\_app/windows/runner/flutter\_window.h@{frontend/social\_content\_app/windows/runner/flutter\_window.h}}
+\doxymbox{\hyperlink{flutter__window_8h}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RUNNER\_FLUTTER\_WINDOW\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RUNNER\_FLUTTER\_WINDOW\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <flutter/dart\_project.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <flutter/flutter\_view\_controller.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{win32__window_8h}{win32\_window.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ A\ window\ that\ does\ nothing\ but\ host\ a\ Flutter\ view.}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_flutter_window_a45dcebf20c54d05b8bed2a61ad743e32}{FlutterWindow}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_win32_window_a3a7522626f853b5c7641958fda27f271}{Win32Window}}\ \{}
+\DoxyCodeLine{00013\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ Creates\ a\ new\ FlutterWindow\ hosting\ a\ Flutter\ view\ running\ |project|.}}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_flutter_window_a45dcebf20c54d05b8bed2a61ad743e32}{FlutterWindow}}(\textcolor{keyword}{const}\ flutter::DartProject\&\ project);}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_flutter_window_a45dcebf20c54d05b8bed2a61ad743e32}{\string~FlutterWindow}}();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ Win32Window:}}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_flutter_window_aee6f067471a279a0c3369717868cafbc}{OnCreate}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_flutter_window_a44abec4e5a71299700eff939145c3bdc}{OnDestroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ LRESULT\ \doxymbox{\hyperlink{class_flutter_window_a1bb87f35fbcee9b6ce64a04bea92b121}{MessageHandler}}(HWND\ window,\ UINT\ \textcolor{keyword}{const}\ message,\ WPARAM\ \textcolor{keyword}{const}\ wparam,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LPARAM\ \textcolor{keyword}{const}\ lparam)\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ The\ project\ to\ run.}}
+\DoxyCodeLine{00027\ \ \ flutter::DartProject\ \doxymbox{\hyperlink{class_flutter_window_a692defec259fb05fd281e2758072c92f}{project\_}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ The\ Flutter\ instance\ hosted\ by\ this\ window.}}
+\DoxyCodeLine{00030\ \ \ std::unique\_ptr<flutter::FlutterViewController>\ \doxymbox{\hyperlink{class_flutter_window_a225f4fcf10e584c276bc2d902a98a5f2}{flutter\_controller\_}};}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RUNNER\_FLUTTER\_WINDOW\_H\_}}
+
+\end{DoxyCode}

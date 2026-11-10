@@ -1,0 +1,24 @@
+<map id="SocialContent.Api.Dtos.UserProfileDto" name="SocialContent.Api.Dtos.UserProfileDto">
+<area shape="rect" id="Node000001" title="Zalogowany użytkownik wraz z rolą i adresem e&#45;mail (widocznym tylko dla niego samego)." alt="" coords="570,221,760,263"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="706,205,691,202,665,199,641,201,626,206,620,212,621,221,617,219,615,211,623,202,640,196,665,194,693,196,711,205"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#adc100c67a5389ea3e3dba008ea2d9310" title="Wynik rejestracji lub logowania." alt="" coords="312,82,502,125"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="622,211,576,178,521,146,480,128,480,123,523,141,579,174,628,211"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a520b5961e33ce83c2c1543eeabeaee06" title=" " alt="" coords="32,13,217,55"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="647,206,628,168,601,123,565,81,544,63,521,48,484,32,446,21,366,10,288,10,219,17,216,13,287,5,366,4,447,16,486,27,523,44,547,59,569,77,605,120,633,166,653,207"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#ac7fd31b220f6512ca8728d56f7942772" title=" " alt="" coords="16,93,233,135"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="578,216,521,202,371,166,234,137,233,132,372,161,523,197,583,215"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a023fc51622813b439600fe9980546f1a" title=" " alt="" coords="5,170,244,213"/>
+<area shape="poly" id="edge12_Node000001_Node000005" title=" " alt="" coords="552,234,244,205,244,200,556,230"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_mapping_1_1_client_user_profile.html#a6ab704e6f297ece7176bb5b862dafc01" title=" " alt="" coords="295,250,518,293"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="552,255,520,261,518,256,557,254"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_mapping_1_1_company_user_profile.html#a579d21a36c858d6154fc750636e41fc0" title=" " alt="" coords="292,317,522,375"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="605,269,523,307,493,319,491,314,521,302,600,271"/>
+<area shape="rect" id="Node000008" href="$class_social_content_1_1_api_1_1_services_1_1_auth_service.html#a49e8f07b052c290edffcf5e20c13a4c8" title=" " alt="" coords="311,399,502,442"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="642,274,591,335,559,364,523,390,500,401,498,396,521,385,555,360,587,331,637,277"/>
+<area shape="rect" id="Node000009" href="$class_social_content_1_1_api_1_1_mapping_1_1_manager_credential_profile.html#afa89470fdb0a3fc7642d27d773535f58" title=" " alt="" coords="296,466,518,525"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="651,276,631,320,602,367,566,415,524,456,505,468,503,463,520,452,562,411,598,364,626,317,646,279"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="447,67,433,63,407,61,382,63,367,67,361,73,363,82,358,81,356,72,364,63,381,57,407,55,434,58,452,66"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="300,79,215,58,213,53,304,76"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="294,109,234,112,232,107,299,106"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="319,132,197,172,194,167,323,128"/>
+</map>

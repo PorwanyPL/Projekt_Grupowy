@@ -1,0 +1,11 @@
+<map id="SocialContent.Api.Services.PostService.FindModifiable" name="SocialContent.Api.Services.PostService.FindModifiable">
+<area shape="rect" id="Node000001" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="5,25,191,68"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="472,29,657,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,22,238,11,331,3,424,11,484,25,478,25,424,16,331,8,239,16,178,27"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="239,25,424,68"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="191,44,226,46,221,47,192,49"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="239,92,424,135"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="175,66,242,87,237,88,175,71"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="521,27,519,19,526,10,541,5,565,3,590,5,606,14,601,14,588,10,565,8,543,10,529,15,524,21,525,30"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="413,89,466,77,471,76,414,94"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Services.IManagerUserService" name="SocialContent.Api.Services.IManagerUserService">
+<area shape="rect" id="Node000001" title="Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy companyId." alt="" coords="5,5,182,240"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html" title=" " alt="" coords="5,288,182,587"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,252,96,288,91,288,93,258"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="SocialContent.Api.Domain.Entities.PostEditLock.IsHeldBy" name="SocialContent.Api.Domain.Entities.PostEditLock.IsHeldBy">
+<area shape="rect" id="Node000001" title=" " alt="" coords="472,105,677,148"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="239,105,424,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,127,425,129,424,124,459,126"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="271,99,190,62,162,51,162,46,192,58,276,97"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="221,112,192,109,191,104,226,110"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="5,139,191,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="221,143,192,149,190,144,226,141"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,205,191,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="276,154,192,196,163,207,161,202,190,191,271,156"/>
+</map>

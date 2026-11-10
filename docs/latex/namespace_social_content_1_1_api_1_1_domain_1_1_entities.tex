@@ -1,0 +1,33 @@
+\doxysection{Dokumentacja przestrzeni nazw Social\+Content.\+Api.\+Domain.\+Entities}
+\hypertarget{namespace_social_content_1_1_api_1_1_domain_1_1_entities}{}\label{namespace_social_content_1_1_api_1_1_domain_1_1_entities}\index{SocialContent.Api.Domain.Entities@{SocialContent.Api.Domain.Entities}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}}
+\begin{DoxyCompactList}\small\item\em Klient firm. Rejestruje się samodzielnie i może być powiązany z wieloma firmami (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User} n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User}). Diagram nie podaje danych logowania klienta -\/ przyjęto te same pola co w \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} (Email, Password\+Hash). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User}}
+\begin{DoxyCompactList}\small\item\em Administrator firmy. Rejestruje się jako pierwszy, tworzy \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} i \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} oraz ustala relacje między nimi. Dane logowania (e-\/mail, hasz hasła) są częścią encji, tak jak na diagramie. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post}{Facebook\+Post}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type}{File\+Type}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post}{Instagram\+Post}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential}{Manager\+Credential}}
+\begin{DoxyCompactList}\small\item\em Dane logowania użytkownika \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} (relacja 1:1). Trzymane osobno, aby encja \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} pozostała zgodna z diagramem, a hasło nigdy nie trafiało do DTO przez przypadek. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification}{Notification}}
+\begin{DoxyCompactList}\small\item\em Powiadomienie w aplikacji (np. o nieudanej publikacji posta) dla administratora firmy lub managera. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post} ogólny (bez platformy). Klasy \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post}{Facebook\+Post}, \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post}{Instagram\+Post} i \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post}{Tik\+Tok\+Post} dziedziczą po nim (TPH). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock}{Post\+Edit\+Lock}}
+\begin{DoxyCompactList}\small\item\em Blokada edycji posta: w danej chwili post może edytować tylko jedna osoba. Blokada wygasa sama (Expires\+At), więc porzucona sesja edycji nie blokuje posta na zawsze; aktywny edytor ją odnawia. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}
+\begin{DoxyCompactList}\small\item\em Konto w mediach społecznościowych (Facebook, Instagram, Tik\+Tok). Relacje z diagramu: n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} (managerowie konta), 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post} (konto docelowe postów) oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} (firma będąca właścicielem konta). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post}{Tik\+Tok\+Post}}
+\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}}
+\end{DoxyCompactItemize}

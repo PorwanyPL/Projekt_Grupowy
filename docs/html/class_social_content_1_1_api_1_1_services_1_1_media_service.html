@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.MediaService(AppDbContext db, IMediaStorage storage)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_media_service.html','','class_social_content_1_1_api_1_1_services_1_1_media_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.MediaService(AppDbContext db, IMediaStorage storage)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.MediaService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_media_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_media_service_inherit__map" id="a_social_content_8_api_8_services_8_media_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,160,180,309"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_service.html" title="Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy." alt="" coords="5,5,180,112"/>
+<area shape="poly" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.MediaService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_media_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_media_service_coll__map" id="a_social_content_8_api_8_services_8_media_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,160,180,309"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_service.html" title="Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy." alt="" coords="5,5,180,112"/>
+<area shape="poly" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:af937b77cb1cb7b6a758d63198d6e7b87" id="r_af937b77cb1cb7b6a758d63198d6e7b87"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#aa0fd27387a0b37aecd8ae65847153f09">MediaUploadDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af937b77cb1cb7b6a758d63198d6e7b87">UploadAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Stream content, string fileName, long length, CancellationToken ct)</td></tr>
+<tr class="memitem:a8164474fa1f9cabf37458c8fec5f902f" id="r_a8164474fa1f9cabf37458c8fec5f902f"><td class="memItemLeft">async Task&lt;(string Path, string ContentType)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8164474fa1f9cabf37458c8fec5f902f">OpenAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, string storageKey, CancellationToken ct)</td></tr>
+<tr class="memdesc:a8164474fa1f9cabf37458c8fec5f902f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:afb67d27400ac02c3cdd9a847280293a2" id="r_afb67d27400ac02c3cdd9a847280293a2"><td class="memItemLeft">async Task&lt; Guid &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afb67d27400ac02c3cdd9a847280293a2">CompanyIdOf</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Statyczne metody prywatne</h2></td></tr>
+<tr class="memitem:a732e84a60f03133e9321794deadbc0e0" id="r_a732e84a60f03133e9321794deadbc0e0"><td class="memItemLeft">static string&#160;</td><td class="memItemRight"><a class="el" href="#a732e84a60f03133e9321794deadbc0e0">ContentTypeOf</a> (string key)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="afb67d27400ac02c3cdd9a847280293a2" name="afb67d27400ac02c3cdd9a847280293a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb67d27400ac02c3cdd9a847280293a2">&#9670;&#160;</a></span>CompanyIdOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; Guid &gt; SocialContent.Api.Services.MediaService.CompanyIdOf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_service.html#a8164474fa1f9cabf37458c8fec5f902f" title="Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP." alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_service.html#af937b77cb1cb7b6a758d63198d6e7b87" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a732e84a60f03133e9321794deadbc0e0" name="a732e84a60f03133e9321794deadbc0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a732e84a60f03133e9321794deadbc0e0">&#9670;&#160;</a></span>ContentTypeOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SocialContent.Api.Services.MediaService.ContentTypeOf </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0_icgraph">
+<area shape="rect" title=" " alt="" coords="239,5,431,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_service.html#a8164474fa1f9cabf37458c8fec5f902f" title="Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP." alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,27,191,29,191,24,226,26"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8164474fa1f9cabf37458c8fec5f902f" name="a8164474fa1f9cabf37458c8fec5f902f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8164474fa1f9cabf37458c8fec5f902f">&#9670;&#160;</a></span>OpenAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;(string Path, string ContentType)&gt; SocialContent.Api.Services.MediaService.OpenAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>storageKey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_service.html#a0663370db488415b342a7c579215a018">SocialContent.Api.Services.IMediaService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f_cgraph">
+<area shape="rect" title="Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP." alt="" coords="5,64,191,107"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_service.html#afb67d27400ac02c3cdd9a847280293a2" title=" " alt="" coords="242,5,428,48"/>
+<area shape="poly" title=" " alt="" coords="186,61,234,51,229,53,188,66"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="479,35,664,77"/>
+<area shape="poly" title=" " alt="" coords="191,77,464,60,463,65,192,82"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_service.html#a732e84a60f03133e9321794deadbc0e0" title=" " alt="" coords="239,123,431,165"/>
+<area shape="poly" title=" " alt="" coords="187,105,234,118,228,119,187,110"/>
+<area shape="poly" title=" " alt="" coords="428,36,466,42,461,43,428,41"/>
+<area shape="poly" title=" " alt="" coords="527,33,525,25,533,16,548,10,572,8,597,10,614,19,608,19,596,16,572,13,549,15,536,20,530,26,532,35"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af937b77cb1cb7b6a758d63198d6e7b87" name="af937b77cb1cb7b6a758d63198d6e7b87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af937b77cb1cb7b6a758d63198d6e7b87">&#9670;&#160;</a></span>UploadAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#aa0fd27387a0b37aecd8ae65847153f09">MediaUploadDto</a> &gt; SocialContent.Api.Services.MediaService.UploadAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stream</td>          <td class="paramname"><span class="paramname"><em>content</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_service.html#aad6fd198d6d56b6c03de5b5d95dbcb1b">SocialContent.Api.Services.IMediaService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87_cgraph">
+<area shape="rect" title=" " alt="" coords="5,64,191,107"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_service.html#afb67d27400ac02c3cdd9a847280293a2" title=" " alt="" coords="245,5,430,48"/>
+<area shape="poly" title=" " alt="" coords="187,61,235,51,230,54,189,66"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="484,35,669,77"/>
+<area shape="poly" title=" " alt="" coords="191,77,469,60,467,65,191,82"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#aa0fd27387a0b37aecd8ae65847153f09" title="Wynik przesłania pliku. StorageKey i FileName przekazuje się w pictures/videos przy tworzeniu posta." alt="" coords="239,147,436,189"/>
+<area shape="poly" title=" " alt="" coords="163,105,262,140,257,142,162,110"/>
+<area shape="poly" title=" " alt="" coords="430,35,471,42,466,43,431,41"/>
+<area shape="poly" title=" " alt="" coords="532,33,530,25,537,16,553,10,577,8,602,10,619,19,614,19,601,16,577,13,554,15,540,20,535,26,536,35"/>
+<area shape="poly" title=" " alt="" coords="292,145,290,137,298,128,314,122,337,120,363,122,380,131,375,131,362,128,337,125,315,127,301,132,295,138,297,148"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_media_service_8cs.html">MediaService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_media_service.html">MediaService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

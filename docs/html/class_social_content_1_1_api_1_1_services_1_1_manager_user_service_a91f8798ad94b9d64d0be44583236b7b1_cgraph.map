@@ -1,0 +1,14 @@
+<map id="SocialContent.Api.Services.ManagerUserService.UpdateCredentialsAsync" name="SocialContent.Api.Services.ManagerUserService.UpdateCredentialsAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,298,123"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#a5810d2ca7b1ea0d34e64befb3aa86a1f" title=" " alt="" coords="346,13,567,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="251,77,343,59,338,61,253,82"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9665ad889364ef5b392455b1e126f5cd" title=" " alt="" coords="364,80,549,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="298,99,351,101,346,102,298,104"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="364,147,549,189"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="252,121,351,144,346,145,252,126"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_credential.html#af2aa5f204c564c337d28e55f1eb4168e" title=" " alt="" coords="615,5,847,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="567,32,602,34,597,35,568,37"/>
+<area shape="rect" id="Node000006" href="$namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="625,147,837,189"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="549,165,612,168,607,168,549,171"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="680,145,677,137,686,128,704,122,731,120,761,122,780,132,775,131,760,128,731,125,705,127,689,132,683,138,684,148"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Services.IClientUserService" name="SocialContent.Api.Services.IClientUserService">
+<area shape="rect" id="Node000001" title="Relacja firma &#45; klient (CompanyUser n &#45; m ClientUser). Klient rejestruje się sam, a firma dodaje go p..." alt="" coords="5,5,180,155"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_client_user_service.html" title=" " alt="" coords="5,203,180,373"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,167,95,203,90,202,92,172"/>
+</map>

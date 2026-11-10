@@ -1,0 +1,14 @@
+<map id="SocialContent.Api.Services.PostService.AcquireLockAsync" name="SocialContent.Api.Services.PostService.AcquireLockAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,33,211,76"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="725,29,911,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,49,259,48,468,45,677,45,712,48,707,49,677,51,468,50,259,53,212,54"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,63,444,105"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="211,64,246,70,241,72,211,70"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="774,27,772,19,779,10,795,5,818,3,843,5,860,14,854,14,842,10,818,8,796,10,782,15,777,21,779,30"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="444,75,712,58,707,59,445,80"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="492,88,677,131"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="444,91,479,97,474,98,445,97"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="492,155,677,197"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="403,103,493,140,511,149,505,148,491,145,402,108"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="651,152,676,140,728,110,773,82,778,81,731,115,679,145,652,157"/>
+</map>

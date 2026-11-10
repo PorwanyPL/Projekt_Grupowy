@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.SocialAccountService(AppDbContext db, IMapper mapper)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_social_account_service.html','','class_social_content_1_1_api_1_1_services_1_1_social_account_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.SocialAccountService(AppDbContext db, IMapper mapper)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.SocialAccountService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_social_account_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_social_account_service_inherit__map" id="a_social_content_8_api_8_services_8_social_account_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,245,180,501"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html" title="Konta społecznościowe firmy. Odczyt: CompanyUser widzi wszystkie konta firmy, ManagerUser tylko przyp..." alt="" coords="5,5,180,197"/>
+<area shape="poly" title=" " alt="" coords="93,210,95,246,90,245,92,215"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.SocialAccountService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_social_account_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_social_account_service_coll__map" id="a_social_content_8_api_8_services_8_social_account_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,245,180,501"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html" title="Konta społecznościowe firmy. Odczyt: CompanyUser widzi wszystkie konta firmy, ManagerUser tylko przyp..." alt="" coords="5,5,180,197"/>
+<area shape="poly" title=" " alt="" coords="93,210,95,246,90,245,92,215"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a490c652f2c38eb907c790dd3762939de" id="r_a490c652f2c38eb907c790dd3762939de"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a490c652f2c38eb907c790dd3762939de">GetAllAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, CancellationToken ct)</td></tr>
+<tr class="memitem:ae72978372693b3a3b6f3ef2b23108735" id="r_ae72978372693b3a3b6f3ef2b23108735"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae72978372693b3a3b6f3ef2b23108735">GetAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a0d6ca12811fce2cbbbc11147ab293d2a" id="r_a0d6ca12811fce2cbbbc11147ab293d2a"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0d6ca12811fce2cbbbc11147ab293d2a">CreateAsync</a> (Guid companyId, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto.html">SocialAccountWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a5d0c5673692e564fd0608971a56e72f1" id="r_a5d0c5673692e564fd0608971a56e72f1"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5d0c5673692e564fd0608971a56e72f1">UpdateAsync</a> (Guid companyId, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto.html">SocialAccountWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a75835e6cf8d07e1b73d96a83d933254f" id="r_a75835e6cf8d07e1b73d96a83d933254f"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a75835e6cf8d07e1b73d96a83d933254f">AssignManagersAsync</a> (Guid companyId, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_assign_managers_dto.html">AssignManagersDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a7e8d269ee2081973eaf8f1732c68183d" id="r_a7e8d269ee2081973eaf8f1732c68183d"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a7e8d269ee2081973eaf8f1732c68183d">DeleteAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:a1a25186dda726abc908e2874fcb2b33b" id="r_a1a25186dda726abc908e2874fcb2b33b"><td class="memItemLeft">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1a25186dda726abc908e2874fcb2b33b">Query</a> ()</td></tr>
+<tr class="memitem:a90e8133026f1ff5ddf1e72f768aec831" id="r_a90e8133026f1ff5ddf1e72f768aec831"><td class="memItemLeft">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a90e8133026f1ff5ddf1e72f768aec831">Find</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Statyczne metody prywatne</h2></td></tr>
+<tr class="memitem:a329382f9c7ef0794b6953deac10a0431" id="r_a329382f9c7ef0794b6953deac10a0431"><td class="memItemLeft">static IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a329382f9c7ef0794b6953deac10a0431">VisibleTo</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt; query)</td></tr>
+<tr class="memdesc:a329382f9c7ef0794b6953deac10a0431"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a>: konta swojej firmy. <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a>: tylko konta, do których został przypisany.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a75835e6cf8d07e1b73d96a83d933254f" name="a75835e6cf8d07e1b73d96a83d933254f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75835e6cf8d07e1b73d96a83d933254f">&#9670;&#160;</a></span>AssignManagersAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt; SocialContent.Api.Services.SocialAccountService.AssignManagersAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_assign_managers_dto.html">AssignManagersDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html#af18e7200f7b5ae8ddb7ba24530b402e3">SocialContent.Api.Services.ISocialAccountService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a75835e6cf8d07e1b73d96a83d933254f_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a75835e6cf8d07e1b73d96a83d933254f_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a75835e6cf8d07e1b73d96a83d933254f_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a75835e6cf8d07e1b73d96a83d933254f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,51,293,93"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a90e8133026f1ff5ddf1e72f768aec831" title=" " alt="" coords="347,5,532,48"/>
+<area shape="poly" title=" " alt="" coords="289,47,335,43,330,44,290,53"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="341,96,539,139"/>
+<area shape="poly" title=" " alt="" coords="290,91,328,99,323,100,290,97"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="587,5,775,48"/>
+<area shape="poly" title=" " alt="" coords="533,24,574,26,568,27,533,29"/>
+<area shape="poly" title=" " alt="" coords="395,94,392,86,400,77,416,71,440,69,466,72,483,81,477,80,464,77,440,75,417,77,403,81,397,87,399,97"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0d6ca12811fce2cbbbc11147ab293d2a" name="a0d6ca12811fce2cbbbc11147ab293d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d6ca12811fce2cbbbc11147ab293d2a">&#9670;&#160;</a></span>CreateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt; SocialContent.Api.Services.SocialAccountService.CreateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto.html">SocialAccountWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html#a8fe62f2e932b83538bb4d14d7b3ca3ef">SocialContent.Api.Services.ISocialAccountService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a0d6ca12811fce2cbbbc11147ab293d2a_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a0d6ca12811fce2cbbbc11147ab293d2a_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a0d6ca12811fce2cbbbc11147ab293d2a_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a0d6ca12811fce2cbbbc11147ab293d2a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,51,235,93"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a583adbaf40e4ec2206fac38366df525d" title=" " alt="" coords="284,5,480,48"/>
+<area shape="poly" title=" " alt="" coords="234,50,271,46,266,47,236,55"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="283,96,481,139"/>
+<area shape="poly" title=" " alt="" coords="235,89,270,97,265,98,235,95"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html#a0be8fea432da39ee2a9acbfc6524086a" title=" " alt="" coords="529,5,770,48"/>
+<area shape="poly" title=" " alt="" coords="480,24,516,26,511,27,481,29"/>
+<area shape="poly" title=" " alt="" coords="333,94,331,86,339,77,356,71,382,69,410,72,428,81,423,80,409,77,382,75,357,77,342,81,336,87,337,97"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7e8d269ee2081973eaf8f1732c68183d" name="a7e8d269ee2081973eaf8f1732c68183d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e8d269ee2081973eaf8f1732c68183d">&#9670;&#160;</a></span>DeleteAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.SocialAccountService.DeleteAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html#a4a76054cce6360a0764083293e212d47">SocialContent.Api.Services.ISocialAccountService</a>.</p>
+
+</div>
+</div>
+<a id="a90e8133026f1ff5ddf1e72f768aec831" name="a90e8133026f1ff5ddf1e72f768aec831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e8133026f1ff5ddf1e72f768aec831">&#9670;&#160;</a></span>Find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt; SocialContent.Api.Services.SocialAccountService.Find </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,191,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="239,5,427,48"/>
+<area shape="poly" title=" " alt="" coords="191,24,226,26,220,27,191,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a90e8133026f1ff5ddf1e72f768aec831_icgraph">
+<area shape="rect" title=" " alt="" coords="341,39,526,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a75835e6cf8d07e1b73d96a83d933254f" title=" " alt="" coords="5,5,293,48"/>
+<area shape="poly" title=" " alt="" coords="322,48,293,46,293,41,328,47"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a5d0c5673692e564fd0608971a56e72f1" title=" " alt="" coords="33,72,265,115"/>
+<area shape="poly" title=" " alt="" coords="323,73,266,82,265,77,328,72"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a490c652f2c38eb907c790dd3762939de" name="a490c652f2c38eb907c790dd3762939de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a490c652f2c38eb907c790dd3762939de">&#9670;&#160;</a></span>GetAllAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt; &gt; SocialContent.Api.Services.SocialAccountService.GetAllAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html#a295157100f3bf8dae8779124d8f1bcd2">SocialContent.Api.Services.ISocialAccountService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a490c652f2c38eb907c790dd3762939de_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a490c652f2c38eb907c790dd3762939de_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a490c652f2c38eb907c790dd3762939de_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a490c652f2c38eb907c790dd3762939de_cgraph">
+<area shape="rect" title=" " alt="" coords="5,80,232,122"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="534,84,719,126"/>
+<area shape="poly" title=" " alt="" coords="152,77,209,45,244,31,279,20,337,8,383,3,429,7,487,20,541,43,589,74,584,74,539,47,485,25,429,12,383,8,338,13,280,25,245,36,212,50,155,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="289,34,477,77"/>
+<area shape="poly" title=" " alt="" coords="231,79,276,73,271,76,233,84"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="284,125,482,168"/>
+<area shape="poly" title=" " alt="" coords="232,118,271,126,266,127,233,123"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a329382f9c7ef0794b6953deac10a0431" title="CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany." alt="" coords="280,192,486,234"/>
+<area shape="poly" title=" " alt="" coords="160,120,281,177,299,186,294,186,279,182,159,125"/>
+<area shape="poly" title=" " alt="" coords="581,82,579,74,586,65,603,59,627,57,653,59,670,68,665,68,651,65,627,62,604,64,589,69,584,75,585,85"/>
+<area shape="poly" title=" " alt="" coords="337,123,335,115,343,106,359,100,383,98,409,101,426,110,421,109,408,106,383,104,360,106,346,110,340,116,342,126"/>
+<area shape="poly" title=" " alt="" coords="456,189,485,177,573,135,579,134,487,182,457,194"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae72978372693b3a3b6f3ef2b23108735" name="ae72978372693b3a3b6f3ef2b23108735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72978372693b3a3b6f3ef2b23108735">&#9670;&#160;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt; SocialContent.Api.Services.SocialAccountService.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html#a423c3f9af65729ef3f480cd24805b916">SocialContent.Api.Services.ISocialAccountService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_ae72978372693b3a3b6f3ef2b23108735_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_ae72978372693b3a3b6f3ef2b23108735_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_ae72978372693b3a3b6f3ef2b23108735_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_ae72978372693b3a3b6f3ef2b23108735_cgraph">
+<area shape="rect" title=" " alt="" coords="5,80,217,123"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="519,84,704,127"/>
+<area shape="poly" title=" " alt="" coords="142,77,197,46,230,31,264,20,322,8,368,3,414,7,472,20,526,43,574,75,569,74,524,48,470,25,414,12,368,8,322,13,265,25,232,36,200,50,145,82"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="274,35,462,77"/>
+<area shape="poly" title=" " alt="" coords="216,80,261,74,256,76,218,85"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="269,125,467,168"/>
+<area shape="poly" title=" " alt="" coords="217,117,256,126,250,127,217,123"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a329382f9c7ef0794b6953deac10a0431" title="CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany." alt="" coords="265,192,471,235"/>
+<area shape="poly" title=" " alt="" coords="151,121,205,149,266,178,283,186,278,186,264,182,203,154,150,126"/>
+<area shape="poly" title=" " alt="" coords="566,82,564,74,571,65,588,59,612,57,638,60,655,69,650,68,636,65,612,63,589,65,574,69,569,75,570,85"/>
+<area shape="poly" title=" " alt="" coords="322,124,320,115,328,106,344,101,368,99,394,101,411,110,406,110,393,106,368,104,345,106,331,111,325,117,327,126"/>
+<area shape="poly" title=" " alt="" coords="441,189,470,178,558,135,564,134,472,182,442,194"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1a25186dda726abc908e2874fcb2b33b" name="a1a25186dda726abc908e2874fcb2b33b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a25186dda726abc908e2874fcb2b33b">&#9670;&#160;</a></span>Query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt; SocialContent.Api.Services.SocialAccountService.Query </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a1a25186dda726abc908e2874fcb2b33b_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a1a25186dda726abc908e2874fcb2b33b_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a1a25186dda726abc908e2874fcb2b33b_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a1a25186dda726abc908e2874fcb2b33b_icgraph">
+<area shape="rect" title=" " alt="" coords="615,105,803,148"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a90e8133026f1ff5ddf1e72f768aec831" title=" " alt="" coords="361,39,546,81"/>
+<area shape="poly" title=" " alt="" coords="608,101,538,85,538,79,613,101"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a490c652f2c38eb907c790dd3762939de" title=" " alt="" coords="341,105,567,148"/>
+<area shape="poly" title=" " alt="" coords="597,127,568,129,567,124,602,126"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#ae72978372693b3a3b6f3ef2b23108735" title=" " alt="" coords="348,172,560,215"/>
+<area shape="poly" title=" " alt="" coords="613,152,539,174,538,169,608,153"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a75835e6cf8d07e1b73d96a83d933254f" title=" " alt="" coords="5,5,293,48"/>
+<area shape="poly" title=" " alt="" coords="343,49,293,45,293,40,348,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a5d0c5673692e564fd0608971a56e72f1" title=" " alt="" coords="33,72,265,115"/>
+<area shape="poly" title=" " alt="" coords="343,73,266,83,265,78,348,71"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5d0c5673692e564fd0608971a56e72f1" name="a5d0c5673692e564fd0608971a56e72f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d0c5673692e564fd0608971a56e72f1">&#9670;&#160;</a></span>UpdateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6">SocialAccountDto</a> &gt; SocialContent.Api.Services.SocialAccountService.UpdateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_social_account_write_dto.html">SocialAccountWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_social_account_service.html#a624130b0db3bdf55accd288a17be9ad2">SocialContent.Api.Services.ISocialAccountService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a5d0c5673692e564fd0608971a56e72f1_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a5d0c5673692e564fd0608971a56e72f1_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a5d0c5673692e564fd0608971a56e72f1_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a5d0c5673692e564fd0608971a56e72f1_cgraph">
+<area shape="rect" title=" " alt="" coords="5,51,238,93"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a90e8133026f1ff5ddf1e72f768aec831" title=" " alt="" coords="292,5,478,48"/>
+<area shape="poly" title=" " alt="" coords="238,49,279,44,274,46,239,55"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a99a34c0a954bf2bdc20fd18a4db6cfd6" title="Konto społecznościowe. Nigdy nie zawiera tokenów (AccessToken, RefreshToken)." alt="" coords="286,96,484,139"/>
+<area shape="poly" title=" " alt="" coords="238,89,273,98,268,98,238,95"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a1a25186dda726abc908e2874fcb2b33b" title=" " alt="" coords="532,5,720,48"/>
+<area shape="poly" title=" " alt="" coords="478,24,519,26,513,27,478,29"/>
+<area shape="poly" title=" " alt="" coords="340,94,337,86,345,77,361,71,385,69,411,72,428,81,422,80,409,77,385,75,362,77,348,81,342,87,344,97"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a329382f9c7ef0794b6953deac10a0431" name="a329382f9c7ef0794b6953deac10a0431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a329382f9c7ef0794b6953deac10a0431">&#9670;&#160;</a></span>VisibleTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt; SocialContent.Api.Services.SocialAccountService.VisibleTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>query</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a>: konta swojej firmy. <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a>: tylko konta, do których został przypisany. </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_cgraph">
+<area shape="rect" title="CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany." alt="" coords="5,29,212,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="260,29,445,72"/>
+<area shape="poly" title=" " alt="" coords="212,48,247,51,242,51,212,53"/>
+<area shape="poly" title=" " alt="" coords="307,27,304,19,312,10,328,5,352,3,378,5,396,14,390,13,377,10,352,8,329,10,315,15,310,21,311,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_social_account_service_a329382f9c7ef0794b6953deac10a0431_icgraph">
+<area shape="rect" title="CompanyUser: konta swojej firmy. ManagerUser: tylko konta, do których został przypisany." alt="" coords="280,39,486,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#a490c652f2c38eb907c790dd3762939de" title=" " alt="" coords="5,5,232,48"/>
+<area shape="poly" title=" " alt="" coords="262,45,232,44,232,38,267,45"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html#ae72978372693b3a3b6f3ef2b23108735" title=" " alt="" coords="13,72,224,115"/>
+<area shape="poly" title=" " alt="" coords="262,75,225,83,224,77,267,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_social_account_service_8cs.html">SocialAccountService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_social_account_service.html">SocialAccountService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

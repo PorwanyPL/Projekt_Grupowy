@@ -1,0 +1,8 @@
+<map id="SocialContent.Api.Services.ManagerUserService.ToDtoAsync" name="SocialContent.Api.Services.ManagerUserService.ToDtoAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,225,72"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a015466da219006fe7469eb05df20eb98" title="Mapowanie przez AutoMapper plus pola, których nie da się wyliczyć z samej encji." alt="" coords="273,29,458,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,48,260,51,254,51,225,53"/>
+<area shape="rect" id="Node000003" href="$namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55" title="Manager (ManagerUser). Nie zawiera adresu e&#45;mail ani żadnych danych logowania." alt="" coords="506,29,718,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="459,48,493,51,488,51,459,53"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="566,27,564,19,571,10,588,5,612,3,638,5,656,14,651,13,637,10,612,8,589,10,574,15,569,21,570,30"/>
+</map>

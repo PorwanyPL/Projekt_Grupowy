@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Plik źródłowy frontend/social_content_app/windows/runner/flutter_window.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('flutter__window_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">flutter_window.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="flutter__window_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RUNNER_FLUTTER_WINDOW_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RUNNER_FLUTTER_WINDOW_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;flutter/dart_project.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;flutter/flutter_view_controller.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="win32__window_8h.html">win32_window.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// A window that does nothing but host a Flutter view.</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_flutter_window.html">   12</a></span><span class="keyword">class </span><a class="code hl_function" href="class_flutter_window.html#a45dcebf20c54d05b8bed2a61ad743e32">FlutterWindow</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_win32_window.html#a3a7522626f853b5c7641958fda27f271">Win32Window</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="comment">// Creates a new FlutterWindow hosting a Flutter view running |project|.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">explicit</span> <a class="code hl_function" href="class_flutter_window.html#a45dcebf20c54d05b8bed2a61ad743e32">FlutterWindow</a>(<span class="keyword">const</span> flutter::DartProject&amp; project);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">virtual</span> <a class="code hl_function" href="class_flutter_window.html#a45dcebf20c54d05b8bed2a61ad743e32">~FlutterWindow</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="comment">// Win32Window:</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_flutter_window.html#aee6f067471a279a0c3369717868cafbc">OnCreate</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_flutter_window.html#a44abec4e5a71299700eff939145c3bdc">OnDestroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  LRESULT <a class="code hl_function" href="class_flutter_window.html#a1bb87f35fbcee9b6ce64a04bea92b121">MessageHandler</a>(HWND window, UINT <span class="keyword">const</span> message, WPARAM <span class="keyword">const</span> wparam,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                         LPARAM <span class="keyword">const</span> lparam) <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="comment">// The project to run.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_flutter_window.html#a692defec259fb05fd281e2758072c92f">   27</a></span>  flutter::DartProject <a class="code hl_variable" href="class_flutter_window.html#a692defec259fb05fd281e2758072c92f">project_</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="comment">// The Flutter instance hosted by this window.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_flutter_window.html#a225f4fcf10e584c276bc2d902a98a5f2">   30</a></span>  std::unique_ptr&lt;flutter::FlutterViewController&gt; <a class="code hl_variable" href="class_flutter_window.html#a225f4fcf10e584c276bc2d902a98a5f2">flutter_controller_</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif  </span><span class="comment">// RUNNER_FLUTTER_WINDOW_H_</span></div>
+<div class="ttc" id="aclass_flutter_window_html_a1bb87f35fbcee9b6ce64a04bea92b121"><div class="ttname"><a href="class_flutter_window.html#a1bb87f35fbcee9b6ce64a04bea92b121">FlutterWindow::MessageHandler</a></div><div class="ttdeci">LRESULT MessageHandler(HWND window, UINT const message, WPARAM const wparam, LPARAM const lparam) noexcept override</div><div class="ttdef"><b>Definicja</b> flutter_window.cpp:51</div></div>
+<div class="ttc" id="aclass_flutter_window_html_a225f4fcf10e584c276bc2d902a98a5f2"><div class="ttname"><a href="class_flutter_window.html#a225f4fcf10e584c276bc2d902a98a5f2">FlutterWindow::flutter_controller_</a></div><div class="ttdeci">std::unique_ptr&lt; flutter::FlutterViewController &gt; flutter_controller_</div><div class="ttdef"><b>Definicja</b> flutter_window.h:30</div></div>
+<div class="ttc" id="aclass_flutter_window_html_a44abec4e5a71299700eff939145c3bdc"><div class="ttname"><a href="class_flutter_window.html#a44abec4e5a71299700eff939145c3bdc">FlutterWindow::OnDestroy</a></div><div class="ttdeci">void OnDestroy() override</div><div class="ttdef"><b>Definicja</b> flutter_window.cpp:42</div></div>
+<div class="ttc" id="aclass_flutter_window_html_a45dcebf20c54d05b8bed2a61ad743e32"><div class="ttname"><a href="class_flutter_window.html#a45dcebf20c54d05b8bed2a61ad743e32">FlutterWindow::FlutterWindow</a></div><div class="ttdeci">FlutterWindow(const flutter::DartProject &amp;project)</div><div class="ttdef"><b>Definicja</b> flutter_window.cpp:7</div></div>
+<div class="ttc" id="aclass_flutter_window_html_a692defec259fb05fd281e2758072c92f"><div class="ttname"><a href="class_flutter_window.html#a692defec259fb05fd281e2758072c92f">FlutterWindow::project_</a></div><div class="ttdeci">flutter::DartProject project_</div><div class="ttdef"><b>Definicja</b> flutter_window.h:27</div></div>
+<div class="ttc" id="aclass_flutter_window_html_aee6f067471a279a0c3369717868cafbc"><div class="ttname"><a href="class_flutter_window.html#aee6f067471a279a0c3369717868cafbc">FlutterWindow::OnCreate</a></div><div class="ttdeci">bool OnCreate() override</div><div class="ttdef"><b>Definicja</b> flutter_window.cpp:12</div></div>
+<div class="ttc" id="aclass_win32_window_html_a3a7522626f853b5c7641958fda27f271"><div class="ttname"><a href="class_win32_window.html#a3a7522626f853b5c7641958fda27f271">Win32Window::Win32Window</a></div><div class="ttdeci">Win32Window()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:114</div></div>
+<div class="ttc" id="awin32__window_8h_html"><div class="ttname"><a href="win32__window_8h.html">win32_window.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_ca0386ec887ae6362f93b0d653b52e0c.html">frontend</a></li><li class="navelem"><a href="dir_ad020450540a24c70efa4b074932d3d7.html">social_content_app</a></li><li class="navelem"><a href="dir_7fa4a51aecb2eb41f8d981fb4941832b.html">windows</a></li><li class="navelem"><a href="dir_b2a93cddb3aa6c8597695b4ce8e8acac.html">runner</a></li><li class="navelem"><a href="flutter__window_8h.html">flutter_window.h</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map id="SocialContent.Api.Services.IPostPublisher" name="SocialContent.Api.Services.IPostPublisher">
+<area shape="rect" id="Node000001" title="Publikacja postów. Prototyp nie ma integracji z API Facebooka, Instagrama ani TikToka: publikacja spr..." alt="" coords="5,5,180,112"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_publisher.html" title=" " alt="" coords="5,160,180,267"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,124,95,161,90,160,92,129"/>
+</map>

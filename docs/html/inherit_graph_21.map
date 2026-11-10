@@ -1,0 +1,7 @@
+<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
+<area shape="rect" id="Node000000" href="$class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto.html" title="Dane managera przy tworzeniu i pełnej aktualizacji (wszystkie pola wymagane)." alt="" coords="5,39,218,81"/>
+<area shape="rect" id="Node000001" href="$class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto.html" title="Dane nowego managera tworzonego przez firmę. Konto logowania (e&#45;mail i hasło) powstaje zawsze razem z..." alt="" coords="266,5,478,48"/>
+<area shape="poly" id="edge29_Node000000_Node000001" title=" " alt="" coords="233,42,268,40,263,41,234,47"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto.html" title="Samodzielna rejestracja klienta (ClientUser): dane osobowe (jak w ManagerUserWriteDto) oraz dane logo..." alt="" coords="266,72,478,115"/>
+<area shape="poly" id="edge30_Node000000_Node000002" title=" " alt="" coords="233,73,268,80,263,80,233,78"/>
+</map>

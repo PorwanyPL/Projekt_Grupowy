@@ -1,0 +1,15 @@
+<map id="SocialContent.Api.Services.PostService.ToDto" name="SocialContent.Api.Services.PostService.ToDto">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,137,191,180"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="251,29,436,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,135,183,108,238,82,257,76,252,79,240,86,185,113,137,139"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="241,96,446,139"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="190,140,228,136,223,138,192,146"/>
+<area shape="rect" id="Node000004" href="$namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="239,187,449,213"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="191,172,248,183,243,184,191,177"/>
+<area shape="rect" id="Node000005" href="$namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="497,204,686,247"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="134,178,183,203,239,223,301,233,364,237,479,238,484,238,364,243,300,238,238,228,181,208,133,183"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="297,28,296,19,303,10,319,5,344,3,370,5,387,13,382,14,369,10,344,8,321,10,306,15,301,21,302,30"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="302,185,295,178,300,168,317,162,344,160,374,163,390,172,385,172,372,168,344,165,318,167,304,172,300,177,307,187"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="450,208,484,214,479,214,449,213"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="545,202,543,194,551,185,567,179,592,177,618,180,636,189,630,188,617,185,592,183,568,185,554,189,548,195,550,205"/>
+</map>

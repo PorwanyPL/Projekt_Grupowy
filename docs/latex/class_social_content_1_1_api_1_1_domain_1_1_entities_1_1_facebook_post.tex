@@ -1,0 +1,243 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post}
+\hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post}{}\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a4646da7bbcbdf902e2328e0ed02d912a}{Update}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}} title, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}} description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} type, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ pictures, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ videos, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? scheduled\+At, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}? target\+Account, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}} target\+Page\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}? link\+Url, string? privacy\+Setting, string? feed\+Targeting, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}? post\+Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Metody publiczne dziedziczone z \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Social\+Content.\+Api.\+Domain.\+Entities.\+Post}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a2981d216f7f78449ed11aeea563ac4ec}{Update}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}} title, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}} description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} type, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ pictures, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ videos, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? scheduled\+At, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}? target\+Account)
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_ad965fcf4eb8aecf2ac2321a983052517}{Mark\+Publishing}} ()
+\begin{DoxyCompactList}\small\item\em Rozpoczyna publikację: Draft/\+\+Scheduled -\/\texorpdfstring{$>$}{>} Publishing (wywoływane przez warstwę integracji z platformą). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa540643b7b110f2d9e9d57818ab59787}{Mark\+Published}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}} external\+Post\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}} published\+At)
+\begin{DoxyCompactList}\small\item\em Kończy publikację sukcesem: Publishing -\/\texorpdfstring{$>$}{>} Published. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_adcf846c51cc58942916400be9ae60875}{Mark\+Failed}} (string error)
+\begin{DoxyCompactList}\small\item\em Kończy publikację błędem: Publishing -\/\texorpdfstring{$>$}{>} Failed (komunikat jest przycinany do 1000 znaków). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a9b502c4e08f4751dc438bb0c6941ad35}{Facebook\+Post}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5ba9eafc337abe31b4e5063e4ff8250c}{Create}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}} title, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}} description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} type, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ pictures, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ videos, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? scheduled\+At, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}? target\+Account, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}} target\+Page\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}? link\+Url, string? privacy\+Setting, string? feed\+Targeting, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}? post\+Type)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyParams}{Parametry}
+{\em post\+Type} & Gdy null, przyjmowany jest ten sam typ co Visibility.\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Statyczne metody publiczne dziedziczone z \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Social\+Content.\+Api.\+Domain.\+Entities.\+Post}}}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a08a87558243a006a437600a74148d346}{Post}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a029ae3de4c51790b3a25cef63ecbc90e}{Create}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}} title, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}} description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} type, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ pictures, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ videos, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? scheduled\+At, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}? target\+Account)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_abcb3e39348e31032c707d3d81c8cd65c}{Target\+Page\+Id}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a00a8afe63a91b4b76485241453e8ff5b}{Link\+Url}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a955be7c2af3e9053e1e31b99654fbbf8}{Privacy\+Setting}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_ad00cc56584996eb26949f40d6a8c7d15}{Feed\+Targeting}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a0996a93851e7b0829f342dc24f077c7f}{Post\+Type}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+override? \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a3a9e40e3afa8181d8ff1d568450abc92}{Platform}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Właściwości dziedziczone z \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Social\+Content.\+Api.\+Domain.\+Entities.\+Post}}}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a1533470fad18fd19a56a6525d5257e86}{Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Title \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Created\+At \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a96711e062a97c161697a1346e24a2727}{Created\+At}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Description \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}} = null!\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af3e3ea6c27a6d6b271f34baf8522450d}{Post\+Status}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a83d632b7551bbf0fdc19551234f1343b}{Status}} = Post\+Status.\+Draft\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a73d7228282e77d1adacc1938eb23d958}{Visibility}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a382b1243727b8db4bad69860340fdf0a}{Scheduled\+At}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_ab706d7388a20109a2f1d64237f48adea}{Published\+At}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}}? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a2bb01340b9f13edfa842f9ae19e195c1}{External\+Post\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+string? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_acce6e436a136d79fc0095f24b41cdf7e}{Error\+Message}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+Guid? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a24c4ebda71091d7302e37ba54a639d2a}{Target\+Account\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Konto docelowe publikacji (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account} 1 -\/ n \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}; opcjonalne, bo szkic może go jeszcze nie mieć). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a4c9c2a47c602b2c724c1d2ca29456f3f}{Target\+Account}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type}{File\+Type}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0c60bb5594072a9565c963ecb55c5742}{Files}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aa050f799852a87da89ae71e4d553eed9}{Manager\+Users}} = new()\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\item 
+IRead\+Only\+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a36ee47f514ca24e85674ae326a9e719d}{Pictures}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\item 
+IRead\+Only\+List$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a27ba4073df866feb87147fc915c5cf3b}{Videos}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\item 
+virtual ? \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a88a940633774838ece5918af8ee83b92}{Platform}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\begin{DoxyCompactList}\small\item\em Platforma posta; null dla posta ogólnego. Nadpisywane w podklasach. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a9b502c4e08f4751dc438bb0c6941ad35}{Facebook\+Post}} ()
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5f75d0f2dc74b89286f7273093392ab0}{Set\+Details}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}} target\+Page\+Id, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}? link\+Url, string? privacy\+Setting, string? feed\+Targeting, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} post\+Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Dodatkowe dziedziczone składowe}
+\doxysubsection*{Metody chronione dziedziczone z \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Social\+Content.\+Api.\+Domain.\+Entities.\+Post}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a08a87558243a006a437600a74148d346}{Post}} ()
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a867d0e847a7bb8b3aa26650baa8a743c}{Init\+New}} ()
+\item 
+void \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a028b9d7b01d44c5306e7ace2dca5d94b}{Apply}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}} title, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}} description, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} type, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$ pictures, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$ videos, IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$ managers, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}? scheduled\+At, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}? target\+Account)
+\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_doc-constructors}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_doc-constructors}
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a9b502c4e08f4751dc438bb0c6941ad35}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!FacebookPost@{FacebookPost}}
+\index{FacebookPost@{FacebookPost}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{FacebookPost()}{FacebookPost()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a9b502c4e08f4751dc438bb0c6941ad35} 
+Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Facebook\+Post (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a9b502c4e08f4751dc438bb0c6941ad35_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5ba9eafc337abe31b4e5063e4ff8250c}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5ba9eafc337abe31b4e5063e4ff8250c} 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a9b502c4e08f4751dc438bb0c6941ad35}{Facebook\+Post}} Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}}}]{title}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}}}]{description}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}}]{type}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$}]{pictures}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$}]{videos}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$}]{managers}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}?}]{scheduled\+At}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}?}]{target\+Account}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}}}]{target\+Page\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}?}]{link\+Url}{, }\item[{string?}]{privacy\+Setting}{, }\item[{string?}]{feed\+Targeting}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}?}]{post\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+
+\begin{DoxyParams}{Parametry}
+{\em post\+Type} & Gdy null, przyjmowany jest ten sam typ co Visibility.\\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5ba9eafc337abe31b4e5063e4ff8250c_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5ba9eafc337abe31b4e5063e4ff8250c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5f75d0f2dc74b89286f7273093392ab0}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!SetDetails@{SetDetails}}
+\index{SetDetails@{SetDetails}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{SetDetails()}{SetDetails()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a5f75d0f2dc74b89286f7273093392ab0} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Set\+Details (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}}}]{target\+Page\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}?}]{link\+Url}{, }\item[{string?}]{privacy\+Setting}{, }\item[{string?}]{feed\+Targeting}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}}]{post\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a4646da7bbcbdf902e2328e0ed02d912a}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!Update@{Update}}
+\index{Update@{Update}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a4646da7bbcbdf902e2328e0ed02d912a} 
+void Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Update (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_aaf3f3c8cb24f4f786313f149c28b9df1}{Title}}}]{title}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_a0e83958fb76c789e1fd14705f0492dcf}{Description}}}]{description}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}}]{type}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture}{Picture}} $>$}]{pictures}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{Video}} $>$}]{videos}{, }\item[{IEnumerable$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User}} $>$}]{managers}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_aaa2862e04db76fef6f128310033f98b4}{Scheduled\+Time}}?}]{scheduled\+At}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account}{Social\+Account}}?}]{target\+Account}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}}}]{target\+Page\+Id}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}?}]{link\+Url}{, }\item[{string?}]{privacy\+Setting}{, }\item[{string?}]{feed\+Targeting}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}}?}]{post\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a4646da7bbcbdf902e2328e0ed02d912a_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_ad00cc56584996eb26949f40d6a8c7d15}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!FeedTargeting@{FeedTargeting}}
+\index{FeedTargeting@{FeedTargeting}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{FeedTargeting}{FeedTargeting}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_ad00cc56584996eb26949f40d6a8c7d15} 
+string? Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Feed\+Targeting\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a00a8afe63a91b4b76485241453e8ff5b}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!LinkUrl@{LinkUrl}}
+\index{LinkUrl@{LinkUrl}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{LinkUrl}{LinkUrl}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a00a8afe63a91b4b76485241453e8ff5b} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_a093032fe0d4418616a9aaa44ae61eca2}{Web\+Url}}? Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Link\+Url\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a3a9e40e3afa8181d8ff1d568450abc92}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!Platform@{Platform}}
+\index{Platform@{Platform}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{Platform}{Platform}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a3a9e40e3afa8181d8ff1d568450abc92} 
+override? \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_af84d315bd8f627a2df46fda79fa38ff4}{Social\+Platform}} Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Platform\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a0996a93851e7b0829f342dc24f077c7f}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!PostType@{PostType}}
+\index{PostType@{PostType}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{PostType}{PostType}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a0996a93851e7b0829f342dc24f077c7f} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a4804dd0313cdca6c236eba45fffb570e}{Facebook\+Post\+Type}} Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Post\+Type\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a955be7c2af3e9053e1e31b99654fbbf8}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!PrivacySetting@{PrivacySetting}}
+\index{PrivacySetting@{PrivacySetting}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{PrivacySetting}{PrivacySetting}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_a955be7c2af3e9053e1e31b99654fbbf8} 
+string? Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Privacy\+Setting\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_abcb3e39348e31032c707d3d81c8cd65c}\index{SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}!TargetPageId@{TargetPageId}}
+\index{TargetPageId@{TargetPageId}!SocialContent.Api.Domain.Entities.FacebookPost@{SocialContent.Api.Domain.Entities.FacebookPost}}
+\doxysubsubsection{\texorpdfstring{TargetPageId}{TargetPageId}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post_abcb3e39348e31032c707d3d81c8cd65c} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_value_objects_accb1b3c4c65f8cbc043c756bddbfbaa6}{External\+Id}} Social\+Content.\+Api.\+Domain.\+Entities.\+Facebook\+Post.\+Target\+Page\+Id = null!\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Domain/\+\+Entities/\doxymbox{\hyperlink{_facebook_post_8cs}{Facebook\+Post.\+cs}}\end{DoxyCompactItemize}

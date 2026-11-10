@@ -1,0 +1,6 @@
+<map id="SocialContent.Api.Services.ClientUserService.GetCompaniesAsync" name="SocialContent.Api.Services.ClientUserService.GetCompaniesAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,21,261,64"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_dtos.html#a202be65eb42639bc1ac4e7ca83249ff2" title="Firma (CompanyUser) widziana przez powiązanego z nią klienta. Bez danych logowania." alt="" coords="309,29,548,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,40,296,43,291,43,261,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="379,28,370,20,377,11,396,5,428,3,464,5,484,15,478,14,462,10,428,8,397,10,380,15,376,20,384,30"/>
+</map>

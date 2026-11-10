@@ -1,0 +1,26 @@
+<map id="frontend/social_content_app/windows/runner/flutter_window.cpp" name="frontend/social_content_app/windows/runner/flutter_window.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="355,5,537,64"/>
+<area shape="rect" id="Node000002" href="$flutter__window_8h.html" title=" " alt="" coords="272,120,388,147"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,63,358,112,355,108,410,66"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="413,120,479,147"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="447,62,448,106,444,103,445,66"/>
+<area shape="rect" id="Node000011" href="$generated__plugin__registrant_8h.html" title=" " alt="" coords="505,112,662,155"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="487,62,544,103,539,103,486,67"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,211,143,237"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="293,150,126,208,124,203,294,145"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="167,203,293,245"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="318,146,266,195,263,190,313,149"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="292,293,360,320"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="332,145,329,279,324,277,328,149"/>
+<area shape="rect" id="Node000006" href="$win32__window_8h.html" title=" " alt="" coords="368,211,484,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="345,145,404,200,399,200,343,150"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="413,237,354,286,352,281,408,239"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="384,293,468,320"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="428,236,428,280,424,277,424,240"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="491,293,569,320"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="443,235,505,284,500,284,441,240"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="593,293,646,320"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="457,235,581,288,576,288,456,240"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="508,211,661,237"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="585,153,586,196,582,193,582,157"/>
+</map>

@@ -1,0 +1,110 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Domain.\+Entities.\+Video}
+\hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}{}\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video}\index{SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Domain.\+Entities.\+Video
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Domain.\+Entities.\+Video:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a6d227a84b7cc8dde69f08939267efe1a}{Video}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_ad0a9d934eddbe1602d8824331415fc50}{Create}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a4ec4bb41269bb4bf06d5b593a5a301c3}{File\+Name}} file\+Name, \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} format, int size\+Kb, string storage\+Key, int? length=null)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+int? \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a7fa8c1a2c357e03a500012ffdfe60a40}{Length}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\begin{DoxyCompactList}\small\item\em Czas trwania w sekundach; null = nieznany (serwer nie analizuje zawartości przesłanych plików). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Właściwości dziedziczone z \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type}{Social\+Content.\+Api.\+Domain.\+Entities.\+File\+Type}}}
+\begin{DoxyCompactItemize}
+\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a48d45c6719d89b6d9b34de0c003e4f35}{Id}}\hspace{0.3cm}{\ttfamily  \+[get, protected set]}
+\item 
+File\+Name \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a4ec4bb41269bb4bf06d5b593a5a301c3}{File\+Name}} = null!\hspace{0.3cm}{\ttfamily  \+[get, protected set]}
+\begin{DoxyCompactList}\small\item\em Nazwa pliku widoczna dla użytkownika (oryginalna nazwa z przesłania). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}} \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a783aee2b1b9c78e3ed087318261fe9ab}{Format}}\hspace{0.3cm}{\ttfamily  \+[get, protected set]}
+\item 
+int \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a4b19d8e83d4d0c00fdd2e6e895745112}{Size\+Kb}}\hspace{0.3cm}{\ttfamily  \+[get, protected set]}
+\begin{DoxyCompactList}\small\item\em Rozmiar pliku w KB -\/ mierzony przez serwer po zapisie pliku, nie podawany przez klienta. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a0ed9784ca11b37e90ca84ee6b86dc9dd}{Storage\+Key}} = null!\hspace{0.3cm}{\ttfamily  \+[get, protected set]}
+\begin{DoxyCompactList}\small\item\em Klucz pliku w magazynie (nazwa pliku na dysku serwera, np. "{}3f2a...\+c9.\+png"{}). \end{DoxyCompactList}\item 
+Guid \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a7c231fc27f84d80e8ca22082dec99306}{Post\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, private set]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a6d227a84b7cc8dde69f08939267efe1a}{Video}} ()
+\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_doc-constructors}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_doc-constructors}
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a6d227a84b7cc8dde69f08939267efe1a}\index{SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}!Video@{Video}}
+\index{Video@{Video}!SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}}
+\doxysubsubsection{\texorpdfstring{Video()}{Video()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a6d227a84b7cc8dde69f08939267efe1a} 
+Social\+Content.\+Api.\+Domain.\+Entities.\+Video.\+Video (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a6d227a84b7cc8dde69f08939267efe1a_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_ad0a9d934eddbe1602d8824331415fc50}\index{SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}!Create@{Create}}
+\index{Create@{Create}!SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_ad0a9d934eddbe1602d8824331415fc50} 
+\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a6d227a84b7cc8dde69f08939267efe1a}{Video}} Social\+Content.\+Api.\+Domain.\+Entities.\+Video.\+Create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_file_type_a4ec4bb41269bb4bf06d5b593a5a301c3}{File\+Name}}}]{file\+Name}{, }\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_domain_1_1_enums_a0c3f1cb5f7bb21f1bd3e439f254aa373}{Format}}}]{format}{, }\item[{int}]{size\+Kb}{, }\item[{string}]{storage\+Key}{, }\item[{int?}]{length}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_ad0a9d934eddbe1602d8824331415fc50_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_doc-property-members}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_doc-property-members}
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a7fa8c1a2c357e03a500012ffdfe60a40}\index{SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}!Length@{Length}}
+\index{Length@{Length}!SocialContent.Api.Domain.Entities.Video@{SocialContent.Api.Domain.Entities.Video}}
+\doxysubsubsection{\texorpdfstring{Length}{Length}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video_a7fa8c1a2c357e03a500012ffdfe60a40} 
+int? Social\+Content.\+Api.\+Domain.\+Entities.\+Video.\+Length\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Czas trwania w sekundach; null = nieznany (serwer nie analizuje zawartości przesłanych plików). 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Domain/\+\+Entities/\doxymbox{\hyperlink{_video_8cs}{Video.\+cs}}\end{DoxyCompactItemize}

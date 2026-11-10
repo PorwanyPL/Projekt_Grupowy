@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.ClientUserService(AppDbContext db, IMapper mapper)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_client_user_service.html','','class_social_content_1_1_api_1_1_services_1_1_client_user_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.ClientUserService(AppDbContext db, IMapper mapper)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.ClientUserService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_client_user_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_client_user_service_inherit__map" id="a_social_content_8_api_8_services_8_client_user_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,203,180,373"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service.html" title="Relacja firma &#45; klient (CompanyUser n &#45; m ClientUser). Klient rejestruje się sam, a firma dodaje go p..." alt="" coords="5,5,180,155"/>
+<area shape="poly" title=" " alt="" coords="93,167,95,203,90,202,92,172"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.ClientUserService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_client_user_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_client_user_service_coll__map" id="a_social_content_8_api_8_services_8_client_user_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,203,180,373"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service.html" title="Relacja firma &#45; klient (CompanyUser n &#45; m ClientUser). Klient rejestruje się sam, a firma dodaje go p..." alt="" coords="5,5,180,155"/>
+<area shape="poly" title=" " alt="" coords="93,167,95,203,90,202,92,172"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a4b04c1e2bd17fd20dbef7ec0f228fe8b" id="r_a4b04c1e2bd17fd20dbef7ec0f228fe8b"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af">ClientUserDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4b04c1e2bd17fd20dbef7ec0f228fe8b">GetForCompanyAsync</a> (Guid companyId, CancellationToken ct)</td></tr>
+<tr class="memitem:ad6aa701716195a92c2e7e6c099caa90f" id="r_ad6aa701716195a92c2e7e6c099caa90f"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af">ClientUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad6aa701716195a92c2e7e6c099caa90f">LinkAsync</a> (Guid companyId, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto.html">LinkClientDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:aeeab5ed079b55de9cf878c19ff83aef2" id="r_aeeab5ed079b55de9cf878c19ff83aef2"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#aeeab5ed079b55de9cf878c19ff83aef2">UnlinkAsync</a> (Guid companyId, Guid clientId, CancellationToken ct)</td></tr>
+<tr class="memitem:a0d53337c769afebe78a7cdb214ba6782" id="r_a0d53337c769afebe78a7cdb214ba6782"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a202be65eb42639bc1ac4e7ca83249ff2">CompanyDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0d53337c769afebe78a7cdb214ba6782">GetCompaniesAsync</a> (Guid clientId, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:aedad7d173844745494010b6c959d0c0b" id="r_aedad7d173844745494010b6c959d0c0b"><td class="memItemLeft">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html">CompanyUser</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aedad7d173844745494010b6c959d0c0b">LoadCompany</a> (Guid companyId, CancellationToken ct)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a0d53337c769afebe78a7cdb214ba6782" name="a0d53337c769afebe78a7cdb214ba6782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d53337c769afebe78a7cdb214ba6782">&#9670;&#160;</a></span>GetCompaniesAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a202be65eb42639bc1ac4e7ca83249ff2">CompanyDto</a> &gt; &gt; SocialContent.Api.Services.ClientUserService.GetCompaniesAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>clientId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service.html#ad59e170990f1b7fd086916fc13e42de5">SocialContent.Api.Services.IClientUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782_cgraph">
+<area shape="rect" title=" " alt="" coords="5,21,261,64"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a202be65eb42639bc1ac4e7ca83249ff2" title="Firma (CompanyUser) widziana przez powiązanego z nią klienta. Bez danych logowania." alt="" coords="309,29,548,56"/>
+<area shape="poly" title=" " alt="" coords="261,40,296,43,291,43,261,45"/>
+<area shape="poly" title=" " alt="" coords="379,28,370,20,377,11,396,5,428,3,464,5,484,15,478,14,462,10,428,8,397,10,380,15,376,20,384,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b04c1e2bd17fd20dbef7ec0f228fe8b" name="a4b04c1e2bd17fd20dbef7ec0f228fe8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b04c1e2bd17fd20dbef7ec0f228fe8b">&#9670;&#160;</a></span>GetForCompanyAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af">ClientUserDto</a> &gt; &gt; SocialContent.Api.Services.ClientUserService.GetForCompanyAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service.html#a3fcb4a512de517f2c4ea171bab0419ce">SocialContent.Api.Services.IClientUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,63,270,105"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af" title="Klient (ClientUser) widziany przez firmę, z którą jest powiązany." alt="" coords="327,29,524,72"/>
+<area shape="poly" title=" " alt="" coords="270,66,314,63,309,64,271,71"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#aedad7d173844745494010b6c959d0c0b" title=" " alt="" coords="318,96,533,139"/>
+<area shape="poly" title=" " alt="" coords="270,97,305,103,300,103,270,102"/>
+<area shape="poly" title=" " alt="" coords="372,27,369,19,378,10,397,5,425,3,456,5,476,14,471,14,455,10,425,8,398,10,381,15,374,21,376,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad6aa701716195a92c2e7e6c099caa90f" name="ad6aa701716195a92c2e7e6c099caa90f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6aa701716195a92c2e7e6c099caa90f">&#9670;&#160;</a></span>LinkAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af">ClientUserDto</a> &gt; SocialContent.Api.Services.ClientUserService.LinkAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto.html">LinkClientDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service.html#ae4ed06a2c5a03b5101beedcb73700855">SocialContent.Api.Services.IClientUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,63,198,105"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a5c9de00e9eabf295a07d0cc25a6595af" title="Klient (ClientUser) widziany przez firmę, z którą jest powiązany." alt="" coords="255,29,452,72"/>
+<area shape="poly" title=" " alt="" coords="198,69,242,65,237,66,199,74"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#aedad7d173844745494010b6c959d0c0b" title=" " alt="" coords="246,96,461,139"/>
+<area shape="poly" title=" " alt="" coords="198,94,233,101,227,101,198,99"/>
+<area shape="poly" title=" " alt="" coords="306,28,304,19,312,10,328,5,353,3,380,5,398,14,393,14,379,10,353,8,329,10,315,15,309,21,311,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aedad7d173844745494010b6c959d0c0b" name="aedad7d173844745494010b6c959d0c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedad7d173844745494010b6c959d0c0b">&#9670;&#160;</a></span>LoadCompany()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html">CompanyUser</a> &gt; SocialContent.Api.Services.ClientUserService.LoadCompany </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b_icgraph">
+<area shape="rect" title=" " alt="" coords="318,72,533,115"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#a4b04c1e2bd17fd20dbef7ec0f228fe8b" title=" " alt="" coords="5,5,270,48"/>
+<area shape="poly" title=" " alt="" coords="313,69,233,51,233,46,318,67"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#ad6aa701716195a92c2e7e6c099caa90f" title=" " alt="" coords="41,72,234,115"/>
+<area shape="poly" title=" " alt="" coords="300,94,235,96,234,91,305,93"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#aeeab5ed079b55de9cf878c19ff83aef2" title=" " alt="" coords="35,139,240,181"/>
+<area shape="poly" title=" " alt="" coords="318,118,233,141,232,135,313,119"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aeeab5ed079b55de9cf878c19ff83aef2" name="aeeab5ed079b55de9cf878c19ff83aef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeab5ed079b55de9cf878c19ff83aef2">&#9670;&#160;</a></span>UnlinkAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.ClientUserService.UnlinkAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>clientId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service.html#ac1e549bf206f76c9419e9873667be6bc">SocialContent.Api.Services.IClientUserService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,211,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html#aedad7d173844745494010b6c959d0c0b" title=" " alt="" coords="259,5,474,48"/>
+<area shape="poly" title=" " alt="" coords="211,24,246,27,240,27,211,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_client_user_service_8cs.html">ClientUserService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_client_user_service.html">ClientUserService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

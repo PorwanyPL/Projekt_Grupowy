@@ -1,0 +1,16 @@
+<map id="WindowClassRegistrar::UnregisterWindowClass" name="WindowClassRegistrar::UnregisterWindowClass">
+<area shape="rect" id="Node000001" title=" " alt="" coords="731,72,902,115"/>
+<area shape="rect" id="Node000002" href="$class_win32_window.html#a6545dfce322862ad6318eb6102d59e06" title=" " alt="" coords="524,80,683,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="713,93,684,96,684,91,718,93"/>
+<area shape="rect" id="Node000003" href="$class_win32_window.html#a6c102372e565aeafe3045fa066df3a92" title=" " alt="" coords="294,29,446,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="521,76,435,59,435,54,527,76"/>
+<area shape="rect" id="Node000005" href="$class_win32_window.html#a9821d29a52a05f5ed9b49b89d7110cf7" title=" " alt="" coords="265,80,476,107"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="506,94,477,96,476,91,511,93"/>
+<area shape="rect" id="Node000007" href="$class_win32_window.html#a29d0d1d16a72689d4372abd5bec6f0db" title=" " alt="" coords="268,131,473,157"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="527,110,436,133,435,127,521,111"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="70,29,152,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,44,153,45,152,40,281,41"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="155,15,141,10,111,8,84,10,69,15,65,20,72,28,67,29,60,21,65,11,83,5,111,3,142,5,160,14"/>
+<area shape="rect" id="Node000006" href="$class_flutter_window.html#a1bb87f35fbcee9b6ce64a04bea92b121" title=" " alt="" coords="5,80,217,107"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="247,94,217,96,217,91,252,93"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="WindowClassRegistrar::GetWindowClass" name="WindowClassRegistrar::GetWindowClass">
+<area shape="rect" id="Node000001" title=" " alt="" coords="336,21,491,64"/>
+<area shape="rect" id="Node000002" href="$class_win32_window.html#a6c102372e565aeafe3045fa066df3a92" title=" " alt="" coords="136,29,288,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="318,43,288,45,288,40,323,43"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="5,29,88,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,43,88,45,88,40,123,42"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="73,15,65,10,46,8,29,10,20,15,18,20,23,28,18,29,13,21,16,11,28,5,47,3,66,5,78,14"/>
+</map>

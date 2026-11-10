@@ -1,0 +1,111 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IMedia\+Storage}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage}\index{SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}}
+
+
+Magazyn przesłanych plików: katalog na dysku serwera, osobny podkatalog dla każdej firmy.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IMedia\+Storage
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IMedia\+Storage:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}{Stored\+Media}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a7fe48fe98765fa8a6aa1702da0895d7a}{Save\+Async}} (Guid company\+Id, Stream content, string original\+File\+Name, long length, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca Domain\+Validation\+Exception dla plików niedozwolonych. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}{Stored\+Media}}? \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a77c9df18ab351ac85c93cddf01c02c52}{Find}} (Guid company\+Id, string storage\+Key)
+\begin{DoxyCompactList}\small\item\em Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza). \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_adb8411be08801ac752de62e0d8dd1d98}{Physical\+Path}} (Guid company\+Id, string storage\+Key)
+\begin{DoxyCompactList}\small\item\em Ścieżka pliku na dysku albo null. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a7f23675952752d96db226188b3feb888}{Delete}} (Guid company\+Id, string storage\+Key)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Magazyn przesłanych plików: katalog na dysku serwera, osobny podkatalog dla każdej firmy. 
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a7f23675952752d96db226188b3feb888}\index{SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}!Delete@{Delete}}
+\index{Delete@{Delete}!SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a7f23675952752d96db226188b3feb888} 
+void Social\+Content.\+Api.\+Services.\+IMedia\+Storage.\+Delete (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{string}]{storage\+Key}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_storage_ab5b8ae922309d8f504132842360862c6}{Social\+Content.\+Api.\+Services.\+Media\+Storage}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a77c9df18ab351ac85c93cddf01c02c52}\index{SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}!Find@{Find}}
+\index{Find@{Find}!SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a77c9df18ab351ac85c93cddf01c02c52} 
+\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}{Stored\+Media}}? Social\+Content.\+Api.\+Services.\+IMedia\+Storage.\+Find (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{string}]{storage\+Key}{}\end{DoxyParamCaption})}
+
+
+
+Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza). 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_storage_a93947e9864a5f3be7327cbaea7981320}{Social\+Content.\+Api.\+Services.\+Media\+Storage}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a77c9df18ab351ac85c93cddf01c02c52_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_adb8411be08801ac752de62e0d8dd1d98}\index{SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}!PhysicalPath@{PhysicalPath}}
+\index{PhysicalPath@{PhysicalPath}!SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}}
+\doxysubsubsection{\texorpdfstring{PhysicalPath()}{PhysicalPath()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_adb8411be08801ac752de62e0d8dd1d98} 
+string? Social\+Content.\+Api.\+Services.\+IMedia\+Storage.\+Physical\+Path (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{string}]{storage\+Key}{}\end{DoxyParamCaption})}
+
+
+
+Ścieżka pliku na dysku albo null. 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35}{Social\+Content.\+Api.\+Services.\+Media\+Storage}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a7fe48fe98765fa8a6aa1702da0895d7a}\index{SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}!SaveAsync@{SaveAsync}}
+\index{SaveAsync@{SaveAsync}!SocialContent.Api.Services.IMediaStorage@{SocialContent.Api.Services.IMediaStorage}}
+\doxysubsubsection{\texorpdfstring{SaveAsync()}{SaveAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_media_storage_a7fe48fe98765fa8a6aa1702da0895d7a} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_ae88816a4b9f117b76329406c3b8500f8}{Stored\+Media}} $>$ Social\+Content.\+Api.\+Services.\+IMedia\+Storage.\+Save\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{Stream}]{content}{, }\item[{string}]{original\+File\+Name}{, }\item[{long}]{length}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca Domain\+Validation\+Exception dla plików niedozwolonych. 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_storage_abbbdbd97da6c54276e415c7ee3488d79}{Social\+Content.\+Api.\+Services.\+Media\+Storage}}.
+
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_media_storage_8cs}{Media\+Storage.\+cs}}\end{DoxyCompactItemize}

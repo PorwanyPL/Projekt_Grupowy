@@ -1,0 +1,7 @@
+<map id="SocialContent.Api.Services.MediaStorage.ToKb" name="SocialContent.Api.Services.MediaStorage.ToKb">
+<area shape="rect" id="Node000001" title=" " alt="" coords="239,39,424,81"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a93947e9864a5f3be7327cbaea7981320" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#abbbdbd97da6c54276e415c7ee3488d79" title="Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedoz..." alt="" coords="5,72,191,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>

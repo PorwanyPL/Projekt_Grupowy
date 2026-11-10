@@ -1,0 +1,20 @@
+<map id="Win32Window::Win32Window" name="Win32Window::Win32Window">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1031,45,1228,72"/>
+<area shape="rect" id="Node000002" href="$class_win32_window.html#a2d110277716c62488f348cdb901c08e3" title=" " alt="" coords="794,37,983,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1013,59,984,61,983,56,1018,59"/>
+<area shape="rect" id="Node000003" href="$class_win32_window.html#a2165038b6b2c1445abc8e50b4dd18768" title=" " alt="" coords="336,29,530,72"/>
+<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="1063,41,983,28,861,20,739,22,626,30,531,40,531,34,625,24,739,17,861,15,983,23,1068,41"/>
+<area shape="rect" id="Node000004" href="$class_win32_window.html#abe486eb1ea947fd43ad6fd158585a00f" title=" " alt="" coords="578,96,746,123"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="1065,76,983,95,859,107,746,111,746,106,859,101,983,89,1060,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="775,57,531,55,531,50,781,56"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="781,83,725,98,724,93,776,84"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="467,14,456,10,433,8,412,10,400,15,395,21,396,30,391,27,389,19,396,10,411,5,433,3,457,5,473,14"/>
+<area shape="poly" id="edge9_Node000004_Node000003" title=" " alt="" coords="590,92,519,75,519,70,595,92"/>
+<area shape="rect" id="Node000005" href="$class_window_class_registrar.html#a8a12e129ba5e8db3ea9de3ec3833487e" title=" " alt="" coords="356,96,511,139"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="560,113,512,117,511,112,565,113"/>
+<area shape="rect" id="Node000006" href="$class_win32_window.html#a6c102372e565aeafe3045fa066df3a92" title=" " alt="" coords="136,104,288,131"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="338,117,289,120,288,115,343,117"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html#a458c5e028d1839c967b168f7a94e2371" title=" " alt="" coords="5,104,88,131"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="117,118,88,120,88,115,123,117"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="73,89,65,85,46,83,29,85,20,89,18,95,23,103,18,104,13,95,16,86,28,80,47,77,66,80,78,88"/>
+</map>

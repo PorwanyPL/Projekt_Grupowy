@@ -1,0 +1,22 @@
+<map id="SocialContent.Api.Services.StoredMedia" name="SocialContent.Api.Services.StoredMedia">
+<area shape="rect" id="Node000001" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="705,105,891,148"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="834,89,822,86,798,84,776,86,762,91,757,97,759,106,754,103,752,95,759,86,775,81,798,79,823,81,840,90"/>
+<area shape="rect" id="Node000002" href="$interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html#a77c9df18ab351ac85c93cddf01c02c52" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="472,5,657,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="737,98,656,62,629,51,629,46,658,58,743,98"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a93947e9864a5f3be7327cbaea7981320" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="472,72,657,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="687,111,658,109,658,104,693,111"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8840e392e2a0bdfdda394ec624af3c28" title=" " alt="" coords="472,139,657,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="687,142,658,149,657,144,692,142"/>
+<area shape="rect" id="Node000009" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#abbbdbd97da6c54276e415c7ee3488d79" title="Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedoz..." alt="" coords="472,205,657,248"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="743,155,658,196,629,207,628,202,656,191,737,156"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a56c9a76850bedf7a47cc7ed0c828037f" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="239,105,424,148"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="454,145,425,143,424,137,459,144"/>
+<area shape="rect" id="Node000008" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6939100e6f8a6bfee3b093245bd968f0" title=" " alt="" coords="239,172,424,215"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="454,176,425,183,424,177,459,175"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,105,191,148"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="221,128,192,129,191,124,226,126"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,172,191,215"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="237,154,176,174,175,169,242,152"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="237,168,175,151,176,146,242,167"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="221,194,192,196,191,191,226,193"/>
+</map>

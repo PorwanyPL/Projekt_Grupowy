@@ -1,0 +1,91 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Services.\+Post\+Publisher(App\+Db\+Context db, INotification\+Service notifications)}
+\hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_publisher}{}\label{class_social_content_1_1_api_1_1_services_1_1_post_publisher}\index{SocialContent.Api.Services.PostPublisher@{SocialContent.Api.Services.PostPublisher}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+Post\+Publisher
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_post_publisher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+Post\+Publisher:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_post_publisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7}{Publish\+Async}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}} post, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Publikuje post (Draft/\+\+Scheduled/\+\+Failed -\/\texorpdfstring{$>$}{>} Published albo Failed). Wywołujący zapisał już post w bazie. \end{DoxyCompactList}\item 
+async Task$<$ int $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7}{Publish\+Due\+Async}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_post_publisher_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_publisher_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7}\index{SocialContent.Api.Services.PostPublisher@{SocialContent.Api.Services.PostPublisher}!PublishAsync@{PublishAsync}}
+\index{PublishAsync@{PublishAsync}!SocialContent.Api.Services.PostPublisher@{SocialContent.Api.Services.PostPublisher}}
+\doxysubsubsection{\texorpdfstring{PublishAsync()}{PublishAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7} 
+async Task Social\+Content.\+Api.\+Services.\+Post\+Publisher.\+Publish\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post}{Post}}}]{post}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Publikuje post (Draft/\+\+Scheduled/\+\+Failed -\/\texorpdfstring{$>$}{>} Published albo Failed). Wywołujący zapisał już post w bazie. 
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_a3c43ccc053f4a2214be0ea747687bbc7}{Social\+Content.\+Api.\+Services.\+IPost\+Publisher}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a654ed95626fdcc42926432fecebdbba7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7}\index{SocialContent.Api.Services.PostPublisher@{SocialContent.Api.Services.PostPublisher}!PublishDueAsync@{PublishDueAsync}}
+\index{PublishDueAsync@{PublishDueAsync}!SocialContent.Api.Services.PostPublisher@{SocialContent.Api.Services.PostPublisher}}
+\doxysubsubsection{\texorpdfstring{PublishDueAsync()}{PublishDueAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7} 
+async Task$<$ int $>$ Social\+Content.\+Api.\+Services.\+Post\+Publisher.\+Publish\+Due\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Publikuje zaplanowane posty, których termin już minął; zwraca liczbę przetworzonych. 
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_publisher_ab50ad44ab30c92fd7d05bf9b17c0426e}{Social\+Content.\+Api.\+Services.\+IPost\+Publisher}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_post_publisher_a64a6a5f07e3e948dccb74c99ad6634a7_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_post_publisher_8cs}{Post\+Publisher.\+cs}}\end{DoxyCompactItemize}

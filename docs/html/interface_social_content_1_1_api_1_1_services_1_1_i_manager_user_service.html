@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja interfejsu SocialContent.Api.Services.IManagerUserService</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html','','interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja interfejsu SocialContent.Api.Services.IManagerUserService</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy <code>companyId</code>.  
+ <a href="#details">Więcej...</a></p>
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.IManagerUserService</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_i_manager_user_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_i_manager_user_service_inherit__map" id="a_social_content_8_api_8_services_8_i_manager_user_service_inherit__map">
+<area shape="rect" title="Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy companyId." alt="" coords="5,5,182,240"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html" title=" " alt="" coords="5,288,182,587"/>
+<area shape="poly" title=" " alt="" coords="94,252,96,288,91,288,93,258"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.IManagerUserService:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_i_manager_user_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_i_manager_user_service_coll__map" id="a_social_content_8_api_8_services_8_i_manager_user_service_coll__map">
+<area shape="rect" title="Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy companyId." alt="" coords="5,5,182,240"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a2510efaf0287e5141dbc9d7b8aefb73c" id="r_a2510efaf0287e5141dbc9d7b8aefb73c"><td class="memItemLeft">Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2510efaf0287e5141dbc9d7b8aefb73c">GetAllAsync</a> (Guid companyId, CancellationToken ct)</td></tr>
+<tr class="memitem:a602a3a932f4d3df17e1ab60e78b5c49a" id="r_a602a3a932f4d3df17e1ab60e78b5c49a"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a602a3a932f4d3df17e1ab60e78b5c49a">GetAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a3687bda821e57515b0df272a0a740eb0" id="r_a3687bda821e57515b0df272a0a740eb0"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3687bda821e57515b0df272a0a740eb0">CreateAsync</a> (Guid companyId, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto.html">ManagerUserCreateDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a202ba8e6e20e32c398acb84b1d2a8d2d" id="r_a202ba8e6e20e32c398acb84b1d2a8d2d"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a202ba8e6e20e32c398acb84b1d2a8d2d">UpdateAsync</a> (Guid companyId, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto.html">ManagerUserWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a8d4fe40f6e12d30c0429cff210d8f815" id="r_a8d4fe40f6e12d30c0429cff210d8f815"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8d4fe40f6e12d30c0429cff210d8f815">UpdateCredentialsAsync</a> (Guid companyId, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto.html">ManagerCredentialsUpdateDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:ad694b9156758a685d9428d1af941dbb8" id="r_ad694b9156758a685d9428d1af941dbb8"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#ad694b9156758a685d9428d1af941dbb8">DeleteAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a09bd2c278de14186c13e3b8222328575" id="r_a09bd2c278de14186c13e3b8222328575"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a09bd2c278de14186c13e3b8222328575">SetAccessAsync</a> (Guid companyId, Guid id, bool blocked, CancellationToken ct)</td></tr>
+<tr class="memitem:aa83fd293b565a322a928ab674d781215" id="r_aa83fd293b565a322a928ab674d781215"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa83fd293b565a322a928ab674d781215">AnonymizeAsync</a> (Guid companyId, Guid id, CancellationToken ct)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Zarządzanie managerami przez firmę. Każda metoda działa wyłącznie na managerach firmy <code>companyId</code>. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="aa83fd293b565a322a928ab674d781215" name="aa83fd293b565a322a928ab674d781215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa83fd293b565a322a928ab674d781215">&#9670;&#160;</a></span>AnonymizeAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.IManagerUserService.AnonymizeAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#acd59b45b8d109804e76bd6da2f668618">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="a3687bda821e57515b0df272a0a740eb0" name="a3687bda821e57515b0df272a0a740eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3687bda821e57515b0df272a0a740eb0">&#9670;&#160;</a></span>CreateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.IManagerUserService.CreateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_create_dto.html">ManagerUserCreateDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9d43a7e47e9cbad63829d29fe995ca10">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="ad694b9156758a685d9428d1af941dbb8" name="ad694b9156758a685d9428d1af941dbb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad694b9156758a685d9428d1af941dbb8">&#9670;&#160;</a></span>DeleteAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task SocialContent.Api.Services.IManagerUserService.DeleteAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a9afcad7d86e379b1c399d37e0b4d99ee">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="a2510efaf0287e5141dbc9d7b8aefb73c" name="a2510efaf0287e5141dbc9d7b8aefb73c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2510efaf0287e5141dbc9d7b8aefb73c">&#9670;&#160;</a></span>GetAllAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; &gt; SocialContent.Api.Services.IManagerUserService.GetAllAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5282b62b1fe232ce0fd9cf6fcf7ec3fe">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="a602a3a932f4d3df17e1ab60e78b5c49a" name="a602a3a932f4d3df17e1ab60e78b5c49a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a602a3a932f4d3df17e1ab60e78b5c49a">&#9670;&#160;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.IManagerUserService.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#ae8f2cdc589538498ecb1d42e5f5d6ff2">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="a09bd2c278de14186c13e3b8222328575" name="a09bd2c278de14186c13e3b8222328575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09bd2c278de14186c13e3b8222328575">&#9670;&#160;</a></span>SetAccessAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.IManagerUserService.SetAccessAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>blocked</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a5cc7cc42cedd0265fe394c002f158c2b">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="a202ba8e6e20e32c398acb84b1d2a8d2d" name="a202ba8e6e20e32c398acb84b1d2a8d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a202ba8e6e20e32c398acb84b1d2a8d2d">&#9670;&#160;</a></span>UpdateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.IManagerUserService.UpdateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_user_write_dto.html">ManagerUserWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#aefa701e10d1dde1407e9d347bfd69fbd">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<a id="a8d4fe40f6e12d30c0429cff210d8f815" name="a8d4fe40f6e12d30c0429cff210d8f815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d4fe40f6e12d30c0429cff210d8f815">&#9670;&#160;</a></span>UpdateCredentialsAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a495242330434158f8c18ed9aacb00d55">ManagerUserDto</a> &gt; SocialContent.Api.Services.IManagerUserService.UpdateCredentialsAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_manager_credentials_update_dto.html">ManagerCredentialsUpdateDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementowany w <a class="el" href="class_social_content_1_1_api_1_1_services_1_1_manager_user_service.html#a91f8798ad94b9d64d0be44583236b7b1">SocialContent.Api.Services.ManagerUserService</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tego interfejsu została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_manager_user_service_8cs.html">ManagerUserService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="interface_social_content_1_1_api_1_1_services_1_1_i_manager_user_service.html">IManagerUserService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

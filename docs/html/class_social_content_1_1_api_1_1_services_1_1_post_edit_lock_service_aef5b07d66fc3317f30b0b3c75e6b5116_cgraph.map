@@ -1,0 +1,18 @@
+<map id="SocialContent.Api.Services.PostEditLockService.AcquireAsync" name="SocialContent.Api.Services.PostEditLockService.AcquireAsync">
+<area shape="rect" id="Node000001" title="Przejmuje lub odnawia blokadę; 409, gdy post edytuje ktoś inny." alt="" coords="5,131,234,173"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#af7bb42c9a088467e82e08f49493b52fe" title=" " alt="" coords="321,5,506,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,128,210,92,281,58,308,50,304,53,283,62,213,97,154,132"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#a98d20f35bf55f86393f2a42615f46b56" title=" " alt="" coords="318,72,508,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,128,305,114,300,117,231,133"/>
+<area shape="rect" id="Node000005" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="615,176,800,219"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="234,154,382,162,545,175,602,183,597,183,545,180,382,168,234,159"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_services_1_1_post_edit_lock_service.html#aeb9d2f687a7594068cad481fd45837bf" title=" " alt="" coords="282,189,545,232"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="229,171,291,185,286,186,230,177"/>
+<area shape="rect" id="Node000007" href="$namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="319,280,508,323"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="157,171,283,242,348,273,342,273,280,246,156,177"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#afaf82b614204c0d5278ff224b2c7fe27" title=" " alt="" coords="593,72,822,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="509,91,580,93,575,94,509,96"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="653,174,650,166,660,157,679,151,708,149,739,152,760,161,754,160,738,157,708,155,680,157,662,161,655,167,657,177"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="545,202,602,202,597,203,546,207"/>
+<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="359,278,356,270,365,261,384,255,413,253,445,256,465,265,460,264,444,261,413,259,385,261,368,265,361,271,363,281"/>
+</map>

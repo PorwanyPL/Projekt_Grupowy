@@ -1,0 +1,188 @@
+\doxysection{Dokumentacja pliku backend/\+\+Social\+Content.Api/\+\+Program.cs}
+\hypertarget{_program_8cs}{}\label{_program_8cs}\index{backend/SocialContent.Api/Program.cs@{backend/SocialContent.Api/Program.cs}}
+\doxysubsubsection*{Definicje typów}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{_program_8cs_a6d8c3289d428b637dfaaca5ea46ae5ed}{scope}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_program_8cs_a5833ae5c758b859235144a19b9644918}{if}} (Encoding.\+UTF8.\+Get\+Byte\+Count(jwt.\+Key ?? "{}"{})$<$ 32) throw new Invalid\+Operation\+Exception("{}Konfiguracja \textquotesingle{}Jwt
+\item 
+\doxymbox{\hyperlink{_program_8cs_a711855c639a06acae9d07805cb51f9b1}{if}} (File.\+Exists(\doxymbox{\hyperlink{_program_8cs_a522fb8db8e9d25f5545f0a97d2b51ea4}{xml\+Path}})) o.\+Include\+Xml\+Comments(\doxymbox{\hyperlink{_program_8cs_a522fb8db8e9d25f5545f0a97d2b51ea4}{xml\+Path}}
+\item 
+o. \doxymbox{\hyperlink{_program_8cs_a4e69d5d7bd4e11782e3b0edcde7d4520}{Add\+Security\+Definition}} ("{}Bearer"{}, new Open\+Api\+Security\+Scheme \{ Name="{}Authorization"{}, Type=Security\+Scheme\+Type.\+Http, Scheme="{}bearer"{}, Bearer\+Format="{}JWT"{}, In=Parameter\+Location.\+Header, Description="{}Wklej token JWT otrzymany z /api/Auth/login, /api/Auth/register-\/company lub /api/Auth/register-\/client (bez słowa Bearer)."{} \})
+\item 
+o. \doxymbox{\hyperlink{_program_8cs_a70fac86275ed1baa171082f3f8de6a6e}{Operation\+Filter$<$ Authorize\+Operation\+Filter $>$}} ()
+\item 
+builder.\+Services. \doxymbox{\hyperlink{_program_8cs_a22b0dc6e41ce92ffa45875e65c5f489f}{Add\+Cors}} (o=$>$ o.\+Add\+Default\+Policy(p=$>$ p.\+Allow\+Any\+Origin().Allow\+Any\+Header().Allow\+Any\+Method()))
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_a0a7b080f8fbf578227b41f824d2bcec5}{Use\+Cors}} ()
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_a6435d8beeff4999dc0b0c6d60a86a4e2}{Use\+Authentication}} ()
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_af6f72d752b2e73aa0292f74bd13237ab}{Use\+Authorization}} ()
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_a9a5cfe7fee09f478241b98af703affea}{Use\+Swagger}} ()
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_a968f30949d31f6febdcf7f3fe40bfa42}{Use\+Swagger\+UI}} ()
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_a9e2ee3170aa6279b68eefd1651f7d96c}{Map\+Controllers}} ()
+\item 
+app. \doxymbox{\hyperlink{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd}{Run}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Zmienne}
+\begin{DoxyCompactItemize}
+\item 
+var \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}} = Web\+Application.\+Create\+Builder(args)
+\item 
+var \doxymbox{\hyperlink{_program_8cs_a91962682500569d692e984e14d3723e8}{jwt}} = builder.\+Configuration.\+Get\+Section(\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options_acecf55931494d0cb2f96cd56dc8affbe}{Jwt\+Options.\+Section\+Name}}).Get$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options}{Jwt\+Options}}$>$() ?? new \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options}{Jwt\+Options}}()
+\item 
+. \doxymbox{\hyperlink{_program_8cs_aa68955b0cb64b0e71d25f23d773b3845}{xml}}
+\item 
+var \doxymbox{\hyperlink{_program_8cs_a522fb8db8e9d25f5545f0a97d2b51ea4}{xml\+Path}} = Path.\+Combine(App\+Context.\+Base\+Directory, xml\+File)
+\item 
+include\+Controller\+Xml\+Comments \doxymbox{\hyperlink{_program_8cs_a5dc4d4d086df133c4e7c08e07e0cd8ea}{\+\_\+\+\_\+pad0\+\_\+\_}}
+\item 
+var \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}} = builder.\+Build()
+\end{DoxyCompactItemize}
+
+
+\label{_program_8cs_doc-typedef-members}
+\Hypertarget{_program_8cs_doc-typedef-members}
+\doxysubsection{Dokumentacja definicji typów}
+\Hypertarget{_program_8cs_a6d8c3289d428b637dfaaca5ea46ae5ed}\index{Program.cs@{Program.cs}!scope@{scope}}
+\index{scope@{scope}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{scope}{scope}}
+{\footnotesize\ttfamily \label{_program_8cs_a6d8c3289d428b637dfaaca5ea46ae5ed} 
+using \doxymbox{\hyperlink{_program_8cs_a6d8c3289d428b637dfaaca5ea46ae5ed}{scope}}}
+
+{\bfseries Wartość początkowa:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Services.CreateScope())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ DatabaseInitializer.Initialize(\doxymbox{\hyperlink{_program_8cs_a6d8c3289d428b637dfaaca5ea46ae5ed}{scope}}.ServiceProvider.GetRequiredService<\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_data_1_1_app_db_context}{AppDbContext}}>(),\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Logger);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseMiddleware<\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_middleware_1_1_exception_middleware}{ExceptionMiddleware}}>()}
+
+\end{DoxyCode}
+
+
+\label{_program_8cs_doc-func-members}
+\Hypertarget{_program_8cs_doc-func-members}
+\doxysubsection{Dokumentacja funkcji}
+\Hypertarget{_program_8cs_a22b0dc6e41ce92ffa45875e65c5f489f}\index{Program.cs@{Program.cs}!AddCors@{AddCors}}
+\index{AddCors@{AddCors}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddCors()}{AddCors()}}
+{\footnotesize\ttfamily \label{_program_8cs_a22b0dc6e41ce92ffa45875e65c5f489f} 
+builder.\+Services. Add\+Cors (\begin{DoxyParamCaption}\item[{o}]{}{, }\item[{o.}]{Add\+Default\+Policy}{p=$>$ p.\+Allow\+Any\+Origin().\+Allow\+Any\+Header().\+Allow\+Any\+Method()}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a4e69d5d7bd4e11782e3b0edcde7d4520}\index{Program.cs@{Program.cs}!AddSecurityDefinition@{AddSecurityDefinition}}
+\index{AddSecurityDefinition@{AddSecurityDefinition}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddSecurityDefinition()}{AddSecurityDefinition()}}
+{\footnotesize\ttfamily \label{_program_8cs_a4e69d5d7bd4e11782e3b0edcde7d4520} 
+o. Add\+Security\+Definition (\begin{DoxyParamCaption}\item[{"{}Bearer"{}}]{}{, }\item[{new Open\+Api\+Security\+Scheme \{ Name="{}Authorization"{}, Type=Security\+Scheme\+Type.\+Http, Scheme="{}bearer"{}, Bearer\+Format="{}JWT"{}, In=Parameter\+Location.\+Header, Description="{}Wklej token JWT otrzymany z /api/Auth/login, /api/Auth/register-\/company lub /api/Auth/register-\/client (bez słowa Bearer)."{} \}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a5833ae5c758b859235144a19b9644918}\index{Program.cs@{Program.cs}!if@{if}}
+\index{if@{if}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{_program_8cs_a5833ae5c758b859235144a19b9644918} 
+if (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [new]}}
+
+\Hypertarget{_program_8cs_a711855c639a06acae9d07805cb51f9b1}\index{Program.cs@{Program.cs}!if@{if}}
+\index{if@{if}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{_program_8cs_a711855c639a06acae9d07805cb51f9b1} 
+if (\begin{DoxyParamCaption}\item[{File.\+Exists(\doxymbox{\hyperlink{_program_8cs_a522fb8db8e9d25f5545f0a97d2b51ea4}{xml\+Path}})}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a9e2ee3170aa6279b68eefd1651f7d96c}\index{Program.cs@{Program.cs}!MapControllers@{MapControllers}}
+\index{MapControllers@{MapControllers}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{MapControllers()}{MapControllers()}}
+{\footnotesize\ttfamily \label{_program_8cs_a9e2ee3170aa6279b68eefd1651f7d96c} 
+app. Map\+Controllers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a70fac86275ed1baa171082f3f8de6a6e}\index{Program.cs@{Program.cs}!OperationFilter$<$ AuthorizeOperationFilter $>$@{OperationFilter$<$ AuthorizeOperationFilter $>$}}
+\index{OperationFilter$<$ AuthorizeOperationFilter $>$@{OperationFilter$<$ AuthorizeOperationFilter $>$}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{OperationFilter$<$ AuthorizeOperationFilter $>$()}{OperationFilter< AuthorizeOperationFilter >()}}
+{\footnotesize\ttfamily \label{_program_8cs_a70fac86275ed1baa171082f3f8de6a6e} 
+o. Operation\+Filter$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_swagger_1_1_authorize_operation_filter}{Authorize\+Operation\+Filter}} $>$ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd}\index{Program.cs@{Program.cs}!Run@{Run}}
+\index{Run@{Run}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd} 
+app. Run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a6435d8beeff4999dc0b0c6d60a86a4e2}\index{Program.cs@{Program.cs}!UseAuthentication@{UseAuthentication}}
+\index{UseAuthentication@{UseAuthentication}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseAuthentication()}{UseAuthentication()}}
+{\footnotesize\ttfamily \label{_program_8cs_a6435d8beeff4999dc0b0c6d60a86a4e2} 
+app. Use\+Authentication (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_af6f72d752b2e73aa0292f74bd13237ab}\index{Program.cs@{Program.cs}!UseAuthorization@{UseAuthorization}}
+\index{UseAuthorization@{UseAuthorization}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseAuthorization()}{UseAuthorization()}}
+{\footnotesize\ttfamily \label{_program_8cs_af6f72d752b2e73aa0292f74bd13237ab} 
+app. Use\+Authorization (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a0a7b080f8fbf578227b41f824d2bcec5}\index{Program.cs@{Program.cs}!UseCors@{UseCors}}
+\index{UseCors@{UseCors}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseCors()}{UseCors()}}
+{\footnotesize\ttfamily \label{_program_8cs_a0a7b080f8fbf578227b41f824d2bcec5} 
+app. Use\+Cors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a9a5cfe7fee09f478241b98af703affea}\index{Program.cs@{Program.cs}!UseSwagger@{UseSwagger}}
+\index{UseSwagger@{UseSwagger}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseSwagger()}{UseSwagger()}}
+{\footnotesize\ttfamily \label{_program_8cs_a9a5cfe7fee09f478241b98af703affea} 
+app. Use\+Swagger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a968f30949d31f6febdcf7f3fe40bfa42}\index{Program.cs@{Program.cs}!UseSwaggerUI@{UseSwaggerUI}}
+\index{UseSwaggerUI@{UseSwaggerUI}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseSwaggerUI()}{UseSwaggerUI()}}
+{\footnotesize\ttfamily \label{_program_8cs_a968f30949d31f6febdcf7f3fe40bfa42} 
+app. Use\+Swagger\+UI (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{_program_8cs_doc-var-members}
+\Hypertarget{_program_8cs_doc-var-members}
+\doxysubsection{Dokumentacja zmiennych}
+\Hypertarget{_program_8cs_a5dc4d4d086df133c4e7c08e07e0cd8ea}\index{Program.cs@{Program.cs}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}}
+{\footnotesize\ttfamily \label{_program_8cs_a5dc4d4d086df133c4e7c08e07e0cd8ea} 
+include\+Controller\+Xml\+Comments \+\_\+\+\_\+pad0\+\_\+\_}
+
+\Hypertarget{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}\index{Program.cs@{Program.cs}!app@{app}}
+\index{app@{app}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d} 
+var app = builder.\+Build()}
+
+\Hypertarget{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}\index{Program.cs@{Program.cs}!builder@{builder}}
+\index{builder@{builder}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{builder}{builder}}
+{\footnotesize\ttfamily \label{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5} 
+var builder = Web\+Application.\+Create\+Builder(args)}
+
+\Hypertarget{_program_8cs_a91962682500569d692e984e14d3723e8}\index{Program.cs@{Program.cs}!jwt@{jwt}}
+\index{jwt@{jwt}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{jwt}{jwt}}
+{\footnotesize\ttfamily \label{_program_8cs_a91962682500569d692e984e14d3723e8} 
+var jwt = builder.\+Configuration.\+Get\+Section(\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options_acecf55931494d0cb2f96cd56dc8affbe}{Jwt\+Options.\+Section\+Name}}).Get$<$\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options}{Jwt\+Options}}$>$() ?? new \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_jwt_options}{Jwt\+Options}}()}
+
+\Hypertarget{_program_8cs_aa68955b0cb64b0e71d25f23d773b3845}\index{Program.cs@{Program.cs}!xml@{xml}}
+\index{xml@{xml}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{xml}{xml}}
+{\footnotesize\ttfamily \label{_program_8cs_aa68955b0cb64b0e71d25f23d773b3845} 
+. xml}
+
+\Hypertarget{_program_8cs_a522fb8db8e9d25f5545f0a97d2b51ea4}\index{Program.cs@{Program.cs}!xmlPath@{xmlPath}}
+\index{xmlPath@{xmlPath}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{xmlPath}{xmlPath}}
+{\footnotesize\ttfamily \label{_program_8cs_a522fb8db8e9d25f5545f0a97d2b51ea4} 
+var xml\+Path = Path.\+Combine(App\+Context.\+Base\+Directory, xml\+File)}
+

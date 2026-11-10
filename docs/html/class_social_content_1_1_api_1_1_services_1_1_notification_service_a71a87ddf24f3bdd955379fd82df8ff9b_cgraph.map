@@ -1,0 +1,9 @@
+<map id="SocialContent.Api.Services.NotificationService.GetAsync" name="SocialContent.Api.Services.NotificationService.GetAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,71,199,113"/>
+<area shape="rect" id="Node000002" href="$namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="279,29,464,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,75,265,66,260,68,200,80"/>
+<area shape="rect" id="Node000003" href="$namespace_social_content_1_1_api_1_1_dtos.html#addd0ac2428a8305592b699a2d4e56a59" title=" " alt="" coords="247,120,496,147"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="199,104,268,117,262,117,199,110"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="321,28,319,19,327,10,345,5,371,3,401,5,420,14,414,14,399,10,371,8,346,10,330,15,324,21,326,30"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="326,119,318,111,324,101,342,95,371,93,404,96,422,106,417,105,402,101,371,99,343,101,327,106,324,111,331,120"/>
+</map>

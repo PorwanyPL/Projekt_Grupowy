@@ -1,0 +1,11 @@
+<map id="SocialContent.Api.Services.MediaStorage.CompanyDirectory" name="SocialContent.Api.Services.MediaStorage.CompanyDirectory">
+<area shape="rect" id="Node000001" title=" " alt="" coords="472,72,686,115"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ac340fd28438ff44786b149ccb7073d35" title="Ścieżka pliku na dysku albo null." alt="" coords="239,39,424,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,77,424,75,424,70,459,77"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#abbbdbd97da6c54276e415c7ee3488d79" title="Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedoz..." alt="" coords="239,105,424,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="459,110,425,117,424,112,454,110"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ab5b8ae922309d8f504132842360862c6" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,45,192,43,191,37,226,44"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a93947e9864a5f3be7327cbaea7981320" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,72,191,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>

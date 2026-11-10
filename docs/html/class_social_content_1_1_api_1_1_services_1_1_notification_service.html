@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.NotificationService(AppDbContext db, IMapper mapper)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_notification_service.html','','class_social_content_1_1_api_1_1_services_1_1_notification_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.NotificationService(AppDbContext db, IMapper mapper)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.NotificationService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_notification_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_notification_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_notification_service_inherit__map" id="a_social_content_8_api_8_services_8_notification_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,203,180,352"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html" title="Powiadomienia w aplikacji (brak wcześniejszego mechanizmu, więc najprostsze rozwiązanie zgodne ze sto..." alt="" coords="5,5,180,155"/>
+<area shape="poly" title=" " alt="" coords="94,167,95,204,90,203,92,172"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.NotificationService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_notification_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_notification_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_notification_service_coll__map" id="a_social_content_8_api_8_services_8_notification_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,203,180,352"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html" title="Powiadomienia w aplikacji (brak wcześniejszego mechanizmu, więc najprostsze rozwiązanie zgodne ze sto..." alt="" coords="5,5,180,155"/>
+<area shape="poly" title=" " alt="" coords="94,167,95,204,90,203,92,172"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a306141be6e38d231c617a11a028de1bb" id="r_a306141be6e38d231c617a11a028de1bb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a306141be6e38d231c617a11a028de1bb">AddPublishFailed</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> post, string error)</td></tr>
+<tr class="memdesc:a306141be6e38d231c617a11a028de1bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje (bez zapisu - zapisuje wywołujący) powiadomienia o nieudanej publikacji posta.  <br /></td></tr>
+<tr class="memitem:a71a87ddf24f3bdd955379fd82df8ff9b" id="r_a71a87ddf24f3bdd955379fd82df8ff9b"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#addd0ac2428a8305592b699a2d4e56a59">NotificationDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a71a87ddf24f3bdd955379fd82df8ff9b">GetAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, CancellationToken ct)</td></tr>
+<tr class="memitem:a7d1ba56c2fb19642ea9df8785a82b932" id="r_a7d1ba56c2fb19642ea9df8785a82b932"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a7d1ba56c2fb19642ea9df8785a82b932">MarkReadAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a209efa25c1552ac679f42d4d1b67881c" id="r_a209efa25c1552ac679f42d4d1b67881c"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a209efa25c1552ac679f42d4d1b67881c">MarkAllReadAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, CancellationToken ct)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a306141be6e38d231c617a11a028de1bb" name="a306141be6e38d231c617a11a028de1bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a306141be6e38d231c617a11a028de1bb">&#9670;&#160;</a></span>AddPublishFailed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Services.NotificationService.AddPublishFailed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a></td>          <td class="paramname"><span class="paramname"><em>post</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>error</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dodaje (bez zapisu - zapisuje wywołujący) powiadomienia o nieudanej publikacji posta. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html#acd3be5b4ea9d11e7b70201019f1b8b3a">SocialContent.Api.Services.INotificationService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a306141be6e38d231c617a11a028de1bb_cgraph">
+<area shape="rect" title="Dodaje (bez zapisu &#45; zapisuje wywołujący) powiadomienia o nieudanej publikacji posta." alt="" coords="5,5,242,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification.html#a6bd81ee9f897ce7e55c9a8dc14773e9d" title=" " alt="" coords="290,5,469,48"/>
+<area shape="poly" title=" " alt="" coords="242,24,277,27,271,27,242,29"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_notification.html#aeb05f17792d4b0458ce270f5ca6d92ed" title=" " alt="" coords="517,5,722,48"/>
+<area shape="poly" title=" " alt="" coords="469,24,504,27,499,27,470,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a71a87ddf24f3bdd955379fd82df8ff9b" name="a71a87ddf24f3bdd955379fd82df8ff9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a87ddf24f3bdd955379fd82df8ff9b">&#9670;&#160;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#addd0ac2428a8305592b699a2d4e56a59">NotificationDto</a> &gt; &gt; SocialContent.Api.Services.NotificationService.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html#a74155a148d36c40720a6a7acec177d2a">SocialContent.Api.Services.INotificationService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a71a87ddf24f3bdd955379fd82df8ff9b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,71,199,113"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="279,29,464,72"/>
+<area shape="poly" title=" " alt="" coords="199,75,265,66,260,68,200,80"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#addd0ac2428a8305592b699a2d4e56a59" title=" " alt="" coords="247,120,496,147"/>
+<area shape="poly" title=" " alt="" coords="199,104,268,117,262,117,199,110"/>
+<area shape="poly" title=" " alt="" coords="321,28,319,19,327,10,345,5,371,3,401,5,420,14,414,14,399,10,371,8,346,10,330,15,324,21,326,30"/>
+<area shape="poly" title=" " alt="" coords="326,119,318,111,324,101,342,95,371,93,404,96,422,106,417,105,402,101,371,99,343,101,327,106,324,111,331,120"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a209efa25c1552ac679f42d4d1b67881c" name="a209efa25c1552ac679f42d4d1b67881c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a209efa25c1552ac679f42d4d1b67881c">&#9670;&#160;</a></span>MarkAllReadAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.NotificationService.MarkAllReadAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html#a2c358167089ecea0b2467d72f72c31e2">SocialContent.Api.Services.INotificationService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a209efa25c1552ac679f42d4d1b67881c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,253,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="301,29,486,72"/>
+<area shape="poly" title=" " alt="" coords="253,48,288,51,282,51,253,53"/>
+<area shape="poly" title=" " alt="" coords="344,27,342,19,350,10,367,5,393,3,421,5,440,14,435,13,420,10,393,8,368,10,353,15,347,21,348,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7d1ba56c2fb19642ea9df8785a82b932" name="a7d1ba56c2fb19642ea9df8785a82b932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d1ba56c2fb19642ea9df8785a82b932">&#9670;&#160;</a></span>MarkReadAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.NotificationService.MarkReadAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_notification_service.html#ab0222a9b89214f8ca8ac31454e4721ce">SocialContent.Api.Services.INotificationService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_notification_service_a7d1ba56c2fb19642ea9df8785a82b932_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,238,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="286,29,471,72"/>
+<area shape="poly" title=" " alt="" coords="238,48,272,51,267,51,238,53"/>
+<area shape="poly" title=" " alt="" coords="330,27,328,19,336,10,353,5,378,3,406,5,424,14,418,13,404,10,378,8,354,10,339,15,333,21,335,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_notification_service_8cs.html">NotificationService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_notification_service.html">NotificationService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

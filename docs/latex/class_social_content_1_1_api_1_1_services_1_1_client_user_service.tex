@@ -1,0 +1,134 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Services.\+Client\+User\+Service(App\+Db\+Context db, IMapper mapper)}
+\hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service}{}\label{class_social_content_1_1_api_1_1_services_1_1_client_user_service}\index{SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+Client\+User\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+Client\+User\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b}{Get\+For\+Company\+Async}} (Guid company\+Id, Cancellation\+Token ct)
+\item 
+async Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f}{Link\+Async}} (Guid company\+Id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}} dto, Cancellation\+Token ct)
+\item 
+async Task \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2}{Unlink\+Async}} (Guid company\+Id, Guid client\+Id, Cancellation\+Token ct)
+\item 
+async Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} $>$ $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782}{Get\+Companies\+Async}} (Guid client\+Id, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b}{Load\+Company}} (Guid company\+Id, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_client_user_service_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782}\index{SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}!GetCompaniesAsync@{GetCompaniesAsync}}
+\index{GetCompaniesAsync@{GetCompaniesAsync}!SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}}
+\doxysubsubsection{\texorpdfstring{GetCompaniesAsync()}{GetCompaniesAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Services.\+Client\+User\+Service.\+Get\+Companies\+Async (\begin{DoxyParamCaption}\item[{Guid}]{client\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ad59e170990f1b7fd086916fc13e42de5}{Social\+Content.\+Api.\+Services.\+IClient\+User\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b}\index{SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}!GetForCompanyAsync@{GetForCompanyAsync}}
+\index{GetForCompanyAsync@{GetForCompanyAsync}!SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}}
+\doxysubsubsection{\texorpdfstring{GetForCompanyAsync()}{GetForCompanyAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b} 
+async Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Services.\+Client\+User\+Service.\+Get\+For\+Company\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_a3fcb4a512de517f2c4ea171bab0419ce}{Social\+Content.\+Api.\+Services.\+IClient\+User\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f}\index{SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}!LinkAsync@{LinkAsync}}
+\index{LinkAsync@{LinkAsync}!SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}}
+\doxysubsubsection{\texorpdfstring{LinkAsync()}{LinkAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f} 
+async Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+Client\+User\+Service.\+Link\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ae4ed06a2c5a03b5101beedcb73700855}{Social\+Content.\+Api.\+Services.\+IClient\+User\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b}\index{SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}!LoadCompany@{LoadCompany}}
+\index{LoadCompany@{LoadCompany}!SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}}
+\doxysubsubsection{\texorpdfstring{LoadCompany()}{LoadCompany()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b} 
+async Task$<$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User}} $>$ Social\+Content.\+Api.\+Services.\+Client\+User\+Service.\+Load\+Company (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aedad7d173844745494010b6c959d0c0b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2}\index{SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}!UnlinkAsync@{UnlinkAsync}}
+\index{UnlinkAsync@{UnlinkAsync}!SocialContent.Api.Services.ClientUserService@{SocialContent.Api.Services.ClientUserService}}
+\doxysubsubsection{\texorpdfstring{UnlinkAsync()}{UnlinkAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2} 
+async Task Social\+Content.\+Api.\+Services.\+Client\+User\+Service.\+Unlink\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{Guid}]{client\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ac1e549bf206f76c9419e9873667be6bc}{Social\+Content.\+Api.\+Services.\+IClient\+User\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_client_user_service_8cs}{Client\+User\+Service.\+cs}}\end{DoxyCompactItemize}

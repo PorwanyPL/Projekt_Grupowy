@@ -1,0 +1,8 @@
+<map id="SocialContent.Api.Dtos.NotificationDto" name="SocialContent.Api.Dtos.NotificationDto">
+<area shape="rect" id="Node000001" title=" " alt="" coords="248,51,497,77"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="418,36,404,32,372,29,344,31,328,36,324,41,332,51,327,50,319,42,325,32,343,26,372,24,405,27,423,36"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_notification_service.html#a71a87ddf24f3bdd955379fd82df8ff9b" title=" " alt="" coords="6,5,199,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,49,200,43,199,37,259,47"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_mapping_1_1_notification_profile.html#a56a18bc16e9e19fdc2fdbb12f5a14c16" title=" " alt="" coords="5,72,200,131"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="254,81,200,91,200,85,259,80"/>
+</map>

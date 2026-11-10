@@ -1,0 +1,115 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IAuth\+Service}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service}\index{SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IAuth\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IAuth\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad39298a2b5e69dbae240a174ae3aa7d1}{Register\+Company\+Async}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_company_dto}{Register\+Company\+Dto}} dto, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a52b1e3c959292a3f39434432a82cc5ab}{Register\+Client\+Async}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto}{Register\+Client\+Dto}} dto, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ab857388defe08dc4be9920c37b5f0ed9}{Login\+Async}} (\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_login_dto}{Login\+Dto}} dto, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a6b3896c38563074498e027cda1d02bb4}{Get\+Profile\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Cancellation\+Token ct)
+\item 
+Task$<$ bool $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad9433d01fc7c86c0e353c0ad4e8733ab}{Is\+Session\+Valid\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Czy konto z tokenu nadal istnieje i nie jest zablokowane (sprawdzane przy każdym żądaniu). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a6b3896c38563074498e027cda1d02bb4}\index{SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}!GetProfileAsync@{GetProfileAsync}}
+\index{GetProfileAsync@{GetProfileAsync}!SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}}
+\doxysubsubsection{\texorpdfstring{GetProfileAsync()}{GetProfileAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a6b3896c38563074498e027cda1d02bb4} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a54fa4a1178843b0d4b61dbaa9a6c64f9}{User\+Profile\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IAuth\+Service.\+Get\+Profile\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_auth_service_a49e8f07b052c290edffcf5e20c13a4c8}{Social\+Content.\+Api.\+Services.\+Auth\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a6b3896c38563074498e027cda1d02bb4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad9433d01fc7c86c0e353c0ad4e8733ab}\index{SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}!IsSessionValidAsync@{IsSessionValidAsync}}
+\index{IsSessionValidAsync@{IsSessionValidAsync}!SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}}
+\doxysubsubsection{\texorpdfstring{IsSessionValidAsync()}{IsSessionValidAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad9433d01fc7c86c0e353c0ad4e8733ab} 
+Task$<$ bool $>$ Social\+Content.\+Api.\+Services.\+IAuth\+Service.\+Is\+Session\+Valid\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Czy konto z tokenu nadal istnieje i nie jest zablokowane (sprawdzane przy każdym żądaniu). 
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_auth_service_a9b4431451c1612f9dd28396cf2713f85}{Social\+Content.\+Api.\+Services.\+Auth\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad9433d01fc7c86c0e353c0ad4e8733ab_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ab857388defe08dc4be9920c37b5f0ed9}\index{SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}!LoginAsync@{LoginAsync}}
+\index{LoginAsync@{LoginAsync}!SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}}
+\doxysubsubsection{\texorpdfstring{LoginAsync()}{LoginAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ab857388defe08dc4be9920c37b5f0ed9} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IAuth\+Service.\+Login\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_login_dto}{Login\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_auth_service_a520b5961e33ce83c2c1543eeabeaee06}{Social\+Content.\+Api.\+Services.\+Auth\+Service}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a52b1e3c959292a3f39434432a82cc5ab}\index{SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}!RegisterClientAsync@{RegisterClientAsync}}
+\index{RegisterClientAsync@{RegisterClientAsync}!SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}}
+\doxysubsubsection{\texorpdfstring{RegisterClientAsync()}{RegisterClientAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_a52b1e3c959292a3f39434432a82cc5ab} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IAuth\+Service.\+Register\+Client\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_client_dto}{Register\+Client\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_auth_service_ac7fd31b220f6512ca8728d56f7942772}{Social\+Content.\+Api.\+Services.\+Auth\+Service}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad39298a2b5e69dbae240a174ae3aa7d1}\index{SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}!RegisterCompanyAsync@{RegisterCompanyAsync}}
+\index{RegisterCompanyAsync@{RegisterCompanyAsync}!SocialContent.Api.Services.IAuthService@{SocialContent.Api.Services.IAuthService}}
+\doxysubsubsection{\texorpdfstring{RegisterCompanyAsync()}{RegisterCompanyAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_auth_service_ad39298a2b5e69dbae240a174ae3aa7d1} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_adc100c67a5389ea3e3dba008ea2d9310}{Auth\+Response\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IAuth\+Service.\+Register\+Company\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_register_company_dto}{Register\+Company\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_auth_service_a023fc51622813b439600fe9980546f1a}{Social\+Content.\+Api.\+Services.\+Auth\+Service}}.
+
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_auth_service_8cs}{Auth\+Service.\+cs}}\end{DoxyCompactItemize}

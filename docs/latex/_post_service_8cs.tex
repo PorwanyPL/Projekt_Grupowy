@@ -1,0 +1,18 @@
+\doxysection{Dokumentacja pliku backend/\+\+Social\+Content.Api/\+\+Services/\+\+Post\+Service.cs}
+\hypertarget{_post_service_8cs}{}\label{_post_service_8cs}\index{backend/SocialContent.Api/Services/PostService.cs@{backend/SocialContent.Api/Services/PostService.cs}}
+\doxysubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+interface \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_post_service}{Social\+Content.\+Api.\+Services.\+IPost\+Service}}
+\begin{DoxyCompactList}\small\item\em Posty. Odczyt: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} widzi posty kont swojej firmy, \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} tylko posty, których jest autorem. Tworzenie, zmiana i usuwanie: \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} na każdym koncie swojej firmy oraz \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user}{Manager\+User} na koncie, do którego jest przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty. Autorami nowego posta są od razu wszyscy managerowie przypisani do konta. Edycję jednego posta wykonuje naraz jedna osoba (blokada edycji). \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_post_service}{Social\+Content.\+Api.\+Services.\+Post\+Service}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Przestrzenie nazw}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content}{Social\+Content}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api}{Social\+Content.\+Api}}
+\item 
+namespace \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services}{Social\+Content.\+Api.\+Services}}
+\end{DoxyCompactItemize}

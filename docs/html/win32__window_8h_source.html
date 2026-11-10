@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Plik źródłowy frontend/social_content_app/windows/runner/win32_window.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('win32__window_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">win32_window.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="win32__window_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RUNNER_WIN32_WINDOW_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RUNNER_WIN32_WINDOW_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// A class abstraction for a high DPI-aware Win32 Window. Intended to be</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// inherited from by classes that wish to specialize with custom</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// rendering and input handling</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_win32_window.html">   13</a></span><span class="keyword">class </span><a class="code hl_function" href="class_win32_window.html#a3a7522626f853b5c7641958fda27f271">Win32Window</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_point.html">   15</a></span>  <span class="keyword">struct </span><a class="code hl_function" href="struct_win32_window_1_1_point.html#a3bc4005de5e0af1dafa5b269ea57f121">Point</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_point.html#a8ef7efdbdce840407218ac03f2e91272">   16</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_point.html#a8ef7efdbdce840407218ac03f2e91272">x</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_point.html#ac1ccec39267f82c988a5eef576201901">   17</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_point.html#ac1ccec39267f82c988a5eef576201901">y</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_point.html#a3bc4005de5e0af1dafa5b269ea57f121">   18</a></span>    <a class="code hl_function" href="struct_win32_window_1_1_point.html#a3bc4005de5e0af1dafa5b269ea57f121">Point</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_point.html#a8ef7efdbdce840407218ac03f2e91272">x</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_point.html#ac1ccec39267f82c988a5eef576201901">y</a>) : <a class="code hl_variable" href="struct_win32_window_1_1_point.html#a8ef7efdbdce840407218ac03f2e91272">x</a>(<a class="code hl_variable" href="struct_win32_window_1_1_point.html#a8ef7efdbdce840407218ac03f2e91272">x</a>), <a class="code hl_variable" href="struct_win32_window_1_1_point.html#ac1ccec39267f82c988a5eef576201901">y</a>(<a class="code hl_variable" href="struct_win32_window_1_1_point.html#ac1ccec39267f82c988a5eef576201901">y</a>) {}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  };</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_size.html">   21</a></span>  <span class="keyword">struct </span><a class="code hl_function" href="struct_win32_window_1_1_size.html#a3c51518e24523699539dfa87a40cb2ed">Size</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_size.html#a0c8bf24889df81f57fcea7fcb0bcf7eb">   22</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_size.html#a0c8bf24889df81f57fcea7fcb0bcf7eb">width</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_size.html#ae0b37478590a14907a9edc358a12e1d1">   23</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_size.html#ae0b37478590a14907a9edc358a12e1d1">height</a>;</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_win32_window_1_1_size.html#a3c51518e24523699539dfa87a40cb2ed">   24</a></span>    <a class="code hl_function" href="struct_win32_window_1_1_size.html#a3c51518e24523699539dfa87a40cb2ed">Size</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_size.html#a0c8bf24889df81f57fcea7fcb0bcf7eb">width</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_win32_window_1_1_size.html#ae0b37478590a14907a9edc358a12e1d1">height</a>)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        : <a class="code hl_variable" href="struct_win32_window_1_1_size.html#a0c8bf24889df81f57fcea7fcb0bcf7eb">width</a>(<a class="code hl_variable" href="struct_win32_window_1_1_size.html#a0c8bf24889df81f57fcea7fcb0bcf7eb">width</a>), <a class="code hl_variable" href="struct_win32_window_1_1_size.html#ae0b37478590a14907a9edc358a12e1d1">height</a>(<a class="code hl_variable" href="struct_win32_window_1_1_size.html#ae0b37478590a14907a9edc358a12e1d1">height</a>) {}</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  };</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <a class="code hl_function" href="class_win32_window.html#a3a7522626f853b5c7641958fda27f271">Win32Window</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="class_win32_window.html">~Win32Window</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="comment">// Creates a win32 window with |title| that is positioned and sized using</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="comment">// |origin| and |size|. New windows are created on the default monitor. Window</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="comment">// sizes are specified to the OS in physical pixels, hence to ensure a</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="comment">// consistent size this function will scale the inputted width and height as</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="comment">// as appropriate for the default monitor. The window is invisible until</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="comment">// |Show| is called. Returns true if the window was created successfully.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_win32_window.html#a6c102372e565aeafe3045fa066df3a92">Create</a>(<span class="keyword">const</span> std::wstring&amp; title, <span class="keyword">const</span> Point&amp; origin, <span class="keyword">const</span> Size&amp; size);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="comment">// Show the current window. Returns true if the window was successfully shown.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_win32_window.html#a079de4f5c5d61571ed3ef4660c8386c9">Show</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// Release OS resources associated with window.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_win32_window.html#a6545dfce322862ad6318eb6102d59e06">Destroy</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="comment">// Inserts |content| into the window tree.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_win32_window.html#aaefe8ad05d18d4841a01f51e1785ff0c">SetChildContent</a>(HWND content);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="comment">// Returns the backing Window handle to enable clients to set icon and other</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="comment">// window properties. Returns nullptr if the window has been destroyed.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  HWND <a class="code hl_function" href="class_win32_window.html#a8d075ed439f8ace23c9c70e6f60f7081">GetHandle</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="comment">// If true, closing this window will quit the application.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_win32_window.html#abb55283812244d63f99517bdbdde4c5a">SetQuitOnClose</a>(<span class="keywordtype">bool</span> quit_on_close);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="comment">// Return a RECT representing the bounds of the current client area.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  RECT <a class="code hl_function" href="class_win32_window.html#aab1722c8d02d1e224f953260b6c64d70">GetClientArea</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="comment">// Processes and route salient window messages for mouse handling,</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="comment">// size change and DPI. Delegates handling of these to member overloads that</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="comment">// inheriting classes can handle.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">virtual</span> LRESULT <a class="code hl_function" href="class_win32_window.html#a9821d29a52a05f5ed9b49b89d7110cf7">MessageHandler</a>(HWND window,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                                 UINT <span class="keyword">const</span> message,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                                 WPARAM <span class="keyword">const</span> wparam,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                                 LPARAM <span class="keyword">const</span> lparam) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="comment">// Called when CreateAndShow is called, allowing subclass window-related</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="comment">// setup. Subclasses should return false if setup fails.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_win32_window.html#a13999e0fd51a9b5c66239c6ecc201d5c">OnCreate</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="comment">// Called when Destroy is called.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_win32_window.html#a78f04e4f7a473145711e65ebb8040185">OnDestroy</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_win32_window.html#a2165038b6b2c1445abc8e50b4dd18768">   75</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="class_win32_window.html#a2165038b6b2c1445abc8e50b4dd18768">WindowClassRegistrar</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="comment">// OS callback called by message pump. Handles the WM_NCCREATE message which</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="comment">// is passed when the non-client area is being created and enables automatic</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="comment">// non-client DPI scaling so that the non-client area automatically</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="comment">// responds to changes in DPI. All other messages are handled by</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="comment">// MessageHandler.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">static</span> LRESULT CALLBACK <a class="code hl_function" href="class_win32_window.html#abe486eb1ea947fd43ad6fd158585a00f">WndProc</a>(HWND <span class="keyword">const</span> window,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                                  UINT <span class="keyword">const</span> message,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                                  WPARAM <span class="keyword">const</span> wparam,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                                  LPARAM <span class="keyword">const</span> lparam) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="comment">// Retrieves a class instance pointer for |window|</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">static</span> <a class="code hl_function" href="class_win32_window.html#a3a7522626f853b5c7641958fda27f271">Win32Window</a>* <a class="code hl_function" href="class_win32_window.html#a2d110277716c62488f348cdb901c08e3">GetThisFromHandle</a>(HWND <span class="keyword">const</span> window) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="comment">// Update the window frame&#39;s theme to match the system theme.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_win32_window.html#aaaf8caa2e02bb3b96012ec21c84a0268">UpdateTheme</a>(HWND <span class="keyword">const</span> window);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_win32_window.html#adf57544ffda313ff6b4ac02611f84971">   93</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_win32_window.html#adf57544ffda313ff6b4ac02611f84971">quit_on_close_</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="comment">// window handle for top level window.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_win32_window.html#a4cd01143ff049c692847211bb12fc0ae">   96</a></span>  HWND <a class="code hl_variable" href="class_win32_window.html#a4cd01143ff049c692847211bb12fc0ae">window_handle_</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="comment">// window handle for hosted content.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_win32_window.html#a16201c00b190647d0cc5097aafe0f122">   99</a></span>  HWND <a class="code hl_variable" href="class_win32_window.html#a16201c00b190647d0cc5097aafe0f122">child_content_</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif  </span><span class="comment">// RUNNER_WIN32_WINDOW_H_</span></div>
+<div class="ttc" id="aclass_win32_window_html"><div class="ttname"><a href="class_win32_window.html">Win32Window</a></div><div class="ttdef"><b>Definicja</b> win32_window.h:13</div></div>
+<div class="ttc" id="aclass_win32_window_html_a079de4f5c5d61571ed3ef4660c8386c9"><div class="ttname"><a href="class_win32_window.html#a079de4f5c5d61571ed3ef4660c8386c9">Win32Window::Show</a></div><div class="ttdeci">bool Show()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:152</div></div>
+<div class="ttc" id="aclass_win32_window_html_a13999e0fd51a9b5c66239c6ecc201d5c"><div class="ttname"><a href="class_win32_window.html#a13999e0fd51a9b5c66239c6ecc201d5c">Win32Window::OnCreate</a></div><div class="ttdeci">virtual bool OnCreate()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:266</div></div>
+<div class="ttc" id="aclass_win32_window_html_a16201c00b190647d0cc5097aafe0f122"><div class="ttname"><a href="class_win32_window.html#a16201c00b190647d0cc5097aafe0f122">Win32Window::child_content_</a></div><div class="ttdeci">HWND child_content_</div><div class="ttdef"><b>Definicja</b> win32_window.h:99</div></div>
+<div class="ttc" id="aclass_win32_window_html_a2165038b6b2c1445abc8e50b4dd18768"><div class="ttname"><a href="class_win32_window.html#a2165038b6b2c1445abc8e50b4dd18768">Win32Window::WindowClassRegistrar</a></div><div class="ttdeci">friend class WindowClassRegistrar</div><div class="ttdef"><b>Definicja</b> win32_window.h:75</div></div>
+<div class="ttc" id="aclass_win32_window_html_a2d110277716c62488f348cdb901c08e3"><div class="ttname"><a href="class_win32_window.html#a2d110277716c62488f348cdb901c08e3">Win32Window::GetThisFromHandle</a></div><div class="ttdeci">static Win32Window * GetThisFromHandle(HWND const window) noexcept</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:236</div></div>
+<div class="ttc" id="aclass_win32_window_html_a3a7522626f853b5c7641958fda27f271"><div class="ttname"><a href="class_win32_window.html#a3a7522626f853b5c7641958fda27f271">Win32Window::Win32Window</a></div><div class="ttdeci">Win32Window()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:114</div></div>
+<div class="ttc" id="aclass_win32_window_html_a4cd01143ff049c692847211bb12fc0ae"><div class="ttname"><a href="class_win32_window.html#a4cd01143ff049c692847211bb12fc0ae">Win32Window::window_handle_</a></div><div class="ttdeci">HWND window_handle_</div><div class="ttdef"><b>Definicja</b> win32_window.h:96</div></div>
+<div class="ttc" id="aclass_win32_window_html_a6545dfce322862ad6318eb6102d59e06"><div class="ttname"><a href="class_win32_window.html#a6545dfce322862ad6318eb6102d59e06">Win32Window::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:224</div></div>
+<div class="ttc" id="aclass_win32_window_html_a6c102372e565aeafe3045fa066df3a92"><div class="ttname"><a href="class_win32_window.html#a6c102372e565aeafe3045fa066df3a92">Win32Window::Create</a></div><div class="ttdeci">bool Create(const std::wstring &amp;title, const Point &amp;origin, const Size &amp;size)</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:123</div></div>
+<div class="ttc" id="aclass_win32_window_html_a78f04e4f7a473145711e65ebb8040185"><div class="ttname"><a href="class_win32_window.html#a78f04e4f7a473145711e65ebb8040185">Win32Window::OnDestroy</a></div><div class="ttdeci">virtual void OnDestroy()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:271</div></div>
+<div class="ttc" id="aclass_win32_window_html_a8d075ed439f8ace23c9c70e6f60f7081"><div class="ttname"><a href="class_win32_window.html#a8d075ed439f8ace23c9c70e6f60f7081">Win32Window::GetHandle</a></div><div class="ttdeci">HWND GetHandle()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:258</div></div>
+<div class="ttc" id="aclass_win32_window_html_a9821d29a52a05f5ed9b49b89d7110cf7"><div class="ttname"><a href="class_win32_window.html#a9821d29a52a05f5ed9b49b89d7110cf7">Win32Window::MessageHandler</a></div><div class="ttdeci">virtual LRESULT MessageHandler(HWND window, UINT const message, WPARAM const wparam, LPARAM const lparam) noexcept</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:177</div></div>
+<div class="ttc" id="aclass_win32_window_html_aaaf8caa2e02bb3b96012ec21c84a0268"><div class="ttname"><a href="class_win32_window.html#aaaf8caa2e02bb3b96012ec21c84a0268">Win32Window::UpdateTheme</a></div><div class="ttdeci">static void UpdateTheme(HWND const window)</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:275</div></div>
+<div class="ttc" id="aclass_win32_window_html_aab1722c8d02d1e224f953260b6c64d70"><div class="ttname"><a href="class_win32_window.html#aab1722c8d02d1e224f953260b6c64d70">Win32Window::GetClientArea</a></div><div class="ttdeci">RECT GetClientArea()</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:252</div></div>
+<div class="ttc" id="aclass_win32_window_html_aaefe8ad05d18d4841a01f51e1785ff0c"><div class="ttname"><a href="class_win32_window.html#aaefe8ad05d18d4841a01f51e1785ff0c">Win32Window::SetChildContent</a></div><div class="ttdeci">void SetChildContent(HWND content)</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:241</div></div>
+<div class="ttc" id="aclass_win32_window_html_abb55283812244d63f99517bdbdde4c5a"><div class="ttname"><a href="class_win32_window.html#abb55283812244d63f99517bdbdde4c5a">Win32Window::SetQuitOnClose</a></div><div class="ttdeci">void SetQuitOnClose(bool quit_on_close)</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:262</div></div>
+<div class="ttc" id="aclass_win32_window_html_abe486eb1ea947fd43ad6fd158585a00f"><div class="ttname"><a href="class_win32_window.html#abe486eb1ea947fd43ad6fd158585a00f">Win32Window::WndProc</a></div><div class="ttdeci">static LRESULT CALLBACK WndProc(HWND const window, UINT const message, WPARAM const wparam, LPARAM const lparam) noexcept</div><div class="ttdef"><b>Definicja</b> win32_window.cpp:157</div></div>
+<div class="ttc" id="aclass_win32_window_html_adf57544ffda313ff6b4ac02611f84971"><div class="ttname"><a href="class_win32_window.html#adf57544ffda313ff6b4ac02611f84971">Win32Window::quit_on_close_</a></div><div class="ttdeci">bool quit_on_close_</div><div class="ttdef"><b>Definicja</b> win32_window.h:93</div></div>
+<div class="ttc" id="astruct_win32_window_1_1_point_html_a3bc4005de5e0af1dafa5b269ea57f121"><div class="ttname"><a href="struct_win32_window_1_1_point.html#a3bc4005de5e0af1dafa5b269ea57f121">Win32Window::Point::Point</a></div><div class="ttdeci">Point(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definicja</b> win32_window.h:18</div></div>
+<div class="ttc" id="astruct_win32_window_1_1_point_html_a8ef7efdbdce840407218ac03f2e91272"><div class="ttname"><a href="struct_win32_window_1_1_point.html#a8ef7efdbdce840407218ac03f2e91272">Win32Window::Point::x</a></div><div class="ttdeci">unsigned int x</div><div class="ttdef"><b>Definicja</b> win32_window.h:16</div></div>
+<div class="ttc" id="astruct_win32_window_1_1_point_html_ac1ccec39267f82c988a5eef576201901"><div class="ttname"><a href="struct_win32_window_1_1_point.html#ac1ccec39267f82c988a5eef576201901">Win32Window::Point::y</a></div><div class="ttdeci">unsigned int y</div><div class="ttdef"><b>Definicja</b> win32_window.h:17</div></div>
+<div class="ttc" id="astruct_win32_window_1_1_size_html_a0c8bf24889df81f57fcea7fcb0bcf7eb"><div class="ttname"><a href="struct_win32_window_1_1_size.html#a0c8bf24889df81f57fcea7fcb0bcf7eb">Win32Window::Size::width</a></div><div class="ttdeci">unsigned int width</div><div class="ttdef"><b>Definicja</b> win32_window.h:22</div></div>
+<div class="ttc" id="astruct_win32_window_1_1_size_html_a3c51518e24523699539dfa87a40cb2ed"><div class="ttname"><a href="struct_win32_window_1_1_size.html#a3c51518e24523699539dfa87a40cb2ed">Win32Window::Size::Size</a></div><div class="ttdeci">Size(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definicja</b> win32_window.h:24</div></div>
+<div class="ttc" id="astruct_win32_window_1_1_size_html_ae0b37478590a14907a9edc358a12e1d1"><div class="ttname"><a href="struct_win32_window_1_1_size.html#ae0b37478590a14907a9edc358a12e1d1">Win32Window::Size::height</a></div><div class="ttdeci">unsigned int height</div><div class="ttdef"><b>Definicja</b> win32_window.h:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_ca0386ec887ae6362f93b0d653b52e0c.html">frontend</a></li><li class="navelem"><a href="dir_ad020450540a24c70efa4b074932d3d7.html">social_content_app</a></li><li class="navelem"><a href="dir_7fa4a51aecb2eb41f8d981fb4941832b.html">windows</a></li><li class="navelem"><a href="dir_b2a93cddb3aa6c8597695b4ce8e8acac.html">runner</a></li><li class="navelem"><a href="win32__window_8h.html">win32_window.h</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

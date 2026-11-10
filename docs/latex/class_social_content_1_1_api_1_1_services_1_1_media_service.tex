@@ -1,0 +1,125 @@
+\doxysection{Dokumentacja klasy Social\+Content.\+Api.\+Services.\+Media\+Service(App\+Db\+Context db, IMedia\+Storage storage)}
+\hypertarget{class_social_content_1_1_api_1_1_services_1_1_media_service}{}\label{class_social_content_1_1_api_1_1_services_1_1_media_service}\index{SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}}
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+Media\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_media_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+Media\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_social_content_1_1_api_1_1_services_1_1_media_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87}{Upload\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Stream content, string file\+Name, long length, Cancellation\+Token ct)
+\item 
+async Task$<$(string Path, string Content\+Type)$>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f}{Open\+Async}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, string storage\+Key, Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ Guid $>$ \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2}{Company\+Id\+Of}} (\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}} user, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static string \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0}{Content\+Type\+Of}} (string key)
+\end{DoxyCompactItemize}
+
+
+\label{class_social_content_1_1_api_1_1_services_1_1_media_service_doc-func-members}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_media_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2}\index{SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}!CompanyIdOf@{CompanyIdOf}}
+\index{CompanyIdOf@{CompanyIdOf}!SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}}
+\doxysubsubsection{\texorpdfstring{CompanyIdOf()}{CompanyIdOf()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2} 
+async Task$<$ Guid $>$ Social\+Content.\+Api.\+Services.\+Media\+Service.\+Company\+Id\+Of (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_media_service_afb67d27400ac02c3cdd9a847280293a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0}\index{SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}!ContentTypeOf@{ContentTypeOf}}
+\index{ContentTypeOf@{ContentTypeOf}!SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}}
+\doxysubsubsection{\texorpdfstring{ContentTypeOf()}{ContentTypeOf()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0} 
+string Social\+Content.\+Api.\+Services.\+Media\+Service.\+Content\+Type\+Of (\begin{DoxyParamCaption}\item[{string}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Oto graf wywoływań tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_media_service_a732e84a60f03133e9321794deadbc0e0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f}\index{SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}!OpenAsync@{OpenAsync}}
+\index{OpenAsync@{OpenAsync}!SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}}
+\doxysubsubsection{\texorpdfstring{OpenAsync()}{OpenAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f} 
+async Task$<$(string Path, string Content\+Type)$>$ Social\+Content.\+Api.\+Services.\+Media\+Service.\+Open\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{string}]{storage\+Key}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ścieżka pliku firmy użytkownika oraz typ zawartości do odpowiedzi HTTP. 
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_a0663370db488415b342a7c579215a018}{Social\+Content.\+Api.\+Services.\+IMedia\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_media_service_a8164474fa1f9cabf37458c8fec5f902f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87}\index{SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}!UploadAsync@{UploadAsync}}
+\index{UploadAsync@{UploadAsync}!SocialContent.Api.Services.MediaService@{SocialContent.Api.Services.MediaService}}
+\doxysubsubsection{\texorpdfstring{UploadAsync()}{UploadAsync()}}
+{\footnotesize\ttfamily \label{class_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87} 
+async Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_aa0fd27387a0b37aecd8ae65847153f09}{Media\+Upload\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+Media\+Service.\+Upload\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_services_a9fb9644da12e0264d7e5db7814cabee5}{Current\+User}}}]{user}{, }\item[{Stream}]{content}{, }\item[{string}]{file\+Name}{, }\item[{long}]{length}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementuje \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_media_service_aad6fd198d6d56b6c03de5b5d95dbcb1b}{Social\+Content.\+Api.\+Services.\+IMedia\+Service}}.
+
+Oto graf wywołań dla tej funkcji:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_social_content_1_1_api_1_1_services_1_1_media_service_af937b77cb1cb7b6a758d63198d6e7b87_cgraph}
+\end{center}
+\end{figure}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_media_service_8cs}{Media\+Service.\+cs}}\end{DoxyCompactItemize}

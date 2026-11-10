@@ -1,0 +1,1537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.PostService(AppDbContext db, IMapper mapper, IMediaStorage storage, IPostEditLockService locks, IPostPublisher publisher)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_post_service.html','','class_social_content_1_1_api_1_1_services_1_1_post_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.PostService(AppDbContext db, IMapper mapper, IMediaStorage storage, IPostEditLockService locks, IPostPublisher publisher)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.PostService</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_post_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_post_service_inherit__map" id="a_social_content_8_api_8_services_8_post_service_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,267,201,864"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html" title="Posty. Odczyt: CompanyUser widzi posty kont swojej firmy, ManagerUser tylko posty,..." alt="" coords="16,5,191,219"/>
+<area shape="poly" title=" " alt="" coords="104,231,106,267,101,267,103,236"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.PostService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_post_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_post_service_coll__map" id="a_social_content_8_api_8_services_8_post_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,267,201,864"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html" title="Posty. Odczyt: CompanyUser widzi posty kont swojej firmy, ManagerUser tylko posty,..." alt="" coords="16,5,191,219"/>
+<area shape="poly" title=" " alt="" coords="104,231,106,267,101,267,103,236"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a3ec6db839d5f57ac67f149ccc51ce026" id="r_a3ec6db839d5f57ac67f149ccc51ce026"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3ec6db839d5f57ac67f149ccc51ce026">GetAllAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a>? type, Guid? accountId, Guid? managerId, CancellationToken ct)</td></tr>
+<tr class="memitem:a256107616ea4243a6eba8287fee38541" id="r_a256107616ea4243a6eba8287fee38541"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a256107616ea4243a6eba8287fee38541">GetAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a7634ed867ee975a34c794accc9d6ac9e" id="r_a7634ed867ee975a34c794accc9d6ac9e"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7634ed867ee975a34c794accc9d6ac9e">CreateAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a5f040531a9eca6741b0d0a794e9c7ef9" id="r_a5f040531a9eca6741b0d0a794e9c7ef9"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5f040531a9eca6741b0d0a794e9c7ef9">UpdateAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memitem:a483c00c6803475098c267287948a5566" id="r_a483c00c6803475098c267287948a5566"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a483c00c6803475098c267287948a5566">DeleteAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a8a3547823b49efc0a3ec7bcd9fe74903" id="r_a8a3547823b49efc0a3ec7bcd9fe74903"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab">PostLockDto</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8a3547823b49efc0a3ec7bcd9fe74903">AcquireLockAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memitem:a3d5d4413df50ff2407eb825ba8151e14" id="r_a3d5d4413df50ff2407eb825ba8151e14"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a3d5d4413df50ff2407eb825ba8151e14">ReleaseLockAsync</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:a7fd2dbdcdcb70b5ea4b275e3033a9613" id="r_a7fd2dbdcdcb70b5ea4b275e3033a9613"><td class="memItemLeft">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7fd2dbdcdcb70b5ea4b275e3033a9613">Query</a> ()</td></tr>
+<tr class="memitem:ad68455482f9e3d3bf294508f96e06720" id="r_ad68455482f9e3d3bf294508f96e06720"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad68455482f9e3d3bf294508f96e06720">ToDto</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> post, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a>? activeLock)</td></tr>
+<tr class="memitem:abb7b380dff2b2cda114f265d4bcd546f" id="r_abb7b380dff2b2cda114f265d4bcd546f"><td class="memItemLeft">async Task&lt; Dictionary&lt; Guid, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abb7b380dff2b2cda114f265d4bcd546f">ActiveLocksAsync</a> (List&lt; Guid &gt; postIds, CancellationToken ct)</td></tr>
+<tr class="memitem:a02edb7228dad47d8688dfa23dc38aa25" id="r_a02edb7228dad47d8688dfa23dc38aa25"><td class="memItemLeft">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a02edb7228dad47d8688dfa23dc38aa25">FindModifiable</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, Guid id, CancellationToken ct)</td></tr>
+<tr class="memdesc:a02edb7228dad47d8688dfa23dc38aa25"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH).">Post</a>, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczny, ale bez prawa zmiany (np. manager bez uprawnień do konta) kończy się 403.  <br /></td></tr>
+<tr class="memitem:a9ceb09f9186bc3278808956aa0196e93" id="r_a9ceb09f9186bc3278808956aa0196e93"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a9ceb09f9186bc3278808956aa0196e93">DeleteUnusedFilesAsync</a> (<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> post, IEnumerable&lt; string &gt; keys, CancellationToken ct)</td></tr>
+<tr class="memdesc:a9ceb09f9186bc3278808956aa0196e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post.  <br /></td></tr>
+<tr class="memitem:a3bcdf77fff1b722764e4cf9f99aba15f" id="r_a3bcdf77fff1b722764e4cf9f99aba15f"><td class="memItemLeft">async Task&lt;(<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> Account, List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt; Authors)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3bcdf77fff1b722764e4cf9f99aba15f">ResolveAccountAndAuthors</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, <a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, CancellationToken ct)</td></tr>
+<tr class="memdesc:a3bcdf77fff1b722764e4cf9f99aba15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reguła tworzenia postów: tylko z poziomu konta społecznościowego. <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> może tworzyć na każdym koncie swojej firmy (bez względu na przypisanych managerów), <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> - tylko na koncie, do którego jest przypisany. Autorami są od razu wszyscy managerowie przypisani do konta (współautorzy).  <br /></td></tr>
+<tr class="memitem:a56c9a76850bedf7a47cc7ed0c828037f" id="r_a56c9a76850bedf7a47cc7ed0c828037f"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a56c9a76850bedf7a47cc7ed0c828037f">BuildPictures</a> (<a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, Guid companyId)</td></tr>
+<tr class="memdesc:a56c9a76850bedf7a47cc7ed0c828037f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta. <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a0c3f1cb5f7bb21f1bd3e439f254aa373">Format</a> i rozmiar bierzemy z dysku, nie od klienta; plik musi pasować rodzajem (zdjęcie/wideo).  <br /></td></tr>
+<tr class="memitem:a77dc5864263735135841c5f284e8398f" id="r_a77dc5864263735135841c5f284e8398f"><td class="memItemLeft">return Picture.&#160;</td><td class="memItemRight"><a class="el" href="#a77dc5864263735135841c5f284e8398f">Create</a> (FileName.Create(p.FileName), file.Format, file.SizeKb, file.StorageKey)</td></tr>
+<tr class="memitem:af6774ad554ed16be5e38159b75321eef" id="r_af6774ad554ed16be5e38159b75321eef"><td class="memItemLeft">.&#160;</td><td class="memItemRight"><a class="el" href="#af6774ad554ed16be5e38159b75321eef">ToList</a> ()</td></tr>
+<tr class="memitem:a6939100e6f8a6bfee3b093245bd968f0" id="r_a6939100e6f8a6bfee3b093245bd968f0"><td class="memItemLeft">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6939100e6f8a6bfee3b093245bd968f0">BuildVideos</a> (<a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto, Guid companyId)</td></tr>
+<tr class="memitem:a4ed0da733bcc6b94d5bdf98a51719e70" id="r_a4ed0da733bcc6b94d5bdf98a51719e70"><td class="memItemLeft">return Video.&#160;</td><td class="memItemRight"><a class="el" href="#a4ed0da733bcc6b94d5bdf98a51719e70">Create</a> (FileName.Create(v.FileName), file.Format, file.SizeKb, file.StorageKey)</td></tr>
+<tr class="memitem:af6774ad554ed16be5e38159b75321eef" id="r_af6774ad554ed16be5e38159b75321eef"><td class="memItemLeft">.&#160;</td><td class="memItemRight"><a class="el" href="#af6774ad554ed16be5e38159b75321eef">ToList</a> ()</td></tr>
+<tr class="memitem:a8840e392e2a0bdfdda394ec624af3c28" id="r_a8840e392e2a0bdfdda394ec624af3c28"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8">StoredMedia</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8840e392e2a0bdfdda394ec624af3c28">FindUploaded</a> (Guid companyId, string storageKey, <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a69fa4d0e7790a5208a0e053b4f1f8990">MediaKind</a> expected)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Statyczne metody prywatne</h2></td></tr>
+<tr class="memitem:a41ad66429e3c2cbfe26aa7fda5bfa491" id="r_a41ad66429e3c2cbfe26aa7fda5bfa491"><td class="memItemLeft">static IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a41ad66429e3c2cbfe26aa7fda5bfa491">VisibleTo</a> (<a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a> user, IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt; query)</td></tr>
+<tr class="memdesc:a41ad66429e3c2cbfe26aa7fda5bfa491"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a>: posty kont swojej firmy. <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a>: posty, których jest autorem.  <br /></td></tr>
+<tr class="memitem:a6cfb44f43718ebea57103fe41dda8fcb" id="r_a6cfb44f43718ebea57103fe41dda8fcb"><td class="memItemLeft">static ? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#af84d315bd8f627a2df46fda79fa38ff4">SocialPlatform</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6cfb44f43718ebea57103fe41dda8fcb">RequestedPlatform</a> (<a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto)</td></tr>
+<tr class="memdesc:a6cfb44f43718ebea57103fe41dda8fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd.  <br /></td></tr>
+<tr class="memitem:a40e4d422d4ef5de965b08b5963be8618" id="r_a40e4d422d4ef5de965b08b5963be8618"><td class="memItemLeft">static ? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a>&#160;</td><td class="memItemRight"><a class="el" href="#a40e4d422d4ef5de965b08b5963be8618">BuildSchedule</a> (<a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a> dto)</td></tr>
+<tr class="memitem:aaf94be54b707eab518ad610ad960a8da" id="r_aaf94be54b707eab518ad610ad960a8da"><td class="memItemLeft">static ? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#a093032fe0d4418616a9aaa44ae61eca2">WebUrl</a>&#160;</td><td class="memItemRight"><a class="el" href="#aaf94be54b707eab518ad610ad960a8da">ParseUrl</a> (string? value)</td></tr>
+<tr class="memitem:a5f62db4b010709a19b5154487409a487" id="r_a5f62db4b010709a19b5154487409a487"><td class="memItemLeft">static ? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#accb1b3c4c65f8cbc043c756bddbfbaa6">ExternalId</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5f62db4b010709a19b5154487409a487">ParseExternalId</a> (string? value)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a8a3547823b49efc0a3ec7bcd9fe74903" name="a8a3547823b49efc0a3ec7bcd9fe74903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3547823b49efc0a3ec7bcd9fe74903">&#9670;&#160;</a></span>AcquireLockAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab">PostLockDto</a> &gt; SocialContent.Api.Services.PostService.AcquireLockAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#a22a4249373af31a51b2e376f457d9628">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a8a3547823b49efc0a3ec7bcd9fe74903_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8a3547823b49efc0a3ec7bcd9fe74903_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8a3547823b49efc0a3ec7bcd9fe74903_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8a3547823b49efc0a3ec7bcd9fe74903_cgraph">
+<area shape="rect" title=" " alt="" coords="5,33,211,76"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="725,29,911,72"/>
+<area shape="poly" title=" " alt="" coords="210,49,259,48,468,45,677,45,712,48,707,49,677,51,468,50,259,53,212,54"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,63,444,105"/>
+<area shape="poly" title=" " alt="" coords="211,64,246,70,241,72,211,70"/>
+<area shape="poly" title=" " alt="" coords="774,27,772,19,779,10,795,5,818,3,843,5,860,14,854,14,842,10,818,8,796,10,782,15,777,21,779,30"/>
+<area shape="poly" title=" " alt="" coords="444,75,712,58,707,59,445,80"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="492,88,677,131"/>
+<area shape="poly" title=" " alt="" coords="444,91,479,97,474,98,445,97"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="492,155,677,197"/>
+<area shape="poly" title=" " alt="" coords="403,103,493,140,511,149,505,148,491,145,402,108"/>
+<area shape="poly" title=" " alt="" coords="651,152,676,140,728,110,773,82,778,81,731,115,679,145,652,157"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abb7b380dff2b2cda114f265d4bcd546f" name="abb7b380dff2b2cda114f265d4bcd546f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7b380dff2b2cda114f265d4bcd546f">&#9670;&#160;</a></span>ActiveLocksAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; Dictionary&lt; Guid, <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a> &gt; &gt; SocialContent.Api.Services.PostService.ActiveLocksAsync </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; Guid &gt;</td>          <td class="paramname"><span class="paramname"><em>postIds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_abb7b380dff2b2cda114f265d4bcd546f_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_abb7b380dff2b2cda114f265d4bcd546f_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_abb7b380dff2b2cda114f265d4bcd546f_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_abb7b380dff2b2cda114f265d4bcd546f_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,444,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,44,191,42,191,37,226,43"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,77,192,83,191,78,226,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a56c9a76850bedf7a47cc7ed0c828037f" name="a56c9a76850bedf7a47cc7ed0c828037f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c9a76850bedf7a47cc7ed0c828037f">&#9670;&#160;</a></span>BuildPictures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_picture.html">Picture</a> &gt; SocialContent.Api.Services.PostService.BuildPictures </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta. <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a0c3f1cb5f7bb21f1bd3e439f254aa373">Format</a> i rozmiar bierzemy z dysku, nie od klienta; plik musi pasować rodzajem (zdjęcie/wideo). </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_cgraph">
+<area shape="rect" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="5,29,191,72"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8840e392e2a0bdfdda394ec624af3c28" title=" " alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="472,29,657,72"/>
+<area shape="poly" title=" " alt="" coords="424,48,459,51,454,51,425,53"/>
+<area shape="poly" title=" " alt="" coords="521,27,519,19,526,10,541,5,565,3,590,5,606,14,601,13,588,10,565,8,543,10,529,15,524,21,525,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a56c9a76850bedf7a47cc7ed0c828037f_icgraph">
+<area shape="rect" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a40e4d422d4ef5de965b08b5963be8618" name="a40e4d422d4ef5de965b08b5963be8618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e4d422d4ef5de965b08b5963be8618">&#9670;&#160;</a></span>BuildSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#aaa2862e04db76fef6f128310033f98b4">ScheduledTime</a> SocialContent.Api.Services.PostService.BuildSchedule </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a40e4d422d4ef5de965b08b5963be8618_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a40e4d422d4ef5de965b08b5963be8618_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a40e4d422d4ef5de965b08b5963be8618_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a40e4d422d4ef5de965b08b5963be8618_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6939100e6f8a6bfee3b093245bd968f0" name="a6939100e6f8a6bfee3b093245bd968f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6939100e6f8a6bfee3b093245bd968f0">&#9670;&#160;</a></span>BuildVideos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_video.html">Video</a> &gt; SocialContent.Api.Services.PostService.BuildVideos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8840e392e2a0bdfdda394ec624af3c28" title=" " alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="472,29,657,72"/>
+<area shape="poly" title=" " alt="" coords="424,48,459,51,454,51,425,53"/>
+<area shape="poly" title=" " alt="" coords="521,27,519,19,526,10,541,5,565,3,590,5,606,14,601,13,588,10,565,8,543,10,529,15,524,21,525,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6939100e6f8a6bfee3b093245bd968f0_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a77dc5864263735135841c5f284e8398f" name="a77dc5864263735135841c5f284e8398f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77dc5864263735135841c5f284e8398f">&#9670;&#160;</a></span>Create() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">return Picture. SocialContent.Api.Services.PostService.Create </td>
+          <td>(</td>
+          <td class="paramtype">FileName.</td>          <td class="paramname"><span class="paramname"><em>Create</em></span>p.FileName, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">file.</td>          <td class="paramname"><span class="paramname"><em>Format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">file.</td>          <td class="paramname"><span class="paramname"><em>SizeKb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">file.</td>          <td class="paramname"><span class="paramname"><em>StorageKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ed0da733bcc6b94d5bdf98a51719e70" name="a4ed0da733bcc6b94d5bdf98a51719e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed0da733bcc6b94d5bdf98a51719e70">&#9670;&#160;</a></span>Create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">return Video. SocialContent.Api.Services.PostService.Create </td>
+          <td>(</td>
+          <td class="paramtype">FileName.</td>          <td class="paramname"><span class="paramname"><em>Create</em></span>v.FileName, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">file.</td>          <td class="paramname"><span class="paramname"><em>Format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">file.</td>          <td class="paramname"><span class="paramname"><em>SizeKb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">file.</td>          <td class="paramname"><span class="paramname"><em>StorageKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7634ed867ee975a34c794accc9d6ac9e" name="a7634ed867ee975a34c794accc9d6ac9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7634ed867ee975a34c794accc9d6ac9e">&#9670;&#160;</a></span>CreateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; SocialContent.Api.Services.PostService.CreateAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#a8463b688d88ac4bf354b23adfa310dda">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a7634ed867ee975a34c794accc9d6ac9e_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a7634ed867ee975a34c794accc9d6ac9e_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a7634ed867ee975a34c794accc9d6ac9e_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a7634ed867ee975a34c794accc9d6ac9e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,405,191,448"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a56c9a76850bedf7a47cc7ed0c828037f" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="276,5,462,48"/>
+<area shape="poly" title=" " alt="" coords="98,405,107,337,129,244,147,194,171,144,200,98,237,58,264,42,261,47,240,62,204,101,175,147,152,196,134,245,112,338,103,406"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a40e4d422d4ef5de965b08b5963be8618" title=" " alt="" coords="276,72,462,115"/>
+<area shape="poly" title=" " alt="" coords="100,405,113,348,138,272,156,232,178,193,205,156,237,125,264,110,261,114,240,129,209,160,183,196,161,235,143,274,118,350,105,406"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6939100e6f8a6bfee3b093245bd968f0" title=" " alt="" coords="276,139,462,181"/>
+<area shape="poly" title=" " alt="" coords="103,404,120,359,148,301,186,242,210,215,237,191,263,178,260,182,240,195,214,218,191,245,152,304,125,361,109,406"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html#a5ba9eafc337abe31b4e5063e4ff8250c" title=" " alt="" coords="271,205,467,248"/>
+<area shape="poly" title=" " alt="" coords="109,404,129,371,158,332,195,292,237,258,258,248,255,253,240,262,198,295,163,335,134,374,114,406"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html#a6685af28680ad1b9e8eb1cdad4700241" title=" " alt="" coords="270,272,468,315"/>
+<area shape="poly" title=" " alt="" coords="122,403,173,363,237,324,257,318,254,322,240,329,176,367,126,406"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a029ae3de4c51790b3a25cef63ecbc90e" title=" " alt="" coords="279,339,458,381"/>
+<area shape="poly" title=" " alt="" coords="186,403,266,384,263,388,189,407"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#a134a4560c6f63f9a728638d72023d822" title=" " alt="" coords="279,405,458,448"/>
+<area shape="poly" title=" " alt="" coords="190,424,266,425,262,428,192,429"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="576,681,761,724"/>
+<area shape="poly" title=" " alt="" coords="188,446,239,457,314,468,374,470,432,479,464,490,500,508,548,543,590,586,624,629,650,669,645,668,620,632,586,589,545,547,498,513,462,495,431,484,373,475,313,473,238,463,190,451"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f62db4b010709a19b5154487409a487" title=" " alt="" coords="274,523,464,565"/>
+<area shape="poly" title=" " alt="" coords="133,446,184,474,240,502,276,516,271,518,238,506,181,479,135,451"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#aaf94be54b707eab518ad610ad960a8da" title=" " alt="" coords="276,589,462,632"/>
+<area shape="poly" title=" " alt="" coords="113,446,165,511,200,546,240,575,265,588,259,590,237,580,197,550,161,514,113,451"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6cfb44f43718ebea57103fe41dda8fcb" title="Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd." alt="" coords="265,656,473,699"/>
+<area shape="poly" title=" " alt="" coords="107,446,127,489,155,542,192,596,215,621,240,642,253,651,248,652,237,646,211,625,188,600,150,545,122,491,107,451"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3bcdf77fff1b722764e4cf9f99aba15f" title="Reguła tworzenia postów: tylko z poziomu konta społecznościowego. CompanyUser może tworzyć na każdym ..." alt="" coords="239,723,499,765"/>
+<area shape="poly" title=" " alt="" coords="104,446,120,501,145,572,163,609,185,646,210,679,240,709,246,714,241,714,237,713,206,683,180,649,158,612,140,574,115,503,103,451"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="276,789,462,832"/>
+<area shape="poly" title=" " alt="" coords="102,446,114,513,137,601,154,649,177,695,206,738,240,775,265,793,259,793,237,779,201,741,173,698,149,651,131,603,109,514,101,451"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8840e392e2a0bdfdda394ec624af3c28" title=" " alt="" coords="576,72,761,115"/>
+<area shape="poly" title=" " alt="" coords="461,45,564,68,559,71,463,50"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="840,72,1026,115"/>
+<area shape="poly" title=" " alt="" coords="761,91,827,92,823,94,763,96"/>
+<area shape="poly" title=" " alt="" coords="883,71,881,62,890,53,907,47,933,45,961,48,980,56,974,57,960,53,933,51,908,53,892,57,886,63,888,72"/>
+<area shape="poly" title=" " alt="" coords="461,137,563,116,559,119,464,142"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_facebook_post.html#a9b502c4e08f4751dc438bb0c6941ad35" title=" " alt="" coords="548,205,789,248"/>
+<area shape="poly" title=" " alt="" coords="466,224,535,225,530,228,469,229"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_instagram_post.html#a6a1fd133809bdd268540fd6057b3044e" title=" " alt="" coords="547,272,790,315"/>
+<area shape="poly" title=" " alt="" coords="467,291,534,292,530,295,469,296"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a08a87558243a006a437600a74148d346" title=" " alt="" coords="579,339,758,381"/>
+<area shape="poly" title=" " alt="" coords="458,357,566,359,561,361,460,363"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#a69cda2cf97a6185f43d3fef4e6f483ef" title=" " alt="" coords="566,405,771,448"/>
+<area shape="poly" title=" " alt="" coords="458,424,553,425,548,428,460,429"/>
+<area shape="poly" title=" " alt="" coords="619,679,617,671,625,662,643,657,669,655,697,657,715,666,710,666,696,662,669,660,644,662,628,667,622,673,624,682"/>
+<area shape="poly" title=" " alt="" coords="499,723,563,717,558,718,500,729"/>
+<area shape="poly" title=" " alt="" coords="461,790,498,775,512,765,521,755,531,744,546,734,559,730,564,728,548,738,534,748,525,759,515,769,500,780,463,795"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="566,748,771,791"/>
+<area shape="poly" title=" " alt="" coords="462,795,553,785,548,786,463,801"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="564,839,774,865"/>
+<area shape="poly" title=" " alt="" coords="462,821,555,836,549,836,462,826"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="838,856,1028,899"/>
+<area shape="poly" title=" " alt="" coords="415,830,477,855,548,875,618,884,690,888,820,888,825,888,690,893,618,889,546,880,476,860,414,835"/>
+<area shape="poly" title=" " alt="" coords="624,837,617,830,622,820,640,814,669,812,700,815,719,824,713,824,699,820,669,817,641,819,625,824,622,829,629,839"/>
+<area shape="poly" title=" " alt="" coords="774,859,825,867,820,867,774,865"/>
+<area shape="poly" title=" " alt="" coords="884,854,881,846,890,837,907,831,933,829,961,832,980,841,974,840,960,837,933,835,908,837,892,841,886,847,888,857"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a483c00c6803475098c267287948a5566" name="a483c00c6803475098c267287948a5566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a483c00c6803475098c267287948a5566">&#9670;&#160;</a></span>DeleteAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.PostService.DeleteAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#a41bb426d89eb81709f8a2c7ff44da4ca">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a483c00c6803475098c267287948a5566_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a483c00c6803475098c267287948a5566_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a483c00c6803475098c267287948a5566_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a483c00c6803475098c267287948a5566_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="764,29,950,72"/>
+<area shape="poly" title=" " alt="" coords="176,26,238,15,376,6,515,9,642,19,752,34,746,34,642,24,514,14,376,11,239,20,178,31"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a9ceb09f9186bc3278808956aa0196e93" title="Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post." alt="" coords="239,29,483,72"/>
+<area shape="poly" title=" " alt="" coords="190,48,225,50,220,52,192,53"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="268,96,454,139"/>
+<area shape="poly" title=" " alt="" coords="185,70,262,91,257,93,185,75"/>
+<area shape="poly" title=" " alt="" coords="813,27,811,19,818,10,834,5,857,3,882,5,899,14,893,13,881,10,857,8,835,10,821,15,816,21,818,30"/>
+<area shape="poly" title=" " alt="" coords="440,93,531,73,643,60,751,54,746,55,643,65,531,79,441,98"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="531,88,716,131"/>
+<area shape="poly" title=" " alt="" coords="454,112,518,112,513,113,454,117"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="531,155,716,197"/>
+<area shape="poly" title=" " alt="" coords="454,135,518,152,513,152,454,141"/>
+<area shape="poly" title=" " alt="" coords="690,152,715,140,767,110,812,82,817,81,770,115,718,145,691,157"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9ceb09f9186bc3278808956aa0196e93" name="a9ceb09f9186bc3278808956aa0196e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ceb09f9186bc3278808956aa0196e93">&#9670;&#160;</a></span>DeleteUnusedFilesAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task SocialContent.Api.Services.PostService.DeleteUnusedFilesAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a></td>          <td class="paramname"><span class="paramname"><em>post</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IEnumerable&lt; string &gt;</td>          <td class="paramname"><span class="paramname"><em>keys</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post. </p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a9ceb09f9186bc3278808956aa0196e93_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a9ceb09f9186bc3278808956aa0196e93_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a9ceb09f9186bc3278808956aa0196e93_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a9ceb09f9186bc3278808956aa0196e93_icgraph">
+<area shape="rect" title="Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post." alt="" coords="239,39,483,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="220,43,191,41,191,36,226,42"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="220,78,192,84,191,79,226,77"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a02edb7228dad47d8688dfa23dc38aa25" name="a02edb7228dad47d8688dfa23dc38aa25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02edb7228dad47d8688dfa23dc38aa25">&#9670;&#160;</a></span>FindModifiable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt; SocialContent.Api.Services.PostService.FindModifiable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html" title="Post ogólny (bez platformy). Klasy FacebookPost, InstagramPost i TikTokPost dziedziczą po nim (TPH).">Post</a>, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczny, ale bez prawa zmiany (np. manager bez uprawnień do konta) kończy się 403. </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_cgraph">
+<area shape="rect" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="5,25,191,68"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="472,29,657,72"/>
+<area shape="poly" title=" " alt="" coords="176,22,238,11,331,3,424,11,484,25,478,25,424,16,331,8,239,16,178,27"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="239,25,424,68"/>
+<area shape="poly" title=" " alt="" coords="191,44,226,46,221,47,192,49"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="239,92,424,135"/>
+<area shape="poly" title=" " alt="" coords="175,66,242,87,237,88,175,71"/>
+<area shape="poly" title=" " alt="" coords="521,27,519,19,526,10,541,5,565,3,590,5,606,14,601,14,588,10,565,8,543,10,529,15,524,21,525,30"/>
+<area shape="poly" title=" " alt="" coords="413,89,466,77,471,76,414,94"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a02edb7228dad47d8688dfa23dc38aa25_icgraph">
+<area shape="rect" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,72,444,115"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8a3547823b49efc0a3ec7bcd9fe74903" title=" " alt="" coords="5,5,211,48"/>
+<area shape="poly" title=" " alt="" coords="254,68,189,51,188,46,259,67"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="15,72,201,115"/>
+<area shape="poly" title=" " alt="" coords="241,94,202,96,201,91,246,93"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="15,139,201,181"/>
+<area shape="poly" title=" " alt="" coords="259,119,189,141,188,135,254,120"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8840e392e2a0bdfdda394ec624af3c28" name="a8840e392e2a0bdfdda394ec624af3c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8840e392e2a0bdfdda394ec624af3c28">&#9670;&#160;</a></span>FindUploaded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8">StoredMedia</a> SocialContent.Api.Services.PostService.FindUploaded </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>storageKey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a69fa4d0e7790a5208a0e053b4f1f8990">MediaKind</a></td>          <td class="paramname"><span class="paramname"><em>expected</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a8840e392e2a0bdfdda394ec624af3c28_icgraph">
+<area shape="rect" title=" " alt="" coords="472,39,657,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a56c9a76850bedf7a47cc7ed0c828037f" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="239,5,424,48"/>
+<area shape="poly" title=" " alt="" coords="454,45,425,43,425,37,459,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6939100e6f8a6bfee3b093245bd968f0" title=" " alt="" coords="239,72,424,115"/>
+<area shape="poly" title=" " alt="" coords="459,75,425,83,424,77,454,76"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,27,192,29,191,24,226,26"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="243,52,176,74,175,69,237,53"/>
+<area shape="poly" title=" " alt="" coords="237,68,175,51,176,46,243,67"/>
+<area shape="poly" title=" " alt="" coords="221,94,191,96,191,91,226,93"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3ec6db839d5f57ac67f149ccc51ce026" name="a3ec6db839d5f57ac67f149ccc51ce026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec6db839d5f57ac67f149ccc51ce026">&#9670;&#160;</a></span>GetAllAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; &gt; SocialContent.Api.Services.PostService.GetAllAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#a4804dd0313cdca6c236eba45fffb570e">FacebookPostType</a>?</td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid?</td>          <td class="paramname"><span class="paramname"><em>accountId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid?</td>          <td class="paramname"><span class="paramname"><em>managerId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#ac334a2e6e83bed60ce57396e8894d01c">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a3ec6db839d5f57ac67f149ccc51ce026_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3ec6db839d5f57ac67f149ccc51ce026_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3ec6db839d5f57ac67f149ccc51ce026_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3ec6db839d5f57ac67f149ccc51ce026_cgraph">
+<area shape="rect" title=" " alt="" coords="5,123,191,165"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#abb7b380dff2b2cda114f265d4bcd546f" title=" " alt="" coords="239,5,444,48"/>
+<area shape="poly" title=" " alt="" coords="134,120,237,64,269,53,265,56,240,69,137,124"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="504,148,690,191"/>
+<area shape="poly" title=" " alt="" coords="176,120,238,108,342,98,387,99,445,108,494,121,541,141,535,141,492,126,443,113,387,105,342,103,239,113,178,124"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="249,123,434,165"/>
+<area shape="poly" title=" " alt="" coords="190,141,235,143,231,145,192,147"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="249,256,434,299"/>
+<area shape="poly" title=" " alt="" coords="125,163,177,203,240,242,253,250,248,250,237,246,174,207,124,168"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="249,189,434,232"/>
+<area shape="poly" title=" " alt="" coords="178,163,249,184,244,186,179,169"/>
+<area shape="poly" title=" " alt="" coords="551,146,548,138,556,129,573,123,597,121,624,124,641,132,636,132,622,129,597,127,574,129,559,133,554,139,555,149"/>
+<area shape="poly" title=" " alt="" coords="419,253,443,242,457,232,466,221,476,211,491,200,500,198,505,196,493,205,479,215,470,225,460,236,445,246,421,258"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="494,215,700,257"/>
+<area shape="poly" title=" " alt="" coords="434,260,482,255,477,256,435,265"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="492,305,702,332"/>
+<area shape="poly" title=" " alt="" coords="435,290,498,302,493,302,434,295"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="750,323,940,365"/>
+<area shape="poly" title=" " alt="" coords="380,297,433,322,493,341,554,351,617,355,732,356,738,356,617,361,554,356,491,347,431,327,379,302"/>
+<area shape="poly" title=" " alt="" coords="555,304,548,297,553,287,570,281,597,279,627,281,644,291,639,290,626,286,597,284,571,286,557,291,553,296,560,306"/>
+<area shape="poly" title=" " alt="" coords="703,327,738,333,732,333,703,332"/>
+<area shape="poly" title=" " alt="" coords="799,320,796,313,804,304,820,298,845,296,871,298,889,307,884,307,870,304,845,301,822,303,807,308,801,314,803,324"/>
+<area shape="poly" title=" " alt="" coords="434,193,491,186,486,188,435,198"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a256107616ea4243a6eba8287fee38541" name="a256107616ea4243a6eba8287fee38541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256107616ea4243a6eba8287fee38541">&#9670;&#160;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; SocialContent.Api.Services.PostService.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#a94c2ab8ebc882388e3881c00e52b7c34">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a256107616ea4243a6eba8287fee38541_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a256107616ea4243a6eba8287fee38541_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a256107616ea4243a6eba8287fee38541_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a256107616ea4243a6eba8287fee38541_cgraph">
+<area shape="rect" title=" " alt="" coords="5,123,191,165"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#abb7b380dff2b2cda114f265d4bcd546f" title=" " alt="" coords="239,5,444,48"/>
+<area shape="poly" title=" " alt="" coords="134,120,237,64,269,53,265,56,240,69,137,124"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="504,148,690,191"/>
+<area shape="poly" title=" " alt="" coords="176,120,238,108,342,98,387,99,445,108,494,121,541,141,535,141,492,126,443,113,387,105,342,103,239,113,178,124"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="249,123,434,165"/>
+<area shape="poly" title=" " alt="" coords="190,141,235,143,231,145,192,147"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="249,256,434,299"/>
+<area shape="poly" title=" " alt="" coords="125,163,177,203,240,242,253,250,248,250,237,246,174,207,124,168"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="249,189,434,232"/>
+<area shape="poly" title=" " alt="" coords="178,163,249,184,244,186,179,169"/>
+<area shape="poly" title=" " alt="" coords="551,146,548,138,556,129,573,123,597,121,624,124,641,132,636,132,622,129,597,127,574,129,559,133,554,139,555,149"/>
+<area shape="poly" title=" " alt="" coords="419,253,443,242,457,232,466,221,476,211,491,200,500,198,505,196,493,205,479,215,470,225,460,236,445,246,421,258"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="494,215,700,257"/>
+<area shape="poly" title=" " alt="" coords="434,260,482,255,477,256,435,265"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="492,305,702,332"/>
+<area shape="poly" title=" " alt="" coords="435,290,498,302,493,302,434,295"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="750,323,940,365"/>
+<area shape="poly" title=" " alt="" coords="380,297,433,322,493,341,554,351,617,355,732,356,738,356,617,361,554,356,491,347,431,327,379,302"/>
+<area shape="poly" title=" " alt="" coords="555,304,548,297,553,287,570,281,597,279,627,281,644,291,639,290,626,286,597,284,571,286,557,291,553,296,560,306"/>
+<area shape="poly" title=" " alt="" coords="703,327,738,333,732,333,703,332"/>
+<area shape="poly" title=" " alt="" coords="799,320,796,313,804,304,820,298,845,296,871,298,889,307,884,307,870,304,845,301,822,303,807,308,801,314,803,324"/>
+<area shape="poly" title=" " alt="" coords="434,193,491,186,486,188,435,198"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5f62db4b010709a19b5154487409a487" name="a5f62db4b010709a19b5154487409a487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f62db4b010709a19b5154487409a487">&#9670;&#160;</a></span>ParseExternalId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#accb1b3c4c65f8cbc043c756bddbfbaa6">ExternalId</a> SocialContent.Api.Services.PostService.ParseExternalId </td>
+          <td>(</td>
+          <td class="paramtype">string?</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a5f62db4b010709a19b5154487409a487_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a5f62db4b010709a19b5154487409a487_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a5f62db4b010709a19b5154487409a487_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a5f62db4b010709a19b5154487409a487_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,428,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="220,45,191,42,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="220,76,191,83,191,78,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aaf94be54b707eab518ad610ad960a8da" name="aaf94be54b707eab518ad610ad960a8da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf94be54b707eab518ad610ad960a8da">&#9670;&#160;</a></span>ParseUrl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_value_objects.html#a093032fe0d4418616a9aaa44ae61eca2">WebUrl</a> SocialContent.Api.Services.PostService.ParseUrl </td>
+          <td>(</td>
+          <td class="paramtype">string?</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_aaf94be54b707eab518ad610ad960a8da_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_aaf94be54b707eab518ad610ad960a8da_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_aaf94be54b707eab518ad610ad960a8da_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_aaf94be54b707eab518ad610ad960a8da_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7fd2dbdcdcb70b5ea4b275e3033a9613" name="a7fd2dbdcdcb70b5ea4b275e3033a9613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd2dbdcdcb70b5ea4b275e3033a9613">&#9670;&#160;</a></span>Query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt; SocialContent.Api.Services.PostService.Query </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a7fd2dbdcdcb70b5ea4b275e3033a9613_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a7fd2dbdcdcb70b5ea4b275e3033a9613_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a7fd2dbdcdcb70b5ea4b275e3033a9613_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a7fd2dbdcdcb70b5ea4b275e3033a9613_icgraph">
+<area shape="rect" title=" " alt="" coords="492,139,677,181"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,72,444,115"/>
+<area shape="poly" title=" " alt="" coords="491,134,429,118,429,113,496,134"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="259,139,444,181"/>
+<area shape="poly" title=" " alt="" coords="474,160,445,163,444,157,479,160"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="259,205,444,248"/>
+<area shape="poly" title=" " alt="" coords="496,186,429,207,428,202,491,186"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8a3547823b49efc0a3ec7bcd9fe74903" title=" " alt="" coords="5,5,211,48"/>
+<area shape="poly" title=" " alt="" coords="254,68,189,51,188,46,259,66"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="15,72,201,115"/>
+<area shape="poly" title=" " alt="" coords="241,94,202,96,200,91,246,92"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="15,139,201,181"/>
+<area shape="poly" title=" " alt="" coords="254,120,189,141,188,136,259,118"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3d5d4413df50ff2407eb825ba8151e14" name="a3d5d4413df50ff2407eb825ba8151e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5d4413df50ff2407eb825ba8151e14">&#9670;&#160;</a></span>ReleaseLockAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task SocialContent.Api.Services.PostService.ReleaseLockAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#ab4e8c305bfa6f501c5d4a833d3cfcba5">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a3d5d4413df50ff2407eb825ba8151e14_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3d5d4413df50ff2407eb825ba8151e14_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3d5d4413df50ff2407eb825ba8151e14_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3d5d4413df50ff2407eb825ba8151e14_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,215,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="263,29,448,72"/>
+<area shape="poly" title=" " alt="" coords="215,48,250,51,244,51,215,53"/>
+<area shape="poly" title=" " alt="" coords="309,27,307,19,315,10,331,5,355,3,382,5,399,14,394,13,380,10,355,8,332,10,318,15,312,21,314,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6cfb44f43718ebea57103fe41dda8fcb" name="a6cfb44f43718ebea57103fe41dda8fcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cfb44f43718ebea57103fe41dda8fcb">&#9670;&#160;</a></span>RequestedPlatform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">? <a class="el" href="namespace_social_content_1_1_api_1_1_domain_1_1_enums.html#af84d315bd8f627a2df46fda79fa38ff4">SocialPlatform</a> SocialContent.Api.Services.PostService.RequestedPlatform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd. </p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a6cfb44f43718ebea57103fe41dda8fcb_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6cfb44f43718ebea57103fe41dda8fcb_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6cfb44f43718ebea57103fe41dda8fcb_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a6cfb44f43718ebea57103fe41dda8fcb_icgraph">
+<area shape="rect" title="Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd." alt="" coords="239,39,447,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="220,44,191,42,191,37,226,43"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="220,77,192,83,191,78,226,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3bcdf77fff1b722764e4cf9f99aba15f" name="a3bcdf77fff1b722764e4cf9f99aba15f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bcdf77fff1b722764e4cf9f99aba15f">&#9670;&#160;</a></span>ResolveAccountAndAuthors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;(<a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_social_account.html">SocialAccount</a> Account, List&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> &gt; Authors)&gt; SocialContent.Api.Services.PostService.ResolveAccountAndAuthors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reguła tworzenia postów: tylko z poziomu konta społecznościowego. <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a> może tworzyć na każdym koncie swojej firmy (bez względu na przypisanych managerów), <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a> - tylko na koncie, do którego jest przypisany. Autorami są od razu wszyscy managerowie przypisani do konta (współautorzy). </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_cgraph">
+<area shape="rect" title="Reguła tworzenia postów: tylko z poziomu konta społecznościowego. CompanyUser może tworzyć na każdym ..." alt="" coords="5,29,266,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="314,29,499,72"/>
+<area shape="poly" title=" " alt="" coords="266,48,301,51,296,51,266,53"/>
+<area shape="poly" title=" " alt="" coords="356,27,353,19,362,10,380,5,406,3,436,5,455,14,449,14,435,10,406,8,381,10,365,15,358,21,360,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a3bcdf77fff1b722764e4cf9f99aba15f_icgraph">
+<area shape="rect" title="Reguła tworzenia postów: tylko z poziomu konta społecznościowego. CompanyUser może tworzyć na każdym ..." alt="" coords="239,39,499,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,43,191,41,191,35,226,42"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,78,191,85,191,79,226,78"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad68455482f9e3d3bf294508f96e06720" name="ad68455482f9e3d3bf294508f96e06720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad68455482f9e3d3bf294508f96e06720">&#9670;&#160;</a></span>ToDto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> SocialContent.Api.Services.PostService.ToDto </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a></td>          <td class="paramname"><span class="paramname"><em>post</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html">PostEditLock</a>?</td>          <td class="paramname"><span class="paramname"><em>activeLock</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_cgraph">
+<area shape="rect" title=" " alt="" coords="5,137,191,180"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="251,29,436,72"/>
+<area shape="poly" title=" " alt="" coords="134,135,183,108,238,82,257,76,252,79,240,86,185,113,137,139"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="241,96,446,139"/>
+<area shape="poly" title=" " alt="" coords="190,140,228,136,223,138,192,146"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="239,187,449,213"/>
+<area shape="poly" title=" " alt="" coords="191,172,248,183,243,184,191,177"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="497,204,686,247"/>
+<area shape="poly" title=" " alt="" coords="134,178,183,203,239,223,301,233,364,237,479,238,484,238,364,243,300,238,238,228,181,208,133,183"/>
+<area shape="poly" title=" " alt="" coords="297,28,296,19,303,10,319,5,344,3,370,5,387,13,382,14,369,10,344,8,321,10,306,15,301,21,302,30"/>
+<area shape="poly" title=" " alt="" coords="302,185,295,178,300,168,317,162,344,160,374,163,390,172,385,172,372,168,344,165,318,167,304,172,300,177,307,187"/>
+<area shape="poly" title=" " alt="" coords="450,208,484,214,479,214,449,213"/>
+<area shape="poly" title=" " alt="" coords="545,202,543,194,551,185,567,179,592,177,618,180,636,189,630,188,617,185,592,183,568,185,554,189,548,195,550,205"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_ad68455482f9e3d3bf294508f96e06720_icgraph">
+<area shape="rect" title=" " alt="" coords="239,105,424,148"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7634ed867ee975a34c794accc9d6ac9e" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="271,99,190,62,162,51,162,46,192,58,276,97"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,112,192,109,191,104,226,110"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="5,139,191,181"/>
+<area shape="poly" title=" " alt="" coords="221,143,192,149,190,144,226,141"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="5,205,191,248"/>
+<area shape="poly" title=" " alt="" coords="276,154,192,196,163,207,161,202,190,191,271,156"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af6774ad554ed16be5e38159b75321eef" name="af6774ad554ed16be5e38159b75321eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6774ad554ed16be5e38159b75321eef">&#9670;&#160;</a></span>ToList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">. SocialContent.Api.Services.PostService.ToList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6774ad554ed16be5e38159b75321eef" name="af6774ad554ed16be5e38159b75321eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6774ad554ed16be5e38159b75321eef">&#9670;&#160;</a></span>ToList() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">. SocialContent.Api.Services.PostService.ToList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f040531a9eca6741b0d0a794e9c7ef9" name="a5f040531a9eca6741b0d0a794e9c7ef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f040531a9eca6741b0d0a794e9c7ef9">&#9670;&#160;</a></span>UpdateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b">PostDto</a> &gt; SocialContent.Api.Services.PostService.UpdateAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_social_content_1_1_api_1_1_dtos_1_1_post_write_dto.html">PostWriteDto</a></td>          <td class="paramname"><span class="paramname"><em>dto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_post_service.html#a8a91a478f8c28f3bfd87df7318437b3a">SocialContent.Api.Services.IPostService</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a5f040531a9eca6741b0d0a794e9c7ef9_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a5f040531a9eca6741b0d0a794e9c7ef9_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a5f040531a9eca6741b0d0a794e9c7ef9_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a5f040531a9eca6741b0d0a794e9c7ef9_cgraph">
+<area shape="rect" title=" " alt="" coords="5,356,191,399"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a56c9a76850bedf7a47cc7ed0c828037f" title="Media pochodzą z plików przesłanych wcześniej przez POST /api/Media do magazynu firmy konta...." alt="" coords="268,5,454,48"/>
+<area shape="poly" title=" " alt="" coords="100,355,112,296,136,216,154,173,177,131,204,92,237,58,256,47,253,51,240,62,208,95,181,134,159,175,141,218,117,297,105,356"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a40e4d422d4ef5de965b08b5963be8618" title=" " alt="" coords="268,72,454,115"/>
+<area shape="poly" title=" " alt="" coords="103,355,119,307,146,245,185,180,209,150,237,125,256,114,253,119,240,129,213,154,189,183,150,247,124,309,108,356"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6939100e6f8a6bfee3b093245bd968f0" title=" " alt="" coords="268,139,454,181"/>
+<area shape="poly" title=" " alt="" coords="108,354,158,278,194,235,237,198,260,186,257,190,240,202,198,239,162,281,113,357"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="841,381,1027,424"/>
+<area shape="poly" title=" " alt="" coords="111,354,133,326,162,294,197,264,238,242,273,230,304,224,358,224,414,233,483,241,571,241,642,238,675,240,710,245,748,255,792,272,827,292,859,316,909,369,904,369,855,320,824,296,790,277,747,260,709,250,674,245,642,244,572,246,483,247,413,239,358,229,304,229,274,235,240,246,200,269,165,298,137,330,116,357"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a9ceb09f9186bc3278808956aa0196e93" title="Usuwa z dysku pliki, do których nie odwołuje się już żaden inny post." alt="" coords="239,256,483,299"/>
+<area shape="poly" title=" " alt="" coords="138,354,238,308,261,302,257,305,240,313,142,357"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="268,323,454,365"/>
+<area shape="poly" title=" " alt="" coords="190,363,255,356,251,359,193,368"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f62db4b010709a19b5154487409a487" title=" " alt="" coords="266,389,456,432"/>
+<area shape="poly" title=" " alt="" coords="190,387,253,395,248,398,192,392"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#aaf94be54b707eab518ad610ad960a8da" title=" " alt="" coords="268,456,454,499"/>
+<area shape="poly" title=" " alt="" coords="139,397,240,442,261,450,256,452,238,446,141,402"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a6cfb44f43718ebea57103fe41dda8fcb" title="Który blok platformy podano w żądaniu (null = post ogólny); więcej niż jeden to błąd." alt="" coords="257,523,465,565"/>
+<area shape="poly" title=" " alt="" coords="116,397,169,453,203,483,240,508,251,515,246,517,237,513,200,487,165,457,116,402"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3bcdf77fff1b722764e4cf9f99aba15f" title="Reguła tworzenia postów: tylko z poziomu konta społecznościowego. CompanyUser może tworzyć na każdym ..." alt="" coords="531,448,791,491"/>
+<area shape="poly" title=" " alt="" coords="107,396,126,439,153,489,191,538,214,558,240,575,305,603,333,610,361,612,388,610,417,603,482,575,498,561,506,544,513,525,529,507,553,496,548,499,533,511,518,528,511,546,502,564,484,580,419,608,389,615,361,618,332,615,303,608,237,580,211,563,187,541,149,492,121,441,107,402"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#ad68455482f9e3d3bf294508f96e06720" title=" " alt="" coords="268,640,454,683"/>
+<area shape="poly" title=" " alt="" coords="106,396,125,444,152,504,191,566,214,594,240,619,258,632,253,633,237,623,210,598,186,569,147,506,120,446,106,402"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#a96595df95422e1eaab16fcd69c1f6843" title=" " alt="" coords="270,757,452,800"/>
+<area shape="poly" title=" " alt="" coords="105,396,123,454,150,531,189,615,213,655,241,693,271,723,307,749,301,749,268,727,237,696,209,658,184,617,145,533,118,456,104,402"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8840e392e2a0bdfdda394ec624af3c28" title=" " alt="" coords="568,72,754,115"/>
+<area shape="poly" title=" " alt="" coords="453,45,556,68,551,71,455,50"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="841,72,1027,115"/>
+<area shape="poly" title=" " alt="" coords="753,91,828,92,823,94,755,96"/>
+<area shape="poly" title=" " alt="" coords="883,71,881,62,889,53,907,47,934,45,963,48,982,56,977,57,962,53,934,51,908,53,892,57,886,63,888,72"/>
+<area shape="poly" title=" " alt="" coords="453,137,555,116,551,119,455,142"/>
+<area shape="poly" title=" " alt="" coords="883,380,881,371,889,362,907,357,934,355,963,357,982,366,977,366,962,362,934,360,908,362,892,367,886,373,888,382"/>
+<area shape="poly" title=" " alt="" coords="434,320,531,300,663,282,721,283,792,300,823,313,853,330,903,371,897,371,850,335,821,318,791,305,720,289,663,287,531,305,437,324"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a7fd2dbdcdcb70b5ea4b275e3033a9613" title=" " alt="" coords="568,315,754,357"/>
+<area shape="poly" title=" " alt="" coords="453,339,555,338,550,340,455,344"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a41ad66429e3c2cbfe26aa7fda5bfa491" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="568,381,754,424"/>
+<area shape="poly" title=" " alt="" coords="453,359,556,381,551,383,454,365"/>
+<area shape="poly" title=" " alt="" coords="754,400,828,402,823,403,755,405"/>
+<area shape="poly" title=" " alt="" coords="750,445,831,427,826,429,752,450"/>
+<area shape="poly" title=" " alt="" coords="447,637,481,618,496,602,504,585,512,567,529,551,565,532,598,523,628,519,658,519,719,519,752,513,790,500,847,468,895,436,899,433,850,473,792,505,754,518,719,524,658,524,629,524,599,528,567,537,533,555,517,571,509,587,501,605,485,622,449,642"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post_edit_lock.html#adc4fbc0d1f3d93686da0cf34be4de283" title=" " alt="" coords="558,565,764,608"/>
+<area shape="poly" title=" " alt="" coords="449,637,560,611,555,613,451,642"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a6db84facd92f8a11bde35bdf3ce8170b" title="Post wraz z mediami, managerami, statusem publikacji i (dla postów platform) danymi platformy." alt="" coords="556,656,766,683"/>
+<area shape="poly" title=" " alt="" coords="454,661,543,665,537,667,454,666"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_dtos.html#a7f997b5c76d2c7892a53da391a9bbbab" title="Blokada edycji posta." alt="" coords="839,673,1029,716"/>
+<area shape="poly" title=" " alt="" coords="454,680,531,692,684,700,826,700,821,701,684,705,531,697,454,686"/>
+<area shape="poly" title=" " alt="" coords="615,655,607,647,613,637,631,631,661,629,694,632,713,641,707,641,693,637,661,635,632,637,616,642,613,647,620,656"/>
+<area shape="poly" title=" " alt="" coords="767,676,827,684,821,685,767,682"/>
+<area shape="poly" title=" " alt="" coords="883,671,881,663,889,654,907,649,934,647,963,649,982,658,977,658,962,654,934,652,908,654,892,659,886,665,888,674"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html#a028b9d7b01d44c5306e7ace2dca5d94b" title=" " alt="" coords="572,757,751,800"/>
+<area shape="poly" title=" " alt="" coords="452,776,559,778,553,779,452,781"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_tik_tok_post.html#abb2d5adb0bbb9747723d4eaab4b5bad0" title=" " alt="" coords="561,824,761,867"/>
+<area shape="poly" title=" " alt="" coords="452,796,550,820,545,820,452,801"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a41ad66429e3c2cbfe26aa7fda5bfa491" name="a41ad66429e3c2cbfe26aa7fda5bfa491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41ad66429e3c2cbfe26aa7fda5bfa491">&#9670;&#160;</a></span>VisibleTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt; SocialContent.Api.Services.PostService.VisibleTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5">CurrentUser</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IQueryable&lt; <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_post.html">Post</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>query</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user.html" title="Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala rel...">CompanyUser</a>: posty kont swojej firmy. <a class="el" href="class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_manager_user.html">ManagerUser</a>: posty, których jest autorem. </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_cgraph">
+<area shape="rect" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="5,29,191,72"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#a9fb9644da12e0264d7e5db7814cabee5" title="Tożsamość zalogowanego użytkownika odczytana z tokenu JWT." alt="" coords="239,29,424,72"/>
+<area shape="poly" title=" " alt="" coords="191,48,226,50,220,51,191,53"/>
+<area shape="poly" title=" " alt="" coords="287,27,285,19,293,10,308,5,331,3,356,5,373,14,368,13,355,10,331,8,309,10,296,15,290,21,292,30"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_post_service_a41ad66429e3c2cbfe26aa7fda5bfa491_icgraph">
+<area shape="rect" title="CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem." alt="" coords="492,139,677,181"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a02edb7228dad47d8688dfa23dc38aa25" title="Post, który użytkownik może zmieniać. Cudze posty zachowują się jak nieistniejące (404); post widoczn..." alt="" coords="259,72,444,115"/>
+<area shape="poly" title=" " alt="" coords="491,134,429,118,429,113,496,134"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a3ec6db839d5f57ac67f149ccc51ce026" title=" " alt="" coords="259,139,444,181"/>
+<area shape="poly" title=" " alt="" coords="474,160,445,163,444,157,479,160"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a256107616ea4243a6eba8287fee38541" title=" " alt="" coords="259,205,444,248"/>
+<area shape="poly" title=" " alt="" coords="496,186,429,207,428,202,491,186"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a8a3547823b49efc0a3ec7bcd9fe74903" title=" " alt="" coords="5,5,211,48"/>
+<area shape="poly" title=" " alt="" coords="254,68,189,51,188,46,259,66"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a483c00c6803475098c267287948a5566" title=" " alt="" coords="15,72,201,115"/>
+<area shape="poly" title=" " alt="" coords="241,94,202,96,200,91,246,92"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_post_service.html#a5f040531a9eca6741b0d0a794e9c7ef9" title=" " alt="" coords="15,139,201,181"/>
+<area shape="poly" title=" " alt="" coords="254,120,189,141,188,136,259,118"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_post_service_8cs.html">PostService.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_post_service.html">PostService</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

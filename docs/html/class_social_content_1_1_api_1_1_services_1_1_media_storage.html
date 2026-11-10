@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocialContent: Dokumentacja klasy SocialContent.Api.Services.MediaStorage(string rootPath)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SocialContent
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Szukaj" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_social_content_1_1_api_1_1_services_1_1_media_storage.html','','class_social_content_1_1_api_1_1_services_1_1_media_storage-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy SocialContent.Api.Services.MediaStorage(string rootPath)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dziedziczenia dla SocialContent.Api.Services.MediaStorage</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage__inherit__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_media_storage_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_social_content_8_api_8_services_8_media_storage_inherit__map" id="a_social_content_8_api_8_services_8_media_storage_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,203,180,395"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html" title="Magazyn przesłanych plików: katalog na dysku serwera, osobny podkatalog dla każdej firmy." alt="" coords="5,5,180,155"/>
+<area shape="poly" title=" " alt="" coords="93,167,95,203,90,202,92,172"/>
+</map>
+</div>
+<div class="dynheader">
+Diagram współpracy dla SocialContent.Api.Services.MediaStorage:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage__coll__graph.png" border="0" usemap="#a_social_content_8_api_8_services_8_media_storage_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_social_content_8_api_8_services_8_media_storage_coll__map" id="a_social_content_8_api_8_services_8_media_storage_coll__map">
+<area shape="rect" title=" " alt="" coords="5,203,180,395"/>
+<area shape="rect" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html" title="Magazyn przesłanych plików: katalog na dysku serwera, osobny podkatalog dla każdej firmy." alt="" coords="5,5,180,155"/>
+<area shape="poly" title=" " alt="" coords="93,167,95,203,90,202,92,172"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:abbbdbd97da6c54276e415c7ee3488d79" id="r_abbbdbd97da6c54276e415c7ee3488d79"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8">StoredMedia</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abbbdbd97da6c54276e415c7ee3488d79">SaveAsync</a> (Guid companyId, Stream content, string originalFileName, long length, CancellationToken ct)</td></tr>
+<tr class="memdesc:abbbdbd97da6c54276e415c7ee3488d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedozwolonych.  <br /></td></tr>
+<tr class="memitem:a93947e9864a5f3be7327cbaea7981320" id="r_a93947e9864a5f3be7327cbaea7981320"><td class="memItemLeft"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8">StoredMedia</a>?&#160;</td><td class="memItemRight"><a class="el" href="#a93947e9864a5f3be7327cbaea7981320">Find</a> (Guid companyId, string storageKey)</td></tr>
+<tr class="memdesc:a93947e9864a5f3be7327cbaea7981320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza).  <br /></td></tr>
+<tr class="memitem:ac340fd28438ff44786b149ccb7073d35" id="r_ac340fd28438ff44786b149ccb7073d35"><td class="memItemLeft">string?&#160;</td><td class="memItemRight"><a class="el" href="#ac340fd28438ff44786b149ccb7073d35">PhysicalPath</a> (Guid companyId, string storageKey)</td></tr>
+<tr class="memdesc:ac340fd28438ff44786b149ccb7073d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ścieżka pliku na dysku albo null.  <br /></td></tr>
+<tr class="memitem:ab5b8ae922309d8f504132842360862c6" id="r_ab5b8ae922309d8f504132842360862c6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab5b8ae922309d8f504132842360862c6">Delete</a> (Guid companyId, string storageKey)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:a1462c5d5221bf990069e15e1f02282cc" id="r_a1462c5d5221bf990069e15e1f02282cc"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a1462c5d5221bf990069e15e1f02282cc">CompanyDirectory</a> (Guid companyId)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Statyczne metody prywatne</h2></td></tr>
+<tr class="memitem:a3be14b9eb3f05227bb80972c1bdebf24" id="r_a3be14b9eb3f05227bb80972c1bdebf24"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a3be14b9eb3f05227bb80972c1bdebf24">ToKb</a> (long bytes)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a1462c5d5221bf990069e15e1f02282cc" name="a1462c5d5221bf990069e15e1f02282cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1462c5d5221bf990069e15e1f02282cc">&#9670;&#160;</a></span>CompanyDirectory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SocialContent.Api.Services.MediaStorage.CompanyDirectory </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_a1462c5d5221bf990069e15e1f02282cc_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a1462c5d5221bf990069e15e1f02282cc_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a1462c5d5221bf990069e15e1f02282cc_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a1462c5d5221bf990069e15e1f02282cc_icgraph">
+<area shape="rect" title=" " alt="" coords="472,72,686,115"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ac340fd28438ff44786b149ccb7073d35" title="Ścieżka pliku na dysku albo null." alt="" coords="239,39,424,81"/>
+<area shape="poly" title=" " alt="" coords="454,77,424,75,424,70,459,77"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#abbbdbd97da6c54276e415c7ee3488d79" title="Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedoz..." alt="" coords="239,105,424,148"/>
+<area shape="poly" title=" " alt="" coords="459,110,425,117,424,112,454,110"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ab5b8ae922309d8f504132842360862c6" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,192,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a93947e9864a5f3be7327cbaea7981320" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab5b8ae922309d8f504132842360862c6" name="ab5b8ae922309d8f504132842360862c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b8ae922309d8f504132842360862c6">&#9670;&#160;</a></span>Delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocialContent.Api.Services.MediaStorage.Delete </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>storageKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html#a7f23675952752d96db226188b3feb888">SocialContent.Api.Services.IMediaStorage</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_ab5b8ae922309d8f504132842360862c6_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ab5b8ae922309d8f504132842360862c6_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ab5b8ae922309d8f504132842360862c6_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ab5b8ae922309d8f504132842360862c6_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,191,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ac340fd28438ff44786b149ccb7073d35" title="Ścieżka pliku na dysku albo null." alt="" coords="239,5,424,48"/>
+<area shape="poly" title=" " alt="" coords="191,24,226,26,220,27,191,29"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a1462c5d5221bf990069e15e1f02282cc" title=" " alt="" coords="472,5,686,48"/>
+<area shape="poly" title=" " alt="" coords="425,24,459,27,454,27,425,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a93947e9864a5f3be7327cbaea7981320" name="a93947e9864a5f3be7327cbaea7981320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93947e9864a5f3be7327cbaea7981320">&#9670;&#160;</a></span>Find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8">StoredMedia</a>? SocialContent.Api.Services.MediaStorage.Find </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>storageKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza). </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html#a77c9df18ab351ac85c93cddf01c02c52">SocialContent.Api.Services.IMediaStorage</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_a93947e9864a5f3be7327cbaea7981320_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a93947e9864a5f3be7327cbaea7981320_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a93947e9864a5f3be7327cbaea7981320_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a93947e9864a5f3be7327cbaea7981320_cgraph">
+<area shape="rect" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,96,191,139"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ac340fd28438ff44786b149ccb7073d35" title="Ścieżka pliku na dysku albo null." alt="" coords="239,5,424,48"/>
+<area shape="poly" title=" " alt="" coords="150,93,238,58,257,53,252,55,240,62,152,98"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="239,96,424,139"/>
+<area shape="poly" title=" " alt="" coords="191,115,226,117,221,118,192,120"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a3be14b9eb3f05227bb80972c1bdebf24" title=" " alt="" coords="239,163,424,205"/>
+<area shape="poly" title=" " alt="" coords="175,137,242,157,237,158,175,142"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a1462c5d5221bf990069e15e1f02282cc" title=" " alt="" coords="472,5,686,48"/>
+<area shape="poly" title=" " alt="" coords="424,24,459,26,454,27,425,29"/>
+<area shape="poly" title=" " alt="" coords="287,94,285,86,293,77,308,71,331,69,356,72,373,80,368,80,355,77,331,75,309,77,296,81,290,87,292,97"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac340fd28438ff44786b149ccb7073d35" name="ac340fd28438ff44786b149ccb7073d35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac340fd28438ff44786b149ccb7073d35">&#9670;&#160;</a></span>PhysicalPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string? SocialContent.Api.Services.MediaStorage.PhysicalPath </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>storageKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ścieżka pliku na dysku albo null. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html#adb8411be08801ac752de62e0d8dd1d98">SocialContent.Api.Services.IMediaStorage</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_cgraph">
+<area shape="rect" title="Ścieżka pliku na dysku albo null." alt="" coords="5,5,191,48"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a1462c5d5221bf990069e15e1f02282cc" title=" " alt="" coords="239,5,453,48"/>
+<area shape="poly" title=" " alt="" coords="191,24,226,26,221,27,191,29"/>
+</map>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_ac340fd28438ff44786b149ccb7073d35_icgraph">
+<area shape="rect" title="Ścieżka pliku na dysku albo null." alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ab5b8ae922309d8f504132842360862c6" title=" " alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a93947e9864a5f3be7327cbaea7981320" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abbbdbd97da6c54276e415c7ee3488d79" name="abbbdbd97da6c54276e415c7ee3488d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbbdbd97da6c54276e415c7ee3488d79">&#9670;&#160;</a></span>SaveAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8">StoredMedia</a> &gt; SocialContent.Api.Services.MediaStorage.SaveAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>companyId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stream</td>          <td class="paramname"><span class="paramname"><em>content</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>originalFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>ct</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedozwolonych. </p>
+
+<p>Implementuje <a class="el" href="interface_social_content_1_1_api_1_1_services_1_1_i_media_storage.html#a7fe48fe98765fa8a6aa1702da0895d7a">SocialContent.Api.Services.IMediaStorage</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_abbbdbd97da6c54276e415c7ee3488d79_cgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_abbbdbd97da6c54276e415c7ee3488d79_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_abbbdbd97da6c54276e415c7ee3488d79_cgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_abbbdbd97da6c54276e415c7ee3488d79_cgraph">
+<area shape="rect" title="Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedoz..." alt="" coords="5,96,191,139"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a1462c5d5221bf990069e15e1f02282cc" title=" " alt="" coords="239,5,453,48"/>
+<area shape="poly" title=" " alt="" coords="148,93,238,58,260,52,255,55,240,62,150,98"/>
+<area shape="rect" href="namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="253,96,438,139"/>
+<area shape="poly" title=" " alt="" coords="191,115,240,117,235,118,192,120"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a3be14b9eb3f05227bb80972c1bdebf24" title=" " alt="" coords="253,163,438,205"/>
+<area shape="poly" title=" " alt="" coords="180,137,252,157,246,159,180,142"/>
+<area shape="poly" title=" " alt="" coords="299,94,297,86,305,77,321,71,346,69,372,72,390,80,384,80,371,77,346,75,322,77,308,81,302,87,304,97"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3be14b9eb3f05227bb80972c1bdebf24" name="a3be14b9eb3f05227bb80972c1bdebf24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3be14b9eb3f05227bb80972c1bdebf24">&#9670;&#160;</a></span>ToKb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SocialContent.Api.Services.MediaStorage.ToKb </td>
+          <td>(</td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_social_content_1_1_api_1_1_services_1_1_media_storage_a3be14b9eb3f05227bb80972c1bdebf24_icgraph.png" border="0" usemap="#aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a3be14b9eb3f05227bb80972c1bdebf24_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a3be14b9eb3f05227bb80972c1bdebf24_icgraph" id="aclass_social_content_1_1_api_1_1_services_1_1_media_storage_a3be14b9eb3f05227bb80972c1bdebf24_icgraph">
+<area shape="rect" title=" " alt="" coords="239,39,424,81"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a93947e9864a5f3be7327cbaea7981320" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,5,191,48"/>
+<area shape="poly" title=" " alt="" coords="221,45,191,43,191,37,226,44"/>
+<area shape="rect" href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html#abbbdbd97da6c54276e415c7ee3488d79" title="Waliduje (typ, rozmiar, sygnatura) i zapisuje plik. Rzuca DomainValidationException dla plików niedoz..." alt="" coords="5,72,191,115"/>
+<area shape="poly" title=" " alt="" coords="221,76,192,83,191,77,226,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>backend/SocialContent.Api/Services/<a class="el" href="_media_storage_8cs.html">MediaStorage.cs</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_social_content.html">SocialContent</a></li><li class="navelem"><a href="namespace_social_content_1_1_api.html">Api</a></li><li class="navelem"><a href="namespace_social_content_1_1_api_1_1_services.html">Services</a></li><li class="navelem"><a href="class_social_content_1_1_api_1_1_services_1_1_media_storage.html">MediaStorage</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

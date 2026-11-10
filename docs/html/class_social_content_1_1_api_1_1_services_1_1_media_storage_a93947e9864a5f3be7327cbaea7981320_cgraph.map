@@ -1,0 +1,12 @@
+<map id="SocialContent.Api.Services.MediaStorage.Find" name="SocialContent.Api.Services.MediaStorage.Find">
+<area shape="rect" id="Node000001" title="Plik firmy o danym kluczu; null, gdy nie istnieje (także dla nieprawidłowego klucza)." alt="" coords="5,96,191,139"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#ac340fd28438ff44786b149ccb7073d35" title="Ścieżka pliku na dysku albo null." alt="" coords="239,5,424,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,93,238,58,257,53,252,55,240,62,152,98"/>
+<area shape="rect" id="Node000004" href="$namespace_social_content_1_1_api_1_1_services.html#ae88816a4b9f117b76329406c3b8500f8" title="Plik zapisany w magazynie; rozmiar i format pochodzą z dysku, nie od klienta." alt="" coords="239,96,424,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,115,226,117,221,118,192,120"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a3be14b9eb3f05227bb80972c1bdebf24" title=" " alt="" coords="239,163,424,205"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="175,137,242,157,237,158,175,142"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_services_1_1_media_storage.html#a1462c5d5221bf990069e15e1f02282cc" title=" " alt="" coords="472,5,686,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,24,459,26,454,27,425,29"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="287,94,285,86,293,77,308,71,331,69,356,72,373,80,368,80,355,77,331,75,309,77,296,81,290,87,292,97"/>
+</map>

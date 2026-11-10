@@ -1,0 +1,91 @@
+\doxysection{Dokumentacja interfejsu Social\+Content.\+Api.\+Services.\+IClient\+User\+Service}
+\hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service}{}\label{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service}\index{SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}}
+
+
+Relacja firma -\/ klient (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}). Klient rejestruje się sam, a firma dodaje go po adresie e-\/mail.  
+
+
+
+
+Diagram dziedziczenia dla Social\+Content.\+Api.\+Services.\+IClient\+User\+Service
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Social\+Content.\+Api.\+Services.\+IClient\+User\+Service:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_a3fcb4a512de517f2c4ea171bab0419ce}{Get\+For\+Company\+Async}} (Guid company\+Id, Cancellation\+Token ct)
+\item 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ae4ed06a2c5a03b5101beedcb73700855}{Link\+Async}} (Guid company\+Id, \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}} dto, Cancellation\+Token ct)
+\item 
+Task \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ac1e549bf206f76c9419e9873667be6bc}{Unlink\+Async}} (Guid company\+Id, Guid client\+Id, Cancellation\+Token ct)
+\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} $>$ $>$ \doxymbox{\hyperlink{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ad59e170990f1b7fd086916fc13e42de5}{Get\+Companies\+Async}} (Guid client\+Id, Cancellation\+Token ct)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Relacja firma -\/ klient (\doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_company_user}{Company\+User} n -\/ m \doxylink{class_social_content_1_1_api_1_1_domain_1_1_entities_1_1_client_user}{Client\+User}). Klient rejestruje się sam, a firma dodaje go po adresie e-\/mail. 
+
+\label{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_doc-func-members}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ad59e170990f1b7fd086916fc13e42de5}\index{SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}!GetCompaniesAsync@{GetCompaniesAsync}}
+\index{GetCompaniesAsync@{GetCompaniesAsync}!SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}}
+\doxysubsubsection{\texorpdfstring{GetCompaniesAsync()}{GetCompaniesAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ad59e170990f1b7fd086916fc13e42de5} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a202be65eb42639bc1ac4e7ca83249ff2}{Company\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Services.\+IClient\+User\+Service.\+Get\+Companies\+Async (\begin{DoxyParamCaption}\item[{Guid}]{client\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a0d53337c769afebe78a7cdb214ba6782}{Social\+Content.\+Api.\+Services.\+Client\+User\+Service}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_a3fcb4a512de517f2c4ea171bab0419ce}\index{SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}!GetForCompanyAsync@{GetForCompanyAsync}}
+\index{GetForCompanyAsync@{GetForCompanyAsync}!SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}}
+\doxysubsubsection{\texorpdfstring{GetForCompanyAsync()}{GetForCompanyAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_a3fcb4a512de517f2c4ea171bab0419ce} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ $>$ Social\+Content.\+Api.\+Services.\+IClient\+User\+Service.\+Get\+For\+Company\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_a4b04c1e2bd17fd20dbef7ec0f228fe8b}{Social\+Content.\+Api.\+Services.\+Client\+User\+Service}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ae4ed06a2c5a03b5101beedcb73700855}\index{SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}!LinkAsync@{LinkAsync}}
+\index{LinkAsync@{LinkAsync}!SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}}
+\doxysubsubsection{\texorpdfstring{LinkAsync()}{LinkAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ae4ed06a2c5a03b5101beedcb73700855} 
+Task$<$ \doxymbox{\hyperlink{namespace_social_content_1_1_api_1_1_dtos_a5c9de00e9eabf295a07d0cc25a6595af}{Client\+User\+Dto}} $>$ Social\+Content.\+Api.\+Services.\+IClient\+User\+Service.\+Link\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{\doxymbox{\hyperlink{class_social_content_1_1_api_1_1_dtos_1_1_link_client_dto}{Link\+Client\+Dto}}}]{dto}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_ad6aa701716195a92c2e7e6c099caa90f}{Social\+Content.\+Api.\+Services.\+Client\+User\+Service}}.
+
+\Hypertarget{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ac1e549bf206f76c9419e9873667be6bc}\index{SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}!UnlinkAsync@{UnlinkAsync}}
+\index{UnlinkAsync@{UnlinkAsync}!SocialContent.Api.Services.IClientUserService@{SocialContent.Api.Services.IClientUserService}}
+\doxysubsubsection{\texorpdfstring{UnlinkAsync()}{UnlinkAsync()}}
+{\footnotesize\ttfamily \label{interface_social_content_1_1_api_1_1_services_1_1_i_client_user_service_ac1e549bf206f76c9419e9873667be6bc} 
+Task Social\+Content.\+Api.\+Services.\+IClient\+User\+Service.\+Unlink\+Async (\begin{DoxyParamCaption}\item[{Guid}]{company\+Id}{, }\item[{Guid}]{client\+Id}{, }\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})}
+
+
+
+Implementowany w \doxymbox{\hyperlink{class_social_content_1_1_api_1_1_services_1_1_client_user_service_aeeab5ed079b55de9cf878c19ff83aef2}{Social\+Content.\+Api.\+Services.\+Client\+User\+Service}}.
+
+
+
+Dokumentacja dla tego interfejsu została wygenerowana z pliku:\begin{DoxyCompactItemize}
+\item 
+backend/\+\+Social\+Content.\+Api/\+\+Services/\doxymbox{\hyperlink{_client_user_service_8cs}{Client\+User\+Service.\+cs}}\end{DoxyCompactItemize}

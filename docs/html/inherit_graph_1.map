@@ -1,0 +1,17 @@
+<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,213,113,240"/>
+<area shape="rect" id="Node000001" href="$class_social_content_1_1_api_1_1_controllers_1_1_auth_controller.html" title="Rejestracja (firma, klient) i logowanie wszystkich ról (JWT)." alt="" coords="161,5,358,48"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="68,198,101,128,127,91,159,58,180,46,177,51,162,62,131,94,106,131,73,200"/>
+<area shape="rect" id="Node000002" href="$class_social_content_1_1_api_1_1_controllers_1_1_client_users_controller.html" title="Relacja firma &#45; klient (n &#45; m). Firma zarządza swoimi klientami, klient widzi firmy,..." alt="" coords="161,72,358,115"/>
+<area shape="poly" id="edge3_Node000000_Node000002" title=" " alt="" coords="78,199,114,161,159,124,184,113,181,117,162,129,117,165,83,202"/>
+<area shape="rect" id="Node000003" href="$class_social_content_1_1_api_1_1_controllers_1_1_manager_users_controller.html" title="Zarządzanie managerami (ManagerUser) przez firmę. Dostępne wyłącznie dla roli CompanyUser i tylko dla..." alt="" coords="161,139,358,181"/>
+<area shape="poly" id="edge4_Node000000_Node000003" title=" " alt="" coords="115,206,195,180,191,184,118,210"/>
+<area shape="rect" id="Node000004" href="$class_social_content_1_1_api_1_1_controllers_1_1_media_controller.html" title="Pliki mediów (zdjęcia, wideo) przesyłane do posta. Pliki są prywatne dla firmy." alt="" coords="161,205,358,248"/>
+<area shape="poly" id="edge5_Node000000_Node000004" title=" " alt="" coords="127,224,162,225,158,228,130,229"/>
+<area shape="rect" id="Node000005" href="$class_social_content_1_1_api_1_1_controllers_1_1_notifications_controller.html" title="Powiadomienia zalogowanego użytkownika (np. o nieudanej publikacji posta)." alt="" coords="161,272,358,315"/>
+<area shape="poly" id="edge6_Node000000_Node000005" title=" " alt="" coords="116,243,195,270,191,273,116,248"/>
+<area shape="rect" id="Node000006" href="$class_social_content_1_1_api_1_1_controllers_1_1_posts_controller.html" title="Posty do mediów społecznościowych. Odczyt: firma (wszystkie posty) i manager (tylko własne); zapis: C..." alt="" coords="161,339,358,381"/>
+<area shape="poly" id="edge7_Node000000_Node000006" title=" " alt="" coords="81,250,117,289,162,324,185,338,180,338,159,329,114,293,80,255"/>
+<area shape="rect" id="Node000007" href="$class_social_content_1_1_api_1_1_controllers_1_1_social_accounts_controller.html" title="Konta w mediach społecznościowych (Facebook, Instagram, TikTok). Odczyt: firma i przypisani managerow..." alt="" coords="161,405,358,448"/>
+<area shape="poly" id="edge8_Node000000_Node000007" title=" " alt="" coords="71,252,106,322,131,359,162,391,181,405,176,405,159,395,127,363,101,325,69,257"/>
+</map>

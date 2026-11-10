@@ -1,0 +1,15 @@
+<map id="FlutterWindow::OnCreate" name="FlutterWindow::OnCreate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,111,175,138"/>
+<area shape="rect" id="Node000002" href="$class_win32_window.html#aab1722c8d02d1e224f953260b6c64d70" title=" " alt="" coords="480,74,675,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,109,150,63,184,39,222,22,279,6,326,3,374,9,433,22,491,40,542,66,537,66,489,45,431,27,373,15,326,9,280,12,224,27,187,44,154,67,105,112"/>
+<area shape="rect" id="Node000003" href="$class_win32_window.html#a13999e0fd51a9b5c66239c6ecc201d5c" title=" " alt="" coords="243,36,412,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,108,222,72,252,66,247,68,223,77,126,113"/>
+<area shape="rect" id="Node000004" href="$generated__plugin__registrant_8cc.html#a100d3a635c44ec220c0929d56b06553f" title=" " alt="" coords="271,111,384,138"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,122,257,123,252,125,175,127"/>
+<area shape="rect" id="Node000005" href="$class_win32_window.html#aaefe8ad05d18d4841a01f51e1785ff0c" title=" " alt="" coords="223,162,432,188"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="156,136,249,157,244,159,156,141"/>
+<area shape="rect" id="Node000006" href="$class_win32_window.html#a079de4f5c5d61571ed3ef4660c8386c9" title=" " alt="" coords="254,212,400,239"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="111,135,162,167,224,198,246,208,240,207,222,203,159,171,110,141"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="287,110,280,102,285,92,301,86,327,84,356,87,372,96,367,96,355,92,327,90,302,92,289,96,286,102,292,111"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="392,158,431,147,532,108,537,107,433,152,393,164"/>
+</map>
