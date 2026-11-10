@@ -1,3 +1,7 @@
+Karta projektu (.docx): https://studentpcz-my.sharepoint.com/:w:/g/personal/s139525ps_student_pcz_pl/IQDu_jqCBRnaQLGrSGGQ0GpPATaVHmSqIfFJ6hqRKWjWubI?rtime=rvVfPwMt30g
+
+Karta projektu (.pdf): karta_projektu_d_s.pdf
+
 # Social Content (prototyp)
 
 Aplikacja dla content managerów do zarządzania postami na social media.
@@ -202,3 +206,5 @@ flutter run --dart-define=API_BASE_URL=http://192.168.1.20:5080
 cd backend && dotnet test SocialContent.Api.Tests      # xUnit, SQLite w pamięci
 cd frontend/social_content_app && flutter test
 ```
+
+
