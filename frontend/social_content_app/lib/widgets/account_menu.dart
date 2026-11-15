@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/auth.dart';
 import '../providers/auth_provider.dart';
 import '../providers/notification_provider.dart';
 import '../screens/profile_screen.dart';
@@ -90,7 +89,8 @@ class AccountMenuButton extends StatelessWidget {
   }
 }
 
-/// Dzwonek powiadomień (firma i manager; klient ich nie dostaje). Odświeża się co minutę.
+/// Dzwonek powiadomień (wszystkie role). Nowe powiadomienia przychodzą na żywo (SignalR), a co minutę
+/// odświeżamy listę jako zabezpieczenie.
 class NotificationBell extends StatefulWidget {
   const NotificationBell({super.key});
 
@@ -101,10 +101,7 @@ class NotificationBell extends StatefulWidget {
 class _NotificationBellState extends State<NotificationBell> {
   Timer? _timer;
 
-  bool get _enabled {
-    final role = context.read<AuthProvider>().role;
-    return role == UserRole.companyUser || role == UserRole.managerUser;
-  }
+  bool get _enabled => context.read<AuthProvider>().role != null;
 
   @override
   void initState() {
@@ -137,10 +134,7 @@ class _NotificationBellState extends State<NotificationBell> {
 
   @override
   Widget build(BuildContext context) {
-    final role = context.watch<AuthProvider>().role;
-    if (role != UserRole.companyUser && role != UserRole.managerUser) {
-      return const SizedBox.shrink();
-    }
+    if (context.watch<AuthProvider>().role == null) return const SizedBox.shrink();
     final unread = context.watch<NotificationProvider>().unread;
     return IconButton(
       tooltip: 'Powiadomienia',
@@ -174,8 +168,8 @@ class _NotificationsDialog extends StatelessWidget {
                   for (final n in items)
                     ListTile(
                       leading: Icon(
-                        Icons.error_outline,
-                        color: n.isRead ? null : Theme.of(context).colorScheme.error,
+                        Icons.notifications_active_outlined,
+                        color: n.isRead ? null : Theme.of(context).colorScheme.primary,
                       ),
                       title: Text(n.message,
                           style: n.isRead

@@ -1,10 +1,14 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
 import '../models/enums.dart';
+import 'app_messenger.dart';
 
 /// Odtwarzacz wideo i audio (mp4, mp3, flac) dla podglądu posta: play/pauza, pasek postępu i przewijanie.
 /// Plik jest strumieniowany z GET /api/Media (serwer obsługuje zakresy bajtów, więc przewijanie działa).
@@ -15,6 +19,20 @@ import '../models/enums.dart';
 /// ignorowany. Gdy podano [filePath] (plik świeżo wybrany z dysku), podgląd odtwarza go lokalnie - bez pobierania z serwera -
 /// a dopiero przy błędzie próbuje adresu [url]. Przy [lazy] odtwarzacz startuje dopiero po kliknięciu (formularz posta:
 /// natywny odtwarzacz nie jest tworzony przy każdym otwarciu formularza ani po każdej zmianie pola).
+/// Czytelny opis błędu odtwarzacza. Natywny odtwarzacz Windows zgłasza np. "WinHttpSendRequest failed12029"
+/// (ERROR_WINHTTP_CANNOT_CONNECT) - zwykle serwer nie słucha pod tym adresem/portem albo `localhost` wskazuje IPv6.
+String describeMediaError(Object? error) {
+  final text = '$error';
+  if (text.contains('12029') || text.contains('WinHttp')) {
+    return 'Nie można połączyć się z serwerem multimediów (błąd 12029). Sprawdź, czy backend działa '
+        'i czy adres API w aplikacji (API_BASE_URL) zgadza się z adresem serwera.';
+  }
+  if (error is HttpException) return 'Serwer odrzucił pobranie pliku: ${error.message}';
+  if (error is SocketException) return 'Nie można połączyć się z serwerem. Sprawdź, czy backend działa pod adresem API.';
+  if (error is TimeoutException) return 'Odtwarzacz nie odpowiedział na czas. Spróbuj ponownie.';
+  return 'Nie można odtworzyć pliku.';
+}
+
 class MediaPlayer extends StatefulWidget {
   const MediaPlayer({
     super.key,
@@ -75,6 +93,26 @@ class _MediaPlayerState extends State<MediaPlayer> {
     old?.dispose();
   }
 
+  /// Na Windows natywny odtwarzacz (WinHTTP w video_player_win) bywa nie w stanie połączyć się z backendem
+  /// (błąd 12029: proxy systemowe, VPN, zapora, IPv6), mimo że zwykłe żądania z aplikacji (dart:io) działają.
+  /// Dlatego plik pobieramy własnym klientem HTTP do katalogu tymczasowego i odtwarzamy lokalnie - to omija WinHTTP.
+  Future<File?> _downloadToTemp() async {
+    if (kIsWeb || !Platform.isWindows) return null;
+    final base = widget.url.split('?').first;
+    final dot = base.lastIndexOf('.');
+    final ext = dot > base.lastIndexOf('/') ? base.substring(dot) : '.bin';
+    final file = File('${Directory.systemTemp.path}${Platform.pathSeparator}sc_media_${base.hashCode.toUnsigned(32)}$ext');
+    if (file.existsSync() && file.lengthSync() > 0) return file;
+    final response = await http
+        .get(Uri.parse(widget.url), headers: widget.headers)
+        .timeout(const Duration(seconds: 120));
+    if (response.statusCode != 200 || response.bodyBytes.isEmpty) {
+      throw HttpException('Serwer zwrócił ${response.statusCode}', uri: Uri.parse(base));
+    }
+    await file.writeAsBytes(response.bodyBytes, flush: true);
+    return file;
+  }
+
   VideoPlayerController _networkController() => VideoPlayerController.networkUrl(
         Uri.parse(widget.url),
         httpHeaders: widget.headers,
@@ -94,6 +132,17 @@ class _MediaPlayerState extends State<MediaPlayer> {
     ];
 
     Object? lastError;
+    if (candidates.length == 1) {
+      // Brak lokalnego pliku: spróbuj pobrać plik własnym klientem HTTP (Windows), zanim sięgniemy po odtwarzacz sieciowy.
+      try {
+        final downloaded = await _downloadToTemp();
+        if (!mounted || generation != _generation) return;
+        if (downloaded != null) candidates.insert(0, () => VideoPlayerController.file(downloaded));
+      } catch (e) {
+        lastError = e;
+        if (!mounted || generation != _generation) return;
+      }
+    }
     for (final create in candidates) {
       final controller = create();
       _controller = controller;
@@ -120,7 +169,13 @@ class _MediaPlayerState extends State<MediaPlayer> {
         if (identical(_controller, controller)) _controller = null;
       }
     }
-    if (mounted && generation == _generation) setState(() => _error = lastError ?? 'Nieznany błąd');
+    if (mounted && generation == _generation) {
+      setState(() => _error = lastError ?? 'Nieznany błąd');
+      // Czytelny komunikat w stosie komunikatów (jeśli aplikacja go udostępnia); ekran nie jest blokowany.
+      try {
+        context.read<AppMessenger>().show(describeMediaError(lastError));
+      } catch (_) {}
+    }
   }
 
   @override
@@ -149,7 +204,7 @@ class _MediaPlayerState extends State<MediaPlayer> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Nie można odtworzyć pliku${widget.title == null ? '' : ' ${widget.title}'}.',
+                  '${describeMediaError(_error)}${widget.title == null ? '' : ' (${widget.title})'}',
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: Colors.white70),
                 ),

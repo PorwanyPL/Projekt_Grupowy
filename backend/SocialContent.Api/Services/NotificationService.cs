@@ -17,6 +17,9 @@ public interface INotificationService
     /// <summary>Dodaje (bez zapisu - zapisuje wywołujący) powiadomienia o nieudanej publikacji posta.</summary>
     void AddPublishFailed(Post post, string error);
 
+    /// <summary>Powiadamia firmę i autorów, że post został opublikowany (bez zapisu).</summary>
+    void AddPublished(Post post);
+
     /// <summary>Powiadamia klienta, że post jego konta czeka na akceptację (bez zapisu).</summary>
     void AddApprovalRequested(Post post, Guid clientId);
 
@@ -45,6 +48,16 @@ public class NotificationService(AppDbContext db, IMapper mapper) : INotificatio
         if (post.TargetAccount is not null)
             AddOnce(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.GroupId, message));
 
+        foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
+            AddOnce(Notification.Create(manager.Id, UserRole.ManagerUser, post.GroupId, message));
+    }
+
+    public void AddPublished(Post post)
+    {
+        var message = $"Post \"{post.Title.Value}\" został opublikowany.";
+
+        if (post.TargetAccount is not null)
+            AddOnce(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.GroupId, message));
         foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
             AddOnce(Notification.Create(manager.Id, UserRole.ManagerUser, post.GroupId, message));
     }

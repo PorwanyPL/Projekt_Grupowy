@@ -38,6 +38,9 @@ public static class DatabaseSeeder
             Description.Create("Klient demonstracyjny"), "klient@demo.pl", hash);
         var karolina = ClientUser.Create(FirstName.Create("Karolina"), LastName.Create("Zielińska"), Age.Create(36),
             Description.Create("Klientka, która sama akceptuje posty"), "klient2@demo.pl", hash);
+        // Klient bez współpracy z firmą: z nim może czatować tylko manager ds. czatu (Anna), nie Bartek.
+        var marta = ClientUser.Create(FirstName.Create("Marta"), LastName.Create("Obca"), Age.Create(28),
+            Description.Create("Klientka niewspółpracująca z firmą (test reguł czatu)"), "klient3@demo.pl", hash);
         company.AddClient(karol).SetAlias("Kawiarnia Pod Dębem");
         company.AddClient(karolina).SetAlias("Sklep Karoliny");
         company.Clients.Single(c => c.ClientId == karolina.Id).SetApprovalMode(PostApprovalMode.Client);
@@ -84,18 +87,52 @@ public static class DatabaseSeeder
             FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { bartek }, null, tiktok);
         awaiting.SubmitForApproval();
 
+        // Czat (v8): Anna jest managerem ds. czatu, w firmie jest grupa zespołu, a z Karolem rozmawiają firma i Anna.
+        company.SetChatManager(anna.Id);
+        var now = DateTime.UtcNow;
+        var team = Conversation.CreateGroup(company.CompanyId, "Zespół Demo Firma", new (Guid, UserRole)[]
+        {
+            (company.CompanyId, UserRole.CompanyUser), (anna.Id, UserRole.ManagerUser), (bartek.Id, UserRole.ManagerUser)
+        });
+        var withFirm = Conversation.CreateDirect((karol.Id, UserRole.ClientUser), (company.CompanyId, UserRole.CompanyUser));
+        var withAnna = Conversation.CreateDirect((karol.Id, UserRole.ClientUser), (anna.Id, UserRole.ManagerUser));
+        var chat = new[]
+        {
+            ChatMessage.Create(team.Id, company.CompanyId, UserRole.CompanyUser, company.Name,
+                "Cześć zespół, od dziś Anna odpowiada na czacie za wszystkich klientów.", now.AddHours(-3)),
+            ChatMessage.Create(team.Id, anna.Id, UserRole.ManagerUser, "Anna Nowak", "Jasne, biorę to na siebie.", now.AddHours(-2)),
+            ChatMessage.Create(team.Id, bartek.Id, UserRole.ManagerUser, "Bartek Kowalski",
+                "Ja zajmuję się TikTokiem Karoliny.", now.AddHours(-1)),
+            ChatMessage.Create(withFirm.Id, karol.Id, UserRole.ClientUser, "Karol Klient",
+                "Dzień dobry, kiedy ruszy kampania weekendowa?", now.AddMinutes(-50)),
+            ChatMessage.Create(withFirm.Id, company.CompanyId, UserRole.CompanyUser, company.Name,
+                "Dzień dobry, post jest zaplanowany na weekend.", now.AddMinutes(-40)),
+            ChatMessage.Create(withAnna.Id, anna.Id, UserRole.ManagerUser, "Anna Nowak",
+                "Cześć Karol, mam pytanie o zdjęcia do postu.", now.AddMinutes(-20))
+        };
+
         db.CompanyUsers.Add(company);
+        db.Conversations.AddRange(team, withFirm, withAnna);
+        db.ChatMessages.AddRange(chat);
+        // Powiadomienia demo (bez nich dzwonek jest pusty, bo powstają tylko przy zdarzeniach).
+        db.Notifications.AddRange(
+            Notification.Create(company.CompanyId, UserRole.CompanyUser, published.GroupId,
+                "Post \"Dziękujemy za wizytę\" został opublikowany."),
+            Notification.Create(anna.Id, UserRole.ManagerUser, groupFacebook.GroupId,
+                "Post \"Weekend w kawiarni\" jest zaplanowany."),
+            Notification.Create(karolina.Id, UserRole.ClientUser, awaiting.GroupId,
+                "Post \"Nowa kolekcja - do akceptacji\" czeka na Twoją akceptację."));
         db.ManagerUsers.AddRange(anna, bartek);
         db.ManagerCredentials.AddRange(
             ManagerCredential.Create(anna, "anna@demo.pl", hash),
             ManagerCredential.Create(bartek, "bartek@demo.pl", hash));
-        db.ClientUsers.AddRange(karol, karolina);
+        db.ClientUsers.AddRange(karol, karolina, marta);
         db.SocialAccounts.AddRange(facebook, instagram, tiktok, pending);
         db.Posts.AddRange(draft, scheduled, groupFacebook, groupInstagram, published, awaiting);
         db.SaveChanges();
 
         logger.LogInformation(
-            "Seeder: dodano dane demo. Logowanie (hasło {Password}): firma@demo.pl, anna@demo.pl, bartek@demo.pl, klient@demo.pl, klient2@demo.pl.",
+            "Seeder: dodano dane demo. Logowanie (hasło {Password}): firma@demo.pl, anna@demo.pl (manager ds. czatu), bartek@demo.pl, klient@demo.pl, klient2@demo.pl, klient3@demo.pl (bez współpracy z firmą).",
             DemoPassword);
     }
 

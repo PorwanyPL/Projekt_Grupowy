@@ -30,6 +30,10 @@ class ApiClient {
         if (_token != null) 'Authorization': 'Bearer $_token',
       };
 
+  /// Adres backendu i aktualny token (połączenie SignalR przekazuje token w ?access_token=).
+  String get baseUrl => _baseUrl;
+  String? get token => _token;
+
   /// Nagłówki do żądań spoza ApiClient (np. Image.network pobierające prywatne pliki).
   Map<String, String> get authHeaders => {
         if (_token != null) 'Authorization': 'Bearer $_token',

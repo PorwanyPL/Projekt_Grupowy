@@ -4,7 +4,7 @@ import '../models/app_notification.dart';
 import '../services/api_exception.dart';
 import '../services/notification_service.dart';
 
-/// Powiadomienia zalogowanego użytkownika (firma, manager). Dzwonek w górnym menu pokazuje liczbę nieprzeczytanych.
+/// Powiadomienia zalogowanego użytkownika (każda rola). Dzwonek w górnym menu pokazuje liczbę nieprzeczytanych.
 class NotificationProvider extends ChangeNotifier {
   NotificationProvider(this._service);
 
@@ -22,6 +22,13 @@ class NotificationProvider extends ChangeNotifier {
     } on ApiException catch (e) {
       error = e.message;
     }
+    notifyListeners();
+  }
+
+  /// Powiadomienie dostarczone na żywo przez SignalR (bez czekania na polling).
+  void push(AppNotification n) {
+    if (items.any((e) => e.id == n.id)) return;
+    items = [n, ...items];
     notifyListeners();
   }
 

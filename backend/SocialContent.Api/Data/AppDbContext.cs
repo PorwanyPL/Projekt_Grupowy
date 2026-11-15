@@ -16,6 +16,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<SocialAccount> SocialAccounts => Set<SocialAccount>();
     public DbSet<PostEditLock> PostEditLocks => Set<PostEditLock>();
     public DbSet<Notification> Notifications => Set<Notification>();
+    public DbSet<Conversation> Conversations => Set<Conversation>();
+    public DbSet<ConversationParticipant> ConversationParticipants => Set<ConversationParticipant>();
+    public DbSet<ChatMessage> ChatMessages => Set<ChatMessage>();
 
     protected override void OnModelCreating(ModelBuilder b)
     {
@@ -196,6 +199,39 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.RecipientRole).HasConversion<string>().HasMaxLength(20).IsRequired();
             e.Property(x => x.Message).HasMaxLength(500).IsRequired();
             e.HasIndex(x => new { x.RecipientId, x.RecipientRole, x.IsRead });
+        });
+
+        // Czat (v8): rozmowy 1 na 1 i grupy firmy, uczestnicy i wiadomości.
+        b.Entity<Conversation>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).ValueGeneratedNever();
+            e.Property(x => x.Kind).HasConversion<string>().HasMaxLength(20).IsRequired();
+            e.Property(x => x.Name).HasMaxLength(Conversation.MaxNameLength);
+            e.Property(x => x.DirectKey).HasMaxLength(100);
+            e.HasIndex(x => x.DirectKey).IsUnique(); // wiele NULL (grupy) jest dozwolone
+            e.HasIndex(x => x.CompanyId);
+            e.HasMany(x => x.Participants).WithOne().HasForeignKey(p => p.ConversationId)
+                .IsRequired().OnDelete(DeleteBehavior.Cascade);
+            e.HasMany(x => x.Messages).WithOne().HasForeignKey(m => m.ConversationId)
+                .IsRequired().OnDelete(DeleteBehavior.Cascade);
+        });
+
+        b.Entity<ConversationParticipant>(e =>
+        {
+            e.HasKey(x => new { x.ConversationId, x.UserId, x.UserRole });
+            e.Property(x => x.UserRole).HasConversion<string>().HasMaxLength(20).IsRequired();
+            e.HasIndex(x => new { x.UserId, x.UserRole });
+        });
+
+        b.Entity<ChatMessage>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).ValueGeneratedNever();
+            e.Property(x => x.SenderRole).HasConversion<string>().HasMaxLength(20).IsRequired();
+            e.Property(x => x.SenderName).HasMaxLength(200).IsRequired();
+            e.Property(x => x.Text).HasMaxLength(ChatMessage.MaxTextLength).IsRequired();
+            e.HasIndex(x => new { x.ConversationId, x.SentAt });
         });
 
         b.Entity<FileType>(e =>
