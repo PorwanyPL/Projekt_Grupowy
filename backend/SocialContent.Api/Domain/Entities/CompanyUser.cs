@@ -19,6 +19,13 @@ public class CompanyUser
 
     public bool IsAccessBlocked { get; private set; }
 
+    /// <summary>
+    /// Manager upoważniony przez właściciela do czatowania ze wszystkimi klientami (także niewspółpracującymi z firmą).
+    /// Brak wartości = żaden manager nie ma tego uprawnienia. Zwykła kolumna bez klucza obcego; serwis czatu sprawdza,
+    /// czy wskazany manager nadal istnieje, należy do firmy i nie jest zablokowany.
+    /// </summary>
+    public Guid? ChatManagerId { get; private set; }
+
     public List<ManagerUser> ManagerUsers { get; private set; } = new();
     public List<SocialAccount> SocialAccounts { get; private set; } = new();
 
@@ -37,6 +44,8 @@ public class CompanyUser
         };
 
     public void SetAccessBlocked(bool blocked) => IsAccessBlocked = blocked;
+
+    public void SetChatManager(Guid? managerId) => ChatManagerId = managerId;
 
     /// <summary>Dodaje klienta do firmy; ponowne dodanie tego samego klienta jest błędem.</summary>
     public CompanyClient AddClient(ClientUser client)

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/auth_provider.dart';
+import 'providers/chat_provider.dart';
 import 'providers/client_provider.dart';
 import 'providers/manager_provider.dart';
 import 'providers/notification_provider.dart';
@@ -10,6 +11,8 @@ import 'providers/social_account_provider.dart';
 import 'screens/auth_gate.dart';
 import 'services/api_client.dart';
 import 'services/auth_service.dart';
+import 'services/chat_realtime.dart';
+import 'services/chat_service.dart';
 import 'services/client_service.dart';
 import 'services/manager_service.dart';
 import 'services/media_service.dart';
@@ -44,6 +47,10 @@ class SocialContentApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ClientProvider(ClientService(_api))),
         ChangeNotifierProvider(create: (_) => PostProvider(PostService(_api))),
         ChangeNotifierProvider(create: (_) => NotificationProvider(NotificationService(_api))),
+        // Czat + powiadomienia na żywo (SignalR); połączenie startuje w HomeScreen po zalogowaniu.
+        ChangeNotifierProvider(
+          create: (_) => ChatProvider(ChatService(_api), SignalRChatRealtime(_api)),
+        ),
         Provider(create: (_) => MediaService(_api)),
         // Komunikaty (stos błędów) i sygnał odświeżania przy zmianie zakładki.
         ChangeNotifierProvider(create: (_) => AppMessenger()),

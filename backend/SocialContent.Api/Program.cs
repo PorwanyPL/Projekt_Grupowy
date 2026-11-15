@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SocialContent.Api.Data;
+using SocialContent.Api.Hubs;
 using SocialContent.Api.Middleware;
 using SocialContent.Api.Services;
 using SocialContent.Api.Swagger;
@@ -20,8 +21,11 @@ if (Encoding.UTF8.GetByteCount(jwt.Key ?? "") < 32)
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.SectionName));
 
 // ---------- Dane i serwisy ----------
-builder.Services.AddDbContext<AppDbContext>(o =>
-    o.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+// Interceptor wysyła powiadomienia (SignalR) po każdym udanym zapisie, więc działa dla wszystkich miejsc, które je tworzą.
+builder.Services.AddSingleton<NotificationPushInterceptor>();
+builder.Services.AddDbContext<AppDbContext>((sp, o) =>
+    o.UseSqlite(builder.Configuration.GetConnectionString("Default"))
+        .AddInterceptors(sp.GetRequiredService<NotificationPushInterceptor>()));
 
 builder.Services.AddScoped<IManagerUserService, ManagerUserService>();
 builder.Services.AddScoped<IPostService, PostService>();
@@ -32,6 +36,11 @@ builder.Services.AddScoped<IMediaService, MediaService>();
 builder.Services.AddScoped<IPostEditLockService, PostEditLockService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IPostPublisher, PostPublisher>();
+builder.Services.AddScoped<IChatService, ChatService>();
+builder.Services.AddSingleton<IRealtimeNotifier, SignalRRealtimeNotifier>();
+// SignalR jest częścią platformy ASP.NET Core (bez dodatkowego pakietu NuGet). Enumy jako tekst, jak w REST.
+builder.Services.AddSignalR()
+    .AddJsonProtocol(o => o.PayloadSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 // Przesłane pliki leżą w folderze "uploads" obok aplikacji (podfolder na firmę).
 builder.Services.AddSingleton<IMediaStorage>(
     new MediaStorage(Path.Combine(builder.Environment.ContentRootPath, "uploads")));
@@ -69,6 +78,16 @@ builder.Services
             // a token nadal jest w pełni walidowany (podpis, ważność, OnTokenValidated poniżej).
             OnMessageReceived = context =>
             {
+                // Hub SignalR: WebSocket i długie odpytywanie nie wysyłają nagłówka Authorization, więc token idzie w ?access_token=
+                // (dla każdej metody HTTP używanej przez transport, ale tylko pod ścieżką huba).
+                if (context.Request.Path.StartsWithSegments("/hubs/chat")
+                    && context.Request.Query.TryGetValue("access_token", out var hubToken)
+                    && !string.IsNullOrWhiteSpace(hubToken))
+                {
+                    context.Token = hubToken;
+                    return Task.CompletedTask;
+                }
+
                 if (context.Request.Method == HttpMethods.Get
                     && context.Request.Path.StartsWithSegments("/api/Media")
                     && context.Request.Query.TryGetValue("access_token", out var token)
@@ -130,8 +149,10 @@ builder.Services.AddSwaggerGen(o =>
     o.OperationFilter<AuthorizeOperationFilter>();
 });
 
+// SignalR z przeglądarki (Flutter web) wymaga CORS z AllowCredentials, a ono nie łączy się z AllowAnyOrigin -
+// stąd SetIsOriginAllowed (prototyp: każdy origin; na produkcji wypisz dozwolone adresy).
 builder.Services.AddCors(o => o.AddDefaultPolicy(p =>
-    p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+    p.SetIsOriginAllowed(_ => true).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 
 var app = builder.Build();
 
@@ -151,4 +172,5 @@ app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
+app.MapHub<ChatHub>("/hubs/chat");
 app.Run();

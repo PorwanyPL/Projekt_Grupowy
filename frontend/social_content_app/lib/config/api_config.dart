@@ -13,7 +13,9 @@ class ApiConfig {
     if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
       return 'http://10.0.2.2:5080';
     }
-    return 'http://localhost:5080';
+    // 127.0.0.1 zamiast localhost: Windows rozwiązuje localhost najpierw na IPv6 (::1), a natywne odtwarzacze
+    // (WinHTTP w video_player_win) potrafią wtedy zgłosić błąd 12029 (nie można się połączyć).
+    return 'http://127.0.0.1:5080';
   }
 
   static const Duration timeout = Duration(seconds: 15);

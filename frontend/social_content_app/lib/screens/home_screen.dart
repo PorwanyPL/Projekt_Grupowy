@@ -3,10 +3,14 @@ import 'package:provider/provider.dart';
 
 import '../models/auth.dart';
 import '../providers/auth_provider.dart';
+import '../providers/chat_provider.dart';
 import '../providers/client_provider.dart';
+import '../providers/notification_provider.dart';
+import '../widgets/app_messenger.dart';
 import '../providers/manager_provider.dart';
 import '../providers/social_account_provider.dart';
 import 'calendar_screen.dart';
+import 'chat_list_screen.dart';
 import 'client_list_screen.dart';
 import '../widgets/auto_refresh.dart';
 import 'company_list_screen.dart';
@@ -23,7 +27,7 @@ class _Tab {
   final Widget screen;
 }
 
-/// Ekran główny: zestaw zakładek zależy od roli zalogowanego użytkownika.
+/// Ekran główny (każda rola ma też zakładkę Czat): zestaw zakładek zależy od roli zalogowanego użytkownika.
 ///  - CompanyUser: Konta (lista klientów -> ich profile), Kalendarz, Posty (lista z filtrami), Managerowie
 ///  - ManagerUser: Konta (klienci z przypisanymi profilami), Kalendarz, Moje posty
 ///  - ClientUser: Moje profile, Kalendarz (tylko podgląd i akceptacja), Firmy
@@ -38,22 +42,25 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _index = 0;
+  late final ChatProvider _chat;
 
-  /// Osobny Navigator dla każdej zakładki (maks. 4), żeby ekrany szczegółowe otwierały się
+  /// Osobny Navigator dla każdej zakładki (maks. 5), żeby ekrany szczegółowe otwierały się
   /// pod dolnym menu, a nie na całym ekranie.
   final List<GlobalKey<NavigatorState>> _navKeys =
-      List.generate(4, (_) => GlobalKey<NavigatorState>());
+      List.generate(5, (_) => GlobalKey<NavigatorState>());
 
   /// Każdy Navigator ma własnego obserwatora tras (współdzielony powodował błąd asercji w Flutterze).
   final List<RouteObserver<ModalRoute<void>>> _observers =
-      List.generate(4, (_) => RouteObserver<ModalRoute<void>>());
+      List.generate(5, (_) => RouteObserver<ModalRoute<void>>());
 
   @override
   void initState() {
     super.initState();
+    _chat = context.read<ChatProvider>();
     // Dane pobieramy dopiero po zalogowaniu - wszystkie endpointy wymagają tokenu.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
+      _startChat();
       switch (context.read<AuthProvider>().role) {
         case UserRole.companyUser:
           context.read<SocialAccountProvider>().load();
@@ -71,6 +78,29 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  @override
+  void dispose() {
+    // Wylogowanie zamyka HomeScreen: zatrzymujemy połączenie SignalR (po zakończeniu budowania drzewa).
+    Future.microtask(_chat.stop);
+    super.dispose();
+  }
+
+  /// Czat i powiadomienia na żywo: jedno połączenie SignalR na sesję. Nowa wiadomość = krótki komunikat
+  /// (AppMessenger), nowe powiadomienie o poście trafia od razu do dzwonka.
+  void _startChat() {
+    final profile = context.read<AuthProvider>().profile;
+    if (profile == null) return;
+    final chat = context.read<ChatProvider>();
+    final messenger = context.read<AppMessenger>();
+    final notifications = context.read<NotificationProvider>();
+    chat.onIncoming = (text) => messenger.show('Nowa wiadomość - $text');
+    chat.onNotification = (n) {
+      notifications.push(n);
+      messenger.show(n.message);
+    };
+    chat.start(profile.id, profile.role);
+  }
+
   List<_Tab> _tabsFor(UserRole? role) {
     switch (role) {
       case UserRole.companyUser:
@@ -79,18 +109,21 @@ class _HomeScreenState extends State<HomeScreen> {
           _Tab('Kalendarz', Icons.calendar_month_outlined, Icons.calendar_month, CalendarScreen()),
           _Tab('Posty', Icons.article_outlined, Icons.article, CompanyPostsScreen()),
           _Tab('Managerowie', Icons.people_outline, Icons.people, ManagerListScreen()),
+          _Tab('Czat', Icons.chat_bubble_outline, Icons.chat_bubble, ChatListScreen()),
         ];
       case UserRole.managerUser:
         return const [
           _Tab('Konta', Icons.share_outlined, Icons.share, ClientListScreen()),
           _Tab('Kalendarz', Icons.calendar_month_outlined, Icons.calendar_month, CalendarScreen()),
           _Tab('Moje posty', Icons.article_outlined, Icons.article, MyPostsScreen()),
+          _Tab('Czat', Icons.chat_bubble_outline, Icons.chat_bubble, ChatListScreen()),
         ];
       case UserRole.clientUser:
         return const [
           _Tab('Moje profile', Icons.share_outlined, Icons.share, SocialAccountListScreen()),
           _Tab('Kalendarz', Icons.calendar_month_outlined, Icons.calendar_month, CalendarScreen()),
           _Tab('Firmy', Icons.business_outlined, Icons.business, CompanyListScreen()),
+          _Tab('Czat', Icons.chat_bubble_outline, Icons.chat_bubble, ChatListScreen()),
         ];
       case null:
         return const [];
@@ -107,11 +140,18 @@ class _HomeScreenState extends State<HomeScreen> {
     context.read<RefreshBus>().notifyTabChanged();
   }
 
+  Widget _tabIcon(_Tab t, bool selected, int unreadChat) {
+    final icon = Icon(selected ? t.selectedIcon : t.icon);
+    if (t.label != 'Czat' || unreadChat == 0) return icon;
+    return Badge(label: Text('$unreadChat'), child: icon);
+  }
+
   @override
   Widget build(BuildContext context) {
     final tabs = _tabsFor(context.watch<AuthProvider>().role);
     if (tabs.isEmpty) return const Scaffold(body: Center(child: CircularProgressIndicator()));
     final index = _index.clamp(0, tabs.length - 1);
+    final unreadChat = context.watch<ChatProvider>().totalUnread;
 
     return PopScope(
       // Przycisk "wstecz" najpierw cofa ekran w aktywnej zakładce.
@@ -142,8 +182,8 @@ class _HomeScreenState extends State<HomeScreen> {
           destinations: [
             for (final t in tabs)
               NavigationDestination(
-                icon: Icon(t.icon),
-                selectedIcon: Icon(t.selectedIcon),
+                icon: _tabIcon(t, false, unreadChat),
+                selectedIcon: _tabIcon(t, true, unreadChat),
                 label: t.label,
               ),
           ],

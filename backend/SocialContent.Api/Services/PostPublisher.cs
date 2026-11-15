@@ -41,6 +41,7 @@ public class PostPublisher(AppDbContext db, INotificationService notifications) 
         if (error is null)
         {
             post.MarkPublished(ExternalId.Create($"sim-{Guid.NewGuid():N}"), ScheduledTime.Create(DateTime.UtcNow));
+            notifications.AddPublished(post);
         }
         else
         {
