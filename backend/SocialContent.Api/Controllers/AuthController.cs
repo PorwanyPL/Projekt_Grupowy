@@ -32,7 +32,7 @@ public class AuthController(IAuthService service) : ControllerBase
 
     /// <summary>Zarejestruj klienta (ClientUser)</summary>
     /// <remarks>
-    /// <para>Klient rejestruje się samodzielnie (imię, nazwisko, wiek, opis, e-mail, hasło) i od razu jest logowany. Po rejestracji nie jest powiązany z żadną firmą - powiązanie tworzy firma przez POST /api/ClientUsers, podając adres e-mail klienta.</para>
+    /// <para>Klient rejestruje się samodzielnie (imię, nazwisko, wiek, opis, e-mail, hasło) i od razu jest logowany. Po rejestracji klient tworzy własne konta społecznościowe (POST /api/SocialAccounts) i zaprasza firmę do zarządzania nimi; relacja z firmą powstaje po przyjęciu zaproszenia (można ją też utworzyć przez POST /api/ClientUsers po stronie firmy).</para>
     /// <para>Reguły adresu e-mail i hasła są takie same jak przy rejestracji firmy. Wymagane pola: firstName i lastName (1-50 znaków; litery, myślnik, apostrof), age (18-100), description (1-2000 znaków).</para>
     /// </remarks>
     /// <param name="dto">Dane klienta oraz e-mail i hasło.</param>

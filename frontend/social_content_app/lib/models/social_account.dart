@@ -14,6 +14,12 @@ class SocialAccount {
     required this.errorMessage,
     required this.hasRefreshToken,
     required this.managers,
+    this.ownerClientId = '',
+    this.ownerName = '',
+    this.companyId = '',
+    this.companyName = '',
+    this.managementStatus = ManagementStatus.invited,
+    this.approvalMode = PostApprovalMode.manager,
   });
 
   final String id;
@@ -26,6 +32,22 @@ class SocialAccount {
   final String? errorMessage;
   final bool hasRefreshToken;
   final List<ManagerUser> managers;
+
+  /// Klient-właściciel profilu i nazwa, pod którą widzi go dana rola
+  /// (dla firmy i managera - alias nadany przez firmę).
+  final String ownerClientId;
+  final String ownerName;
+
+  /// Firma zaproszona do obsługi profilu i stan zaproszenia.
+  final String companyId;
+  final String companyName;
+  final ManagementStatus managementStatus;
+
+  /// Tryb zatwierdzania postów ustalony przez klienta dla tej firmy.
+  final PostApprovalMode approvalMode;
+
+  bool get isAccepted => managementStatus == ManagementStatus.accepted;
+  bool get isInvited => managementStatus == ManagementStatus.invited;
 
   bool hasManager(String managerId) => managers.any((m) => m.id == managerId);
 
@@ -42,6 +64,12 @@ class SocialAccount {
         managers: ((json['managerUsers'] as List<dynamic>?) ?? const [])
             .map((e) => ManagerUser.fromJson(e as Map<String, dynamic>))
             .toList(),
+        ownerClientId: (json['ownerClientId'] as String?) ?? '',
+        ownerName: (json['ownerName'] as String?) ?? '',
+        companyId: (json['companyId'] as String?) ?? '',
+        companyName: (json['companyName'] as String?) ?? '',
+        managementStatus: ManagementStatus.parse(json['managementStatus'] as String?),
+        approvalMode: PostApprovalMode.parse(json['approvalMode'] as String?),
       );
 }
 
@@ -56,7 +84,7 @@ class SocialAccountInput {
     this.refreshToken,
     required this.tokenExpiresAt,
     required this.isActive,
-    required this.managerUserIds,
+    this.companyEmail,
   });
 
   final String accountId;
@@ -67,7 +95,9 @@ class SocialAccountInput {
   final String? refreshToken;
   final DateTime tokenExpiresAt;
   final bool isActive;
-  final List<String> managerUserIds;
+
+  /// Adres e-mail firmy zapraszanej do obsługi profilu (tworzenie przez klienta).
+  final String? companyEmail;
 
   Map<String, dynamic> toJson() => {
         'accountId': accountId,
@@ -78,6 +108,6 @@ class SocialAccountInput {
         if (refreshToken != null) 'refreshToken': refreshToken,
         'tokenExpiresAt': tokenExpiresAt.toUtc().toIso8601String(),
         'isActive': isActive,
-        'managerUserIds': managerUserIds,
+        if (companyEmail != null) 'companyEmail': companyEmail,
       };
 }

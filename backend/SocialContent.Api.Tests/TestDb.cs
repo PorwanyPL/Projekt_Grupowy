@@ -69,13 +69,38 @@ public sealed class TestDb : IDisposable
         await db.SaveChangesAsync();
     }
 
+    /// <summary>
+    /// Konto z przyjętym zaproszeniem firmy i przypisanymi managerami. Właścicielem jest nowy klient testowy
+    /// (albo klient podany w <paramref name="ownerClientId"/>).
+    /// </summary>
     public async Task<Guid> AddSocialAccountAsync(Guid companyId, string accountId = "acc-1",
-        SocialPlatform platform = SocialPlatform.Facebook, params Guid[] managerIds)
+        SocialPlatform platform = SocialPlatform.Facebook, params Guid[] managerIds) =>
+        await AddAccountForClientAsync(null, companyId, accountId, platform, managerIds);
+
+    public async Task<Guid> AddAccountForClientAsync(Guid? ownerClientId, Guid companyId, string accountId,
+        SocialPlatform platform, params Guid[] managerIds)
     {
+        var owner = ownerClientId ?? (await AddClientAsync($"owner-{Guid.NewGuid():N}@example.com")).Id;
         await using var db = NewContext();
         var managers = await db.ManagerUsers.Where(m => managerIds.Contains(m.Id)).ToListAsync();
-        var account = SocialAccount.Create(companyId, accountId, platform, "ext-1", "Konto testowe", "token",
-            null, DateTime.UtcNow.AddDays(30), true, managers);
+        var account = SocialAccount.Create(owner, companyId, accountId, platform, "ext-1", "Konto testowe", "token",
+            null, DateTime.UtcNow.AddDays(30), true, Array.Empty<ManagerUser>());
+        account.AcceptInvitation();
+        account.Update(account.AccountId, account.Platform, account.ExternalPlatformId, account.AccountName,
+            null, null, account.TokenExpiresAt, account.IsActive, managers);
+        db.SocialAccounts.Add(account);
+        if (!await db.CompanyClients.AnyAsync(l => l.CompanyId == companyId && l.ClientId == owner))
+            db.CompanyClients.Add(CompanyClient.Create(companyId, owner));
+        await db.SaveChangesAsync();
+        return account.Id;
+    }
+
+    /// <summary>Konto w stanie zaproszenia (Invited) - bez relacji firma - klient.</summary>
+    public async Task<Guid> AddInvitedAccountAsync(Guid ownerClientId, Guid companyId, string accountId = "inv-1")
+    {
+        await using var db = NewContext();
+        var account = SocialAccount.Create(ownerClientId, companyId, accountId, SocialPlatform.Instagram, "ext-2",
+            "Zaproszone konto", "token", null, DateTime.UtcNow.AddDays(30), true, Array.Empty<ManagerUser>());
         db.SocialAccounts.Add(account);
         await db.SaveChangesAsync();
         return account.Id;

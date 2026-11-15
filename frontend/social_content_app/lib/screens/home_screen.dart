@@ -7,6 +7,7 @@ import '../providers/client_provider.dart';
 import '../providers/manager_provider.dart';
 import '../providers/social_account_provider.dart';
 import 'client_list_screen.dart';
+import '../widgets/auto_refresh.dart';
 import 'company_list_screen.dart';
 import 'manager_list_screen.dart';
 import 'my_posts_screen.dart';
@@ -22,10 +23,11 @@ class _Tab {
 }
 
 /// Ekran główny: zestaw zakładek zależy od roli zalogowanego użytkownika.
-///  - CompanyUser: Konta, Posty, Managerowie, Klienci
-///  - ManagerUser: Konta (tylko przypisane), Moje posty
-///  - ClientUser: Firmy
-/// Profil, powiadomienia i wylogowanie są w górnym menu każdego ekranu (widgets/account_menu.dart).
+///  - CompanyUser: Konta (lista klientów -> ich profile), Posty, Managerowie
+///  - ManagerUser: Konta (klienci z przypisanymi profilami), Moje posty
+///  - ClientUser: Moje profile, Firmy
+/// Każda zakładka ma własny Navigator, więc dolne menu jest widoczne na każdym ekranie, a górne (profil,
+/// powiadomienia, wylogowanie - widgets/account_menu.dart) jest w AppBarze każdego ekranu.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -35,6 +37,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _index = 0;
+
+  /// Osobny Navigator dla każdej zakładki (maks. 3), żeby ekrany szczegółowe otwierały się
+  /// pod dolnym menu, a nie na całym ekranie.
+  final List<GlobalKey<NavigatorState>> _navKeys =
+      List.generate(3, (_) => GlobalKey<NavigatorState>());
+
+  /// Każdy Navigator ma własnego obserwatora tras (współdzielony powodował błąd asercji w Flutterze).
+  final List<RouteObserver<ModalRoute<void>>> _observers =
+      List.generate(3, (_) => RouteObserver<ModalRoute<void>>());
 
   @override
   void initState() {
@@ -49,7 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
           context.read<ClientProvider>().loadClients();
         case UserRole.managerUser:
           context.read<SocialAccountProvider>().load();
+          context.read<ClientProvider>().loadClients();
         case UserRole.clientUser:
+          context.read<SocialAccountProvider>().load();
           context.read<ClientProvider>().loadCompanies();
         case null:
           break;
@@ -61,23 +74,33 @@ class _HomeScreenState extends State<HomeScreen> {
     switch (role) {
       case UserRole.companyUser:
         return const [
-          _Tab('Konta', Icons.share_outlined, Icons.share, SocialAccountListScreen()),
+          _Tab('Konta', Icons.share_outlined, Icons.share, ClientListScreen()),
           _Tab('Posty', Icons.article_outlined, Icons.article, CompanyPostsScreen()),
           _Tab('Managerowie', Icons.people_outline, Icons.people, ManagerListScreen()),
-          _Tab('Klienci', Icons.groups_outlined, Icons.groups, ClientListScreen()),
         ];
       case UserRole.managerUser:
         return const [
-          _Tab('Konta', Icons.share_outlined, Icons.share, SocialAccountListScreen()),
+          _Tab('Konta', Icons.share_outlined, Icons.share, ClientListScreen()),
           _Tab('Moje posty', Icons.article_outlined, Icons.article, MyPostsScreen()),
         ];
       case UserRole.clientUser:
         return const [
+          _Tab('Moje profile', Icons.share_outlined, Icons.share, SocialAccountListScreen()),
           _Tab('Firmy', Icons.business_outlined, Icons.business, CompanyListScreen()),
         ];
       case null:
         return const [];
     }
+  }
+
+  void _selectTab(int i, int current) {
+    final nav = _navKeys[i].currentState;
+    if (i == current) {
+      nav?.popUntil((r) => r.isFirst); // ponowne dotknięcie aktywnej zakładki wraca do jej listy
+    } else {
+      setState(() => _index = i);
+    }
+    context.read<RefreshBus>().notifyTabChanged();
   }
 
   @override
@@ -86,25 +109,41 @@ class _HomeScreenState extends State<HomeScreen> {
     if (tabs.isEmpty) return const Scaffold(body: Center(child: CircularProgressIndicator()));
     final index = _index.clamp(0, tabs.length - 1);
 
-    return Scaffold(
-      body: IndexedStack(
-        index: index,
-        children: [for (final t in tabs) t.screen],
-      ),
-      // NavigationBar wymaga min. 2 pozycji; klient ma jedną (Firmy), więc dolnego paska nie pokazujemy.
-      bottomNavigationBar: tabs.length < 2
-          ? null
-          : NavigationBar(
-        selectedIndex: index,
-        onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: [
-          for (final t in tabs)
-            NavigationDestination(
-              icon: Icon(t.icon),
-              selectedIcon: Icon(t.selectedIcon),
-              label: t.label,
-            ),
-        ],
+    return PopScope(
+      // Przycisk "wstecz" najpierw cofa ekran w aktywnej zakładce.
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) return;
+        final nav = _navKeys[index].currentState;
+        if (nav != null && nav.canPop()) nav.pop();
+      },
+      child: Scaffold(
+        body: IndexedStack(
+          index: index,
+          children: [
+            for (var i = 0; i < tabs.length; i++)
+              RouteObserverScope(
+                observer: _observers[i],
+                child: Navigator(
+                  key: _navKeys[i],
+                  observers: [_observers[i]],
+                  onGenerateRoute: (_) => MaterialPageRoute<void>(builder: (_) => tabs[i].screen),
+                ),
+              ),
+          ],
+        ),
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: index,
+          onDestinationSelected: (i) => _selectTab(i, index),
+          destinations: [
+            for (final t in tabs)
+              NavigationDestination(
+                icon: Icon(t.icon),
+                selectedIcon: Icon(t.selectedIcon),
+                label: t.label,
+              ),
+          ],
+        ),
       ),
     );
   }

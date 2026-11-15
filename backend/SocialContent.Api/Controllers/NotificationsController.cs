@@ -7,13 +7,13 @@ namespace SocialContent.Api.Controllers;
 
 /// <summary>Powiadomienia zalogowanego użytkownika (np. o nieudanej publikacji posta).</summary>
 [ApiController]
-[Authorize(Roles = Roles.CompanyOrManager)]
+[Authorize(Roles = Roles.Any)]
 [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
 [Route("api/[controller]")]
 public class NotificationsController(INotificationService service) : ControllerBase
 {
     /// <summary>Pobierz swoje powiadomienia</summary>
-    /// <remarks>Od najnowszych. Powiadomienia dostają firma i autorzy posta, którego publikacja się nie udała.</remarks>
+    /// <remarks>Od najnowszych. Powiadomienia dostają: firma i autorzy posta (nieudana publikacja, decyzja klienta), klient (post czeka na jego akceptację).</remarks>
     /// <response code="200">Lista powiadomień.</response>
     [HttpGet]
     [ProducesResponseType<List<NotificationDto>>(StatusCodes.Status200OK)]

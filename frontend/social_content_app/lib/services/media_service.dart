@@ -16,5 +16,8 @@ class MediaService {
 
   String urlFor(String storageKey) => _api.mediaUrl(storageKey);
 
+  /// Adres do odtwarzania wideo/audio (z tokenem w zapytaniu).
+  String playbackUrlFor(String storageKey) => _api.playbackUrl(storageKey);
+
   Map<String, String> get headers => _api.authHeaders;
 }

@@ -42,4 +42,11 @@ class PostService {
   Future<void> acquireLock(String id) => _api.post('/api/Posts/$id/lock');
 
   Future<void> releaseLock(String id) => _api.delete('/api/Posts/$id/lock');
+
+  /// ClientUser: zatwierdza lub odrzuca post czekający na akceptację.
+  Future<Post> approve(String id) async =>
+      Post.fromJson(await _api.post('/api/Posts/$id/approve') as Map<String, dynamic>);
+
+  Future<Post> reject(String id) async =>
+      Post.fromJson(await _api.post('/api/Posts/$id/reject') as Map<String, dynamic>);
 }

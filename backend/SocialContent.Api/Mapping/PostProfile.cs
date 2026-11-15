@@ -26,6 +26,7 @@ public class PostProfile : Profile
             // Flagi zależne od zalogowanego użytkownika i blokada edycji ustawia PostService (with).
             .ForCtorParam(nameof(PostDto.CanEdit), o => o.MapFrom(_ => false))
             .ForCtorParam(nameof(PostDto.CanDelete), o => o.MapFrom(_ => false))
-            .ForCtorParam(nameof(PostDto.Lock), o => o.MapFrom(_ => (PostLockDto?)null));
+            .ForCtorParam(nameof(PostDto.Lock), o => o.MapFrom(_ => (PostLockDto?)null))
+            .ForCtorParam(nameof(PostDto.CanApprove), o => o.MapFrom(_ => false));
     }
 }

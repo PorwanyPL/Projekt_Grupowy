@@ -9,7 +9,9 @@ public class CompanyUserProfile : Profile
 {
     public CompanyUserProfile()
     {
-        CreateMap<CompanyUser, CompanyDto>();
+        // Tryb akceptacji zależy od relacji z klientem, więc ustawia go serwis; tu wartość domyślna.
+        CreateMap<CompanyUser, CompanyDto>()
+            .ForCtorParam(nameof(CompanyDto.ApprovalMode), o => o.MapFrom(_ => PostApprovalMode.Manager));
 
         CreateMap<CompanyUser, UserProfileDto>()
             .ForCtorParam(nameof(UserProfileDto.Id), o => o.MapFrom(s => s.CompanyId))

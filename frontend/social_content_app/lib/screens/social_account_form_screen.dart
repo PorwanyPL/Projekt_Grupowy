@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 
 import '../models/enums.dart';
 import '../models/social_account.dart';
-import '../providers/manager_provider.dart';
 import '../providers/social_account_provider.dart';
 import '../services/api_exception.dart';
 import '../utils/formatters.dart';
 import '../utils/validators.dart';
+import '../widgets/account_menu.dart';
 
+/// ClientUser: tworzy profil społecznościowy i podaje e-mail firmy, która ma go obsługiwać (zaproszenie).
+/// Edycja zmienia dane profilu; firmę można zaprosić ponownie z widoku profilu.
 class SocialAccountFormScreen extends StatefulWidget {
   const SocialAccountFormScreen({super.key, this.account});
 
@@ -24,13 +26,13 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
   late final TextEditingController _accountId;
   late final TextEditingController _externalId;
   late final TextEditingController _name;
+  final _companyEmail = TextEditingController();
   final _accessToken = TextEditingController();
   final _refreshToken = TextEditingController();
 
   late SocialPlatform _platform;
   late DateTime _expiresAt;
   late bool _isActive;
-  late final Set<String> _managerIds;
 
   bool _saving = false;
   String? _error;
@@ -47,7 +49,6 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
     _platform = a?.platform ?? SocialPlatform.facebook;
     _expiresAt = a?.tokenExpiresAt ?? DateTime.now().add(const Duration(days: 60));
     _isActive = a?.isActive ?? true;
-    _managerIds = {...?a?.managers.map((m) => m.id)};
   }
 
   @override
@@ -55,6 +56,7 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
     _accountId.dispose();
     _externalId.dispose();
     _name.dispose();
+    _companyEmail.dispose();
     _accessToken.dispose();
     _refreshToken.dispose();
     super.dispose();
@@ -96,10 +98,9 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
       refreshToken: optional(_refreshToken),
       tokenExpiresAt: _expiresAt,
       isActive: _isActive,
-      managerUserIds: _managerIds.toList(),
+      companyEmail: _isEdit ? null : _companyEmail.text.trim(),
     );
     final provider = context.read<SocialAccountProvider>();
-    final managers = context.read<ManagerProvider>();
 
     try {
       if (_isEdit) {
@@ -107,7 +108,6 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
       } else {
         await provider.create(input);
       }
-      await managers.load(); // przypisania managerów do konta się zmieniły
       if (mounted) Navigator.pop(context);
     } on ApiException catch (e) {
       if (mounted) {
@@ -125,7 +125,8 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_isEdit ? 'Edytuj konto' : 'Nowe konto społecznościowe'),
+        title: Text(_isEdit ? 'Edytuj profil' : 'Nowy profil społecznościowy'),
+        actions: accountMenuActions(context),
       ),
       body: Form(
         key: _formKey,
@@ -210,11 +211,19 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
               value: _isActive,
               onChanged: (v) => setState(() => _isActive = v),
             ),
-            const SizedBox(height: 8),
-            Text(
-              'Managerów przypisujesz w widoku szczegółowym konta (przycisk "Przypisz").',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+            if (!_isEdit) ...[
+              const SizedBox(height: 8),
+              TextFormField(
+                key: const Key('company-email'),
+                controller: _companyEmail,
+                decoration: const InputDecoration(
+                  labelText: 'E-mail firmy obsługującej profil',
+                  helperText: 'Firma dostanie zaproszenie i po jego przyjęciu przypisze managerów.',
+                ),
+                keyboardType: TextInputType.emailAddress,
+                validator: FormValidators.email,
+              ),
+            ],
             if (_error != null) ...[
               const SizedBox(height: 16),
               Text(_error!, style: TextStyle(color: scheme.error)),
@@ -228,7 +237,7 @@ class _SocialAccountFormScreenState extends State<SocialAccountFormScreen> {
                       width: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : Text(_isEdit ? 'Zapisz zmiany' : 'Dodaj konto'),
+                  : Text(_isEdit ? 'Zapisz zmiany' : 'Dodaj profil i zaproś firmę'),
             ),
           ],
         ),

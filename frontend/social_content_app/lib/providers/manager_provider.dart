@@ -14,16 +14,22 @@ class ManagerProvider extends ChangeNotifier {
   String? error;
   List<ManagerUser> items = const [];
 
-  Future<void> load() async {
-    state = LoadState.loading;
-    error = null;
-    notifyListeners();
+  /// [silent] - odświeżenie w tle (nawigacja, timer): bez spinnera, a przy błędzie zostają stare dane.
+  Future<void> load({bool silent = false}) async {
+    final keep = silent && state == LoadState.loaded;
+    if (!keep) {
+      state = LoadState.loading;
+      error = null;
+      notifyListeners();
+    }
     try {
       items = await _service.getAll();
       state = LoadState.loaded;
     } on ApiException catch (e) {
-      error = e.message;
-      state = LoadState.failed;
+      if (!keep) {
+        error = e.message;
+        state = LoadState.failed;
+      }
     }
     notifyListeners();
   }

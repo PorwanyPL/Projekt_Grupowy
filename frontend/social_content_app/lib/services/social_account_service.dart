@@ -32,4 +32,15 @@ class SocialAccountService {
   }
 
   Future<void> delete(String id) => _api.delete('/api/SocialAccounts/$id');
+
+  /// ClientUser: zaprasza (inną) firmę do obsługi profilu.
+  Future<SocialAccount> invite(String id, String companyEmail) async {
+    final json = await _api.post('/api/SocialAccounts/$id/invite', {'companyEmail': companyEmail});
+    return SocialAccount.fromJson(json as Map<String, dynamic>);
+  }
+
+  /// CompanyUser: przyjmuje lub odrzuca zaproszenie do obsługi profilu.
+  Future<void> accept(String id) => _api.post('/api/SocialAccounts/$id/accept');
+
+  Future<void> decline(String id) => _api.post('/api/SocialAccounts/$id/decline');
 }

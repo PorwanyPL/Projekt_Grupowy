@@ -4,15 +4,22 @@ import 'package:provider/provider.dart';
 import '../models/social_account.dart';
 import '../providers/auth_provider.dart';
 import '../providers/social_account_provider.dart';
+import '../services/api_exception.dart';
 import '../utils/formatters.dart';
+import '../utils/validators.dart';
+import '../widgets/app_messenger.dart';
+import '../widgets/auto_refresh.dart';
 import '../widgets/account_menu.dart';
 import '../widgets/posts_view.dart';
 import 'assign_managers_screen.dart';
 import 'post_form_screen.dart';
 import 'social_account_form_screen.dart';
 
-/// Widok szczegółowy konta społecznościowego. Posty tworzy tu manager przypisany do konta oraz firma
-/// (firma może też tworzyć posty z zakładki Posty). Firma przypisuje managerów i edytuje konto.
+/// Widok szczegółowy profilu społecznościowego.
+///  - klient (właściciel): dane profilu, stan zaproszenia firmy, wszystkie posty konta TYLKO do odczytu
+///    (z podglądem i zatwierdzaniem, gdy firma wymaga jego akceptacji),
+///  - firma: przypisuje managerów (po przyjęciu zaproszenia) i tworzy posty,
+///  - manager: tworzy i edytuje posty na przypisanym koncie.
 class SocialAccountDetailScreen extends StatelessWidget {
   const SocialAccountDetailScreen({super.key, required this.accountId});
 
@@ -32,14 +39,19 @@ class SocialAccountDetailScreen extends StatelessWidget {
     }
 
     final isCompany = profile.isCompany;
-    final canCreatePosts = isCompany || (profile.isManager && account.hasManager(profile.id));
+    final isClient = profile.isClient;
+    final canCreatePosts = (isCompany && account.isAccepted) ||
+        (profile.isManager && account.hasManager(profile.id));
     final theme = Theme.of(context);
+    final provider = context.read<SocialAccountProvider>();
 
-    return Scaffold(
+    return AutoRefresh(
+      onRefresh: () => provider.load(silent: true),
+      child: Scaffold(
       appBar: AppBar(
         title: Text(account.accountName),
         actions: [
-          if (isCompany)
+          if (isClient)
             IconButton(
               tooltip: 'Edytuj konto',
               icon: const Icon(Icons.edit_outlined),
@@ -65,14 +77,14 @@ class SocialAccountDetailScreen extends StatelessWidget {
           : null,
       body: Column(
         children: [
-          _AccountInfo(account: account, isCompany: isCompany),
+          _AccountInfo(account: account, isCompany: isCompany, isClient: isClient),
           const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                isCompany ? 'Posty konta' : 'Moje posty na tym koncie',
+                isCompany || isClient ? 'Posty konta' : 'Moje posty na tym koncie',
                 style: theme.textTheme.titleSmall,
               ),
             ),
@@ -82,15 +94,55 @@ class SocialAccountDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }
 
 class _AccountInfo extends StatelessWidget {
-  const _AccountInfo({required this.account, required this.isCompany});
+  const _AccountInfo({required this.account, required this.isCompany, required this.isClient});
 
   final SocialAccount account;
   final bool isCompany;
+  final bool isClient;
+
+  Future<void> _invite(BuildContext context) async {
+    final controller = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+    final email = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Zaproś firmę'),
+        content: Form(
+          key: formKey,
+          child: TextFormField(
+            controller: controller,
+            autofocus: true,
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(labelText: 'E-mail firmy'),
+            validator: FormValidators.email,
+          ),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Anuluj')),
+          FilledButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) Navigator.pop(ctx, controller.text.trim());
+            },
+            child: const Text('Zaproś'),
+          ),
+        ],
+      ),
+    );
+    controller.dispose();
+    if (email == null || !context.mounted) return;
+    final provider = context.read<SocialAccountProvider>();
+    final messenger = context.read<AppMessenger>();
+    try {
+      await provider.invite(account.id, email);
+    } on ApiException catch (e) {
+      messenger.show(e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +157,24 @@ class _AccountInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('${account.platform.label} · ${account.accountId}'),
+            if (!isClient && account.ownerName.isNotEmpty) Text('Klient: ${account.ownerName}'),
             Text(account.isActive ? 'Konto aktywne' : 'Konto nieaktywne'),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Firma: ${account.companyName.isEmpty ? '-' : account.companyName} · ${account.managementStatus.label}',
+                    key: const Key('account-company-status'),
+                  ),
+                ),
+                if (isClient && !account.isAccepted)
+                  TextButton(
+                    key: const Key('invite-company'),
+                    onPressed: () => _invite(context),
+                    child: const Text('Zaproś firmę'),
+                  ),
+              ],
+            ),
             Text(
               'Token ${expired ? 'wygasł' : 'ważny do'}: ${formatDateTime(account.tokenExpiresAt)}',
               style: expired ? TextStyle(color: scheme.error) : null,
@@ -118,7 +187,7 @@ class _AccountInfo extends StatelessWidget {
               children: [
                 Text('Managerowie', style: Theme.of(context).textTheme.titleSmall),
                 const Spacer(),
-                if (isCompany)
+                if (isCompany && account.isAccepted)
                   TextButton.icon(
                     onPressed: () => Navigator.push(
                       context,
@@ -132,7 +201,9 @@ class _AccountInfo extends StatelessWidget {
               ],
             ),
             if (account.managers.isEmpty)
-              const Text('Brak przypisanych managerów - nikt nie może tworzyć postów.')
+              Text(account.isAccepted
+                  ? 'Brak przypisanych managerów - nikt nie może tworzyć postów.'
+                  : 'Managerów można przypisać po przyjęciu zaproszenia.')
             else
               Wrap(
                 spacing: 8,

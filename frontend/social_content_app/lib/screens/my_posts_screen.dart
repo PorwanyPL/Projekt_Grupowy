@@ -6,6 +6,7 @@ import '../providers/auth_provider.dart';
 import '../providers/social_account_provider.dart';
 import 'post_form_screen.dart';
 import '../widgets/account_menu.dart';
+import '../widgets/app_messenger.dart';
 import '../widgets/posts_view.dart';
 
 /// Manager: jego posty (jako autora lub współautora). Edycja i usuwanie tylko na kontach, do których nadal jest
@@ -31,10 +32,10 @@ class CompanyPostsScreen extends StatelessWidget {
   const CompanyPostsScreen({super.key});
 
   Future<void> _newPost(BuildContext context) async {
-    final accounts = context.read<SocialAccountProvider>().items;
+    // Firma tworzy posty tylko na profilach, których zaproszenie przyjęła.
+    final accounts = context.read<SocialAccountProvider>().items.where((a) => a.isAccepted).toList();
     if (accounts.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Najpierw dodaj konto społecznościowe.')));
+      context.read<AppMessenger>().show('Brak profili do obsługi - przyjmij zaproszenie klienta w zakładce Konta.');
       return;
     }
     final account = await showModalBottomSheet<SocialAccount>(

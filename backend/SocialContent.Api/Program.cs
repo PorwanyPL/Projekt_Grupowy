@@ -64,6 +64,18 @@ builder.Services
         // (blokada i anonimizacja działają od razu, bez czekania na wygaśnięcie tokenu).
         o.Events = new JwtBearerEvents
         {
+            // Odtwarzacze wideo/audio i Image.network nie zawsze potrafią wysłać nagłówek Authorization, więc dla
+            // pobierania plików (GET /api/Media/...) dopuszczamy token w query (?access_token=). Reszta API tego nie robi,
+            // a token nadal jest w pełni walidowany (podpis, ważność, OnTokenValidated poniżej).
+            OnMessageReceived = context =>
+            {
+                if (context.Request.Method == HttpMethods.Get
+                    && context.Request.Path.StartsWithSegments("/api/Media")
+                    && context.Request.Query.TryGetValue("access_token", out var token)
+                    && !string.IsNullOrWhiteSpace(token))
+                    context.Token = token;
+                return Task.CompletedTask;
+            },
             OnTokenValidated = async context =>
             {
                 CurrentUser user;
@@ -140,5 +152,3 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
 app.Run();
-
-

@@ -6,14 +6,22 @@ namespace SocialContent.Api.Domain.Entities;
 /// <summary>
 /// Konto w mediach społecznościowych (Facebook, Instagram, TikTok).
 /// Relacje z diagramu: n - m ManagerUser (managerowie konta), 1 - n Post (konto docelowe postów)
-/// oraz CompanyUser 1 - n SocialAccount (firma będąca właścicielem konta).
+/// ClientUser 1 - n SocialAccount (właściciel konta) oraz CompanyUser 1 - n SocialAccount (firma zarządzająca po przyjęciu zaproszenia).
 /// </summary>
 public class SocialAccount
 {
     public Guid Id { get; private set; }
 
+    /// <summary>Klient, który utworzył konto i jest jego właścicielem (ClientUser 1 - n SocialAccount).</summary>
+    public Guid OwnerClientId { get; private set; }
+    public ClientUser OwnerClient { get; private set; } = null!;
+
+    /// <summary>Firma zaproszona przez klienta do zarządzania kontem (po przyjęciu zaproszenia: zarządzająca).</summary>
     public Guid CompanyId { get; private set; }
     public CompanyUser CompanyUser { get; private set; } = null!;
+
+    /// <summary>Stan zaproszenia firmy. Posty i przypisania managerów są możliwe tylko dla Accepted.</summary>
+    public ManagementStatus ManagementStatus { get; private set; } = ManagementStatus.Invited;
 
     /// <summary>Identyfikator konta nadawany przez użytkownika systemu; unikalny w obrębie platformy.</summary>
     public string AccountId { get; private set; } = null!;
@@ -43,11 +51,15 @@ public class SocialAccount
 
     private SocialAccount() { }
 
-    public static SocialAccount Create(Guid companyId, string accountId, SocialPlatform platform, string externalPlatformId,
+    /// <summary>
+    /// Tworzy konto klienta z zaproszeniem firmy (status Invited). Docelowo konto będzie pobierane z API platformy,
+    /// a ta fabryka pozostanie punktem wejścia (wystarczy przekazać dane z API zamiast z formularza).
+    /// </summary>
+    public static SocialAccount Create(Guid ownerClientId, Guid companyId, string accountId, SocialPlatform platform, string externalPlatformId,
         string accountName, string accessToken, string? refreshToken, DateTime tokenExpiresAt, bool isActive,
         IEnumerable<ManagerUser> managers)
     {
-        var account = new SocialAccount { Id = Guid.NewGuid(), CompanyId = companyId };
+        var account = new SocialAccount { Id = Guid.NewGuid(), OwnerClientId = ownerClientId, CompanyId = companyId };
         account.Apply(accountId, platform, externalPlatformId, accountName, accessToken, refreshToken,
             tokenExpiresAt, isActive, managers);
         return account;
@@ -60,6 +72,30 @@ public class SocialAccount
         IEnumerable<ManagerUser> managers) =>
         Apply(accountId, platform, externalPlatformId, accountName, accessToken ?? AccessToken,
             refreshToken ?? RefreshToken, tokenExpiresAt, isActive, managers);
+
+    /// <summary>Zaproszenie firmy (nowej albo ponowne po odrzuceniu). Przyjętego zaproszenia nie można zmienić.</summary>
+    public void Invite(Guid companyId)
+    {
+        if (ManagementStatus == ManagementStatus.Accepted)
+            throw new ConflictException("Konto jest już zarządzane przez firmę. Zaproszenie można wysłać tylko dla konta oczekującego lub odrzuconego.");
+        CompanyId = companyId;
+        ManagementStatus = ManagementStatus.Invited;
+    }
+
+    public void AcceptInvitation()
+    {
+        if (ManagementStatus != ManagementStatus.Invited)
+            throw new ConflictException("To zaproszenie nie oczekuje na decyzję.");
+        ManagementStatus = ManagementStatus.Accepted;
+    }
+
+    public void DeclineInvitation()
+    {
+        if (ManagementStatus != ManagementStatus.Invited)
+            throw new ConflictException("To zaproszenie nie oczekuje na decyzję.");
+        ManagementStatus = ManagementStatus.Declined;
+        ManagerUsers.Clear();
+    }
 
     /// <summary>Zapisuje wynik kontroli połączenia (Validate.VerifyConnection): przyczynę błędu albo null, gdy jest poprawne.</summary>
     public void SetConnectionError(string? message) => ErrorMessage = message;
@@ -87,6 +123,8 @@ public class SocialAccount
         IsActive = isActive;
 
         var assigned = managers.DistinctBy(m => m.Id).ToList();
+        if (assigned.Count > 0 && ManagementStatus != ManagementStatus.Accepted)
+            throw new DomainValidationException("Managerów można przypisać dopiero po przyjęciu zaproszenia przez firmę.");
         if (assigned.Any(m => m.CompanyId != CompanyId))
             throw new DomainValidationException("Do konta można przypisać tylko managerów tej samej firmy.");
 

@@ -9,4 +9,5 @@ public static class Roles
     public const string Manager = nameof(UserRole.ManagerUser);
     public const string Client = nameof(UserRole.ClientUser);
     public const string CompanyOrManager = Company + "," + Manager;
+    public const string Any = Company + "," + Manager + "," + Client;
 }

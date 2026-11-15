@@ -5,6 +5,8 @@ namespace SocialContent.Api.Data;
 
 /// <summary>
 /// Aplikacja używa EnsureCreated (bez migracji EF), który nie zmienia istniejącej bazy.
+/// Wersja 6 odwraca tworzenie kont: właścicielem konta jest klient (OwnerClientId), firma dostaje zaproszenie (ManagementStatus),
+/// relacja firma - klient jest osobną tabelą CompanyClients (pseudonim, tryb akceptacji postów), a posty mają statusy AwaitingApproval i Rejected.
 /// Wersja 5 dodaje prawdziwe przesyłanie plików (StorageKey, SizeKb w FileTypes), blokady edycji postów i powiadomienia.
 /// Wersja 4 schematu wprowadza role (CompanyUser, ClientUser), przynależność managerów i kont do firm
 /// oraz relację n - m managerów z kontami. Nie da się jej sensownie wypełnić danymi z wersji 1-3
@@ -13,7 +15,7 @@ namespace SocialContent.Api.Data;
 /// </summary>
 public static class DatabaseInitializer
 {
-    public const int SchemaVersion = 5;
+    public const int SchemaVersion = 6;
 
     public static void Initialize(AppDbContext db, ILogger logger)
     {

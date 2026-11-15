@@ -5,7 +5,7 @@ using SocialContent.Api.Dtos;
 
 namespace SocialContent.Api.Services;
 
-/// <summary>Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy.</summary>
+/// <summary>Przesyłanie i pobieranie plików. Pliki należą do firmy: manager działa na plikach swojej firmy, a klient może pobierać tylko pliki z postów swoich kont.</summary>
 public interface IMediaService
 {
     Task<MediaUploadDto> UploadAsync(CurrentUser user, Stream content, string fileName, long length, CancellationToken ct);
@@ -26,10 +26,20 @@ public class MediaService(AppDbContext db, IMediaStorage storage) : IMediaServic
 
     public async Task<(string Path, string ContentType)> OpenAsync(CurrentUser user, string storageKey, CancellationToken ct)
     {
-        var companyId = await CompanyIdOf(user, ct);
+        var companyId = user.IsClient ? await CompanyIdOfClientFile(user, storageKey, ct) : await CompanyIdOf(user, ct);
         var path = storage.PhysicalPath(companyId, storageKey)
                    ?? throw new NotFoundException("Nie znaleziono pliku.");
         return (path, ContentTypeOf(storageKey));
+    }
+
+    /// <summary>Klient widzi tylko pliki z postów swoich kont; pliki leżą w magazynie firmy zarządzającej kontem.</summary>
+    private async Task<Guid> CompanyIdOfClientFile(CurrentUser user, string storageKey, CancellationToken ct)
+    {
+        var companyId = await db.Posts.AsNoTracking()
+            .Where(p => p.TargetAccount != null && p.TargetAccount.OwnerClientId == user.Id
+                        && p.Files.Any(f => f.StorageKey == storageKey))
+            .Select(p => (Guid?)p.TargetAccount!.CompanyId).FirstOrDefaultAsync(ct);
+        return companyId ?? throw new NotFoundException("Nie znaleziono pliku.");
     }
 
     private async Task<Guid> CompanyIdOf(CurrentUser user, CancellationToken ct)

@@ -3,7 +3,7 @@ using SocialContent.Api.Domain.Enums;
 
 namespace SocialContent.Api.Dtos;
 
-/// <summary>Dane konta społecznościowego przy tworzeniu i pełnej aktualizacji.</summary>
+/// <summary>Dane konta społecznościowego przy tworzeniu (klient) i pełnej aktualizacji. Managerów do konta przypisuje firma osobno.</summary>
 public class SocialAccountWriteDto
 {
     /// <summary>Identyfikator konta w systemie, unikalny w obrębie platformy.</summary>
@@ -27,6 +27,9 @@ public class SocialAccountWriteDto
 
     public bool IsActive { get; set; } = true;
 
-    /// <summary>Managerowie konta. Pełna lista: pominięci zostaną odpięci od konta.</summary>
-    public List<Guid> ManagerUserIds { get; set; } = new();
+    /// <summary>
+    /// Adres e-mail konta firmy, która ma zarządzać profilem (wymagany przy tworzeniu; przy aktualizacji ignorowany -
+    /// firmę zmienia się zaproszeniem POST /api/SocialAccounts/{id}/invite).
+    /// </summary>
+    [StringLength(254)] public string? CompanyEmail { get; set; }
 }

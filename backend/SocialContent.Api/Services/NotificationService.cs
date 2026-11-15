@@ -17,6 +17,12 @@ public interface INotificationService
     /// <summary>Dodaje (bez zapisu - zapisuje wywołujący) powiadomienia o nieudanej publikacji posta.</summary>
     void AddPublishFailed(Post post, string error);
 
+    /// <summary>Powiadamia klienta, że post jego konta czeka na akceptację (bez zapisu).</summary>
+    void AddApprovalRequested(Post post, Guid clientId);
+
+    /// <summary>Powiadamia firmę i autorów o decyzji klienta: zaakceptował albo odrzucił post (bez zapisu).</summary>
+    void AddApprovalDecision(Post post, bool approved);
+
     Task<List<NotificationDto>> GetAsync(CurrentUser user, CancellationToken ct);
     Task MarkReadAsync(CurrentUser user, Guid id, CancellationToken ct);
     Task MarkAllReadAsync(CurrentUser user, CancellationToken ct);
@@ -31,6 +37,22 @@ public class NotificationService(AppDbContext db, IMapper mapper) : INotificatio
         if (post.TargetAccount is not null)
             db.Notifications.Add(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.Id, message));
 
+        foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
+            db.Notifications.Add(Notification.Create(manager.Id, UserRole.ManagerUser, post.Id, message));
+    }
+
+    public void AddApprovalRequested(Post post, Guid clientId) =>
+        db.Notifications.Add(Notification.Create(clientId, UserRole.ClientUser, post.Id,
+            $"Post \"{post.Title.Value}\" czeka na Twoją akceptację."));
+
+    public void AddApprovalDecision(Post post, bool approved)
+    {
+        var message = approved
+            ? $"Klient zaakceptował post \"{post.Title.Value}\"."
+            : $"Klient odrzucił post \"{post.Title.Value}\". Popraw go i wyślij ponownie.";
+
+        if (post.TargetAccount is not null)
+            db.Notifications.Add(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.Id, message));
         foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
             db.Notifications.Add(Notification.Create(manager.Id, UserRole.ManagerUser, post.Id, message));
     }

@@ -9,24 +9,37 @@ namespace SocialContent.Api.Services;
 /// </summary>
 internal static class PostPermissions
 {
-    /// <summary>Podgląd: firma widzi posty swoich kont, manager - posty, których jest autorem (także po odebraniu praw do konta).</summary>
+    /// <summary>
+    /// Podgląd: firma widzi posty swoich kont, manager - posty, których jest autorem (także po odebraniu praw do konta),
+    /// klient - wszystkie posty swoich kont.
+    /// </summary>
     public static bool CanView(CurrentUser user, Post post) =>
-        user.IsCompany
-            ? post.TargetAccount is not null && post.TargetAccount.CompanyId == user.Id
-            : post.ManagerUsers.Any(m => m.Id == user.Id);
+        user.Role switch
+        {
+            UserRole.CompanyUser => post.TargetAccount is not null && post.TargetAccount.CompanyId == user.Id,
+            UserRole.ClientUser => post.TargetAccount is not null && post.TargetAccount.OwnerClientId == user.Id,
+            _ => post.ManagerUsers.Any(m => m.Id == user.Id)
+        };
 
     /// <summary>
-    /// Zmiana i usuwanie: firma - każdy post swoich kont; manager - tylko własny post na koncie, do którego jest
+    /// Zmiana i usuwanie: firma - każdy post swoich (przyjętych) kont; manager - tylko własny post na koncie, do którego jest
     /// (nadal) przypisany. Manager, któremu odebrano prawa do konta, może tylko przeglądać swoje dawne posty.
+    /// Klient nigdy nie edytuje postów (może je tylko akceptować lub odrzucać).
     /// </summary>
     public static bool CanModify(CurrentUser user, Post post) =>
-        user.IsCompany
-            ? post.TargetAccount is not null && post.TargetAccount.CompanyId == user.Id
-            : user.IsManager
-              && post.ManagerUsers.Any(m => m.Id == user.Id)
-              && post.TargetAccount is not null
-              && post.TargetAccount.ManagerUsers.Any(m => m.Id == user.Id);
+        user.Role switch
+        {
+            UserRole.CompanyUser => post.TargetAccount is not null && post.TargetAccount.CompanyId == user.Id,
+            UserRole.ManagerUser => post.ManagerUsers.Any(m => m.Id == user.Id)
+                                    && post.TargetAccount is not null
+                                    && post.TargetAccount.ManagerUsers.Any(m => m.Id == user.Id),
+            _ => false
+        };
 
-    /// <summary>Domena nie pozwala edytować posta w trakcie publikacji ani opublikowanego.</summary>
-    public static bool IsEditableStatus(Post post) => post.Status is not (PostStatus.Publishing or PostStatus.Published);
+    /// <summary>Opublikowany post można edytować; nie można tylko tego, który jest właśnie publikowany.</summary>
+    public static bool IsEditableStatus(Post post) => post.Status != PostStatus.Publishing;
+
+    /// <summary>Klient akceptuje lub odrzuca post swojego konta, który czeka na jego decyzję.</summary>
+    public static bool CanDecide(CurrentUser user, Post post) =>
+        user.IsClient && post.Status == PostStatus.AwaitingApproval && CanView(user, post);
 }

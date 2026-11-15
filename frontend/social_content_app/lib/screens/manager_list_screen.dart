@@ -6,7 +6,9 @@ import '../providers/manager_provider.dart';
 import '../providers/social_account_provider.dart';
 import '../services/api_exception.dart';
 import '../widgets/account_menu.dart';
+import '../widgets/app_messenger.dart';
 import '../widgets/async_body.dart';
+import '../widgets/auto_refresh.dart';
 import '../widgets/confirm_dialog.dart';
 import 'manager_form_screen.dart';
 import 'manager_posts_screen.dart';
@@ -42,16 +44,14 @@ class ManagerListScreen extends StatelessWidget {
 
   Future<void> _setBlocked(BuildContext context, ManagerUser m, bool blocked) async {
     final managers = context.read<ManagerProvider>();
-    final messenger = ScaffoldMessenger.of(context);
+    final messenger = context.read<AppMessenger>();
     try {
       await managers.setAccessBlocked(m.id, blocked);
-      messenger.showSnackBar(SnackBar(
-        content: Text(blocked
+      messenger.show(blocked
             ? 'Zablokowano dostęp: ${m.fullName}'
-            : 'Odblokowano dostęp: ${m.fullName}'),
-      ));
+            : 'Odblokowano dostęp: ${m.fullName}');
     } on ApiException catch (e) {
-      messenger.showSnackBar(SnackBar(content: Text(e.message)));
+      messenger.show(e.message);
     }
   }
 
@@ -68,14 +68,13 @@ class ManagerListScreen extends StatelessWidget {
     if (!ok || !context.mounted) return;
     final managers = context.read<ManagerProvider>();
     final accounts = context.read<SocialAccountProvider>();
-    final messenger = ScaffoldMessenger.of(context);
+    final messenger = context.read<AppMessenger>();
     try {
       await managers.anonymize(m.id);
       await accounts.load();
-      messenger.showSnackBar(
-          const SnackBar(content: Text('Dane managera zostały zanonimizowane.')));
+      messenger.show('Dane managera zostały zanonimizowane.');
     } on ApiException catch (e) {
-      messenger.showSnackBar(SnackBar(content: Text(e.message)));
+      messenger.show(e.message);
     }
   }
 
@@ -83,14 +82,14 @@ class ManagerListScreen extends StatelessWidget {
     if (!await confirmDelete(context, m.fullName)) return;
     if (!context.mounted) return;
     final managers = context.read<ManagerProvider>();
-    final messenger = ScaffoldMessenger.of(context);
+    final messenger = context.read<AppMessenger>();
     try {
       await managers.delete(m.id);
     } on ApiException catch (e) {
       if (e.statusCode == 409 && context.mounted) {
         await _showDeleteConflict(context, m, e.message);
       } else {
-        messenger.showSnackBar(SnackBar(content: Text(e.message)));
+        messenger.show(e.message);
       }
     }
   }
@@ -132,7 +131,9 @@ class ManagerListScreen extends StatelessWidget {
     final provider = context.watch<ManagerProvider>();
     final scheme = Theme.of(context).colorScheme;
 
-    return Scaffold(
+    return AutoRefresh(
+      onRefresh: () => provider.load(silent: true),
+      child: Scaffold(
       appBar: AppBar(
         title: const Text('Managerowie'),
         actions: [
@@ -221,7 +222,7 @@ class ManagerListScreen extends StatelessWidget {
           },
         ),
       ),
-    );
+    ));
   }
 }
 

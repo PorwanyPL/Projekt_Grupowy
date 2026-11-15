@@ -43,4 +43,14 @@ class PostProvider extends ChangeNotifier {
     await _service.delete(id);
     notifyListeners();
   }
+
+  Future<void> approve(String id) async {
+    await _service.approve(id);
+    notifyListeners();
+  }
+
+  Future<void> reject(String id) async {
+    await _service.reject(id);
+    notifyListeners();
+  }
 }

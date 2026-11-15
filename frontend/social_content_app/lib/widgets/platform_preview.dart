@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/enums.dart';
 import '../models/post.dart';
+import 'media_player.dart';
 
 /// Podgląd posta w stylu platformy konta (Facebook, Instagram, TikTok) - aktualizuje się na bieżąco
 /// podczas wpisywania. Zdjęcia pochodzą z serwera (już przesłane), więc wymagają nagłówków autoryzacji.
@@ -16,6 +17,8 @@ class PlatformPreview extends StatelessWidget {
     required this.videos,
     required this.imageUrl,
     required this.imageHeaders,
+    this.videoUrl,
+    this.videoHeaders = const {},
   });
 
   final SocialPlatform platform;
@@ -26,6 +29,13 @@ class PlatformPreview extends StatelessWidget {
   final List<MediaInput> videos;
   final String Function(String storageKey) imageUrl;
   final Map<String, String> imageHeaders;
+
+  /// Adres odtwarzania wideo/audio. Gdy podany, podgląd zawiera działający odtwarzacz
+  /// (bez niego - statyczny placeholder, np. w testach).
+  final String Function(String storageKey)? videoUrl;
+  final Map<String, String> videoHeaders;
+
+  bool get _hasVideoPlayer => pictures.isEmpty && videos.isNotEmpty && videoUrl != null;
 
   String get _text {
     final t = title.trim();
@@ -44,7 +54,17 @@ class PlatformPreview extends StatelessWidget {
         ),
       );
 
-  Widget _videoPlaceholder(MediaInput v) => ColoredBox(
+  Widget _videoPlaceholder(MediaInput v) => videoUrl != null
+      ? MediaPlayer(
+          key: ValueKey('player-${v.storageKey}'),
+          url: videoUrl!(v.storageKey),
+          format: v.format,
+          headers: videoHeaders,
+          title: v.fileName,
+        )
+      : _videoStatic(v);
+
+  Widget _videoStatic(MediaInput v) => ColoredBox(
         color: Colors.black87,
         child: Center(
           child: Column(
@@ -178,19 +198,21 @@ class PlatformPreview extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 media ?? const ColoredBox(color: Colors.black),
-                const DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Colors.transparent, Colors.black87],
+                const IgnorePointer(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Colors.transparent, Colors.black87],
+                      ),
                     ),
                   ),
                 ),
                 const Positioned(
                   right: 10,
-                  bottom: 80,
-                  child: Column(
+                  bottom: 100,
+                  child: IgnorePointer(child: Column(
                     children: [
                       Icon(Icons.favorite, color: Colors.white),
                       SizedBox(height: 16),
@@ -198,13 +220,13 @@ class PlatformPreview extends StatelessWidget {
                       SizedBox(height: 16),
                       Icon(Icons.reply, color: Colors.white),
                     ],
-                  ),
+                  )),
                 ),
                 Positioned(
                   left: 12,
                   right: 48,
-                  bottom: 12,
-                  child: Column(
+                  bottom: _hasVideoPlayer ? 52 : 12,
+                  child: IgnorePointer(child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -217,7 +239,7 @@ class PlatformPreview extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(color: Colors.white)),
                     ],
-                  ),
+                  )),
                 ),
               ],
             ),

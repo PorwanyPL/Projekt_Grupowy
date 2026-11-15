@@ -9,13 +9,18 @@ import '../providers/social_account_provider.dart';
 import '../screens/post_form_screen.dart';
 import '../services/api_exception.dart';
 import '../utils/formatters.dart';
+import 'app_messenger.dart';
 import 'async_body.dart';
+import 'auto_refresh.dart';
 import 'confirm_dialog.dart';
+import 'post_preview_dialog.dart';
 
 /// Lista postów z danego zakresu: [accountId] (posty konta) i/lub [managerId] (posty managera).
 /// Bez żadnego z nich lista obejmuje wszystko, co API udostępnia roli (firma - posty całej firmy).
 /// Edycję i usuwanie włączają flagi [Post.canEdit] i [Post.canDelete] liczone przez serwer
-/// (firma: wszystkie posty swoich kont; manager: tylko na kontach, do których nadal jest przypisany).
+/// (firma: wszystkie posty swoich kont - także opublikowane; manager: tylko na kontach, do których nadal jest
+/// przypisany). Posty, których nie można edytować (klient, utrata przypisania), otwierają podgląd tylko do odczytu.
+/// Lista odświeża się po wejściu na ekran, po powrocie z formularza i co minutę (po cichu, bez spinnera).
 class PostsView extends StatefulWidget {
   const PostsView({super.key, this.accountId, this.managerId});
 
@@ -34,24 +39,32 @@ class _PostsViewState extends State<PostsView> {
   List<Post> _items = const [];
   PostType? _filter;
 
+  /// Chroni przed wielokrotnym otwarciem formularza/komunikatu przy szybkim klikaniu w ten sam post.
+  bool _opening = false;
+
   @override
   void initState() {
     super.initState();
-    _provider = context.read<PostProvider>()..addListener(_load);
+    _provider = context.read<PostProvider>()..addListener(_onProviderChanged);
     _load();
   }
 
   @override
   void dispose() {
-    _provider.removeListener(_load);
+    _provider.removeListener(_onProviderChanged);
     super.dispose();
   }
 
-  Future<void> _load() async {
-    setState(() {
-      _state = LoadState.loading;
-      _error = null;
-    });
+  void _onProviderChanged() => _load(silent: true);
+
+  Future<void> _load({bool silent = false}) async {
+    final keep = silent && _state == LoadState.loaded;
+    if (!keep) {
+      setState(() {
+        _state = LoadState.loading;
+        _error = null;
+      });
+    }
     try {
       final items = await _provider.fetch(
         type: _filter,
@@ -64,7 +77,7 @@ class _PostsViewState extends State<PostsView> {
         _state = LoadState.loaded;
       });
     } on ApiException catch (e) {
-      if (!mounted) return;
+      if (!mounted || keep) return; // odświeżenie w tle: zostają stare dane
       setState(() {
         _error = e.message;
         _state = LoadState.failed;
@@ -75,45 +88,53 @@ class _PostsViewState extends State<PostsView> {
   Future<void> _delete(Post p) async {
     if (!await confirmDelete(context, '"${p.title}"')) return;
     if (!mounted) return;
-    final messenger = ScaffoldMessenger.of(context);
+    final messenger = context.read<AppMessenger>();
     try {
       await _provider.delete(p.id); // notifyListeners odświeża listę
     } on ApiException catch (e) {
-      messenger.showSnackBar(SnackBar(content: Text(e.message)));
+      messenger.show(e.message);
     }
   }
 
   Future<void> _open(Post p) async {
-    if (p.lockedByOther) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Ten post jest właśnie edytowany przez: ${p.lock!.holderName}. '
-              'Spróbuj ponownie za chwilę.')));
-      return;
-    }
-    if (!p.canEdit) {
-      await showDialog<void>(
-        context: context,
-        builder: (ctx) => _PostDetailsDialog(post: p),
+    if (_opening) return;
+    _opening = true;
+    try {
+      final messenger = context.read<AppMessenger>();
+      if (!p.canEdit) {
+        await showDialog<void>(
+          context: context,
+          builder: (ctx) => PostPreviewDialog(post: p),
+        );
+        return;
+      }
+      if (p.lockedByOther) {
+        // Jeden komunikat, także przy wielokrotnym kliknięciu (AppMessenger scala identyczne).
+        messenger.show('Ten post jest właśnie edytowany przez: ${p.lock!.holderName}. '
+            'Spróbuj ponownie za chwilę.');
+        return;
+      }
+      final accounts = context.read<SocialAccountProvider>().items;
+      final account = accounts.where((a) => a.id == p.targetAccountId).firstOrNull;
+      if (account == null) {
+        messenger.show('Nie znaleziono konta tego posta - odśwież listę kont.');
+        return;
+      }
+      await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => PostFormScreen(account: account, post: p)),
       );
-      return;
+      if (mounted) _load(silent: true); // zmiana statusu/blokady bez zapisu też ma być widoczna
+    } finally {
+      _opening = false;
     }
-    final accounts = context.read<SocialAccountProvider>().items;
-    final account = accounts.where((a) => a.id == p.targetAccountId).firstOrNull;
-    if (account == null) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Nie znaleziono konta tego posta - odśwież listę kont.')));
-      return;
-    }
-    await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => PostFormScreen(account: account, post: p)),
-    );
-    if (mounted) _load(); // zmiana statusu/blokady bez zapisu też ma być widoczna
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return AutoRefresh(
+      onRefresh: () => _load(silent: true),
+      child: Column(
       children: [
         SizedBox(
           height: 52,
@@ -145,7 +166,7 @@ class _PostsViewState extends State<PostsView> {
           ),
         ),
       ],
-    );
+    ));
   }
 
   Widget _chip(PostType? type, String label) => Padding(
@@ -257,9 +278,9 @@ class _PostCard extends StatelessWidget {
                 ),
               if (!post.canEdit)
                 Text(
-                  post.status == PostStatus.published || post.status == PostStatus.publishing
-                      ? 'Opublikowany post nie podlega edycji.'
-                      : 'Tylko podgląd - brak uprawnień do edycji tego posta.',
+                  post.canApprove
+                      ? 'Czeka na Twoją decyzję - otwórz podgląd, aby zatwierdzić lub odrzucić.'
+                      : 'Tylko podgląd - kliknij, aby zobaczyć post.',
                   style: theme.textTheme.bodySmall,
                 ),
               if (post.lockedByOther)
@@ -289,49 +310,14 @@ class _StatusChip extends StatelessWidget {
       PostStatus.failed => (Icons.error, scheme.error),
       PostStatus.publishing => (Icons.sync, scheme.tertiary),
       PostStatus.draft => (Icons.edit_note, scheme.outline),
+      PostStatus.awaitingApproval => (Icons.hourglass_top, scheme.tertiary),
+      PostStatus.rejected => (Icons.block, scheme.error),
     };
     return Chip(
       key: Key('status-${status.name}'),
       avatar: Icon(icon, size: 16, color: color),
       label: Text(status.label),
       visualDensity: VisualDensity.compact,
-    );
-  }
-}
-
-/// Podgląd posta (tylko do odczytu) - gdy użytkownik nie może go edytować (np. post opublikowany albo brak uprawnień).
-class _PostDetailsDialog extends StatelessWidget {
-  const _PostDetailsDialog({required this.post});
-
-  final Post post;
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text(post.title),
-      content: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(post.description),
-            const SizedBox(height: 12),
-            Text('Status: ${post.status.label}'),
-            if (post.errorMessage != null) Text('Błąd: ${post.errorMessage}'),
-            Text('Typ: ${post.visibility.label}'),
-            Text('Zdjęcia: ${post.pictures.length}, wideo: ${post.videos.length}'),
-            Text('Utworzono: ${formatDateTime(post.createdAt)}'),
-            if (post.managers.isNotEmpty)
-              Text('Autorzy i współautorzy: ${post.managers.map((m) => m.fullName).join(', ')}'),
-          ],
-        ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Text('Zamknij'),
-        ),
-      ],
     );
   }
 }

@@ -13,7 +13,7 @@ namespace SocialContent.Api.Data;
 /// </summary>
 public static class DatabaseSeeder
 {
-    public const string DemoPassword = "Haslo1234";
+    public const string DemoPassword = "ToJestHaslo1!";
 
     public static void Seed(AppDbContext db, IPasswordHasher hasher, ILogger logger)
     {
@@ -32,17 +32,23 @@ public static class DatabaseSeeder
         var bartek = ManagerUser.Create(FirstName.Create("Bartek"), LastName.Create("Kowalski"), Age.Create(34),
             Description.Create("Content manager - TikTok i Instagram"), company.CompanyId);
 
-        var client = ClientUser.Create(FirstName.Create("Karol"), LastName.Create("Klient"), Age.Create(41),
+        // Klienci tworzą konta i zapraszają firmę. Pierwszy powierza akceptację postów menedżerowi (domyślnie),
+        // drugi sam akceptuje posty - można więc przećwiczyć oba przepływy.
+        var karol = ClientUser.Create(FirstName.Create("Karol"), LastName.Create("Klient"), Age.Create(41),
             Description.Create("Klient demonstracyjny"), "klient@demo.pl", hash);
-        company.AddClient(client);
+        var karolina = ClientUser.Create(FirstName.Create("Karolina"), LastName.Create("Zielińska"), Age.Create(36),
+            Description.Create("Klientka, która sama akceptuje posty"), "klient2@demo.pl", hash);
+        company.AddClient(karol).SetAlias("Kawiarnia Pod Dębem");
+        company.AddClient(karolina).SetAlias("Sklep Karoliny");
+        company.Clients.Single(c => c.ClientId == karolina.Id).SetApprovalMode(PostApprovalMode.Client);
 
         var expires = DateTime.UtcNow.AddDays(60);
-        var facebook = SocialAccount.Create(company.CompanyId, "demo-fb", SocialPlatform.Facebook, "fb-1001",
-            "Demo Facebook", "demo-token-fb", null, expires, true, new[] { anna });
-        var instagram = SocialAccount.Create(company.CompanyId, "demo-ig", SocialPlatform.Instagram, "ig-2002",
-            "Demo Instagram", "demo-token-ig", null, expires, true, new[] { anna, bartek });
-        var tiktok = SocialAccount.Create(company.CompanyId, "demo-tt", SocialPlatform.TikTok, "tt-3003",
-            "Demo TikTok", "demo-token-tt", null, expires, true, new[] { bartek });
+        var facebook = ManagedAccount(karol, company, "demo-fb", SocialPlatform.Facebook, "fb-1001", "Demo Facebook", expires, anna);
+        var instagram = ManagedAccount(karol, company, "demo-ig", SocialPlatform.Instagram, "ig-2002", "Demo Instagram", expires, anna, bartek);
+        var tiktok = ManagedAccount(karolina, company, "demo-tt", SocialPlatform.TikTok, "tt-3003", "Demo TikTok", expires, bartek);
+        // Zaproszenie czekające na decyzję firmy (zobaczysz je w widoku firmy).
+        var pending = SocialAccount.Create(karol.Id, company.CompanyId, "demo-ig-2", SocialPlatform.Instagram, "ig-4004",
+            "Nowy Instagram (zaproszenie)", "demo-token-ig2", null, expires, true, Array.Empty<ManagerUser>());
 
         var draft = Post.Create(Title.Create("Szkic na start"), Description.Create("Pierwszy post demonstracyjny."),
             FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { anna }, null, facebook);
@@ -50,19 +56,35 @@ public static class DatabaseSeeder
             Description.Create("Post zaplanowany na za dwa dni."),
             FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { anna, bartek },
             ScheduledTime.Create(DateTime.UtcNow.AddDays(2)), instagram);
+        var awaiting = Post.Create(Title.Create("Nowa kolekcja - do akceptacji"),
+            Description.Create("Post czeka na akceptację klientki."),
+            FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { bartek }, null, tiktok);
+        awaiting.SubmitForApproval();
 
         db.CompanyUsers.Add(company);
         db.ManagerUsers.AddRange(anna, bartek);
         db.ManagerCredentials.AddRange(
             ManagerCredential.Create(anna, "anna@demo.pl", hash),
             ManagerCredential.Create(bartek, "bartek@demo.pl", hash));
-        db.ClientUsers.Add(client);
-        db.SocialAccounts.AddRange(facebook, instagram, tiktok);
-        db.Posts.AddRange(draft, scheduled);
+        db.ClientUsers.AddRange(karol, karolina);
+        db.SocialAccounts.AddRange(facebook, instagram, tiktok, pending);
+        db.Posts.AddRange(draft, scheduled, awaiting);
         db.SaveChanges();
 
         logger.LogInformation(
-            "Seeder: dodano dane demo. Logowanie (hasło {Password}): firma@demo.pl, anna@demo.pl, bartek@demo.pl, klient@demo.pl.",
+            "Seeder: dodano dane demo. Logowanie (hasło {Password}): firma@demo.pl, anna@demo.pl, bartek@demo.pl, klient@demo.pl, klient2@demo.pl.",
             DemoPassword);
+    }
+
+    /// <summary>Konto klienta z przyjętym zaproszeniem firmy i przypisanymi managerami.</summary>
+    private static SocialAccount ManagedAccount(ClientUser owner, CompanyUser company, string accountId,
+        SocialPlatform platform, string externalId, string name, DateTime expires, params ManagerUser[] managers)
+    {
+        var account = SocialAccount.Create(owner.Id, company.CompanyId, accountId, platform, externalId, name,
+            "demo-token-" + accountId, null, expires, true, Array.Empty<ManagerUser>());
+        account.AcceptInvitation();
+        account.Update(account.AccountId, account.Platform, account.ExternalPlatformId, account.AccountName,
+            null, null, account.TokenExpiresAt, account.IsActive, managers);
+        return account;
     }
 }

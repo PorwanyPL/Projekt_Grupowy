@@ -12,6 +12,8 @@ import '../services/api_exception.dart';
 import '../services/media_service.dart';
 import '../utils/formatters.dart';
 import '../utils/validators.dart';
+import '../widgets/account_menu.dart';
+import '../widgets/app_messenger.dart';
 import '../widgets/platform_preview.dart';
 
 enum PublishMode { now, schedule }
@@ -19,6 +21,8 @@ enum PublishMode { now, schedule }
 /// Formularz posta. Ten sam dla CompanyUser (dowolne konto firmy, np. z widoku admina) i ManagerUser
 /// (konto, do którego jest przypisany). Współautorów ustawia serwer (managerowie przypisani do konta).
 /// Przy edycji formularz zajmuje blokadę edycji i odnawia ją co minutę; zwalnia ją przy wyjściu.
+/// Opublikowany post też można edytować (zapis zmienia treść w serwisie, bez ponownej publikacji i planowania).
+/// Gdy zajęcie blokady się nie uda (ktoś inny edytuje), formularz się zamyka i pokazuje jeden komunikat.
 class PostFormScreen extends StatefulWidget {
   const PostFormScreen({super.key, required this.account, this.post});
 
@@ -65,6 +69,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
   bool _lockHeld = false;
 
   bool get _isEdit => widget.post != null;
+  bool get _isPublished => widget.post?.status == PostStatus.published;
 
   @override
   void initState() {
@@ -109,7 +114,14 @@ class _PostFormScreenState extends State<PostFormScreen> {
     } on ApiException catch (e) {
       _lockedMessage = e.message;
     }
-    if (mounted) setState(() => _lockChecked = true);
+    if (!mounted) return;
+    if (_lockedMessage != null) {
+      // Zamiast osobnego ekranu z błędem: wróć do listy i pokaż jeden komunikat (duplikaty scala AppMessenger).
+      context.read<AppMessenger>().show(_lockedMessage!);
+      Navigator.of(context).pop();
+      return;
+    }
+    setState(() => _lockChecked = true);
   }
 
   Future<void> _renewLock(String id) async {
@@ -237,10 +249,11 @@ class _PostFormScreenState extends State<PostFormScreen> {
       pictures: List.of(_pictures),
       videos: List.of(_videos),
       targetAccountId: widget.account.id,
-      publishNow: _mode == PublishMode.now,
-      scheduledAt: _mode == PublishMode.schedule ? _scheduledAt : null,
+      // Opublikowany post: tylko zapis zmian - bez ponownej publikacji i planowania.
+      publishNow: !_isPublished && _mode == PublishMode.now,
+      scheduledAt: !_isPublished && _mode == PublishMode.schedule ? _scheduledAt : null,
     );
-    final messenger = ScaffoldMessenger.of(context);
+    final messenger = context.read<AppMessenger>();
 
     try {
       final saved = _isEdit
@@ -248,13 +261,13 @@ class _PostFormScreenState extends State<PostFormScreen> {
           : await _posts.create(input);
       _lockHeld = false; // serwer zwolnił blokadę przy zapisie
       if (saved.status == PostStatus.failed) {
-        messenger.showSnackBar(SnackBar(
-          content: Text('Publikacja nie powiodła się: ${saved.errorMessage ?? 'nieznany błąd'}'),
-        ));
+        messenger.show('Publikacja nie powiodła się: ${saved.errorMessage ?? 'nieznany błąd'}');
+      } else if (saved.status == PostStatus.awaitingApproval) {
+        messenger.show('Post czeka na akceptację klienta.');
       } else if (saved.status == PostStatus.published) {
-        messenger.showSnackBar(const SnackBar(content: Text('Post został opublikowany.')));
+        messenger.show(_isPublished ? 'Zmiany zostały zapisane.' : 'Post został opublikowany.');
       } else if (saved.status == PostStatus.scheduled) {
-        messenger.showSnackBar(const SnackBar(content: Text('Post został zaplanowany.')));
+        messenger.show('Post został zaplanowany.');
       }
       if (mounted) Navigator.pop(context);
     } on ApiException catch (e) {
@@ -273,6 +286,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
 
     final appBar = AppBar(
       title: Text(_isEdit ? 'Edytuj post' : 'Nowy post'),
+      actions: accountMenuActions(context),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(28),
         child: Padding(
@@ -285,30 +299,6 @@ class _PostFormScreenState extends State<PostFormScreen> {
     if (!_lockChecked) {
       return Scaffold(appBar: appBar, body: const Center(child: CircularProgressIndicator()));
     }
-    if (_lockedMessage != null) {
-      return Scaffold(
-        appBar: appBar,
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.lock_outline, size: 48),
-                const SizedBox(height: 16),
-                Text(_lockedMessage!, textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                FilledButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('Wróć'),
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
       appBar: appBar,
       body: Form(
@@ -373,9 +363,21 @@ class _PostFormScreenState extends State<PostFormScreen> {
               videos: _videos,
               imageUrl: _media.urlFor,
               imageHeaders: _media.headers,
+              videoUrl: _media.playbackUrlFor,
+              videoHeaders: _media.headers,
             ),
             const SizedBox(height: 16),
+            if (_isPublished)
+              const Text('Post jest już opublikowany - zapis zaktualizuje jego treść.',
+                  key: Key('published-info'))
+            else ...[
             Text('Publikacja', style: theme.textTheme.titleSmall),
+            if (widget.account.approvalMode == PostApprovalMode.client && widget.account.isAccepted)
+              const Padding(
+                padding: EdgeInsets.only(bottom: 4),
+                child: Text('Klient zatwierdza posty przed publikacją - post trafi najpierw do jego akceptacji.',
+                    key: Key('approval-info')),
+              ),
             RadioListTile<PublishMode>(
               contentPadding: EdgeInsets.zero,
               title: const Text('Publikuj teraz'),
@@ -407,6 +409,7 @@ class _PostFormScreenState extends State<PostFormScreen> {
                   child: Text(_scheduleError!, style: TextStyle(color: theme.colorScheme.error)),
                 ),
             ],
+            ],
             const SizedBox(height: 16),
             Text('Współautorzy (dodawani automatycznie)', style: theme.textTheme.titleSmall),
             const SizedBox(height: 8),
@@ -435,7 +438,9 @@ class _PostFormScreenState extends State<PostFormScreen> {
               child: _saving
                   ? const SizedBox(
                       height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2))
-                  : Text(_mode == PublishMode.now
+                  : Text(_isPublished
+                      ? 'Zapisz zmiany'
+                      : _mode == PublishMode.now
                       ? (_isEdit ? 'Zapisz i opublikuj' : 'Opublikuj post')
                       : (_isEdit ? 'Zapisz i zaplanuj' : 'Zaplanuj post')),
             ),

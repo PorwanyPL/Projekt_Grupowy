@@ -3,7 +3,7 @@ using SocialContent.Api.Domain.Exceptions;
 namespace SocialContent.Api.Domain.Entities;
 
 /// <summary>
-/// Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser i SocialAccount oraz ustala relacje między nimi.
+/// Administrator firmy. Rejestruje się jako pierwszy, tworzy ManagerUser, przyjmuje zaproszenia klientów do zarządzania ich kontami (SocialAccount) i przypisuje do nich managerów.
 /// Dane logowania (e-mail, hasz hasła) są częścią encji, tak jak na diagramie.
 /// </summary>
 public class CompanyUser
@@ -22,8 +22,8 @@ public class CompanyUser
     public List<ManagerUser> ManagerUsers { get; private set; } = new();
     public List<SocialAccount> SocialAccounts { get; private set; } = new();
 
-    /// <summary>Klienci firmy (CompanyUser n - m ClientUser).</summary>
-    public List<ClientUser> ClientUsers { get; private set; } = new();
+    /// <summary>Relacje z klientami firmy (CompanyUser n - m ClientUser) wraz z pseudonimem i ustawieniem akceptacji.</summary>
+    public List<CompanyClient> Clients { get; private set; } = new();
 
     private CompanyUser() { }
 
@@ -39,16 +39,18 @@ public class CompanyUser
     public void SetAccessBlocked(bool blocked) => IsAccessBlocked = blocked;
 
     /// <summary>Dodaje klienta do firmy; ponowne dodanie tego samego klienta jest błędem.</summary>
-    public void AddClient(ClientUser client)
+    public CompanyClient AddClient(ClientUser client)
     {
-        if (ClientUsers.Any(c => c.Id == client.Id))
+        if (Clients.Any(c => c.ClientId == client.Id))
             throw new ConflictException("Ten klient jest już powiązany z firmą.");
-        ClientUsers.Add(client);
+        var link = CompanyClient.Create(CompanyId, client.Id);
+        Clients.Add(link);
+        return link;
     }
 
-    public void RemoveClient(ClientUser client)
+    public void RemoveClient(Guid clientId)
     {
-        if (ClientUsers.RemoveAll(c => c.Id == client.Id) == 0)
+        if (Clients.RemoveAll(c => c.ClientId == clientId) == 0)
             throw new NotFoundException("Ten klient nie jest powiązany z firmą.");
     }
 }

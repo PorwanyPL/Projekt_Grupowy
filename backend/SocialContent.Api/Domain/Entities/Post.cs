@@ -80,6 +80,31 @@ public class Post
         ErrorMessage = message.Length > 1000 ? message[..1000] : message;
     }
 
+    /// <summary>Wysyła post do akceptacji klienta: Draft/Scheduled -> AwaitingApproval (termin, jeśli był, zostaje).</summary>
+    public void SubmitForApproval()
+    {
+        if (Status is not (PostStatus.Draft or PostStatus.Scheduled))
+            throw new DomainValidationException($"Nie można wysłać do akceptacji posta w statusie {Status}.");
+        Status = PostStatus.AwaitingApproval;
+    }
+
+    /// <summary>Akceptacja klienta: AwaitingApproval -> Scheduled (termin w przyszłości) albo Draft (do natychmiastowej publikacji).</summary>
+    public void Approve(DateTime utcNow)
+    {
+        if (Status != PostStatus.AwaitingApproval)
+            throw new DomainValidationException("Ten post nie oczekuje na akceptację.");
+        Status = ScheduledAt is not null && ScheduledAt.Date > utcNow ? PostStatus.Scheduled : PostStatus.Draft;
+        if (Status == PostStatus.Draft) ScheduledAt = null;
+    }
+
+    /// <summary>Odrzucenie przez klienta: AwaitingApproval -> Rejected (autorzy mogą poprawić post i wysłać go ponownie).</summary>
+    public void Reject()
+    {
+        if (Status != PostStatus.AwaitingApproval)
+            throw new DomainValidationException("Ten post nie oczekuje na akceptację.");
+        Status = PostStatus.Rejected;
+    }
+
     protected void InitNew()
     {
         Id = Guid.NewGuid();
@@ -90,8 +115,11 @@ public class Post
         IEnumerable<Picture> pictures, IEnumerable<Video> videos, IEnumerable<ManagerUser> managers,
         ScheduledTime? scheduledAt, SocialAccount? targetAccount)
     {
-        if (Status is PostStatus.Publishing or PostStatus.Published)
-            throw new DomainValidationException($"Post w statusie {Status} nie może być edytowany.");
+        // Opublikowany post można edytować (zmiana treści i mediów), ale nie jego terminu - zostaje Published.
+        if (Status == PostStatus.Publishing)
+            throw new DomainValidationException("Post jest w trakcie publikacji i nie może być teraz edytowany.");
+        if (Status == PostStatus.Published && scheduledAt is not null)
+            throw new DomainValidationException("Opublikowany post można edytować, ale nie można dla niego ustawić terminu publikacji.");
 
         var pics = pictures.ToList();
         var vids = videos.ToList();
@@ -118,9 +146,12 @@ public class Post
         Description = description;
         Visibility = type;
 
-        ScheduledAt = scheduledAt;
-        Status = scheduledAt is null ? PostStatus.Draft : PostStatus.Scheduled;
-        ErrorMessage = null; // edycja posta po nieudanej publikacji przywraca go do Draft/Scheduled
+        if (Status != PostStatus.Published)
+        {
+            ScheduledAt = scheduledAt;
+            Status = scheduledAt is null ? PostStatus.Draft : PostStatus.Scheduled;
+            ErrorMessage = null; // edycja posta po błędzie, odrzuceniu lub w oczekiwaniu na akceptację przywraca Draft/Scheduled
+        }
 
         TargetAccount = targetAccount;
         TargetAccountId = targetAccount?.Id;

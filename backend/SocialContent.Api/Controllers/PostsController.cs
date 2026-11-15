@@ -6,9 +6,9 @@ using SocialContent.Api.Services;
 
 namespace SocialContent.Api.Controllers;
 
-/// <summary>Posty do mediów społecznościowych. Odczyt: firma (wszystkie posty) i manager (tylko własne); zapis: CompanyUser (każde konto firmy) i ManagerUser przypisany do konta.</summary>
+/// <summary>Posty do mediów społecznościowych. Odczyt: firma (wszystkie posty), manager (tylko własne) i klient (posty własnych kont, bez edycji); zapis: CompanyUser (każde konto firmy) i ManagerUser przypisany do konta.</summary>
 [ApiController]
-[Authorize(Roles = Roles.CompanyOrManager)]
+[Authorize(Roles = Roles.Any)]
 [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
 [ProducesResponseType<ProblemDetails>(StatusCodes.Status403Forbidden)]
 [Route("api/[controller]")]
@@ -57,6 +57,7 @@ public class PostsController(IPostService service) : ControllerBase
     /// <response code="404">Konto docelowe nie istnieje (lub należy do innej firmy).</response>
     /// <response code="401">Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.</response>
     [HttpPost]
+    [Authorize(Roles = Roles.CompanyOrManager)]
     [ProducesResponseType<PostDto>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
@@ -80,6 +81,7 @@ public class PostsController(IPostService service) : ControllerBase
     /// <response code="404">Post (niewidoczny dla użytkownika) lub konto docelowe nie istnieje.</response>
     /// <response code="401">Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.</response>
     [HttpPut("{id:guid}")]
+    [Authorize(Roles = Roles.CompanyOrManager)]
     [ProducesResponseType<PostDto>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
@@ -95,6 +97,7 @@ public class PostsController(IPostService service) : ControllerBase
     /// <response code="409">Post jest właśnie edytowany przez inną osobę.</response>
     /// <response code="401">Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.</response>
     [HttpDelete("{id:guid}")]
+    [Authorize(Roles = Roles.CompanyOrManager)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
@@ -111,6 +114,7 @@ public class PostsController(IPostService service) : ControllerBase
     /// <response code="404">Post nie istnieje albo nie jest widoczny.</response>
     /// <response code="409">Post jest edytowany przez inną osobę.</response>
     [HttpPost("{id:guid}/lock")]
+    [Authorize(Roles = Roles.CompanyOrManager)]
     [ProducesResponseType<PostLockDto>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
     public async Task<ActionResult<PostLockDto>> AcquireLock(Guid id, CancellationToken ct) =>
@@ -121,10 +125,39 @@ public class PostsController(IPostService service) : ControllerBase
     /// <param name="id">Identyfikator posta (GUID).</param>
     /// <response code="204">Blokada zwolniona (lub nie istniała).</response>
     [HttpDelete("{id:guid}/lock")]
+    [Authorize(Roles = Roles.CompanyOrManager)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> ReleaseLock(Guid id, CancellationToken ct)
     {
         await service.ReleaseLockAsync(User.ToCurrentUser(), id, ct);
         return NoContent();
     }
+
+    /// <summary>Zaakceptuj post (klient)</summary>
+    /// <remarks>Dla klienta, który sam akceptuje posty (PostApprovalMode.Client). Post w statusie AwaitingApproval jest publikowany od razu albo, gdy ma termin w przyszłości, zaplanowany. Firma i autorzy dostają powiadomienie.</remarks>
+    /// <param name="id">Identyfikator posta (GUID).</param>
+    /// <response code="200">Post po akceptacji.</response>
+    /// <response code="404">Post nie istnieje albo nie jest postem konta zalogowanego klienta.</response>
+    /// <response code="409">Post nie oczekuje na akceptację.</response>
+    [HttpPost("{id:guid}/approve")]
+    [Authorize(Roles = Roles.Client)]
+    [ProducesResponseType<PostDto>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<PostDto>> Approve(Guid id, CancellationToken ct) =>
+        Ok(await service.ApproveAsync(User.ToCurrentUser(), id, ct));
+
+    /// <summary>Odrzuć post (klient)</summary>
+    /// <remarks>Post w statusie AwaitingApproval dostaje status Rejected. Firma i autorzy dostają powiadomienie i mogą poprawić post oraz wysłać go ponownie.</remarks>
+    /// <param name="id">Identyfikator posta (GUID).</param>
+    /// <response code="200">Post po odrzuceniu.</response>
+    /// <response code="404">Post nie istnieje albo nie jest postem konta zalogowanego klienta.</response>
+    /// <response code="409">Post nie oczekuje na akceptację.</response>
+    [HttpPost("{id:guid}/reject")]
+    [Authorize(Roles = Roles.Client)]
+    [ProducesResponseType<PostDto>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<PostDto>> Reject(Guid id, CancellationToken ct) =>
+        Ok(await service.RejectAsync(User.ToCurrentUser(), id, ct));
 }

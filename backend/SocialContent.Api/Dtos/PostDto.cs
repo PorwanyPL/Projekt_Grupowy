@@ -29,4 +29,5 @@ public record PostDto(
     TikTokPostDetailsDto? TikTok,
     bool CanEdit = false,
     bool CanDelete = false,
-    PostLockDto? Lock = null);
+    PostLockDto? Lock = null,
+    bool CanApprove = false);

@@ -89,6 +89,7 @@ class Post {
     this.targetAccountId,
     this.canEdit = false,
     this.canDelete = false,
+    this.canApprove = false,
     this.lock,
   });
 
@@ -113,6 +114,9 @@ class Post {
   /// Uprawnienia policzone przez serwer dla zalogowanego użytkownika.
   final bool canEdit;
   final bool canDelete;
+
+  /// Klient może zatwierdzić/odrzucić post (czeka na akceptację na jego koncie).
+  final bool canApprove;
 
   /// Aktywna blokada edycji (ktoś właśnie edytuje post).
   final PostLock? lock;
@@ -146,6 +150,7 @@ class Post {
         targetAccountId: json['targetAccountId'] as String?,
         canEdit: json['canEdit'] as bool? ?? false,
         canDelete: json['canDelete'] as bool? ?? false,
+        canApprove: json['canApprove'] as bool? ?? false,
         lock: json['lock'] == null
             ? null
             : PostLock.fromJson(json['lock'] as Map<String, dynamic>),

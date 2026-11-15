@@ -26,25 +26,34 @@ public interface IPostService
     Task DeleteAsync(CurrentUser user, Guid id, CancellationToken ct);
     Task<PostLockDto> AcquireLockAsync(CurrentUser user, Guid id, CancellationToken ct);
     Task ReleaseLockAsync(CurrentUser user, Guid id, CancellationToken ct);
+
+    /// <summary>Klient akceptuje post swojego konta: publikacja od razu albo zaplanowana, zależnie od terminu.</summary>
+    Task<PostDto> ApproveAsync(CurrentUser user, Guid id, CancellationToken ct);
+
+    /// <summary>Klient odrzuca post swojego konta; autorzy mogą go poprawić i wysłać ponownie.</summary>
+    Task<PostDto> RejectAsync(CurrentUser user, Guid id, CancellationToken ct);
 }
 
 public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage, IPostEditLockService locks,
-    IPostPublisher publisher) : IPostService
+    IPostPublisher publisher, INotificationService notifications) : IPostService
 {
     private IQueryable<Post> Query() =>
         db.Posts.Include(p => p.Files).Include(p => p.ManagerUsers)
             .Include(p => p.TargetAccount!).ThenInclude(a => a.ManagerUsers);
 
-    /// <summary>CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem.</summary>
+    /// <summary>CompanyUser: posty kont swojej firmy. ManagerUser: posty, których jest autorem. ClientUser: posty swoich kont.</summary>
     private static IQueryable<Post> VisibleTo(CurrentUser user, IQueryable<Post> query) =>
-        user.IsCompany
-            ? query.Where(p => p.TargetAccount != null && p.TargetAccount.CompanyId == user.Id)
-            : query.Where(p => p.ManagerUsers.Any(m => m.Id == user.Id));
+        user.Role switch
+        {
+            UserRole.CompanyUser => query.Where(p => p.TargetAccount != null && p.TargetAccount.CompanyId == user.Id),
+            UserRole.ClientUser => query.Where(p => p.TargetAccount != null && p.TargetAccount.OwnerClientId == user.Id),
+            _ => query.Where(p => p.ManagerUsers.Any(m => m.Id == user.Id))
+        };
 
     public async Task<List<PostDto>> GetAllAsync(CurrentUser user, FacebookPostType? type, Guid? accountId,
         Guid? managerId, CancellationToken ct)
     {
-        if (!user.IsCompany && managerId is not null && managerId != user.Id)
+        if (user.IsManager && managerId is not null && managerId != user.Id)
             throw new ForbiddenException("Manager może przeglądać tylko własne posty.");
 
         var q = VisibleTo(user, Query().AsNoTracking());
@@ -113,8 +122,7 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
         db.Posts.Add(post);
         await db.SaveChangesAsync(ct);
 
-        // "Publikuj teraz": wynik (Published albo Failed + powiadomienia) widać w statusie zwróconego posta.
-        if (dto.PublishNow) await publisher.PublishAsync(post, ct);
+        await FinishPublicationAsync(post, account, dto.PublishNow, ct);
         return ToDto(user, post, null);
     }
 
@@ -127,6 +135,9 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
             throw new DomainValidationException(post.Platform is null
                 ? "Post ogólny nie może zawierać danych platformy; rodzaju posta nie można zmienić po utworzeniu."
                 : $"Ten post jest postem platformy {post.Platform}: podaj blok danych tej platformy (i żadnej innej). Rodzaju posta nie można zmienić po utworzeniu.");
+
+        if (post.Status == PostStatus.Published && dto.PublishNow)
+            throw new DomainValidationException("Ten post jest już opublikowany - można go edytować, ale nie publikować ponownie.");
 
         // Serwer wymusza blokadę edycji: gdy post edytuje ktoś inny, zapis kończy się 409 (nic nie jest zmieniane).
         await locks.AcquireAsync(user, id, ct);
@@ -178,8 +189,63 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
         await locks.ReleaseAsync(user, id, ct); // edycja zakończona zapisem
         await DeleteUnusedFilesAsync(post, oldKeys.Except(post.Files.Select(f => f.StorageKey)), ct);
 
-        if (dto.PublishNow) await publisher.PublishAsync(post, ct);
+        await FinishPublicationAsync(post, account, dto.PublishNow, ct);
         return ToDto(user, post, null);
+    }
+
+    /// <summary>
+    /// Po zapisie posta: jeśli klient akceptuje posty sam (PostApprovalMode.Client) i post ma być opublikowany (teraz albo w terminie),
+    /// trafia do akceptacji klienta (status AwaitingApproval + powiadomienie klienta); w przeciwnym razie "Publikuj teraz" publikuje od razu.
+    /// </summary>
+    private async Task FinishPublicationAsync(Post post, SocialAccount account, bool publishNow, CancellationToken ct)
+    {
+        var wantsPublication = publishNow || post.Status == PostStatus.Scheduled;
+        if (wantsPublication && await ApprovalModeAsync(account, ct) == PostApprovalMode.Client)
+        {
+            post.SubmitForApproval();
+            notifications.AddApprovalRequested(post, account.OwnerClientId);
+            await db.SaveChangesAsync(ct);
+            return;
+        }
+
+        // "Publikuj teraz": wynik (Published albo Failed + powiadomienia) widać w statusie zwróconego posta.
+        if (publishNow) await publisher.PublishAsync(post, ct);
+    }
+
+    private async Task<PostApprovalMode> ApprovalModeAsync(SocialAccount account, CancellationToken ct) =>
+        await db.CompanyClients.AsNoTracking()
+            .Where(l => l.CompanyId == account.CompanyId && l.ClientId == account.OwnerClientId)
+            .Select(l => (PostApprovalMode?)l.ApprovalMode).FirstOrDefaultAsync(ct)
+        ?? PostApprovalMode.Manager;
+
+    public async Task<PostDto> ApproveAsync(CurrentUser user, Guid id, CancellationToken ct)
+    {
+        var post = await FindForDecision(user, id, ct);
+        post.Approve(DateTime.UtcNow);
+        notifications.AddApprovalDecision(post, approved: true);
+        await db.SaveChangesAsync(ct);
+
+        // Bez terminu (albo z terminem, który minął w czasie oczekiwania) publikujemy od razu; inaczej zrobi to scheduler.
+        if (post.Status == PostStatus.Draft) await publisher.PublishAsync(post, ct);
+        return ToDto(user, post, null);
+    }
+
+    public async Task<PostDto> RejectAsync(CurrentUser user, Guid id, CancellationToken ct)
+    {
+        var post = await FindForDecision(user, id, ct);
+        post.Reject();
+        notifications.AddApprovalDecision(post, approved: false);
+        await db.SaveChangesAsync(ct);
+        return ToDto(user, post, null);
+    }
+
+    private async Task<Post> FindForDecision(CurrentUser user, Guid id, CancellationToken ct)
+    {
+        var post = await VisibleTo(user, Query()).FirstOrDefaultAsync(p => p.Id == id, ct)
+                   ?? throw new NotFoundException($"Nie znaleziono posta o id {id}.");
+        if (!PostPermissions.CanDecide(user, post))
+            throw new ConflictException("Ten post nie oczekuje na Twoją akceptację.");
+        return post;
     }
 
     public async Task DeleteAsync(CurrentUser user, Guid id, CancellationToken ct)
@@ -212,6 +278,7 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
         {
             CanEdit = canModify && PostPermissions.IsEditableStatus(post),
             CanDelete = canModify,
+            CanApprove = PostPermissions.CanDecide(user, post),
             Lock = activeLock is null
                 ? null
                 : mapper.Map<PostLockDto>(activeLock) with { HeldByMe = activeLock.IsHeldBy(user.Id, user.Role) }
@@ -236,8 +303,9 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
         var post = await VisibleTo(user, Query()).FirstOrDefaultAsync(p => p.Id == id, ct)
                    ?? throw new NotFoundException($"Nie znaleziono posta o id {id}.");
         if (!PostPermissions.CanModify(user, post))
-            throw new ForbiddenException(
-                "Nie masz już uprawnień do konta tego posta - możesz go tylko przeglądać, bez edycji i usuwania.");
+            throw new ForbiddenException(user.IsClient
+                ? "Klient może posty tylko przeglądać oraz akceptować lub odrzucać - bez edycji i usuwania."
+                : "Nie masz już uprawnień do konta tego posta - możesz go tylko przeglądać, bez edycji i usuwania.");
         return post;
     }
 
@@ -272,6 +340,8 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
             // Konto innej firmy zachowuje się jak nieistniejące.
             if (account is null || account.CompanyId != user.Id)
                 throw new NotFoundException("Nie znaleziono konta społecznościowego tej firmy.");
+            if (account.ManagementStatus != ManagementStatus.Accepted)
+                throw new ConflictException("Konto czeka na przyjęcie zaproszenia - posty można tworzyć dopiero po jego przyjęciu.");
         }
         else if (account is null || account.ManagerUsers.All(m => m.Id != user.Id))
         {

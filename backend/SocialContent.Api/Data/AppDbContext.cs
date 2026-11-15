@@ -8,6 +8,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 {
     public DbSet<CompanyUser> CompanyUsers => Set<CompanyUser>();
     public DbSet<ClientUser> ClientUsers => Set<ClientUser>();
+    public DbSet<CompanyClient> CompanyClients => Set<CompanyClient>();
     public DbSet<ManagerUser> ManagerUsers => Set<ManagerUser>();
     public DbSet<ManagerCredential> ManagerCredentials => Set<ManagerCredential>();
     public DbSet<Post> Posts => Set<Post>();
@@ -28,8 +29,20 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.IsAccessBlocked).IsRequired();
             e.HasIndex(x => x.Email).IsUnique();
 
-            // CompanyUser n - m ClientUser: usunięcie powiązania nie usuwa klienta ani firmy.
-            e.HasMany(x => x.ClientUsers).WithMany(c => c.CompanyUsers);
+        });
+
+        // CompanyUser n - m ClientUser jako encja z danymi relacji (pseudonim, tryb akceptacji postów).
+        // Usunięcie powiązania nie usuwa klienta ani firmy.
+        b.Entity<CompanyClient>(e =>
+        {
+            e.HasKey(x => new { x.CompanyId, x.ClientId });
+            e.Property(x => x.Alias).HasMaxLength(100);
+            e.Property(x => x.ApprovalMode).HasConversion<string>().HasMaxLength(20).IsRequired();
+            e.Property(x => x.CreatedAt).IsRequired();
+            e.HasOne(x => x.CompanyUser).WithMany(c => c.Clients).HasForeignKey(x => x.CompanyId)
+                .IsRequired().OnDelete(DeleteBehavior.Cascade);
+            e.HasOne(x => x.ClientUser).WithMany(c => c.Companies).HasForeignKey(x => x.ClientId)
+                .IsRequired().OnDelete(DeleteBehavior.Cascade);
         });
 
         b.Entity<ClientUser>(e =>
@@ -92,8 +105,14 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Ignore(x => x.Pictures);
             e.Ignore(x => x.Videos);
 
-            // Identyfikator konta jest unikalny w obrębie platformy i firmy (różne firmy mogą mieć to samo id).
-            e.HasIndex(x => new { x.CompanyId, x.Platform, x.AccountId }).IsUnique();
+            e.Property(x => x.ManagementStatus).HasConversion<string>().HasMaxLength(20).IsRequired();
+
+            // Identyfikator konta jest unikalny w obrębie platformy i klienta (różni klienci mogą mieć to samo id).
+            e.HasIndex(x => new { x.OwnerClientId, x.Platform, x.AccountId }).IsUnique();
+
+            // ClientUser 1 - n SocialAccount: klient z kontami nie może zniknąć po cichu.
+            e.HasOne(x => x.OwnerClient).WithMany(c => c.SocialAccounts).HasForeignKey(x => x.OwnerClientId)
+                .IsRequired().OnDelete(DeleteBehavior.Restrict);
 
             // CompanyUser 1 - n SocialAccount.
             e.HasOne(x => x.CompanyUser).WithMany(c => c.SocialAccounts).HasForeignKey(x => x.CompanyId)

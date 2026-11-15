@@ -7,7 +7,7 @@ namespace SocialContent.Api.Controllers;
 
 /// <summary>Pliki mediów (zdjęcia, wideo) przesyłane do posta. Pliki są prywatne dla firmy.</summary>
 [ApiController]
-[Authorize(Roles = Roles.CompanyOrManager)]
+[Authorize(Roles = Roles.Any)]
 [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
 [ProducesResponseType<ProblemDetails>(StatusCodes.Status403Forbidden)]
 [Route("api/[controller]")]
@@ -22,6 +22,7 @@ public class MediaController(IMediaService service) : ControllerBase
     /// <response code="200">Plik zapisany; zwraca klucz, rodzaj, format i rozmiar.</response>
     /// <response code="400">Brak pliku, niedozwolone rozszerzenie, zbyt duży rozmiar lub zawartość niezgodna z formatem.</response>
     [HttpPost]
+    [Authorize(Roles = Roles.CompanyOrManager)]
     [RequestSizeLimit(52_428_800)]
     [RequestFormLimits(MultipartBodyLengthLimit = 52_428_800)]
     [Consumes("multipart/form-data")]
@@ -36,7 +37,7 @@ public class MediaController(IMediaService service) : ControllerBase
     }
 
     /// <summary>Pobierz plik medium</summary>
-    /// <remarks>Dostępne dla użytkowników firmy, do której należy plik (do podglądu w formularzu i na liście postów).</remarks>
+    /// <remarks>Dostępne dla użytkowników firmy, do której należy plik, oraz dla klienta - tylko dla plików z postów jego kont (podgląd i odtwarzanie). Obsługuje żądania zakresowe (przewijanie nagrań). Dla odtwarzaczy token można przekazać w query: ?access_token=.</remarks>
     /// <param name="storageKey">Klucz pliku zwrócony przy przesłaniu.</param>
     /// <response code="200">Zawartość pliku.</response>
     /// <response code="404">Plik nie istnieje.</response>
@@ -46,6 +47,6 @@ public class MediaController(IMediaService service) : ControllerBase
     public async Task<IActionResult> Download(string storageKey, CancellationToken ct)
     {
         var (path, contentType) = await service.OpenAsync(User.ToCurrentUser(), storageKey, ct);
-        return PhysicalFile(path, contentType);
+        return PhysicalFile(path, contentType, enableRangeProcessing: true);
     }
 }

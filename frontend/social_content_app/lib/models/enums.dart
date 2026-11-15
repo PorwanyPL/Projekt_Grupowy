@@ -88,7 +88,9 @@ enum PostStatus {
   scheduled,
   publishing,
   published,
-  failed;
+  failed,
+  awaitingApproval,
+  rejected;
 
   String get label {
     switch (this) {
@@ -102,11 +104,55 @@ enum PostStatus {
         return 'Opublikowany';
       case PostStatus.failed:
         return 'Błąd';
+      case PostStatus.awaitingApproval:
+        return 'Czeka na akceptację';
+      case PostStatus.rejected:
+        return 'Odrzucony';
     }
   }
 
   static PostStatus parse(String value) => PostStatus.values.firstWhere(
-        (e) => e.name == value.toLowerCase(),
+        (e) => e.name.toLowerCase() == value.toLowerCase(), // także AwaitingApproval
         orElse: () => throw FormatException('Nieznany status posta: $value'),
+      );
+}
+
+/// Kto zatwierdza posty przed publikacją (PostApprovalMode z backendu; ustawia klient per firma).
+enum PostApprovalMode {
+  manager,
+  client;
+
+  String get apiName => name[0].toUpperCase() + name.substring(1);
+
+  String get label => this == PostApprovalMode.client
+      ? 'Zatwierdzam posty przed publikacją'
+      : 'Deleguję decyzję managerowi firmy';
+
+  static PostApprovalMode parse(String? value) => PostApprovalMode.values.firstWhere(
+        (e) => e.name == (value ?? '').toLowerCase(),
+        orElse: () => PostApprovalMode.manager,
+      );
+}
+
+/// Stan zaproszenia firmy do obsługi konta (ManagementStatus z backendu).
+enum ManagementStatus {
+  invited,
+  accepted,
+  declined;
+
+  String get label {
+    switch (this) {
+      case ManagementStatus.invited:
+        return 'Zaproszenie oczekuje';
+      case ManagementStatus.accepted:
+        return 'Obsługiwane przez firmę';
+      case ManagementStatus.declined:
+        return 'Zaproszenie odrzucone';
+    }
+  }
+
+  static ManagementStatus parse(String? value) => ManagementStatus.values.firstWhere(
+        (e) => e.name == (value ?? '').toLowerCase(),
+        orElse: () => ManagementStatus.invited,
       );
 }

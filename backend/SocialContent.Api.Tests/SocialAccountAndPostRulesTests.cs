@@ -19,9 +19,10 @@ public class SocialAccountAndPostRulesTests : IDisposable
     private PostService Posts(AppDbContext db)
     {
         var locks = new PostEditLockService(db, _db.Mapper);
-        var publisher = new PostPublisher(db, new NotificationService(db, _db.Mapper));
+        var notifications = new NotificationService(db, _db.Mapper);
+        var publisher = new PostPublisher(db, notifications);
         return new PostService(db, _db.Mapper, new MediaStorage(Path.Combine(Path.GetTempPath(), "sc-tests-" + Guid.NewGuid())),
-            locks, publisher);
+            locks, publisher, notifications);
     }
 
     private static PostWriteDto NewPost(Guid? accountId) => new()
@@ -75,8 +76,8 @@ public class SocialAccountAndPostRulesTests : IDisposable
         await _db.AddSocialAccountAsync(other.CompanyId, "acc-3");
 
         await using var db = _db.NewContext();
-        var forCompany = await Accounts(db).GetAllAsync(new CurrentUser(company.CompanyId, UserRole.CompanyUser), CancellationToken.None);
-        var forManager = await Accounts(db).GetAllAsync(new CurrentUser(manager.Id, UserRole.ManagerUser), CancellationToken.None);
+        var forCompany = await Accounts(db).GetAllAsync(new CurrentUser(company.CompanyId, UserRole.CompanyUser), null, null, CancellationToken.None);
+        var forManager = await Accounts(db).GetAllAsync(new CurrentUser(manager.Id, UserRole.ManagerUser), null, null, CancellationToken.None);
 
         Assert.Equal(2, forCompany.Count);
         Assert.Equal(assigned, Assert.Single(forManager).Id);

@@ -38,6 +38,11 @@ class ApiClient {
   /// Pełny adres pliku medium (wymaga nagłówka [authHeaders]).
   String mediaUrl(String storageKey) => '$_baseUrl/api/Media/$storageKey';
 
+  /// Adres do odtwarzaczy mediów (video_player), które nie zawsze potrafią wysłać nagłówek Authorization:
+  /// token idzie w parametrze access_token (backend przyjmuje go tylko dla GET /api/Media).
+  String playbackUrl(String storageKey) =>
+      _token == null ? mediaUrl(storageKey) : '${mediaUrl(storageKey)}?access_token=${Uri.encodeQueryComponent(_token!)}';
+
   Uri _uri(String path, [Map<String, String>? query]) =>
       Uri.parse('$_baseUrl$path').replace(queryParameters: query);
 

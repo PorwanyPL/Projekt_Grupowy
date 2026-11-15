@@ -10,6 +10,7 @@ public record CurrentUser(Guid Id, UserRole Role)
 {
     public bool IsCompany => Role == UserRole.CompanyUser;
     public bool IsManager => Role == UserRole.ManagerUser;
+    public bool IsClient => Role == UserRole.ClientUser;
 }
 
 public static class CurrentUserExtensions

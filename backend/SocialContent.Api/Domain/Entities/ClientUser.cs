@@ -3,7 +3,7 @@ using SocialContent.Api.Domain.ValueObjects;
 namespace SocialContent.Api.Domain.Entities;
 
 /// <summary>
-/// Klient firm. Rejestruje się samodzielnie i może być powiązany z wieloma firmami (ClientUser n - m CompanyUser).
+/// Klient firm. Rejestruje się samodzielnie, tworzy własne konta społecznościowe i zaprasza firmy do zarządzania nimi (ClientUser n - m CompanyUser).
 /// Diagram nie podaje danych logowania klienta - przyjęto te same pola co w CompanyUser (Email, PasswordHash).
 /// </summary>
 public class ClientUser
@@ -20,7 +20,11 @@ public class ClientUser
     /// <summary>Hasz PBKDF2 w formacie "v1.iteracje.sól.hasz". Nigdy nie opuszcza warstwy serwisów.</summary>
     public string PasswordHash { get; private set; } = null!;
 
-    public List<CompanyUser> CompanyUsers { get; private set; } = new();
+    /// <summary>Relacje z firmami (ClientUser n - m CompanyUser).</summary>
+    public List<CompanyClient> Companies { get; private set; } = new();
+
+    /// <summary>Konta społecznościowe klienta (ClientUser 1 - n SocialAccount).</summary>
+    public List<SocialAccount> SocialAccounts { get; private set; } = new();
 
     private ClientUser() { }
 

@@ -13,7 +13,11 @@ public class ClientUserProfile : Profile
             .ForCtorParam(nameof(ClientUserDto.FirstName), o => o.MapFrom(s => s.FirstName.Value))
             .ForCtorParam(nameof(ClientUserDto.LastName), o => o.MapFrom(s => s.LastName.Value))
             .ForCtorParam(nameof(ClientUserDto.Age), o => o.MapFrom(s => s.Age.Value))
-            .ForCtorParam(nameof(ClientUserDto.Description), o => o.MapFrom(s => s.Description.Value));
+            .ForCtorParam(nameof(ClientUserDto.Description), o => o.MapFrom(s => s.Description.Value))
+            // Pseudonim i liczba zaproszeń zależą od firmy, więc uzupełnia je serwis; tu wartości domyślne.
+            .ForCtorParam(nameof(ClientUserDto.Alias), o => o.MapFrom(_ => (string?)null))
+            .ForCtorParam(nameof(ClientUserDto.DisplayName), o => o.MapFrom(s => s.FirstName.Value + " " + s.LastName.Value))
+            .ForCtorParam(nameof(ClientUserDto.PendingInvitations), o => o.MapFrom(_ => 0));
 
         CreateMap<ClientUser, UserProfileDto>()
             .ForCtorParam(nameof(UserProfileDto.Role), o => o.MapFrom(_ => UserRole.ClientUser.ToString()))

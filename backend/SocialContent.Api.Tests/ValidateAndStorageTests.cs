@@ -66,7 +66,7 @@ public class ValidateAndStorageTests
     [Fact]
     public void VerifyConnection_ReportsExpiredToken()
     {
-        var account = SocialAccount.Create(Guid.NewGuid(), "a", SocialPlatform.Facebook, "ext", "Konto", "token",
+        var account = SocialAccount.Create(Guid.NewGuid(), Guid.NewGuid(), "a", SocialPlatform.Facebook, "ext", "Konto", "token",
             null, DateTime.UtcNow.AddDays(-1), true, new List<ManagerUser>());
         Assert.False(Validate.VerifyConnection(account, out var error));
         Assert.Contains("wygasł", error);

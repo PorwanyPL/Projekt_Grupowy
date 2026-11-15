@@ -17,6 +17,8 @@ import 'services/notification_service.dart';
 import 'services/post_service.dart';
 import 'services/social_account_service.dart';
 import 'services/token_storage.dart';
+import 'widgets/app_messenger.dart';
+import 'widgets/auto_refresh.dart';
 
 final ApiClient _api = ApiClient();
 final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
@@ -43,6 +45,9 @@ class SocialContentApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PostProvider(PostService(_api))),
         ChangeNotifierProvider(create: (_) => NotificationProvider(NotificationService(_api))),
         Provider(create: (_) => MediaService(_api)),
+        // Komunikaty (stos błędów) i sygnał odświeżania przy zmianie zakładki.
+        ChangeNotifierProvider(create: (_) => AppMessenger()),
+        ChangeNotifierProvider(create: (_) => RefreshBus()),
         ChangeNotifierProvider(
           create: (_) => SocialAccountProvider(SocialAccountService(_api)),
         ),
@@ -58,6 +63,7 @@ class SocialContentApp extends StatelessWidget {
             border: OutlineInputBorder(),
           ),
         ),
+        builder: (context, child) => AppMessageHost(child: child ?? const SizedBox.shrink()),
         home: const AuthGate(),
       ),
     );

@@ -14,16 +14,22 @@ class SocialAccountProvider extends ChangeNotifier {
   String? error;
   List<SocialAccount> items = const [];
 
-  Future<void> load() async {
-    state = LoadState.loading;
-    error = null;
-    notifyListeners();
+  /// [silent] - odświeżenie w tle (nawigacja, timer): bez spinnera, a przy błędzie zostają stare dane.
+  Future<void> load({bool silent = false}) async {
+    final keep = silent && state == LoadState.loaded;
+    if (!keep) {
+      state = LoadState.loading;
+      error = null;
+      notifyListeners();
+    }
     try {
       items = await _service.getAll();
       state = LoadState.loaded;
     } on ApiException catch (e) {
-      error = e.message;
-      state = LoadState.failed;
+      if (!keep) {
+        error = e.message;
+        state = LoadState.failed;
+      }
     }
     notifyListeners();
   }
@@ -31,6 +37,21 @@ class SocialAccountProvider extends ChangeNotifier {
   /// Poniższe metody rzucają [ApiException] - formularz pokazuje komunikat.
   Future<void> create(SocialAccountInput input) async {
     await _service.create(input);
+    await load();
+  }
+
+  Future<void> invite(String id, String companyEmail) async {
+    await _service.invite(id, companyEmail);
+    await load();
+  }
+
+  Future<void> accept(String id) async {
+    await _service.accept(id);
+    await load();
+  }
+
+  Future<void> decline(String id) async {
+    await _service.decline(id);
     await load();
   }
 
