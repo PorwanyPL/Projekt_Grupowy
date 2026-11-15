@@ -10,6 +10,7 @@ public class PostProfile : Profile
     {
         // Mapowanie wywołujemy jako Map<Post, PostDto>, a blok platformy (facebook/instagram/tikTok) wybiera typ runtime posta.
         CreateMap<Post, PostDto>()
+            .ForCtorParam(nameof(PostDto.Id), o => o.MapFrom(s => s.GroupId))
             .ForCtorParam(nameof(PostDto.Title), o => o.MapFrom(s => s.Title.Value))
             .ForCtorParam(nameof(PostDto.CreatedAt), o => o.MapFrom(s => DateTime.SpecifyKind(s.CreatedAt.Date, DateTimeKind.Utc)))
             .ForCtorParam(nameof(PostDto.Description), o => o.MapFrom(s => s.Description.Value))
@@ -27,6 +28,10 @@ public class PostProfile : Profile
             .ForCtorParam(nameof(PostDto.CanEdit), o => o.MapFrom(_ => false))
             .ForCtorParam(nameof(PostDto.CanDelete), o => o.MapFrom(_ => false))
             .ForCtorParam(nameof(PostDto.Lock), o => o.MapFrom(_ => (PostLockDto?)null))
-            .ForCtorParam(nameof(PostDto.CanApprove), o => o.MapFrom(_ => false));
+            .ForCtorParam(nameof(PostDto.CanApprove), o => o.MapFrom(_ => false))
+            .ForCtorParam(nameof(PostDto.Tags), o => o.MapFrom(s => s.Tags.ToList()))
+            // Cele (warianty), nazwę drugiej strony i zbiorczy status grupy ustawia PostService (with).
+            .ForCtorParam(nameof(PostDto.Targets), o => o.MapFrom(_ => new List<PostTargetDto>()))
+            .ForCtorParam(nameof(PostDto.CounterpartName), o => o.MapFrom(_ => (string?)null));
     }
 }

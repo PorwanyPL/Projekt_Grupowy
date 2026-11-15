@@ -29,7 +29,8 @@ void main() {
         MediaInput(storageKey: 'abc.png', fileName: 'a.png', format: MediaFormat.png, sizeKb: 10),
       ],
       videos: const [],
-      targetAccountId: 'acc-1',
+      targetAccountIds: const ['acc-1', 'acc-2'],
+      tags: const ['kawa'],
       scheduledAt: when,
     );
     final json = input.toJson();
@@ -38,11 +39,13 @@ void main() {
     expect(json.containsKey('managerUserIds'), isFalse); // współautorów ustawia serwer
     expect(json['publishNow'], false);
     expect(json['scheduledAt'], when.toUtc().toIso8601String());
-    expect(json['targetAccountId'], 'acc-1');
+    expect(json['targetAccountIds'], ['acc-1', 'acc-2']);
+    expect(json['tags'], ['kawa']);
+    expect(json.containsKey('targetAccountId'), isFalse);
 
     const now = PostInput(
       title: 'T', description: 'D', type: PostType.text, pictures: [], videos: [],
-      targetAccountId: 'acc-1', publishNow: true);
+      targetAccountIds: ['acc-1'], publishNow: true);
     expect(now.toJson()['publishNow'], true);
     expect(now.toJson().containsKey('scheduledAt'), isFalse);
   });

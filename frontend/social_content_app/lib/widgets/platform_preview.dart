@@ -19,6 +19,7 @@ class PlatformPreview extends StatelessWidget {
     required this.imageHeaders,
     this.videoUrl,
     this.videoHeaders = const {},
+    this.lazyVideo = false,
   });
 
   final SocialPlatform platform;
@@ -34,6 +35,9 @@ class PlatformPreview extends StatelessWidget {
   /// (bez niego - statyczny placeholder, np. w testach).
   final String Function(String storageKey)? videoUrl;
   final Map<String, String> videoHeaders;
+
+  /// Odtwarzacz startuje dopiero po kliknięciu (formularz posta - bez natywnego odtwarzacza przy każdej zmianie).
+  final bool lazyVideo;
 
   bool get _hasVideoPlayer => pictures.isEmpty && videos.isNotEmpty && videoUrl != null;
 
@@ -61,6 +65,8 @@ class PlatformPreview extends StatelessWidget {
           format: v.format,
           headers: videoHeaders,
           title: v.fileName,
+          filePath: v.localPath,
+          lazy: lazyVideo,
         )
       : _videoStatic(v);
 

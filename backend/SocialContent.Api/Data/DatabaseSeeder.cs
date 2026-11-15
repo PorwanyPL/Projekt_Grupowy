@@ -6,7 +6,7 @@ using SocialContent.Api.Services;
 namespace SocialContent.Api.Data;
 
 /// <summary>
-/// Dane demonstracyjne do ręcznych testów (firma, managerowie, klient, konta i kilka postów).
+/// Dane demonstracyjne do ręcznych testów (firma, managerowie, klienci, konta i kilka postów, w tym post na dwie platformy z tagami).
 /// Osobna klasa od <see cref="DatabaseInitializer"/>: initializer odpowiada za schemat bazy, seeder za jej zawartość.
 /// Jest idempotentny (nic nie robi, gdy w bazie jest już jakakolwiek firma) i wywoływany tylko w środowisku Development.
 /// Wszystkie konta demo mają hasło <see cref="DemoPassword"/>.
@@ -56,6 +56,29 @@ public static class DatabaseSeeder
             Description.Create("Post zaplanowany na za dwa dni."),
             FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { anna, bartek },
             ScheduledTime.Create(DateTime.UtcNow.AddDays(2)), instagram);
+        scheduled.SetTags(new[] { "premiera", "kawa" });
+
+        // Jeden post na dwie platformy (Facebook + Instagram): dwa warianty ze wspólnym GroupId, widoczne jako jeden wpis.
+        var groupFacebook = Post.Create(Title.Create("Weekend w kawiarni"),
+            Description.Create("Wspólny post na Facebooka i Instagram - zaplanowany za trzy dni."),
+            FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { anna },
+            ScheduledTime.Create(DateTime.UtcNow.AddDays(3)), facebook);
+        var groupInstagram = Post.Create(Title.Create("Weekend w kawiarni"),
+            Description.Create("Wspólny post na Facebooka i Instagram - zaplanowany za trzy dni."),
+            FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { anna, bartek },
+            ScheduledTime.Create(DateTime.UtcNow.AddDays(3)), instagram);
+        groupInstagram.AssignGroup(groupFacebook.GroupId);
+        groupFacebook.SetTags(new[] { "weekend", "kawa" });
+        groupInstagram.SetTags(new[] { "weekend", "kawa" });
+
+        // Opublikowany post (widoczny w kalendarzu i filtrze "Opublikowany").
+        var published = Post.Create(Title.Create("Dziękujemy za wizytę"),
+            Description.Create("Post opublikowany wczoraj."),
+            FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { anna }, null, facebook);
+        published.MarkPublishing();
+        published.MarkPublished(ExternalId.Create("sim-demo-1"), ScheduledTime.Create(DateTime.UtcNow.AddDays(-1)));
+        published.SetTags(new[] { "podziękowania" });
+
         var awaiting = Post.Create(Title.Create("Nowa kolekcja - do akceptacji"),
             Description.Create("Post czeka na akceptację klientki."),
             FacebookPostType.Text, Array.Empty<Picture>(), Array.Empty<Video>(), new[] { bartek }, null, tiktok);
@@ -68,7 +91,7 @@ public static class DatabaseSeeder
             ManagerCredential.Create(bartek, "bartek@demo.pl", hash));
         db.ClientUsers.AddRange(karol, karolina);
         db.SocialAccounts.AddRange(facebook, instagram, tiktok, pending);
-        db.Posts.AddRange(draft, scheduled, awaiting);
+        db.Posts.AddRange(draft, scheduled, groupFacebook, groupInstagram, published, awaiting);
         db.SaveChanges();
 
         logger.LogInformation(

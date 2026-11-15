@@ -12,11 +12,11 @@ import '../widgets/async_body.dart';
 import '../widgets/auto_refresh.dart';
 import '../widgets/confirm_dialog.dart';
 import 'client_accounts_screen.dart';
-import 'client_link_screen.dart';
 
 /// Zakładka "Konta" firmy i managera: najpierw lista klientów (kafelek z nazwą/aliasem nadanym przez firmę),
 /// po kliknięciu - profile tego klienta obsługiwane przez firmę. Manager widzi tylko klientów, których profile
-/// ma przypisane. Firma może dodatkowo powiązać klienta po e-mailu, nadać mu alias i go odpiąć.
+/// ma przypisane. Relacja z klientem powstaje wyłącznie wtedy, gdy firma przyjmie zaproszenie od klienta;
+/// firma może nadać klientowi alias i go odpiąć.
 class ClientListScreen extends StatelessWidget {
   const ClientListScreen({super.key});
 
@@ -98,22 +98,12 @@ class ClientListScreen extends StatelessWidget {
             ...accountMenuActions(context),
           ],
         ),
-        floatingActionButton: isCompany
-            ? FloatingActionButton.extended(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const ClientLinkScreen()),
-                ),
-                icon: const Icon(Icons.person_add),
-                label: const Text('Dodaj klienta'),
-              )
-            : null,
         body: AsyncBody(
           state: provider.state,
           error: provider.error,
           isEmpty: provider.clients.isEmpty,
           emptyText: isCompany
-              ? 'Brak klientów. Dodaj klienta po e-mailu albo poczekaj na zaproszenie do jego profilu.'
+              ? 'Brak klientów. Klient musi zaprosić Twoją firmę do swojego profilu - zaproszenie pojawi się tutaj.'
               : 'Nie jesteś przypisany do żadnego profilu. Poproś administratora firmy.',
           onRetry: provider.loadClients,
           builder: (_) => ListView.separated(

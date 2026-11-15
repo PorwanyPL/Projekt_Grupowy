@@ -71,7 +71,35 @@ class PostLock {
       );
 }
 
-/// Odpowiada PostDto z backendu.
+/// Wariant posta na jednym koncie (PostTargetDto): post na kilka platform to jedna grupa wariantów.
+class PostTarget {
+  const PostTarget({
+    required this.postId,
+    required this.accountName,
+    required this.status,
+    this.accountId,
+    this.platform,
+    this.errorMessage,
+  });
+
+  final String postId;
+  final String? accountId;
+  final String accountName;
+  final SocialPlatform? platform;
+  final PostStatus status;
+  final String? errorMessage;
+
+  factory PostTarget.fromJson(Map<String, dynamic> json) => PostTarget(
+        postId: json['postId'] as String,
+        accountId: json['accountId'] as String?,
+        accountName: (json['accountName'] as String?) ?? '',
+        platform: json['platform'] == null ? null : SocialPlatform.parse(json['platform'] as String),
+        status: PostStatus.parse(json['status'] as String),
+        errorMessage: json['errorMessage'] as String?,
+      );
+}
+
+/// Odpowiada PostDto z backendu. [id] to identyfikator grupy wariantów (jeden logiczny post).
 class Post {
   const Post({
     required this.id,
@@ -91,6 +119,9 @@ class Post {
     this.canDelete = false,
     this.canApprove = false,
     this.lock,
+    this.tags = const [],
+    this.targets = const [],
+    this.counterpartName,
   });
 
   final String id;
@@ -120,6 +151,35 @@ class Post {
 
   /// Aktywna blokada edycji (ktoś właśnie edytuje post).
   final PostLock? lock;
+
+  /// Tagi treści (filtrowanie w kalendarzu i na liście).
+  final List<String> tags;
+
+  /// Warianty posta na poszczególnych kontach/platformach (jedna pozycja na konto).
+  final List<PostTarget> targets;
+
+  /// Klient (dla firmy i managera - alias lub imię i nazwisko) albo firma (dla klienta), której dotyczy post.
+  final String? counterpartName;
+
+  /// Platformy posta bez powtórzeń, w stałej kolejności (ikony na liście i w kalendarzu).
+  List<SocialPlatform> get platforms {
+    final set = <SocialPlatform>{for (final t in targets) if (t.platform != null) t.platform!};
+    return [for (final p in SocialPlatform.values) if (set.contains(p)) p];
+  }
+
+  /// Identyfikatory kont, na których jest post.
+  List<String> get accountIds => [
+        for (final t in targets)
+          if (t.accountId != null) t.accountId!,
+        if (targets.isEmpty && targetAccountId != null) targetAccountId!,
+      ];
+
+  /// Dzień w kalendarzu: publikacja dla opublikowanych, termin dla zaplanowanych, w pozostałych przypadkach
+  /// dzień utworzenia (tak samo liczy serwer przy filtrowaniu po dacie).
+  DateTime get calendarDate {
+    if (status == PostStatus.published && publishedAt != null) return publishedAt!;
+    return scheduledAt ?? createdAt;
+  }
 
   /// Edytuje ktoś inny niż zalogowany użytkownik.
   bool get lockedByOther => lock != null && !lock!.heldByMe;
@@ -154,6 +214,11 @@ class Post {
         lock: json['lock'] == null
             ? null
             : PostLock.fromJson(json['lock'] as Map<String, dynamic>),
+        tags: ((json['tags'] as List<dynamic>?) ?? const []).map((e) => e as String).toList(),
+        targets: ((json['targets'] as List<dynamic>?) ?? const [])
+            .map((e) => PostTarget.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        counterpartName: json['counterpartName'] as String?,
       );
 }
 
@@ -165,12 +230,20 @@ class MediaInput {
     required this.fileName,
     required this.format,
     required this.sizeKb,
+    this.localPath,
   });
 
   final String storageKey;
   final String fileName;
   final MediaFormat format;
   final int sizeKb;
+
+  /// Ścieżka pliku wybranego z dysku (tylko lokalnie, nie trafia do API) - podgląd wideo odtwarza ją od razu,
+  /// bez pobierania świeżo przesłanego pliku z serwera.
+  final String? localPath;
+
+  MediaInput withLocalPath(String? path) =>
+      MediaInput(storageKey: storageKey, fileName: fileName, format: format, sizeKb: sizeKb, localPath: path);
 
   /// Odpowiedź MediaUploadDto z POST /api/Media.
   factory MediaInput.fromUploadJson(Map<String, dynamic> json) => MediaInput(
@@ -192,7 +265,8 @@ class PostInput {
     required this.type,
     required this.pictures,
     required this.videos,
-    required this.targetAccountId,
+    required this.targetAccountIds,
+    this.tags = const [],
     this.publishNow = false,
     this.scheduledAt,
   });
@@ -202,7 +276,11 @@ class PostInput {
   final PostType type;
   final List<MediaInput> pictures;
   final List<MediaInput> videos;
-  final String targetAccountId;
+  /// Konta (platformy), na których ma powstać post - razem tworzą jeden logiczny post.
+  final List<String> targetAccountIds;
+
+  /// Tagi treści (maks. 10, do 30 znaków).
+  final List<String> tags;
 
   /// "Publikuj teraz"; wyklucza [scheduledAt].
   final bool publishNow;
@@ -216,7 +294,8 @@ class PostInput {
         'visibility': type.apiName,
         'pictures': pictures.map((p) => p.toJson()).toList(),
         'videos': videos.map((v) => v.toJson()).toList(),
-        'targetAccountId': targetAccountId,
+        'targetAccountIds': targetAccountIds,
+        'tags': tags,
         'publishNow': publishNow,
         if (scheduledAt != null) 'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
       };

@@ -3,24 +3,26 @@ import 'package:provider/provider.dart';
 
 import '../models/enums.dart';
 import '../models/post.dart';
+import '../models/post_filter.dart';
 import '../providers/load_state.dart';
 import '../providers/post_provider.dart';
-import '../providers/social_account_provider.dart';
-import '../screens/post_form_screen.dart';
 import '../services/api_exception.dart';
 import '../utils/formatters.dart';
 import 'app_messenger.dart';
 import 'async_body.dart';
 import 'auto_refresh.dart';
 import 'confirm_dialog.dart';
-import 'post_preview_dialog.dart';
+import 'platform_icons.dart';
+import 'post_actions.dart';
+import 'post_filter_dialog.dart';
 
 /// Lista postów z danego zakresu: [accountId] (posty konta) i/lub [managerId] (posty managera).
 /// Bez żadnego z nich lista obejmuje wszystko, co API udostępnia roli (firma - posty całej firmy).
 /// Edycję i usuwanie włączają flagi [Post.canEdit] i [Post.canDelete] liczone przez serwer
 /// (firma: wszystkie posty swoich kont - także opublikowane; manager: tylko na kontach, do których nadal jest
 /// przypisany). Posty, których nie można edytować (klient, utrata przypisania), otwierają podgląd tylko do odczytu.
-/// Lista odświeża się po wejściu na ekran, po powrocie z formularza i co minutę (po cichu, bez spinnera).
+/// Filtry (przycisk "Filtry"): status publikacji, zakres dat i platforma; posty na kilka platform to jedna pozycja
+/// z ikonami wszystkich platform. Lista odświeża się po wejściu na ekran, po powrocie z formularza i co minutę (po cichu, bez spinnera).
 class PostsView extends StatefulWidget {
   const PostsView({super.key, this.accountId, this.managerId});
 
@@ -37,7 +39,8 @@ class _PostsViewState extends State<PostsView> {
   LoadState _state = LoadState.idle;
   String? _error;
   List<Post> _items = const [];
-  PostType? _filter;
+  PostType? _type;
+  PostFilter _filter = PostFilter.empty;
 
   /// Chroni przed wielokrotnym otwarciem formularza/komunikatu przy szybkim klikaniu w ten sam post.
   bool _opening = false;
@@ -67,9 +70,10 @@ class _PostsViewState extends State<PostsView> {
     }
     try {
       final items = await _provider.fetch(
-        type: _filter,
+        type: _type,
         accountId: widget.accountId,
         managerId: widget.managerId,
+        filter: _filter,
       );
       if (!mounted) return;
       setState(() {
@@ -100,34 +104,22 @@ class _PostsViewState extends State<PostsView> {
     if (_opening) return;
     _opening = true;
     try {
-      final messenger = context.read<AppMessenger>();
-      if (!p.canEdit) {
-        await showDialog<void>(
-          context: context,
-          builder: (ctx) => PostPreviewDialog(post: p),
-        );
-        return;
-      }
-      if (p.lockedByOther) {
-        // Jeden komunikat, także przy wielokrotnym kliknięciu (AppMessenger scala identyczne).
-        messenger.show('Ten post jest właśnie edytowany przez: ${p.lock!.holderName}. '
-            'Spróbuj ponownie za chwilę.');
-        return;
-      }
-      final accounts = context.read<SocialAccountProvider>().items;
-      final account = accounts.where((a) => a.id == p.targetAccountId).firstOrNull;
-      if (account == null) {
-        messenger.show('Nie znaleziono konta tego posta - odśwież listę kont.');
-        return;
-      }
-      await Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => PostFormScreen(account: account, post: p)),
-      );
-      if (mounted) _load(silent: true); // zmiana statusu/blokady bez zapisu też ma być widoczna
+      final changed = await openPost(context, p);
+      if (changed && mounted) _load(silent: true); // zmiana statusu/blokady bez zapisu też ma być widoczna
     } finally {
       _opening = false;
     }
+  }
+
+  Future<void> _editFilters() async {
+    final result = await showPostFilterDialog(
+      context,
+      initial: _filter,
+      showDates: true,
+    );
+    if (result == null || !mounted) return;
+    _filter = result;
+    _load();
   }
 
   @override
@@ -142,6 +134,19 @@ class _PostsViewState extends State<PostsView> {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 12),
             children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                child: Badge(
+                  isLabelVisible: !_filter.isEmpty,
+                  label: Text('${_filter.activeCount}'),
+                  child: OutlinedButton.icon(
+                    key: const Key('posts-filters'),
+                    onPressed: _editFilters,
+                    icon: const Icon(Icons.filter_list, size: 18),
+                    label: const Text('Filtry'),
+                  ),
+                ),
+              ),
               _chip(null, 'Wszystkie'),
               for (final t in PostType.values) _chip(t, t.label),
             ],
@@ -152,7 +157,7 @@ class _PostsViewState extends State<PostsView> {
             state: _state,
             error: _error,
             isEmpty: _items.isEmpty,
-            emptyText: 'Brak postów.',
+            emptyText: _filter.isEmpty ? 'Brak postów.' : 'Brak postów spełniających filtry.',
             onRetry: _load,
             builder: (_) => ListView.builder(
               padding: const EdgeInsets.fromLTRB(12, 4, 12, 96),
@@ -173,9 +178,9 @@ class _PostsViewState extends State<PostsView> {
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
         child: ChoiceChip(
           label: Text(label),
-          selected: _filter == type,
+          selected: _type == type,
           onSelected: (_) {
-            _filter = type;
+            _type = type;
             _load();
           },
         ),
@@ -223,6 +228,8 @@ class _PostCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
+                  if (post.platforms.isNotEmpty) PlatformBadges(platforms: post.platforms),
+                  const SizedBox(width: 8),
                   _StatusChip(status: post.status),
                   if (onDelete != null)
                     IconButton(
@@ -232,6 +239,8 @@ class _PostCard extends StatelessWidget {
                     ),
                 ],
               ),
+              if (post.counterpartName != null && post.counterpartName!.isNotEmpty)
+                Text(post.counterpartName!, style: theme.textTheme.bodySmall),
               Text(post.description, maxLines: 3, overflow: TextOverflow.ellipsis),
               const SizedBox(height: 12),
               Wrap(
@@ -242,6 +251,8 @@ class _PostCard extends StatelessWidget {
                     label: Text(post.visibility.label),
                     visualDensity: VisualDensity.compact,
                   ),
+                  for (final t in post.tags)
+                    Chip(label: Text('#$t'), visualDensity: VisualDensity.compact),
                   if (post.pictures.isNotEmpty)
                     Chip(
                       avatar: const Icon(Icons.image, size: 16),

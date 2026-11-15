@@ -16,12 +16,6 @@ class ClientService {
         .toList();
   }
 
-  /// CompanyUser: powiązanie klienta (zarejestrowanego wcześniej) po adresie e-mail.
-  Future<ClientUser> link(String email) async {
-    final json = await _api.post('/api/ClientUsers', {'email': email});
-    return ClientUser.fromJson(json as Map<String, dynamic>);
-  }
-
   Future<void> unlink(String clientId) => _api.delete('/api/ClientUsers/$clientId');
 
   /// ClientUser: firmy, z którymi klient jest powiązany.

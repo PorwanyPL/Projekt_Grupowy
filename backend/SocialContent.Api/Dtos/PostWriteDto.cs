@@ -20,10 +20,16 @@ public class PostWriteDto
     /// <summary>true = opublikuj od razu po zapisie. Wykluczone z scheduledAt. Wynik widać w polu status (Published albo Failed).</summary>
     public bool PublishNow { get; set; }
 
-    /// <summary>Konto docelowe (SocialAccount) - wymagane; manager musi być do niego przypisany, a dla posta platformy konto musi być na tej samej platformie.</summary>
+    /// <summary>Konto docelowe (SocialAccount); manager musi być do niego przypisany. Dla jednego konta; przy wielu kontach użyj <see cref="TargetAccountIds"/> (można podać oba pola - listy są łączone).</summary>
     public Guid? TargetAccountId { get; set; }
 
-    /// <summary>Wypełnij dokładnie jeden z bloków platformy, aby utworzyć post tej platformy; żaden = post ogólny.</summary>
+    /// <summary>Konta docelowe: jeden post przeznaczony na kilka platform (wspólna grupa wariantów). Wymagane jest co najmniej jedno konto (tu albo w targetAccountId).</summary>
+    public List<Guid> TargetAccountIds { get; set; } = new();
+
+    /// <summary>Tagi treści (maks. 10, każdy do 30 znaków) - służą do filtrowania postów.</summary>
+    public List<string> Tags { get; set; } = new();
+
+    /// <summary>Bloki platform: dla jednego konta wypełnij dokładnie jeden blok (post tej platformy) albo żaden (post ogólny). Przy wielu kontach blok dotyczy kont tej platformy, a pozostałe konta dostają posty ogólne.</summary>
     public FacebookPostDetailsDto? Facebook { get; set; }
     public InstagramPostDetailsDto? Instagram { get; set; }
     public TikTokPostDetailsDto? TikTok { get; set; }

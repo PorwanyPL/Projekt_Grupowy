@@ -92,6 +92,9 @@ enum PostStatus {
   awaitingApproval,
   rejected;
 
+  /// Nazwa zgodna z backendem (np. "AwaitingApproval") - parametr filtra `status`.
+  String get apiName => name[0].toUpperCase() + name.substring(1);
+
   String get label {
     switch (this) {
       case PostStatus.draft:

@@ -6,7 +6,7 @@ using SocialContent.Api.Services;
 
 namespace SocialContent.Api.Controllers;
 
-/// <summary>Relacja firma - klient (n - m). Firma i jej managerowie widzą klientów (z pseudonimami nadanymi przez firmę), klient widzi swoje firmy i wybiera tryb akceptacji postów.</summary>
+/// <summary>Relacja firma - klient (n - m). Powstaje tylko po przyjęciu zaproszenia klienta (firmy nie dodają klientów same). Firma i jej managerowie widzą klientów (z pseudonimami nadanymi przez firmę), klient widzi swoje firmy i wybiera tryb akceptacji postów.</summary>
 [ApiController]
 [Route("api/[controller]")]
 [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
@@ -29,27 +29,6 @@ public class ClientUsersController(IClientUserService service) : ControllerBase
         return Ok(user.IsCompany
             ? await service.GetForCompanyAsync(user.Id, ct)
             : await service.GetForManagerAsync(user.Id, ct));
-    }
-
-    /// <summary>Powiąż klienta z firmą</summary>
-    /// <remarks>Dodaje do firmy klienta, który wcześniej sam się zarejestrował (POST /api/Auth/register-client). Klienta wskazuje się adresem e-mail użytym przy rejestracji. Klient może być powiązany z wieloma firmami, a firma z wieloma klientami.</remarks>
-    /// <param name="dto">Adres e-mail klienta.</param>
-    /// <response code="201">Klient został powiązany z firmą.</response>
-    /// <response code="400">Błędny adres e-mail.</response>
-    /// <response code="401">Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.</response>
-    /// <response code="403">Zalogowany użytkownik nie ma roli CompanyUser.</response>
-    /// <response code="404">Nie ma zarejestrowanego klienta o takim adresie e-mail.</response>
-    /// <response code="409">Klient jest już powiązany z tą firmą.</response>
-    [HttpPost]
-    [Authorize(Roles = Roles.Company)]
-    [ProducesResponseType<ClientUserDto>(StatusCodes.Status201Created)]
-    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
-    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
-    public async Task<ActionResult<ClientUserDto>> Link(LinkClientDto dto, CancellationToken ct)
-    {
-        var client = await service.LinkAsync(User.ToCurrentUser().Id, dto, ct);
-        return StatusCode(StatusCodes.Status201Created, client);
     }
 
     /// <summary>Odepnij klienta od firmy</summary>

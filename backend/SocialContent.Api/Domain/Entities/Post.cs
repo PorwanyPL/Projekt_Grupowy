@@ -10,6 +10,13 @@ namespace SocialContent.Api.Domain.Entities;
 public class Post
 {
     public Guid Id { get; private set; }
+
+    /// <summary>
+    /// Identyfikator logicznego posta. Post przeznaczony na kilka platform to kilka wierszy Post (po jednym na konto),
+    /// które mają wspólny GroupId; dla zwykłego posta GroupId == Id. W API i w blokadach edycji "id posta" to GroupId.
+    /// </summary>
+    public Guid GroupId { get; private set; }
+
     public Title Title { get; private set; } = null!;
     public CreatedAt CreatedAt { get; private set; } = null!;
     public Description Description { get; private set; } = null!;
@@ -23,6 +30,12 @@ public class Post
     /// <summary>Konto docelowe publikacji (SocialAccount 1 - n Post; opcjonalne, bo szkic może go jeszcze nie mieć).</summary>
     public Guid? TargetAccountId { get; private set; }
     public SocialAccount? TargetAccount { get; private set; }
+
+    /// <summary>Tagi treści zapisane w jednej kolumnie (jeden tag w wierszu); używaj <see cref="Tags"/> i <see cref="SetTags"/>.</summary>
+    public string TagsText { get; private set; } = "";
+
+    public IReadOnlyList<string> Tags =>
+        TagsText.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
     public List<FileType> Files { get; private set; } = new();
     public List<ManagerUser> ManagerUsers { get; private set; } = new();
@@ -105,9 +118,40 @@ public class Post
         Status = PostStatus.Rejected;
     }
 
+    /// <summary>Dołącza ten wariant do grupy innego posta (post na wiele platform).</summary>
+    public void AssignGroup(Guid groupId)
+    {
+        if (groupId == Guid.Empty) throw new DomainValidationException("Identyfikator grupy posta jest nieprawidłowy.");
+        GroupId = groupId;
+    }
+
+    public const int MaxTags = 10;
+    public const int MaxTagLength = 30;
+
+    /// <summary>Ustawia tagi treści: przycina spacje, usuwa puste i powtórzone (bez względu na wielkość liter).</summary>
+    public void SetTags(IEnumerable<string>? tags)
+    {
+        var list = (tags ?? Enumerable.Empty<string>())
+            .Select(t => (t ?? "").Trim().TrimStart('#').Trim())
+            .Where(t => t.Length > 0)
+            .DistinctBy(t => t.ToLowerInvariant())
+            .ToList();
+        if (list.Count > MaxTags)
+            throw new DomainValidationException($"Post może mieć maksymalnie {MaxTags} tagów.");
+        foreach (var t in list)
+        {
+            if (t.Length > MaxTagLength)
+                throw new DomainValidationException($"Tag może mieć maksymalnie {MaxTagLength} znaków.");
+            if (t.Any(char.IsControl))
+                throw new DomainValidationException("Tag nie może zawierać znaków sterujących ani nowych linii.");
+        }
+        TagsText = string.Join('\n', list);
+    }
+
     protected void InitNew()
     {
         Id = Guid.NewGuid();
+        GroupId = Id;
         CreatedAt = CreatedAt.Create(DateTime.UtcNow);
     }
 

@@ -22,7 +22,6 @@ public interface IClientUserService
     /// <summary>Klienci, do których kont przypisano managera (bez adresów e-mail).</summary>
     Task<List<ClientUserDto>> GetForManagerAsync(Guid managerId, CancellationToken ct);
 
-    Task<ClientUserDto> LinkAsync(Guid companyId, LinkClientDto dto, CancellationToken ct);
     Task UnlinkAsync(Guid companyId, Guid clientId, CancellationToken ct);
     Task<ClientUserDto> SetAliasAsync(Guid companyId, Guid clientId, ClientAliasDto dto, CancellationToken ct);
 
@@ -66,21 +65,6 @@ public class ClientUserService(AppDbContext db, IMapper mapper) : IClientUserSer
             .Select(c => ToDto(c, aliases.GetValueOrDefault(c.Id), 0) with { Email = "" })
             .OrderBy(c => c.DisplayName, StringComparer.CurrentCultureIgnoreCase)
             .ToList();
-    }
-
-    public async Task<ClientUserDto> LinkAsync(Guid companyId, LinkClientDto dto, CancellationToken ct)
-    {
-        var email = Validate.NormalizeEmail(dto.Email);
-        Validate.Email(email);
-
-        var client = await db.ClientUsers.FirstOrDefaultAsync(c => c.Email == email, ct)
-                     ?? throw new NotFoundException(
-                         "Nie znaleziono klienta o tym adresie e-mail. Klient musi najpierw sam się zarejestrować.");
-
-        var company = await LoadCompany(companyId, ct);
-        company.AddClient(client); // ConflictException, gdy klient jest już powiązany z firmą
-        await db.SaveChangesAsync(ct);
-        return ToDto(client, null, 0);
     }
 
     public async Task UnlinkAsync(Guid companyId, Guid clientId, CancellationToken ct)

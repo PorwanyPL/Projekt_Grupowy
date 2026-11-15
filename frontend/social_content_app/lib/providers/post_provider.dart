@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import '../models/enums.dart';
 import '../models/post.dart';
+import '../models/post_filter.dart';
 import '../services/post_service.dart';
 
 /// Posty nie mają jednej globalnej listy: każdy widok (konto, manager, firma) pobiera własny
@@ -11,9 +12,27 @@ class PostProvider extends ChangeNotifier {
 
   final PostService _service;
 
-  /// Rzuca [ApiException].
-  Future<List<Post>> fetch({PostType? type, String? accountId, String? managerId}) =>
-      _service.getAll(type: type, accountId: accountId, managerId: managerId);
+  /// Tagi widziane w pobranych postach - podpowiedzi w filtrach i formularzu (kalendarz zasila je przy każdym ładowaniu).
+  final Set<String> knownTags = {};
+
+  /// Rzuca [ApiException]. [filter] może zawierać także typ, konto i managera (zob. [PostFilter]).
+  Future<List<Post>> fetch({
+    PostType? type,
+    String? accountId,
+    String? managerId,
+    PostFilter filter = PostFilter.empty,
+  }) async {
+    final merged = filter.copyWith(
+      type: type,
+      accountId: accountId,
+      managerId: managerId,
+    );
+    final posts = await _service.getAll(merged);
+    for (final p in posts) {
+      knownTags.addAll(p.tags);
+    }
+    return posts;
+  }
 
   /// Poniższe metody rzucają [ApiException] - formularz pokazuje komunikat.
   Future<Post> create(PostInput input) async {

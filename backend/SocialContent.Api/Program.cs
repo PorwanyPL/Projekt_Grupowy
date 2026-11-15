@@ -139,7 +139,7 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     DatabaseInitializer.Initialize(db, app.Logger);
-    // Dane demo tylko lokalnie (dotnet run domyślnie działa jako Development).
+    // Dane demo tylko lokalnie: środowisko Development ustawia Properties/launchSettings.json (dotnet run).
     if (app.Environment.IsDevelopment())
         DatabaseSeeder.Seed(db, scope.ServiceProvider.GetRequiredService<IPasswordHasher>(), app.Logger);
 }

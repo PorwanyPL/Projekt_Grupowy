@@ -137,9 +137,14 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.ExternalPostId).HasConversion(v => v!.Value, s => ExternalId.Create(s)).HasMaxLength(100);
             e.Property(x => x.ErrorMessage).HasMaxLength(1000);
 
+            e.Property(x => x.GroupId).IsRequired();
+            e.HasIndex(x => x.GroupId);
+            e.Property(x => x.TagsText).IsRequired();
+
             e.Ignore(x => x.Pictures);
             e.Ignore(x => x.Videos);
             e.Ignore(x => x.Platform);
+            e.Ignore(x => x.Tags);
 
             e.HasMany(x => x.Files).WithOne().HasForeignKey(f => f.PostId).IsRequired().OnDelete(DeleteBehavior.Cascade);
             e.HasMany(x => x.ManagerUsers).WithMany(m => m.Posts);

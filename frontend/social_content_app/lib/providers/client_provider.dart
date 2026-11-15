@@ -45,11 +45,6 @@ class ClientProvider extends ChangeNotifier {
   }
 
   /// Rzucają [ApiException] - formularz pokazuje komunikat.
-  Future<void> link(String email) async {
-    await _service.link(email);
-    await loadClients();
-  }
-
   Future<void> unlink(String clientId) async {
     await _service.unlink(clientId);
     await loadClients();

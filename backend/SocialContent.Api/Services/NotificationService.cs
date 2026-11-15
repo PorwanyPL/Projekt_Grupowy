@@ -30,19 +30,27 @@ public interface INotificationService
 
 public class NotificationService(AppDbContext db, IMapper mapper) : INotificationService
 {
+    /// <summary>Post na wiele platform to kilka wierszy z jednym GroupId, więc identyczne powiadomienie dla tej samej osoby dodajemy raz.</summary>
+    private void AddOnce(Notification n)
+    {
+        var exists = db.Notifications.Local.Any(x => x.RecipientId == n.RecipientId && x.RecipientRole == n.RecipientRole
+                                                      && x.PostId == n.PostId && x.Message == n.Message);
+        if (!exists) db.Notifications.Add(n);
+    }
+
     public void AddPublishFailed(Post post, string error)
     {
         var message = $"Publikacja posta \"{post.Title.Value}\" nie powiodła się: {error}";
 
         if (post.TargetAccount is not null)
-            db.Notifications.Add(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.Id, message));
+            AddOnce(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.GroupId, message));
 
         foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
-            db.Notifications.Add(Notification.Create(manager.Id, UserRole.ManagerUser, post.Id, message));
+            AddOnce(Notification.Create(manager.Id, UserRole.ManagerUser, post.GroupId, message));
     }
 
     public void AddApprovalRequested(Post post, Guid clientId) =>
-        db.Notifications.Add(Notification.Create(clientId, UserRole.ClientUser, post.Id,
+        AddOnce(Notification.Create(clientId, UserRole.ClientUser, post.GroupId,
             $"Post \"{post.Title.Value}\" czeka na Twoją akceptację."));
 
     public void AddApprovalDecision(Post post, bool approved)
@@ -52,9 +60,9 @@ public class NotificationService(AppDbContext db, IMapper mapper) : INotificatio
             : $"Klient odrzucił post \"{post.Title.Value}\". Popraw go i wyślij ponownie.";
 
         if (post.TargetAccount is not null)
-            db.Notifications.Add(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.Id, message));
+            AddOnce(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.GroupId, message));
         foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
-            db.Notifications.Add(Notification.Create(manager.Id, UserRole.ManagerUser, post.Id, message));
+            AddOnce(Notification.Create(manager.Id, UserRole.ManagerUser, post.GroupId, message));
     }
 
     public async Task<List<NotificationDto>> GetAsync(CurrentUser user, CancellationToken ct)

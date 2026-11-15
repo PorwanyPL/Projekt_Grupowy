@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:social_content_app/models/auth.dart';
 import 'package:social_content_app/models/manager_user.dart';
+import 'package:social_content_app/models/post_filter.dart';
 import 'package:social_content_app/providers/client_provider.dart';
 import 'package:social_content_app/services/api_client.dart';
 import 'package:social_content_app/services/api_exception.dart';
@@ -142,7 +143,7 @@ void main() {
         }),
       );
 
-      await PostService(api).getAll(accountId: 'a1', managerId: 'm1');
+      await PostService(api).getAll(const PostFilter(accountId: 'a1', managerId: 'm1'));
 
       expect(uri.path, '/api/Posts');
       expect(uri.queryParameters, {'accountId': 'a1', 'managerId': 'm1'});
@@ -244,29 +245,21 @@ void main() {
   });
 
   group('klienci', () {
-    test('powiązanie i odpięcie klienta odświeżają listę firmy', () async {
+    test('odpięcie klienta odświeża listę firmy (powiązanie przez firmę nie istnieje - tylko zaproszenie klienta)', () async {
       final calls = <String>[];
       final api = ApiClient(
         baseUrl: 'http://test',
         client: MockClient((req) async {
           calls.add('${req.method} ${req.url.path}');
-          if (req.method == 'POST') {
-            return _json({
-              'id': 'c1', 'firstName': 'K', 'lastName': 'L', 'age': 30, 'description': 'd', 'email': 'k@b.pl'
-            }, 201);
-          }
           if (req.method == 'DELETE') return http.Response('', 204);
           return _json([]);
         }),
       );
       final provider = ClientProvider(ClientService(api));
 
-      await provider.link('k@b.pl');
       await provider.unlink('c1');
 
       expect(calls, [
-        'POST /api/ClientUsers',
-        'GET /api/ClientUsers',
         'DELETE /api/ClientUsers/c1',
         'GET /api/ClientUsers',
       ]);

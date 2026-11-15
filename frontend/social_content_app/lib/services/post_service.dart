@@ -1,5 +1,6 @@
 import '../models/enums.dart';
 import '../models/post.dart';
+import '../models/post_filter.dart';
 import 'api_client.dart';
 
 class PostService {
@@ -7,18 +8,10 @@ class PostService {
 
   final ApiClient _api;
 
-  /// [accountId] - posty jednego konta; [managerId] - posty jednego managera
-  /// (manager może podać tylko własny id, firma - dowolnego managera swojej firmy).
-  Future<List<Post>> getAll({
-    PostType? type,
-    String? accountId,
-    String? managerId,
-  }) async {
-    final query = {
-      if (type != null) 'type': type.apiName,
-      if (accountId != null) 'accountId': accountId,
-      if (managerId != null) 'managerId': managerId,
-    };
+  /// Posty widoczne dla roli, przefiltrowane przez [filter]. Post na kilka platform to jedna pozycja
+  /// (pole [Post.targets] zawiera jego warianty). Pusty filtr = wszystko, co API udostępnia roli.
+  Future<List<Post>> getAll([PostFilter filter = PostFilter.empty]) async {
+    final query = filter.toQuery();
     final json = await _api.get(
       '/api/Posts',
       query: query.isEmpty ? null : query,

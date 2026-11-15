@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -6,6 +9,12 @@ import '../models/enums.dart';
 /// Odtwarzacz wideo i audio (mp4, mp3, flac) dla podglądu posta: play/pauza, pasek postępu i przewijanie.
 /// Plik jest strumieniowany z GET /api/Media (serwer obsługuje zakresy bajtów, więc przewijanie działa).
 /// Na Windows odtwarzanie zapewnia pakiet video_player_win (rejestruje się sam po dodaniu do pubspec).
+///
+/// Inicjalizacja jest zabezpieczona przed "wiecznym spinnerem": ma limit czasu [initTimeout], po którym pokazuje błąd
+/// z przyciskiem ponowienia; porzucony (zdjęty z drzewa lub podmieniony) kontroler jest zwalniany, a jego spóźniony wynik
+/// ignorowany. Gdy podano [filePath] (plik świeżo wybrany z dysku), podgląd odtwarza go lokalnie - bez pobierania z serwera -
+/// a dopiero przy błędzie próbuje adresu [url]. Przy [lazy] odtwarzacz startuje dopiero po kliknięciu (formularz posta:
+/// natywny odtwarzacz nie jest tworzony przy każdym otwarciu formularza ani po każdej zmianie pola).
 class MediaPlayer extends StatefulWidget {
   const MediaPlayer({
     super.key,
@@ -13,12 +22,20 @@ class MediaPlayer extends StatefulWidget {
     required this.format,
     this.headers = const {},
     this.title,
+    this.filePath,
+    this.lazy = false,
+    this.initTimeout = const Duration(seconds: 15),
   });
 
   final String url;
   final MediaFormat format;
   final Map<String, String> headers;
   final String? title;
+
+  /// Lokalna ścieżka pliku (null = tylko adres sieciowy).
+  final String? filePath;
+  final bool lazy;
+  final Duration initTimeout;
 
   bool get isAudio => format == MediaFormat.mp3 || format == MediaFormat.flac;
 
@@ -29,41 +46,86 @@ class MediaPlayer extends StatefulWidget {
 class _MediaPlayerState extends State<MediaPlayer> {
   VideoPlayerController? _controller;
   Object? _error;
+  bool _started = false;
+
+  /// Numer próby inicjalizacji; wynik starszej próby jest odrzucany.
+  int _generation = 0;
 
   @override
   void initState() {
     super.initState();
-    _init();
+    if (!widget.lazy) _start();
   }
 
   @override
   void didUpdateWidget(MediaPlayer old) {
     super.didUpdateWidget(old);
-    if (old.url != widget.url) {
-      _controller?.dispose();
-      _controller = null;
+    if (old.url != widget.url || old.filePath != widget.filePath) {
+      _release();
       _error = null;
-      _init();
+      _started = false;
+      if (!widget.lazy) _start();
     }
   }
 
-  Future<void> _init() async {
-    final controller = VideoPlayerController.networkUrl(
-      Uri.parse(widget.url),
-      httpHeaders: widget.headers,
-    );
-    _controller = controller;
-    try {
-      await controller.initialize();
-      await controller.setLooping(false);
-      if (mounted) setState(() {});
-    } catch (e) {
-      if (mounted) setState(() => _error = e);
+  void _release() {
+    _generation++;
+    final old = _controller;
+    _controller = null;
+    old?.dispose();
+  }
+
+  VideoPlayerController _networkController() => VideoPlayerController.networkUrl(
+        Uri.parse(widget.url),
+        httpHeaders: widget.headers,
+      );
+
+  Future<void> _start() async {
+    final generation = ++_generation;
+    setState(() {
+      _started = true;
+      _error = null;
+    });
+
+    final path = widget.filePath;
+    final candidates = <VideoPlayerController Function()>[
+      if (path != null && path.isNotEmpty && File(path).existsSync()) () => VideoPlayerController.file(File(path)),
+      _networkController,
+    ];
+
+    Object? lastError;
+    for (final create in candidates) {
+      final controller = create();
+      _controller = controller;
+      try {
+        await controller.initialize().timeout(
+              widget.initTimeout,
+              onTimeout: () => throw TimeoutException(
+                  'Odtwarzacz nie odpowiedział w ciągu ${widget.initTimeout.inSeconds} s.'),
+            );
+        await controller.setLooping(false);
+        if (!mounted || generation != _generation) {
+          await controller.dispose();
+          return;
+        }
+        setState(() {});
+        return;
+      } catch (e) {
+        lastError = e;
+        if (!mounted || generation != _generation) {
+          await controller.dispose();
+          return;
+        }
+        await controller.dispose();
+        if (identical(_controller, controller)) _controller = null;
+      }
     }
+    if (mounted && generation == _generation) setState(() => _error = lastError ?? 'Nieznany błąd');
   }
 
   @override
   void dispose() {
+    _generation++;
     _controller?.dispose();
     super.dispose();
   }
@@ -83,10 +145,46 @@ class _MediaPlayerState extends State<MediaPlayer> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(12),
-            child: Text(
-              'Nie można odtworzyć pliku${widget.title == null ? '' : ' ${widget.title}'}.',
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white70),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Nie można odtworzyć pliku${widget.title == null ? '' : ' ${widget.title}'}.',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white70),
+                ),
+                const SizedBox(height: 8),
+                TextButton.icon(
+                  key: const Key('media-retry'),
+                  onPressed: _start,
+                  icon: const Icon(Icons.refresh, color: Colors.white),
+                  label: const Text('Spróbuj ponownie', style: TextStyle(color: Colors.white)),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    if (!_started) {
+      return ColoredBox(
+        color: Colors.black87,
+        child: InkWell(
+          key: const Key('media-load'),
+          onTap: _start,
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(widget.isAudio ? Icons.audiotrack : Icons.play_circle_outline,
+                    color: Colors.white, size: 56),
+                if (widget.title != null)
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(widget.title!,
+                        style: const TextStyle(color: Colors.white70), overflow: TextOverflow.ellipsis),
+                  ),
+              ],
             ),
           ),
         ),

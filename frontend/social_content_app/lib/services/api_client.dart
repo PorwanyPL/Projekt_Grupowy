@@ -43,10 +43,10 @@ class ApiClient {
   String playbackUrl(String storageKey) =>
       _token == null ? mediaUrl(storageKey) : '${mediaUrl(storageKey)}?access_token=${Uri.encodeQueryComponent(_token!)}';
 
-  Uri _uri(String path, [Map<String, String>? query]) =>
+  Uri _uri(String path, [Map<String, dynamic>? query]) =>
       Uri.parse('$_baseUrl$path').replace(queryParameters: query);
 
-  Future<dynamic> get(String path, {Map<String, String>? query}) =>
+  Future<dynamic> get(String path, {Map<String, dynamic>? query}) =>
       _send(() => _client.get(_uri(path, query), headers: _headers));
 
   Future<dynamic> post(String path, [Object? body]) => _send(() => _client.post(

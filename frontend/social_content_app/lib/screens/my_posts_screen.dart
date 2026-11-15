@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/social_account.dart';
 import '../providers/auth_provider.dart';
-import '../providers/social_account_provider.dart';
 import 'post_form_screen.dart';
 import '../widgets/account_menu.dart';
-import '../widgets/app_messenger.dart';
 import '../widgets/posts_view.dart';
 
 /// Manager: jego posty (jako autora lub współautora). Edycja i usuwanie tylko na kontach, do których nadal jest
@@ -26,40 +23,15 @@ class MyPostsScreen extends StatelessWidget {
   }
 }
 
-/// Firma (widok admina): wszystkie posty jej kont oraz tworzenie nowych na KAŻDYM koncie firmy,
-/// niezależnie od przypisanych managerów - tym samym formularzem co manager.
+/// Firma (widok admina): lista wszystkich postów jej kont z filtrami oraz tworzenie nowych - formularz sam pozwala
+/// wybrać klienta i platformy (dowolne profile firmy, niezależnie od przypisanych managerów).
 class CompanyPostsScreen extends StatelessWidget {
   const CompanyPostsScreen({super.key});
 
-  Future<void> _newPost(BuildContext context) async {
-    // Firma tworzy posty tylko na profilach, których zaproszenie przyjęła.
-    final accounts = context.read<SocialAccountProvider>().items.where((a) => a.isAccepted).toList();
-    if (accounts.isEmpty) {
-      context.read<AppMessenger>().show('Brak profili do obsługi - przyjmij zaproszenie klienta w zakładce Konta.');
-      return;
-    }
-    final account = await showModalBottomSheet<SocialAccount>(
-      context: context,
-      builder: (ctx) => SafeArea(
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            const ListTile(title: Text('Na którym koncie utworzyć post?')),
-            for (final a in accounts)
-              ListTile(
-                leading: const Icon(Icons.share),
-                title: Text(a.accountName),
-                subtitle: Text(a.platform.label),
-                onTap: () => Navigator.pop(ctx, a),
-              ),
-          ],
-        ),
-      ),
-    );
-    if (account == null || !context.mounted) return;
-    await Navigator.push(
-        context, MaterialPageRoute(builder: (_) => PostFormScreen(account: account)));
-  }
+  Future<void> _newPost(BuildContext context) => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const PostFormScreen()),
+      );
 
   @override
   Widget build(BuildContext context) {

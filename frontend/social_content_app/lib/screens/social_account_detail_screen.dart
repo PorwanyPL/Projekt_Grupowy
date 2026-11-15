@@ -69,7 +69,7 @@ class SocialAccountDetailScreen extends StatelessWidget {
           ? FloatingActionButton.extended(
               onPressed: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => PostFormScreen(account: account)),
+                MaterialPageRoute(builder: (_) => PostFormScreen(initialAccountIds: [account.id])),
               ),
               icon: const Icon(Icons.add),
               label: const Text('Nowy post'),

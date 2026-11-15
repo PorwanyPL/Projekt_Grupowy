@@ -8,7 +8,7 @@ using SocialContent.Api.Dtos;
 namespace SocialContent.Api.Services;
 
 /// <summary>
-/// Blokada edycji posta: jedna osoba naraz. Blokada ma czas życia (<see cref="PostEditLockService.Ttl"/>); edytor odnawia ją
+/// Blokada edycji posta (logicznego - klucz to GroupId): jedna osoba naraz. Blokada ma czas życia (<see cref="PostEditLockService.Ttl"/>); edytor odnawia ją
 /// co jakiś czas, a zamknięcie formularza ją zwalnia. Porzucona sesja wygasa sama, więc nikt nie zostaje zablokowany na stałe.
 /// Serwer wymusza blokadę przy zapisie i usuwaniu posta (PostService), nie tylko w widoku.
 /// </summary>
@@ -27,13 +27,14 @@ public class PostEditLockService(AppDbContext db, IMapper mapper) : IPostEditLoc
 
     public async Task<PostLockDto> AcquireAsync(CurrentUser user, Guid postId, CancellationToken ct)
     {
-        var post = await db.Posts.Include(p => p.ManagerUsers)
-                       .Include(p => p.TargetAccount!).ThenInclude(a => a.ManagerUsers)
-                       .FirstOrDefaultAsync(p => p.Id == postId, ct)
-                   ?? throw new NotFoundException($"Nie znaleziono posta o id {postId}.");
-        if (!PostPermissions.CanView(user, post))
+        // Blokada dotyczy logicznego posta (GroupId); post na wiele platform ma jedną blokadę dla wszystkich wariantów.
+        var variants = await db.Posts.Include(p => p.ManagerUsers)
+            .Include(p => p.TargetAccount!).ThenInclude(a => a.ManagerUsers)
+            .Where(p => p.GroupId == postId).ToListAsync(ct);
+        var viewable = variants.Where(p => PostPermissions.CanView(user, p)).ToList();
+        if (viewable.Count == 0)
             throw new NotFoundException($"Nie znaleziono posta o id {postId}.");
-        if (!PostPermissions.CanModify(user, post))
+        if (viewable.Any(p => !PostPermissions.CanModify(user, p)))
             throw new ForbiddenException("Nie masz uprawnień do edycji tego posta.");
 
         var now = DateTime.UtcNow;

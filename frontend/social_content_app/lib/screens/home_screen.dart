@@ -6,6 +6,7 @@ import '../providers/auth_provider.dart';
 import '../providers/client_provider.dart';
 import '../providers/manager_provider.dart';
 import '../providers/social_account_provider.dart';
+import 'calendar_screen.dart';
 import 'client_list_screen.dart';
 import '../widgets/auto_refresh.dart';
 import 'company_list_screen.dart';
@@ -23,9 +24,9 @@ class _Tab {
 }
 
 /// Ekran główny: zestaw zakładek zależy od roli zalogowanego użytkownika.
-///  - CompanyUser: Konta (lista klientów -> ich profile), Posty, Managerowie
-///  - ManagerUser: Konta (klienci z przypisanymi profilami), Moje posty
-///  - ClientUser: Moje profile, Firmy
+///  - CompanyUser: Konta (lista klientów -> ich profile), Kalendarz, Posty (lista z filtrami), Managerowie
+///  - ManagerUser: Konta (klienci z przypisanymi profilami), Kalendarz, Moje posty
+///  - ClientUser: Moje profile, Kalendarz (tylko podgląd i akceptacja), Firmy
 /// Każda zakładka ma własny Navigator, więc dolne menu jest widoczne na każdym ekranie, a górne (profil,
 /// powiadomienia, wylogowanie - widgets/account_menu.dart) jest w AppBarze każdego ekranu.
 class HomeScreen extends StatefulWidget {
@@ -38,14 +39,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _index = 0;
 
-  /// Osobny Navigator dla każdej zakładki (maks. 3), żeby ekrany szczegółowe otwierały się
+  /// Osobny Navigator dla każdej zakładki (maks. 4), żeby ekrany szczegółowe otwierały się
   /// pod dolnym menu, a nie na całym ekranie.
   final List<GlobalKey<NavigatorState>> _navKeys =
-      List.generate(3, (_) => GlobalKey<NavigatorState>());
+      List.generate(4, (_) => GlobalKey<NavigatorState>());
 
   /// Każdy Navigator ma własnego obserwatora tras (współdzielony powodował błąd asercji w Flutterze).
   final List<RouteObserver<ModalRoute<void>>> _observers =
-      List.generate(3, (_) => RouteObserver<ModalRoute<void>>());
+      List.generate(4, (_) => RouteObserver<ModalRoute<void>>());
 
   @override
   void initState() {
@@ -75,17 +76,20 @@ class _HomeScreenState extends State<HomeScreen> {
       case UserRole.companyUser:
         return const [
           _Tab('Konta', Icons.share_outlined, Icons.share, ClientListScreen()),
+          _Tab('Kalendarz', Icons.calendar_month_outlined, Icons.calendar_month, CalendarScreen()),
           _Tab('Posty', Icons.article_outlined, Icons.article, CompanyPostsScreen()),
           _Tab('Managerowie', Icons.people_outline, Icons.people, ManagerListScreen()),
         ];
       case UserRole.managerUser:
         return const [
           _Tab('Konta', Icons.share_outlined, Icons.share, ClientListScreen()),
+          _Tab('Kalendarz', Icons.calendar_month_outlined, Icons.calendar_month, CalendarScreen()),
           _Tab('Moje posty', Icons.article_outlined, Icons.article, MyPostsScreen()),
         ];
       case UserRole.clientUser:
         return const [
           _Tab('Moje profile', Icons.share_outlined, Icons.share, SocialAccountListScreen()),
+          _Tab('Kalendarz', Icons.calendar_month_outlined, Icons.calendar_month, CalendarScreen()),
           _Tab('Firmy', Icons.business_outlined, Icons.business, CompanyListScreen()),
         ];
       case null:

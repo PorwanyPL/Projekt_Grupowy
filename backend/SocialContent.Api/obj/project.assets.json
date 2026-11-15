@@ -1809,23 +1809,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Przemek\\.nuget\\packages\\": {},
+    "C:\\Users\\domin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\Studia\\7 semestr\\Projekt\\SocialContent_v6\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+      "projectUniqueName": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v7\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
       "projectName": "SocialContent.Api",
-      "projectPath": "H:\\Studia\\7 semestr\\Projekt\\SocialContent_v6\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
-      "packagesPath": "C:\\Users\\Przemek\\.nuget\\packages\\",
-      "outputPath": "H:\\Studia\\7 semestr\\Projekt\\SocialContent_v6\\backend\\SocialContent.Api\\obj\\",
+      "projectPath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v7\\SocialContent\\backend\\SocialContent.Api\\SocialContent.Api.csproj",
+      "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
+      "outputPath": "C:\\Studia\\Sem7\\projektGrupowy\\SocialContent_v7\\SocialContent\\backend\\SocialContent.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Przemek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1899,7 +1899,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

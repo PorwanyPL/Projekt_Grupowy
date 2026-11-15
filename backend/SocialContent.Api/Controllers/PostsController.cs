@@ -14,22 +14,20 @@ namespace SocialContent.Api.Controllers;
 [Route("api/[controller]")]
 public class PostsController(IPostService service) : ControllerBase
 {
-    /// <summary>Pobierz listę postów</summary>
+    /// <summary>Pobierz listę postów (z filtrami)</summary>
     /// <remarks>
-    /// <para>Zwraca posty od najnowszego (createdAt malejąco) wraz ze zdjęciami, wideo i autorami. CompanyUser widzi posty całej firmy, ManagerUser - wyłącznie posty, których jest autorem. Wymaga tokenu JWT (nagłówek Authorization: Bearer).</para>
-    /// <para>Parametry accountId (konto docelowe) i managerId (autor) zawężają wynik; manager może podać wyłącznie własny identyfikator (inny kończy się odpowiedzią 403). Opcjonalny parametr type zawęża wynik do postów o danym polu visibility (Text, Photo, Video). Pole platform wskazuje rodzaj posta (Facebook, Instagram, TikTok; null dla posta ogólnego), a odpowiedni blok facebook, instagram lub tikTok zawiera dane platformy.</para>
+    /// <para>Zwraca posty od najnowszego (createdAt malejąco) wraz ze zdjęciami, wideo i autorami. CompanyUser widzi posty całej firmy, ManagerUser - wyłącznie posty, których jest autorem, ClientUser - posty swoich kont (bez edycji). Wymaga tokenu JWT (nagłówek Authorization: Bearer).</para>
+    /// <para>Post przeznaczony na kilka platform jest jednym wpisem (id = identyfikator grupy), a jego konta i statusy poszczególnych platform są w polu targets; status zbiorczy to najpilniejszy ze statusów wariantów.</para>
+    /// <para>Filtry (parametry zapytania) łączą się koniunkcją, a wartości jednej listy alternatywą: status (powtarzany: status=Draft&amp;status=Failed), managerId (przypisana osoba; manager może podać tylko siebie, inaczej 403), tag (powtarzany), accountIds (profile), platform (powtarzany: Facebook, Instagram, TikTok), from i to (zakres dat: termin publikacji, a bez niego czas publikacji lub data utworzenia; UTC, włącznie), type (visibility: Text, Photo, Video) oraz accountId (post ma wariant na tym koncie). Filtry działają zawsze w zakresie postów widocznych dla roli.</para>
     /// </remarks>
-    /// <param name="type">Filtr po typie treści (visibility); pominięty = wszystkie posty.</param>
-    /// <param name="accountId">Filtr po koncie społecznościowym (id w systemie).</param>
-    /// <param name="managerId">Filtr po autorze (id managera); używane przez firmę do podglądu postów danego managera.</param>
+    /// <param name="filter">Filtry listy.</param>
     /// <response code="200">Lista postów; pusta tablica, gdy nic nie pasuje.</response>
     /// <response code="401">Brak tokenu, token nieprawidłowy lub wygasły albo dostęp konta został zablokowany.</response>
     /// <response code="403">Manager próbuje przeglądać posty innego managera.</response>
     [HttpGet]
     [ProducesResponseType<List<PostDto>>(StatusCodes.Status200OK)]
-    public async Task<ActionResult<List<PostDto>>> GetAll(
-        [FromQuery] FacebookPostType? type, [FromQuery] Guid? accountId, [FromQuery] Guid? managerId, CancellationToken ct) =>
-        Ok(await service.GetAllAsync(User.ToCurrentUser(), type, accountId, managerId, ct));
+    public async Task<ActionResult<List<PostDto>>> GetAll([FromQuery] PostFilterDto filter, CancellationToken ct) =>
+        Ok(await service.GetAllAsync(User.ToCurrentUser(), filter, ct));
 
     /// <summary>Pobierz post po identyfikatorze</summary>
     /// <remarks>Zwraca jeden post ze wszystkimi polami: statusem publikacji, terminami, kontem docelowym, mediami, managerami i danymi platformy.</remarks>
@@ -48,7 +46,7 @@ public class PostsController(IPostService service) : ControllerBase
     /// <para>Tworzy post ogólny albo post platformy. Aby utworzyć post platformy, wypełnij dokładnie jeden blok: facebook, instagram lub tikTok. Bez bloku powstaje post ogólny. Rodzaju posta nie da się później zmienić.</para>
     /// <para>Reguły mediów zależą od pola visibility: Text nie może mieć zdjęć ani wideo, Photo wymaga co najmniej jednego zdjęcia i nie dopuszcza wideo, Video wymaga co najmniej jednego wideo. Pliki najpierw przesyła się przez POST /api/Media (multipart), a w poście podaje się zwrócony storageKey i nazwę pliku; format i rozmiar ustala serwer.</para>
     /// <para>Status ustawia serwer: bez scheduledAt post jest szkicem (Draft), z terminem w przyszłości (UTC) - zaplanowanym (Scheduled), a z publishNow=true publikowany jest od razu (Published albo Failed z komunikatem; o błędzie dostają powiadomienie firma i autorzy). Publikacja jest symulowana. Pole createdAt nadaje serwer.</para>
-    /// <para>CompanyUser tworzy posty na każdym koncie swojej firmy (bez względu na przypisanych managerów), ManagerUser tylko na koncie, do którego jest przypisany. targetAccountId jest wymagane; dla posta platformy musi to być konto tej samej platformy. Autorami są od razu wszyscy managerowie przypisani do konta (współautorzy) - lista nie jest podawana w żądaniu.</para>
+    /// <para>CompanyUser tworzy posty na każdym koncie swojej firmy (bez względu na przypisanych managerów), ManagerUser tylko na koncie, do którego jest przypisany. Konto podaje się w targetAccountId (jedno) albo targetAccountIds (kilka): jeden post na kilka platform powstaje jako grupa wariantów (po jednym na konto) i w API jest jednym postem. Dla jednego konta blok platformy musi być zgodny z kontem; przy wielu kontach blok dotyczy kont swojej platformy, a pozostałe dostają posty ogólne. Tagi treści (tags) służą do filtrowania. Autorami są od razu wszyscy managerowie przypisani do konta (współautorzy) - lista nie jest podawana w żądaniu.</para>
     /// </remarks>
     /// <param name="dto">Dane nowego posta.</param>
     /// <response code="201">Post został utworzony; w nagłówku Location adres nowego zasobu.</response>
@@ -70,8 +68,8 @@ public class PostsController(IPostService service) : ControllerBase
     /// <summary>Zaktualizuj post</summary>
     /// <remarks>
     /// <para>Pełna aktualizacja: zastępuje treść, media, termin i konto docelowe wartościami z żądania; dotychczasowe media są usuwane i zastępowane nowymi.</para>
-    /// <para>Żądanie musi mieć blok platformy zgodny z rodzajem posta (post Facebooka - blok facebook, i tak dalej; post ogólny - żadnego). Tych samych reguł mediów, terminu i konta co przy tworzeniu pilnuje walidacja.</para>
-    /// <para>Status jest wyliczany od nowa: bez scheduledAt - Draft, z terminem - Scheduled; ewentualny komunikat błędu po nieudanej publikacji jest czyszczony. Posta w statusie Publishing lub Published nie można edytować. Zapis wymaga blokady edycji: gdy post edytuje ktoś inny, odpowiedź to 409 z imieniem edytującego. Dotychczasowi autorzy zostają, a managerowie przypisani do konta są dopisywani.</para>
+    /// <para>Dla posta na wiele platform lista targetAccountIds wyznacza docelowe konta: brakujące warianty są dodawane, a te, których nie ma na liście - usuwane. Żądanie musi mieć blok platformy zgodny z rodzajem wariantu (post Facebooka - blok facebook, i tak dalej; post ogólny - żadnego). Tych samych reguł mediów, terminu i konta co przy tworzeniu pilnuje walidacja.</para>
+    /// <para>Status jest wyliczany od nowa: bez scheduledAt - Draft, z terminem - Scheduled; ewentualny komunikat błędu po nieudanej publikacji jest czyszczony. Posta w statusie Publishing nie można edytować; opublikowany można (bez ponownej publikacji i terminu). Edycja posta, który był już zaplanowany lub opublikowany, nie wraca do akceptacji klienta. Zapis wymaga blokady edycji: gdy post edytuje ktoś inny, odpowiedź to 409 z imieniem edytującego. Dotychczasowi autorzy zostają, a managerowie przypisani do konta są dopisywani.</para>
     /// </remarks>
     /// <param name="id">Identyfikator posta (GUID).</param>
     /// <param name="dto">Nowe dane posta.</param>

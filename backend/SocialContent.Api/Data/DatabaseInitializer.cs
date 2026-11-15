@@ -5,6 +5,10 @@ namespace SocialContent.Api.Data;
 
 /// <summary>
 /// Aplikacja używa EnsureCreated (bez migracji EF), który nie zmienia istniejącej bazy.
+/// Wersja 7 wprowadza posty na wiele platform: kolumna Posts.GroupId łączy warianty (po jednym wierszu na konto) w jeden
+/// logiczny post, a Posts.TagsText przechowuje tagi treści (filtry kalendarza i listy postów). Usunięto dodawanie klientów
+/// przez firmę (relacja firma - klient powstaje tylko po przyjęciu zaproszenia klienta); baza z wcześniejszego schematu jest
+/// przenoszona do pliku .bak, a nowa powstaje od zera (seeder dodaje dane demo).
 /// Wersja 6 odwraca tworzenie kont: właścicielem konta jest klient (OwnerClientId), firma dostaje zaproszenie (ManagementStatus),
 /// relacja firma - klient jest osobną tabelą CompanyClients (pseudonim, tryb akceptacji postów), a posty mają statusy AwaitingApproval i Rejected.
 /// Wersja 5 dodaje prawdziwe przesyłanie plików (StorageKey, SizeKb w FileTypes), blokady edycji postów i powiadomienia.
@@ -15,7 +19,7 @@ namespace SocialContent.Api.Data;
 /// </summary>
 public static class DatabaseInitializer
 {
-    public const int SchemaVersion = 6;
+    public const int SchemaVersion = 7;
 
     public static void Initialize(AppDbContext db, ILogger logger)
     {
