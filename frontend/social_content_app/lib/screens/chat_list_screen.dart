@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,18 +24,12 @@ class ChatListScreen extends StatelessWidget {
   Future<void> _newDirect(BuildContext context) async {
     final chat = context.read<ChatProvider>();
     final messenger = context.read<AppMessenger>();
+    final picked = await showDialog<ChatContact>(
+      context: context,
+      builder: (_) => _ContactPickerDialog(search: (phrase, mode) => chat.contacts(search: phrase, mode: mode)),
+    );
+    if (picked == null || !context.mounted) return;
     try {
-      final contacts = await chat.contacts();
-      if (!context.mounted) return;
-      if (contacts.isEmpty) {
-        messenger.show('Brak osób, z którymi możesz teraz rozmawiać.');
-        return;
-      }
-      final picked = await showDialog<ChatContact>(
-        context: context,
-        builder: (_) => _ContactPickerDialog(contacts: contacts),
-      );
-      if (picked == null || !context.mounted) return;
       final conversation = await chat.openDirect(picked);
       if (!context.mounted) return;
       await Navigator.push(
@@ -99,6 +95,12 @@ class ChatListScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Czat'),
         actions: [
+          IconButton(
+            key: const Key('chat-refresh'),
+            tooltip: 'Odśwież',
+            icon: const Icon(Icons.refresh),
+            onPressed: chat.loadConversations,
+          ),
           if (role == UserRole.companyUser)
             IconButton(
               key: const Key('chat-manager-button'),
@@ -174,10 +176,71 @@ class _ConversationTile extends StatelessWidget {
   }
 }
 
-class _ContactPickerDialog extends StatelessWidget {
-  const _ContactPickerDialog({required this.contacts});
+/// Wybór rozmówcy z wyszukiwarką: fraza i tryb dopasowania (początek nazwy, fragment nazwy, e-mail) idą do serwera
+/// przy każdej zmianie (z krótkim opóźnieniem), a serwer zwraca tylko osoby, z którymi wolno pisać.
+class _ContactPickerDialog extends StatefulWidget {
+  const _ContactPickerDialog({required this.search});
 
-  final List<ChatContact> contacts;
+  final Future<List<ChatContact>> Function(String phrase, ContactSearchMode mode) search;
+
+  @override
+  State<_ContactPickerDialog> createState() => _ContactPickerDialogState();
+}
+
+class _ContactPickerDialogState extends State<_ContactPickerDialog> {
+  final _controller = TextEditingController();
+  Timer? _debounce;
+  ContactSearchMode _mode = ContactSearchMode.contains;
+  List<ChatContact> _contacts = const [];
+  bool _loading = true;
+  String? _error;
+  int _request = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future<void> _load() async {
+    final request = ++_request;
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final list = await widget.search(_controller.text, _mode);
+      if (!mounted || request != _request) return; // odpowiedź na starszą frazę
+      setState(() {
+        _contacts = list;
+        _loading = false;
+      });
+    } on ApiException catch (e) {
+      if (!mounted || request != _request) return;
+      setState(() {
+        _error = e.message;
+        _loading = false;
+      });
+    }
+  }
+
+  void _onChanged(String _) {
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 300), _load);
+  }
+
+  String get _hint => switch (_mode) {
+        ContactSearchMode.prefix => 'Pierwsze litery imienia, nazwiska lub nazwy',
+        ContactSearchMode.contains => 'Fragment imienia, nazwiska lub nazwy',
+        ContactSearchMode.email => 'Adres e-mail lub jego fragment',
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -185,21 +248,75 @@ class _ContactPickerDialog extends StatelessWidget {
       title: const Text('Z kim chcesz porozmawiać?'),
       content: SizedBox(
         width: 420,
-        child: ListView(
-          shrinkWrap: true,
+        height: 420,
+        child: Column(
           children: [
-            for (final c in contacts)
-              ListTile(
-                leading: CircleAvatar(
-                    child: Icon(switch (c.role) {
-                  UserRole.companyUser => Icons.business,
-                  UserRole.managerUser => Icons.badge_outlined,
-                  UserRole.clientUser => Icons.person,
-                })),
-                title: Text(c.name),
-                subtitle: Text([c.role.label, if (c.description != null) c.description!].join(' · ')),
-                onTap: () => Navigator.pop(context, c),
+            TextField(
+              key: const Key('chat-search'),
+              controller: _controller,
+              autofocus: true,
+              onChanged: _onChanged,
+              decoration: InputDecoration(
+                hintText: _hint,
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: _controller.text.isEmpty
+                    ? null
+                    : IconButton(
+                        tooltip: 'Wyczyść',
+                        icon: const Icon(Icons.clear),
+                        onPressed: () {
+                          _controller.clear();
+                          _load();
+                        },
+                      ),
               ),
+            ),
+            const SizedBox(height: 8),
+            SegmentedButton<ContactSearchMode>(
+              key: const Key('chat-search-mode'),
+              showSelectedIcon: false,
+              segments: [
+                for (final m in ContactSearchMode.values) ButtonSegment(value: m, label: Text(m.label)),
+              ],
+              selected: {_mode},
+              onSelectionChanged: (v) {
+                setState(() => _mode = v.first);
+                _load();
+              },
+            ),
+            const SizedBox(height: 8),
+            Expanded(
+              child: _loading
+                  ? const Center(child: CircularProgressIndicator())
+                  : _error != null
+                      ? Center(child: Text(_error!, textAlign: TextAlign.center))
+                      : _contacts.isEmpty
+                          ? Center(
+                              child: Text(_controller.text.trim().isEmpty
+                                  ? 'Brak osób, z którymi możesz teraz rozmawiać.'
+                                  : 'Brak wyników dla tej frazy.'))
+                          : ListView(
+                              key: const Key('chat-contacts'),
+                              children: [
+                                for (final c in _contacts)
+                                  ListTile(
+                                    leading: CircleAvatar(
+                                        child: Icon(switch (c.role) {
+                                      UserRole.companyUser => Icons.business,
+                                      UserRole.managerUser => Icons.badge_outlined,
+                                      UserRole.clientUser => Icons.person,
+                                    })),
+                                    title: Text(c.name),
+                                    subtitle: Text([
+                                      c.role.label,
+                                      if (c.description != null) c.description!,
+                                      if (c.email != null) c.email!,
+                                    ].join(' · ')),
+                                    onTap: () => Navigator.pop(context, c),
+                                  ),
+                              ],
+                            ),
+            ),
           ],
         ),
       ),

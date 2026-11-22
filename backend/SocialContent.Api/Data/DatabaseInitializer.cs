@@ -5,6 +5,8 @@ namespace SocialContent.Api.Data;
 
 /// <summary>
 /// Aplikacja używa EnsureCreated (bez migracji EF), który nie zmienia istniejącej bazy.
+/// Wersja 9 dodaje cel powiadomień (Notifications.TargetType + TargetId: post albo rozmowa czatu, po kliknięciu w dzwonku) oraz uwagi klienta
+/// przy odrzuceniu posta (Posts.RejectionComment). Stara baza jest przenoszona do .bak, a nowa powstaje od zera (seeder dodaje dane demo).
 /// Wersja 8 dodaje czat w czasie rzeczywistym (SignalR): tabele Conversations, ConversationParticipants i ChatMessages oraz kolumnę
 /// CompanyUsers.ChatManagerId (manager upoważniony do czatowania ze wszystkimi klientami). Stara baza jest przenoszona do .bak,
 /// a nowa powstaje od zera (seeder dodaje rozmowy demo).
@@ -22,7 +24,7 @@ namespace SocialContent.Api.Data;
 /// </summary>
 public static class DatabaseInitializer
 {
-    public const int SchemaVersion = 8;
+    public const int SchemaVersion = 9;
 
     public static void Initialize(AppDbContext db, ILogger logger)
     {

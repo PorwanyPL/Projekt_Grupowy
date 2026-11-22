@@ -105,20 +105,39 @@ class Conversation {
       );
 }
 
+/// Sposób dopasowania frazy w wyszukiwarce rozmówców (zgodny z ChatContactSearchMode z backendu).
+enum ContactSearchMode {
+  /// Nazwa albo dowolny jej człon (imię, nazwisko) zaczyna się od frazy.
+  prefix('Prefix', 'Początek nazwy'),
+
+  /// Fraza w dowolnym miejscu nazwy.
+  contains('Contains', 'Fragment nazwy'),
+
+  /// Fraza w adresie e-mail.
+  email('Email', 'E-mail');
+
+  const ContactSearchMode(this.apiName, this.label);
+
+  final String apiName;
+  final String label;
+}
+
 /// Odpowiada ChatContactDto - osoba, z którą można zacząć rozmowę.
 class ChatContact {
-  const ChatContact({required this.userId, required this.role, required this.name, this.description});
+  const ChatContact({required this.userId, required this.role, required this.name, this.description, this.email});
 
   final String userId;
   final UserRole role;
   final String name;
   final String? description;
+  final String? email;
 
   factory ChatContact.fromJson(Map<String, dynamic> json) => ChatContact(
         userId: json['userId'] as String,
         role: UserRole.parse(json['role'] as String),
         name: (json['name'] as String?) ?? '',
         description: json['description'] as String?,
+        email: json['email'] as String?,
       );
 }
 

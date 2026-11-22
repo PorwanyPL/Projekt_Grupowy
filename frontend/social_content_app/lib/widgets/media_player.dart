@@ -17,7 +17,8 @@ import 'app_messenger.dart';
 /// Inicjalizacja jest zabezpieczona przed "wiecznym spinnerem": ma limit czasu [initTimeout], po którym pokazuje błąd
 /// z przyciskiem ponowienia; porzucony (zdjęty z drzewa lub podmieniony) kontroler jest zwalniany, a jego spóźniony wynik
 /// ignorowany. Gdy podano [filePath] (plik świeżo wybrany z dysku), podgląd odtwarza go lokalnie - bez pobierania z serwera -
-/// a dopiero przy błędzie próbuje adresu [url]. Przy [lazy] odtwarzacz startuje dopiero po kliknięciu (formularz posta:
+/// a dopiero przy błędzie próbuje adresu [url]. Domyślnie nagranie startuje samo ([autoPlay]), gra w pętli ([loop]) i jest
+/// wyciszone ([startMuted]); pasek ma przyciski pauzy/wznowienia i wyciszenia. Przy [lazy] odtwarzacz startuje dopiero po kliknięciu (formularz posta:
 /// natywny odtwarzacz nie jest tworzony przy każdym otwarciu formularza ani po każdej zmianie pola).
 /// Czytelny opis błędu odtwarzacza. Natywny odtwarzacz Windows zgłasza np. "WinHttpSendRequest failed12029"
 /// (ERROR_WINHTTP_CANNOT_CONNECT) - zwykle serwer nie słucha pod tym adresem/portem albo `localhost` wskazuje IPv6.
@@ -42,6 +43,9 @@ class MediaPlayer extends StatefulWidget {
     this.title,
     this.filePath,
     this.lazy = false,
+    this.autoPlay = true,
+    this.loop = true,
+    this.startMuted = true,
     this.initTimeout = const Duration(seconds: 15),
   });
 
@@ -53,6 +57,15 @@ class MediaPlayer extends StatefulWidget {
   /// Lokalna ścieżka pliku (null = tylko adres sieciowy).
   final String? filePath;
   final bool lazy;
+
+  /// Start odtwarzania zaraz po załadowaniu (bez klikania "Odtwórz").
+  final bool autoPlay;
+
+  /// Odtwarzanie w pętli.
+  final bool loop;
+
+  /// Domyślnie wyciszone (przeglądarki i systemy blokują autoodtwarzanie z dźwiękiem); przycisk głośnika odcisza.
+  final bool startMuted;
   final Duration initTimeout;
 
   bool get isAudio => format == MediaFormat.mp3 || format == MediaFormat.flac;
@@ -65,6 +78,7 @@ class _MediaPlayerState extends State<MediaPlayer> {
   VideoPlayerController? _controller;
   Object? _error;
   bool _started = false;
+  late bool _muted = widget.startMuted;
 
   /// Numer próby inicjalizacji; wynik starszej próby jest odrzucany.
   int _generation = 0;
@@ -152,12 +166,15 @@ class _MediaPlayerState extends State<MediaPlayer> {
               onTimeout: () => throw TimeoutException(
                   'Odtwarzacz nie odpowiedział w ciągu ${widget.initTimeout.inSeconds} s.'),
             );
-        await controller.setLooping(false);
+        await controller.setLooping(widget.loop);
+        await controller.setVolume(_muted ? 0 : 1);
         if (!mounted || generation != _generation) {
           await controller.dispose();
           return;
         }
         setState(() {});
+        // Autostart: odtwarzanie w pętli, z możliwością pauzy/wznowienia i wyciszenia (przyciski poniżej).
+        if (widget.autoPlay) await controller.play();
         return;
       } catch (e) {
         lastError = e;
@@ -183,6 +200,12 @@ class _MediaPlayerState extends State<MediaPlayer> {
     _generation++;
     _controller?.dispose();
     super.dispose();
+  }
+
+  void _toggleMute() {
+    final c = _controller;
+    setState(() => _muted = !_muted);
+    c?.setVolume(_muted ? 0 : 1);
   }
 
   void _toggle() {
@@ -299,7 +322,13 @@ class _MediaPlayerState extends State<MediaPlayer> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  IconButton(
+                    key: const Key('media-mute'),
+                    tooltip: _muted ? 'Włącz dźwięk' : 'Wycisz',
+                    color: Colors.white,
+                    icon: Icon(_muted ? Icons.volume_off : Icons.volume_up),
+                    onPressed: _toggleMute,
+                  ),
                 ],
               ),
             ),

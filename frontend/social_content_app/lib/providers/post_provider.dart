@@ -68,8 +68,11 @@ class PostProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> reject(String id) async {
-    await _service.reject(id);
+  Future<void> reject(String id, {String? comment}) async {
+    await _service.reject(id, comment: comment);
     notifyListeners();
   }
+
+  /// Rzuca [ApiException] (np. 404, gdy post został usunięty).
+  Future<Post> getById(String id) => _service.getById(id);
 }

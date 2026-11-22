@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/chat_provider.dart';
 import 'providers/client_provider.dart';
+import 'providers/home_navigation.dart';
 import 'providers/manager_provider.dart';
 import 'providers/notification_provider.dart';
 import 'providers/post_provider.dart';
@@ -55,6 +56,8 @@ class SocialContentApp extends StatelessWidget {
         // Komunikaty (stos błędów) i sygnał odświeżania przy zmianie zakładki.
         ChangeNotifierProvider(create: (_) => AppMessenger()),
         ChangeNotifierProvider(create: (_) => RefreshBus()),
+        // Przejścia z dzwonka (powiadomienie -> rozmowa czatu).
+        ChangeNotifierProvider(create: (_) => HomeNavigation()),
         ChangeNotifierProvider(
           create: (_) => SocialAccountProvider(SocialAccountService(_api)),
         ),

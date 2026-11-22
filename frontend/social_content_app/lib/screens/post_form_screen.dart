@@ -476,7 +476,6 @@ class _PostFormScreenState extends State<PostFormScreen> {
                 imageHeaders: _media.headers,
                 videoUrl: _media.playbackUrlFor,
                 videoHeaders: _media.headers,
-                lazyVideo: true,
               ),
             ],
             const SizedBox(height: 16),

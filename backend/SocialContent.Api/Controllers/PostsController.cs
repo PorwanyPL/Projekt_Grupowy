@@ -146,9 +146,11 @@ public class PostsController(IPostService service) : ControllerBase
         Ok(await service.ApproveAsync(User.ToCurrentUser(), id, ct));
 
     /// <summary>Odrzuć post (klient)</summary>
-    /// <remarks>Post w statusie AwaitingApproval dostaje status Rejected. Firma i autorzy dostają powiadomienie i mogą poprawić post oraz wysłać go ponownie.</remarks>
+    /// <remarks>Post w statusie AwaitingApproval dostaje status Rejected (zwrot do poprawy). Opcjonalne uwagi klienta (body: <c>{ "comment": "..." }</c>, do 1000 znaków) są zapisane przy poście (pole rejectionComment). Firma i autorzy dostają powiadomienie na żywo z uwagami (kliknięcie prowadzi do posta), mogą poprawić post oraz wysłać go ponownie. Body jest opcjonalne.</remarks>
     /// <param name="id">Identyfikator posta (GUID).</param>
+    /// <param name="dto">Uwagi z poprawkami (opcjonalne).</param>
     /// <response code="200">Post po odrzuceniu.</response>
+    /// <response code="400">Uwagi dłuższe niż 1000 znaków.</response>
     /// <response code="404">Post nie istnieje albo nie jest postem konta zalogowanego klienta.</response>
     /// <response code="409">Post nie oczekuje na akceptację.</response>
     [HttpPost("{id:guid}/reject")]
@@ -156,6 +158,6 @@ public class PostsController(IPostService service) : ControllerBase
     [ProducesResponseType<PostDto>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
-    public async Task<ActionResult<PostDto>> Reject(Guid id, CancellationToken ct) =>
-        Ok(await service.RejectAsync(User.ToCurrentUser(), id, ct));
+    public async Task<ActionResult<PostDto>> Reject(Guid id, [FromBody] RejectPostDto? dto, CancellationToken ct) =>
+        Ok(await service.RejectAsync(User.ToCurrentUser(), id, ct, dto?.Comment));
 }

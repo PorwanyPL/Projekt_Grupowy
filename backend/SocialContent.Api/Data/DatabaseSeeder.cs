@@ -121,7 +121,9 @@ public static class DatabaseSeeder
             Notification.Create(anna.Id, UserRole.ManagerUser, groupFacebook.GroupId,
                 "Post \"Weekend w kawiarni\" jest zaplanowany."),
             Notification.Create(karolina.Id, UserRole.ClientUser, awaiting.GroupId,
-                "Post \"Nowa kolekcja - do akceptacji\" czeka na Twoją akceptację."));
+                "Post \"Nowa kolekcja - do akceptacji\" czeka na Twoją akceptację."),
+            // Powiadomienie z celem "czat": kliknięcie w dzwonku otwiera rozmowę Karola z Anną.
+            Notification.CreateChat(karol.Id, UserRole.ClientUser, withAnna.Id, "Nowa wiadomość od Anna Nowak."));
         db.ManagerUsers.AddRange(anna, bartek);
         db.ManagerCredentials.AddRange(
             ManagerCredential.Create(anna, "anna@demo.pl", hash),

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SocialContent.Api.Domain.Enums;
 using SocialContent.Api.Dtos;
 using SocialContent.Api.Services;
 
@@ -20,12 +21,18 @@ public class ChatController(IChatService service) : ControllerBase
     /// <remarks>
     /// Firma: managerowie własnej firmy, inne firmy i wszyscy klienci. Manager: właściciel i managerowie własnej firmy oraz klienci
     /// współpracujący z firmą (manager ds. czatu - wszyscy klienci). Klient: firmy oraz managerowie, którzy mogą z nim czatować.
+    /// Parametr <c>search</c> filtruje listę po stronie serwera, już po zastosowaniu reguł czatu, więc nie da się znaleźć osoby, z którą nie wolno pisać.
+    /// Tryby <c>mode</c>: <c>Prefix</c> (nazwa lub jej człon zaczyna się od frazy), <c>Contains</c> (fraza w dowolnym miejscu nazwy, domyślny),
+    /// <c>Email</c> (fraza w adresie e-mail). Wielkość liter nie ma znaczenia.
     /// </remarks>
-    /// <response code="200">Lista kontaktów.</response>
+    /// <param name="search">Fraza wyszukiwania (do 100 znaków); pusta = wszystkie dozwolone kontakty.</param>
+    /// <param name="mode">Sposób dopasowania frazy.</param>
+    /// <response code="200">Lista kontaktów (dopasowanych do frazy).</response>
     [HttpGet("contacts")]
     [ProducesResponseType<List<ChatContactDto>>(StatusCodes.Status200OK)]
-    public async Task<ActionResult<List<ChatContactDto>>> Contacts(CancellationToken ct) =>
-        Ok(await service.GetContactsAsync(User.ToCurrentUser(), ct));
+    public async Task<ActionResult<List<ChatContactDto>>> Contacts(
+        [FromQuery] string? search, [FromQuery] ChatContactSearchMode mode, CancellationToken ct) =>
+        Ok(await service.SearchContactsAsync(User.ToCurrentUser(), search, mode, ct));
 
     /// <summary>Moje rozmowy (1 na 1 i grupy)</summary>
     /// <remarks>Od ostatnio aktywnej; zawiera ostatnią wiadomość i liczbę nieprzeczytanych.</remarks>

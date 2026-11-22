@@ -27,6 +27,11 @@ public class Post
     public ExternalId? ExternalPostId { get; private set; }
     public string? ErrorMessage { get; private set; }
 
+    /// <summary>Uwagi klienta z poprawkami, wpisane przy odrzuceniu posta (v9). Znikają po edycji posta lub akceptacji.</summary>
+    public string? RejectionComment { get; private set; }
+
+    public const int MaxRejectionCommentLength = 1000;
+
     /// <summary>Konto docelowe publikacji (SocialAccount 1 - n Post; opcjonalne, bo szkic może go jeszcze nie mieć).</summary>
     public Guid? TargetAccountId { get; private set; }
     public SocialAccount? TargetAccount { get; private set; }
@@ -108,14 +113,22 @@ public class Post
             throw new DomainValidationException("Ten post nie oczekuje na akceptację.");
         Status = ScheduledAt is not null && ScheduledAt.Date > utcNow ? PostStatus.Scheduled : PostStatus.Draft;
         if (Status == PostStatus.Draft) ScheduledAt = null;
+        RejectionComment = null;
     }
 
-    /// <summary>Odrzucenie przez klienta: AwaitingApproval -> Rejected (autorzy mogą poprawić post i wysłać go ponownie).</summary>
-    public void Reject()
+    /// <summary>
+    /// Odrzucenie przez klienta: AwaitingApproval -> Rejected (autorzy mogą poprawić post i wysłać go ponownie).
+    /// Opcjonalne uwagi z poprawkami (do 1000 znaków) trafiają do autorów razem z powiadomieniem.
+    /// </summary>
+    public void Reject(string? comment = null)
     {
         if (Status != PostStatus.AwaitingApproval)
             throw new DomainValidationException("Ten post nie oczekuje na akceptację.");
+        var text = comment?.Trim();
+        if (text is { Length: > MaxRejectionCommentLength })
+            throw new DomainValidationException($"Uwagi mogą mieć maksymalnie {MaxRejectionCommentLength} znaków.");
         Status = PostStatus.Rejected;
+        RejectionComment = string.IsNullOrEmpty(text) ? null : text;
     }
 
     /// <summary>Dołącza ten wariant do grupy innego posta (post na wiele platform).</summary>
@@ -195,6 +208,7 @@ public class Post
             ScheduledAt = scheduledAt;
             Status = scheduledAt is null ? PostStatus.Draft : PostStatus.Scheduled;
             ErrorMessage = null; // edycja posta po błędzie, odrzuceniu lub w oczekiwaniu na akceptację przywraca Draft/Scheduled
+            RejectionComment = null;
         }
 
         TargetAccount = targetAccount;

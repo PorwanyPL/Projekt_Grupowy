@@ -131,9 +131,9 @@ class PlatformPreview extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('👍 Lubię to'),
-                Text('💬 Komentarz'),
-                Text('↗ Udostępnij'),
+                Flexible(child: Text('👍 Lubię to', overflow: TextOverflow.ellipsis)),
+                Flexible(child: Text('💬 Komentarz', overflow: TextOverflow.ellipsis)),
+                Flexible(child: Text('↗ Udostępnij', overflow: TextOverflow.ellipsis)),
               ],
             ),
           ),

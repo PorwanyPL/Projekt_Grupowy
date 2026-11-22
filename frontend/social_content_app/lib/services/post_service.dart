@@ -40,6 +40,14 @@ class PostService {
   Future<Post> approve(String id) async =>
       Post.fromJson(await _api.post('/api/Posts/$id/approve') as Map<String, dynamic>);
 
-  Future<Post> reject(String id) async =>
-      Post.fromJson(await _api.post('/api/Posts/$id/reject') as Map<String, dynamic>);
+  /// Odrzuca post; [comment] (opcjonalne uwagi z poprawkami, do 1000 znaków) trafia do autorów w powiadomieniu.
+  Future<Post> reject(String id, {String? comment}) async {
+    final text = comment?.trim();
+    final body = text == null || text.isEmpty ? null : {'comment': text};
+    return Post.fromJson(await _api.post('/api/Posts/$id/reject', body) as Map<String, dynamic>);
+  }
+
+  /// Pojedynczy post (np. po kliknięciu powiadomienia); 404, gdy nie istnieje albo nie jest widoczny dla roli.
+  Future<Post> getById(String id) async =>
+      Post.fromJson(await _api.get('/api/Posts/$id') as Map<String, dynamic>);
 }

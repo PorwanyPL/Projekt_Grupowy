@@ -25,14 +25,24 @@ class PostPreviewDialog extends StatefulWidget {
 class _PostPreviewDialogState extends State<PostPreviewDialog> {
   bool _busy = false;
 
+  /// Odrzucenie: okno z opcjonalnymi uwagami do poprawy (trafiają do autorów w powiadomieniu na żywo).
+  /// Zwraca tekst uwag (może być pusty) albo null po anulowaniu.
+  Future<String?> _askRejectionComment() =>
+      showDialog<String>(context: context, builder: (_) => const _RejectCommentDialog());
+
   Future<void> _decide({required bool approve}) async {
     final posts = context.read<PostProvider>();
     final messenger = context.read<AppMessenger>();
     final nav = Navigator.of(context);
+    String? comment;
+    if (!approve) {
+      comment = await _askRejectionComment();
+      if (comment == null || !mounted) return; // anulowano
+    }
     setState(() => _busy = true);
     try {
-      approve ? await posts.approve(widget.post.id) : await posts.reject(widget.post.id);
-      messenger.show(approve ? 'Post został zatwierdzony.' : 'Post został odrzucony.');
+      approve ? await posts.approve(widget.post.id) : await posts.reject(widget.post.id, comment: comment);
+      messenger.show(approve ? 'Post został zatwierdzony.' : 'Post został odrzucony i zwrócony do poprawy.');
       nav.pop();
     } on ApiException catch (e) {
       messenger.show(e.message);
@@ -81,6 +91,19 @@ class _PostPreviewDialogState extends State<PostPreviewDialog> {
               const SizedBox(height: 12),
               Text('Status: ${post.status.label}'),
               if (post.errorMessage != null) Text('Błąd: ${post.errorMessage}'),
+              if (post.status == PostStatus.rejected && post.rejectionComment != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Text('Uwagi klienta: ${post.rejectionComment}',
+                      key: const Key('rejection-comment'),
+                      style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                ),
+              if (post.canApprove)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 4),
+                  child: Text('Ten post czeka na Twoją akceptację przed publikacją.',
+                      key: Key('awaiting-info')),
+                ),
               Text('Typ: ${post.visibility.label}'),
               Text('Utworzono: ${formatDateTime(post.createdAt)}'),
               if (post.scheduledAt != null) Text('Zaplanowano na: ${formatDateTime(post.scheduledAt!)}'),
@@ -107,6 +130,55 @@ class _PostPreviewDialogState extends State<PostPreviewDialog> {
         TextButton(
           onPressed: _busy ? null : () => Navigator.pop(context),
           child: const Text('Zamknij'),
+        ),
+      ],
+    );
+  }
+}
+
+/// Okno uwag przy odrzuceniu posta. Kontroler tekstu należy do State, więc jest zwalniany dopiero po zniknięciu okna
+/// (zwolnienie zaraz po zamknięciu dialogu powodowało użycie kontrolera po dispose podczas animacji zamykania).
+class _RejectCommentDialog extends StatefulWidget {
+  const _RejectCommentDialog();
+
+  @override
+  State<_RejectCommentDialog> createState() => _RejectCommentDialogState();
+}
+
+class _RejectCommentDialogState extends State<_RejectCommentDialog> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Odrzuć post'),
+      content: SizedBox(
+        width: 420,
+        child: TextField(
+          key: const Key('reject-comment'),
+          controller: _controller,
+          autofocus: true,
+          minLines: 3,
+          maxLines: 6,
+          maxLength: 1000,
+          decoration: const InputDecoration(
+            labelText: 'Uwagi i poprawki (opcjonalnie)',
+            helperText: 'Post wróci do autorów z tymi uwagami.',
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(context), child: const Text('Anuluj')),
+        FilledButton(
+          key: const Key('reject-confirm'),
+          onPressed: () => Navigator.pop(context, _controller.text.trim()),
+          child: const Text('Odrzuć i zwróć do poprawy'),
         ),
       ],
     );

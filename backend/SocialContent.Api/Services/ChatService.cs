@@ -23,6 +23,12 @@ public interface IChatService
     Task<ChatManagerDto> GetChatManagerAsync(CurrentUser user, CancellationToken ct);
     Task<ChatManagerDto> SetChatManagerAsync(CurrentUser user, Guid? managerId, CancellationToken ct);
     Task<List<ChatContactDto>> GetContactsAsync(CurrentUser user, CancellationToken ct);
+
+    /// <summary>
+    /// Kontakty z filtrem frazy (po stronie serwera, po regułach widoczności czatu: nie znajdzie się nikogo, z kim nie wolno pisać).
+    /// Pusta fraza = wszystkie dozwolone kontakty.
+    /// </summary>
+    Task<List<ChatContactDto>> SearchContactsAsync(CurrentUser user, string? search, ChatContactSearchMode mode, CancellationToken ct);
     Task<List<ConversationDto>> GetConversationsAsync(CurrentUser user, CancellationToken ct);
     Task<ConversationDto> OpenDirectAsync(CurrentUser user, Guid otherId, UserRole otherRole, CancellationToken ct);
     Task<ConversationDto> CreateGroupAsync(CurrentUser user, CreateGroupDto dto, CancellationToken ct);
@@ -34,7 +40,7 @@ public interface IChatService
     Task<bool> CanChatAsync(CurrentUser user, Guid otherId, UserRole otherRole, CancellationToken ct);
 }
 
-public class ChatService(AppDbContext db, IRealtimeNotifier realtime) : IChatService
+public class ChatService(AppDbContext db, IRealtimeNotifier realtime, INotificationService notifications) : IChatService
 {
     private const int MaxPageSize = 200;
 
@@ -165,22 +171,29 @@ public class ChatService(AppDbContext db, IRealtimeNotifier realtime) : IChatSer
 
     // ---------- Kontakty ----------
 
-    public async Task<List<ChatContactDto>> GetContactsAsync(CurrentUser user, CancellationToken ct)
+    public Task<List<ChatContactDto>> GetContactsAsync(CurrentUser user, CancellationToken ct) =>
+        SearchContactsAsync(user, null, ChatContactSearchMode.Contains, ct);
+
+    public async Task<List<ChatContactDto>> SearchContactsAsync(
+        CurrentUser user, string? search, ChatContactSearchMode mode, CancellationToken ct)
     {
         var me = await FindPartyAsync(user.Id, user.Role, ct) ?? throw new ForbiddenException("Konto jest niedostępne.");
         var companyNames = await db.CompanyUsers.AsNoTracking().ToDictionaryAsync(c => c.CompanyId, c => c.Name, ct);
         var result = new List<ChatContactDto>();
 
         // Managerowie niezablokowani (z firmą), na bazie których składamy listy dla każdej roli.
+        var managerEmails = await db.ManagerCredentials.AsNoTracking()
+            .ToDictionaryAsync(c => c.ManagerUserId, c => c.Email, ct);
         var blockedManagers = db.ManagerCredentials.Where(c => c.IsAccessBlocked).Select(c => c.ManagerUserId);
         var managers = await db.ManagerUsers.AsNoTracking().Where(m => !blockedManagers.Contains(m.Id)).ToListAsync(ct);
         var companies = await db.CompanyUsers.AsNoTracking().Where(c => !c.IsAccessBlocked).ToListAsync(ct);
 
         ChatContactDto ManagerContact(ManagerUser m) =>
-            new(m.Id, UserRole.ManagerUser, ManagerName(m), $"Manager · {companyNames.GetValueOrDefault(m.CompanyId, "firma")}");
-        ChatContactDto CompanyContact(CompanyUser c) => new(c.CompanyId, UserRole.CompanyUser, c.Name, "Firma");
+            new(m.Id, UserRole.ManagerUser, ManagerName(m), $"Manager · {companyNames.GetValueOrDefault(m.CompanyId, "firma")}",
+                managerEmails.GetValueOrDefault(m.Id));
+        ChatContactDto CompanyContact(CompanyUser c) => new(c.CompanyId, UserRole.CompanyUser, c.Name, "Firma", c.Email);
         ChatContactDto ClientContact(ClientUser c) =>
-            new(c.Id, UserRole.ClientUser, $"{c.FirstName.Value} {c.LastName.Value}", "Klient");
+            new(c.Id, UserRole.ClientUser, $"{c.FirstName.Value} {c.LastName.Value}", "Klient", c.Email);
 
         switch (user.Role)
         {
@@ -214,7 +227,29 @@ public class ChatService(AppDbContext db, IRealtimeNotifier realtime) : IChatSer
                 break;
         }
 
-        return result.OrderBy(c => c.Name, StringComparer.CurrentCultureIgnoreCase).ToList();
+        // Filtr frazy działa dopiero na liście dozwolonych kontaktów, więc nie da się nim "znaleźć" kogoś spoza reguł czatu.
+        var phrase = search?.Trim();
+        var filtered = string.IsNullOrEmpty(phrase) ? result : result.Where(c => MatchesContact(c, phrase, mode));
+        return filtered.OrderBy(c => c.Name, StringComparer.CurrentCultureIgnoreCase).ToList();
+    }
+
+    private const int MaxSearchLength = 100;
+
+    private static bool MatchesContact(ChatContactDto contact, string phrase, ChatContactSearchMode mode)
+    {
+        if (phrase.Length > MaxSearchLength) phrase = phrase[..MaxSearchLength];
+        const StringComparison cmp = StringComparison.CurrentCultureIgnoreCase;
+        switch (mode)
+        {
+            case ChatContactSearchMode.Prefix:
+                // "Kow" znajduje "Bartek Kowalski": prefiksem może być początek nazwy albo któregokolwiek jej członu.
+                return contact.Name.StartsWith(phrase, cmp)
+                       || contact.Name.Split(' ', StringSplitOptions.RemoveEmptyEntries).Any(w => w.StartsWith(phrase, cmp));
+            case ChatContactSearchMode.Email:
+                return contact.Email is not null && contact.Email.Contains(phrase, cmp);
+            default:
+                return contact.Name.Contains(phrase, cmp);
+        }
     }
 
     // ---------- Rozmowy ----------
@@ -358,6 +393,13 @@ public class ChatService(AppDbContext db, IRealtimeNotifier realtime) : IChatSer
         var message = ChatMessage.Create(conversation.Id, user.Id, user.Role, sender.Name, text);
         db.ChatMessages.Add(message);
         me.MarkRead(message.SentAt); // własna wiadomość nie jest nieprzeczytana
+
+        // Powiadomienie w dzwonku (klik prowadzi do rozmowy): jedno nieprzeczytane na rozmowę i odbiorcę.
+        var notice = conversation.Kind == ConversationKind.CompanyGroup
+            ? $"Nowa wiadomość w grupie \"{conversation.Name}\" od {sender.Name}."
+            : $"Nowa wiadomość od {sender.Name}.";
+        foreach (var other in conversation.Participants.Where(p => p != me))
+            notifications.AddChatMessage(other.UserId, other.UserRole, conversation.Id, notice);
         await db.SaveChangesAsync(ct);
 
         var dto = ToDto(message);
@@ -369,6 +411,12 @@ public class ChatService(AppDbContext db, IRealtimeNotifier realtime) : IChatSer
     {
         var (_, me) = await LoadAsync(user, conversationId, ct);
         me.MarkRead(DateTime.UtcNow);
+
+        // Przeczytana rozmowa gasi też swoje powiadomienie o nowych wiadomościach.
+        var unread = await db.Notifications.Where(n => n.RecipientId == user.Id && n.RecipientRole == user.Role
+                                                       && n.TargetType == NotificationTarget.Chat
+                                                       && n.TargetId == conversationId && !n.IsRead).ToListAsync(ct);
+        foreach (var n in unread) n.MarkRead();
         await db.SaveChangesAsync(ct);
     }
 }

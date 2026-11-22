@@ -8,6 +8,7 @@ namespace SocialContent.Api.Dtos;
 /// <param name="Targets">Konta i platformy, na które post jest przeznaczony (jeden wpis na wariant).</param>
 /// <param name="Tags">Tagi treści.</param>
 /// <param name="CounterpartName">Dla firmy i managera: klient (pseudonim nadany przez firmę), dla klienta: firma, która obsługuje konto posta.</param>
+/// <param name="RejectionComment">Uwagi klienta z poprawkami wpisane przy odrzuceniu posta (status Rejected); null, gdy ich nie było.</param>
 /// <param name="Platform">Rodzaj posta; null dla posta ogólnego.</param>
 /// <param name="CanEdit">Czy zalogowany użytkownik może teraz edytować post (uprawnienia do konta i status; nie uwzględnia blokady edycji przez inną osobę).</param>
 /// <param name="CanDelete">Czy zalogowany użytkownik może usunąć post.</param>
@@ -38,7 +39,8 @@ public record PostDto(
     bool CanApprove = false,
     List<string>? Tags = null,
     List<PostTargetDto>? Targets = null,
-    string? CounterpartName = null);
+    string? CounterpartName = null,
+    string? RejectionComment = null);
 
 /// <summary>Jedno konto/platforma posta (wariant w grupie).</summary>
 public record PostTargetDto(

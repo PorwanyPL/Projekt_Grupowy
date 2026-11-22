@@ -3,11 +3,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/app_notification.dart';
 import '../providers/auth_provider.dart';
+import '../providers/home_navigation.dart';
+import '../providers/post_provider.dart';
+import '../services/api_exception.dart';
 import '../providers/notification_provider.dart';
 import '../screens/profile_screen.dart';
 import '../utils/formatters.dart';
+import 'app_messenger.dart';
 import 'confirm_dialog.dart';
+import 'post_actions.dart';
 
 /// Wspólne górne menu wszystkich ról (dzwonek powiadomień i menu profilu z danymi, rolą, profilem i wylogowaniem).
 /// Użycie: `AppBar(actions: [...accountMenuActions(context), ...])`.
@@ -125,11 +131,33 @@ class _NotificationBellState extends State<NotificationBell> {
     final provider = context.read<NotificationProvider>();
     await provider.load();
     if (!mounted) return;
-    await showDialog<void>(
+    final selected = await showDialog<AppNotification>(
       context: context,
       builder: (_) => _NotificationsDialog(provider: provider),
     );
     await provider.markAllRead();
+    if (selected != null && mounted) await _follow(selected);
+  }
+
+  /// Kliknięcie powiadomienia: przechodzi do miejsca, którego dotyczy (rozmowa czatu albo post).
+  Future<void> _follow(AppNotification n) async {
+    final id = n.targetId;
+    if (id == null) return;
+    switch (n.targetType) {
+      case NotificationTarget.chat:
+        context.read<HomeNavigation>().openChat(id);
+      case NotificationTarget.post:
+        final messenger = context.read<AppMessenger>();
+        try {
+          final post = await context.read<PostProvider>().getById(id);
+          if (!mounted) return;
+          await openPost(context, post);
+        } on ApiException {
+          messenger.show('Nie można otworzyć posta - został usunięty albo nie masz już do niego dostępu.');
+        }
+      case NotificationTarget.none:
+        break;
+    }
   }
 
   @override
@@ -167,8 +195,13 @@ class _NotificationsDialog extends StatelessWidget {
                 children: [
                   for (final n in items)
                     ListTile(
+                      key: Key('notification-${n.id}'),
                       leading: Icon(
-                        Icons.notifications_active_outlined,
+                        switch (n.targetType) {
+                          NotificationTarget.chat => Icons.chat_bubble_outline,
+                          NotificationTarget.post => Icons.article_outlined,
+                          NotificationTarget.none => Icons.notifications_active_outlined,
+                        },
                         color: n.isRead ? null : Theme.of(context).colorScheme.primary,
                       ),
                       title: Text(n.message,
@@ -176,6 +209,8 @@ class _NotificationsDialog extends StatelessWidget {
                               ? null
                               : const TextStyle(fontWeight: FontWeight.w600)),
                       subtitle: Text(formatDateTime(n.createdAt)),
+                      trailing: n.hasTarget ? const Icon(Icons.chevron_right) : null,
+                      onTap: n.hasTarget ? () => Navigator.pop(context, n) : null,
                     ),
                 ],
               ),

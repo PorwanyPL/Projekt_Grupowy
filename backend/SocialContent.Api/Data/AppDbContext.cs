@@ -139,6 +139,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.PublishedAt).HasConversion(v => v!.Date, d => ScheduledTime.Create(d));
             e.Property(x => x.ExternalPostId).HasConversion(v => v!.Value, s => ExternalId.Create(s)).HasMaxLength(100);
             e.Property(x => x.ErrorMessage).HasMaxLength(1000);
+            e.Property(x => x.RejectionComment).HasMaxLength(Post.MaxRejectionCommentLength);
 
             e.Property(x => x.GroupId).IsRequired();
             e.HasIndex(x => x.GroupId);
@@ -198,6 +199,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.Id).ValueGeneratedNever();
             e.Property(x => x.RecipientRole).HasConversion<string>().HasMaxLength(20).IsRequired();
             e.Property(x => x.Message).HasMaxLength(500).IsRequired();
+            e.Property(x => x.TargetType).HasConversion<string>().HasMaxLength(20).IsRequired();
             e.HasIndex(x => new { x.RecipientId, x.RecipientRole, x.IsRead });
         });
 

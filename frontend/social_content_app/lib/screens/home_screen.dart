@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/app_notification.dart';
 import '../models/auth.dart';
 import '../providers/auth_provider.dart';
 import '../providers/chat_provider.dart';
 import '../providers/client_provider.dart';
+import '../providers/home_navigation.dart';
 import '../providers/notification_provider.dart';
 import '../widgets/app_messenger.dart';
 import '../providers/manager_provider.dart';
 import '../providers/social_account_provider.dart';
 import 'calendar_screen.dart';
 import 'chat_list_screen.dart';
+import 'chat_screen.dart';
 import 'client_list_screen.dart';
 import '../widgets/auto_refresh.dart';
 import 'company_list_screen.dart';
@@ -43,6 +46,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _index = 0;
   late final ChatProvider _chat;
+  late final HomeNavigation _navigation;
 
   /// Osobny Navigator dla każdej zakładki (maks. 5), żeby ekrany szczegółowe otwierały się
   /// pod dolnym menu, a nie na całym ekranie.
@@ -57,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _chat = context.read<ChatProvider>();
+    _navigation = context.read<HomeNavigation>()..addListener(_onNavigationRequest);
     // Dane pobieramy dopiero po zalogowaniu - wszystkie endpointy wymagają tokenu.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
@@ -80,9 +85,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
+    _navigation.removeListener(_onNavigationRequest);
     // Wylogowanie zamyka HomeScreen: zatrzymujemy połączenie SignalR (po zakończeniu budowania drzewa).
     Future.microtask(_chat.stop);
     super.dispose();
+  }
+
+  /// Kliknięcie powiadomienia o wiadomości: przełącza na zakładkę Czat i otwiera rozmowę nad jej listą.
+  void _onNavigationRequest() {
+    final id = _navigation.takePendingConversation();
+    if (id == null || !mounted) return;
+    final tabs = _tabsFor(context.read<AuthProvider>().role);
+    final chatIndex = tabs.indexWhere((t) => t.label == 'Czat');
+    if (chatIndex < 0) return;
+    setState(() => _index = chatIndex);
+    final nav = _navKeys[chatIndex].currentState;
+    nav?.popUntil((r) => r.isFirst);
+    nav?.push(MaterialPageRoute<void>(builder: (_) => ChatScreen(conversationId: id)));
   }
 
   /// Czat i powiadomienia na żywo: jedno połączenie SignalR na sesję. Nowa wiadomość = krótki komunikat
@@ -96,7 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
     chat.onIncoming = (text) => messenger.show('Nowa wiadomość - $text');
     chat.onNotification = (n) {
       notifications.push(n);
-      messenger.show(n.message);
+      // Wiadomości czatu zapowiada już ChatProvider.onIncoming (z treścią), więc nie dublujemy komunikatu.
+      if (n.targetType != NotificationTarget.chat) messenger.show(n.message);
     };
     chat.start(profile.id, profile.role);
   }

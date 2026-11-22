@@ -150,7 +150,8 @@ class ChatProvider extends ChangeNotifier {
     _addMessage(message);
   }
 
-  Future<List<ChatContact>> contacts() => _service.contacts();
+  Future<List<ChatContact>> contacts({String? search, ContactSearchMode mode = ContactSearchMode.contains}) =>
+      _service.contacts(search: search, mode: mode);
 
   Future<Conversation> openDirect(ChatContact contact) async {
     final c = await _service.openDirect(contact.userId, contact.role);

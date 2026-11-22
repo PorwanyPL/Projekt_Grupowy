@@ -122,6 +122,7 @@ class Post {
     this.tags = const [],
     this.targets = const [],
     this.counterpartName,
+    this.rejectionComment,
   });
 
   final String id;
@@ -160,6 +161,9 @@ class Post {
 
   /// Klient (dla firmy i managera - alias lub imię i nazwisko) albo firma (dla klienta), której dotyczy post.
   final String? counterpartName;
+
+  /// Uwagi klienta z poprawkami wpisane przy odrzuceniu posta (status Rejected).
+  final String? rejectionComment;
 
   /// Platformy posta bez powtórzeń, w stałej kolejności (ikony na liście i w kalendarzu).
   List<SocialPlatform> get platforms {
@@ -219,6 +223,7 @@ class Post {
             .map((e) => PostTarget.fromJson(e as Map<String, dynamic>))
             .toList(),
         counterpartName: json['counterpartName'] as String?,
+        rejectionComment: json['rejectionComment'] as String?,
       );
 }
 

@@ -37,7 +37,7 @@ public class ChatTests : IDisposable
         }
     }
 
-    private ChatService Chat(AppDbContext db) => new(db, _notifier);
+    private ChatService Chat(AppDbContext db) => new(db, _notifier, new NotificationService(db, _db.Mapper));
 
     private static CurrentUser AsCompany(CompanyUser c) => new(c.CompanyId, UserRole.CompanyUser);
     private static CurrentUser AsManager(ManagerUser m) => new(m.Id, UserRole.ManagerUser);

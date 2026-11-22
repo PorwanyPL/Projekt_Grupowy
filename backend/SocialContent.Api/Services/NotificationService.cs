@@ -23,8 +23,14 @@ public interface INotificationService
     /// <summary>Powiadamia klienta, że post jego konta czeka na akceptację (bez zapisu).</summary>
     void AddApprovalRequested(Post post, Guid clientId);
 
-    /// <summary>Powiadamia firmę i autorów o decyzji klienta: zaakceptował albo odrzucił post (bez zapisu).</summary>
-    void AddApprovalDecision(Post post, bool approved);
+    /// <summary>
+    /// Powiadamia firmę i autorów o decyzji klienta: zaakceptował albo odrzucił post (bez zapisu).
+    /// Przy odrzuceniu komunikat zawiera uwagi klienta z poprawkami (jeśli je wpisał).
+    /// </summary>
+    void AddApprovalDecision(Post post, bool approved, string? comment = null);
+
+    /// <summary>Powiadamia uczestnika o nowej wiadomości w rozmowie (jedno nieprzeczytane powiadomienie na rozmowę; bez zapisu).</summary>
+    void AddChatMessage(Guid recipientId, UserRole recipientRole, Guid conversationId, string message);
 
     Task<List<NotificationDto>> GetAsync(CurrentUser user, CancellationToken ct);
     Task MarkReadAsync(CurrentUser user, Guid id, CancellationToken ct);
@@ -66,16 +72,29 @@ public class NotificationService(AppDbContext db, IMapper mapper) : INotificatio
         AddOnce(Notification.Create(clientId, UserRole.ClientUser, post.GroupId,
             $"Post \"{post.Title.Value}\" czeka na Twoją akceptację."));
 
-    public void AddApprovalDecision(Post post, bool approved)
+    public void AddApprovalDecision(Post post, bool approved, string? comment = null)
     {
+        var note = comment?.Trim();
         var message = approved
             ? $"Klient zaakceptował post \"{post.Title.Value}\"."
-            : $"Klient odrzucił post \"{post.Title.Value}\". Popraw go i wyślij ponownie.";
+            : string.IsNullOrEmpty(note)
+                ? $"Klient odrzucił post \"{post.Title.Value}\". Popraw go i wyślij ponownie."
+                : $"Klient odrzucił post \"{post.Title.Value}\" i zwrócił go do poprawy. Uwagi: {note}";
 
         if (post.TargetAccount is not null)
             AddOnce(Notification.Create(post.TargetAccount.CompanyId, UserRole.CompanyUser, post.GroupId, message));
         foreach (var manager in post.ManagerUsers.DistinctBy(m => m.Id))
             AddOnce(Notification.Create(manager.Id, UserRole.ManagerUser, post.GroupId, message));
+    }
+
+    public void AddChatMessage(Guid recipientId, UserRole recipientRole, Guid conversationId, string message)
+    {
+        // Jedno nieprzeczytane powiadomienie na rozmowę (kolejne wiadomości nie mnożą wpisów w dzwonku).
+        var exists = db.Notifications.Local.Any(n => n.RecipientId == recipientId && n.RecipientRole == recipientRole
+                                                     && n.TargetType == NotificationTarget.Chat && n.TargetId == conversationId && !n.IsRead)
+                     || db.Notifications.Any(n => n.RecipientId == recipientId && n.RecipientRole == recipientRole
+                                                  && n.TargetType == NotificationTarget.Chat && n.TargetId == conversationId && !n.IsRead);
+        if (!exists) db.Notifications.Add(Notification.CreateChat(recipientId, recipientRole, conversationId, message));
     }
 
     public async Task<List<NotificationDto>> GetAsync(CurrentUser user, CancellationToken ct)

@@ -10,8 +10,15 @@ class ChatService {
 
   final ApiClient _api;
 
-  Future<List<ChatContact>> contacts() async {
-    final json = await _api.get('/api/Chat/contacts') as List<dynamic>;
+  /// Kontakty dozwolone dla roli; [search] filtruje je po stronie serwera (zgodnie z [mode]), nie znajdzie się nikogo
+  /// spoza reguł czatu.
+  Future<List<ChatContact>> contacts({String? search, ContactSearchMode mode = ContactSearchMode.contains}) async {
+    final phrase = search?.trim();
+    final hasPhrase = phrase != null && phrase.isNotEmpty;
+    final json = await _api.get(
+      '/api/Chat/contacts',
+      query: hasPhrase ? {'search': phrase, 'mode': mode.apiName} : null,
+    ) as List<dynamic>;
     return json.map((e) => ChatContact.fromJson(e as Map<String, dynamic>)).toList();
   }
 

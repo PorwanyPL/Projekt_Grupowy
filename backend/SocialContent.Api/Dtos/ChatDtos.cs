@@ -15,7 +15,7 @@ public record ConversationDto(Guid Id, ConversationKind Kind, string Title, List
     ChatMessageDto? LastMessage, int UnreadCount);
 
 /// <summary>Osoba, z którą zalogowany użytkownik może rozpocząć rozmowę 1 na 1.</summary>
-public record ChatContactDto(Guid UserId, UserRole Role, string Name, string? Description);
+public record ChatContactDto(Guid UserId, UserRole Role, string Name, string? Description, string? Email = null);
 
 /// <summary>Manager upoważniony do czatowania ze wszystkimi klientami (null = nikt).</summary>
 public record ChatManagerDto(Guid? ManagerId, string? ManagerName);

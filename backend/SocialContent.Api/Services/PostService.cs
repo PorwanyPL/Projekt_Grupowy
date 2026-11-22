@@ -35,8 +35,11 @@ public interface IPostService
     /// <summary>Klient akceptuje post swojego konta: publikacja od razu albo zaplanowana, zależnie od terminu.</summary>
     Task<PostDto> ApproveAsync(CurrentUser user, Guid id, CancellationToken ct);
 
-    /// <summary>Klient odrzuca post swojego konta; autorzy mogą go poprawić i wysłać ponownie.</summary>
-    Task<PostDto> RejectAsync(CurrentUser user, Guid id, CancellationToken ct);
+    /// <summary>
+    /// Klient odrzuca post swojego konta (opcjonalnie z uwagami do poprawy); autorzy dostają powiadomienie z uwagami,
+    /// mogą poprawić post i wysłać go ponownie.
+    /// </summary>
+    Task<PostDto> RejectAsync(CurrentUser user, Guid id, CancellationToken ct, string? comment = null);
 }
 
 public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage, IPostEditLockService locks,
@@ -308,13 +311,13 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
         return await ToGroupDtoAsync(user, variants, ct);
     }
 
-    public async Task<PostDto> RejectAsync(CurrentUser user, Guid id, CancellationToken ct)
+    public async Task<PostDto> RejectAsync(CurrentUser user, Guid id, CancellationToken ct, string? comment = null)
     {
         var (variants, deciding) = await FindForDecision(user, id, ct);
         foreach (var post in deciding)
         {
-            post.Reject();
-            notifications.AddApprovalDecision(post, approved: false);
+            post.Reject(comment);
+            notifications.AddApprovalDecision(post, approved: false, comment);
         }
         await db.SaveChangesAsync(ct);
         return await ToGroupDtoAsync(user, variants, ct);
@@ -462,6 +465,7 @@ public class PostService(AppDbContext db, IMapper mapper, IMediaStorage storage,
             ManagerUsers = mapper.Map<List<ManagerUserDto>>(managers),
             PublishedAt = published.Count > 0 ? DateTime.SpecifyKind(published.Max(), DateTimeKind.Utc) : null,
             ErrorMessage = ordered.FirstOrDefault(v => v.Status == PostStatus.Failed)?.ErrorMessage ?? rep.ErrorMessage,
+            RejectionComment = ordered.FirstOrDefault(v => v.Status == PostStatus.Rejected)?.RejectionComment,
             Targets = ordered.Select(v => new PostTargetDto(v.Id, v.TargetAccountId, v.TargetAccount?.AccountName ?? "",
                 PlatformOf(v), v.Status, v.ErrorMessage)).ToList(),
             CounterpartName = counterpart.Length == 0 ? null : counterpart,

@@ -36,7 +36,7 @@ public sealed class NotificationPushInterceptor(IServiceProvider services, ILogg
         {
             var notifier = services.GetRequiredService<IRealtimeNotifier>();
             foreach (var n in list)
-                await notifier.NotificationAsync(new NotificationDto(n.Id, n.PostId, n.Message, n.CreatedAt, n.IsRead),
+                await notifier.NotificationAsync(new NotificationDto(n.Id, n.PostId, n.Message, n.CreatedAt, n.IsRead, n.TargetType, n.TargetId),
                     n.RecipientId, n.RecipientRole, ct);
         }
         catch (Exception ex)
