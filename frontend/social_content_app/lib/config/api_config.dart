@@ -18,5 +18,24 @@ class ApiConfig {
     return 'http://127.0.0.1:5080';
   }
 
+  /// Czy adres jest bezpieczny: HTTPS albo HTTP wyłącznie do komputera/emulatora deweloperskiego
+  /// (127.0.0.1, localhost, 10.0.2.2), gdzie ruch nie opuszcza maszyny.
+  static bool isSecureOrLoopback(String url) {
+    final uri = Uri.tryParse(url);
+    if (uri == null) return false;
+    if (uri.scheme == 'https') return true;
+    return uri.scheme == 'http' && const {'127.0.0.1', 'localhost', '::1', '10.0.2.2'}.contains(uri.host);
+  }
+
+  /// W wersji release odmawia pracy z adresem HTTP spoza pętli zwrotnej: hasła, kody i tokeny nie mogą iść jawnym tekstem.
+  /// W debugowaniu (np. telefon w sieci Wi-Fi) dozwolone, ale z ostrzeżeniem w konsoli.
+  static void assertSecure(String url) {
+    if (isSecureOrLoopback(url)) return;
+    if (kReleaseMode) {
+      throw StateError('Adres API ($url) nie używa HTTPS. Zbuduj aplikację z --dart-define=API_BASE_URL=https://...');
+    }
+    debugPrint('UWAGA: adres API ($url) nie używa HTTPS - ruch (hasła, tokeny) idzie jawnym tekstem.');
+  }
+
   static const Duration timeout = Duration(seconds: 15);
 }

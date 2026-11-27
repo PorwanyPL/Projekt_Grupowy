@@ -6,6 +6,7 @@ namespace SocialContent.Api.Dtos;
 /// <param name="CompanyId">Firma użytkownika: własna (CompanyUser) lub firma, która utworzyła managera; null dla klienta.</param>
 /// <param name="Age">Wiek; null dla CompanyUser.</param>
 /// <param name="Description">Opis; null dla CompanyUser.</param>
+/// <param name="TwoFactorEnabled">Czy logowanie wymaga kodu wysłanego e-mailem.</param>
 public record UserProfileDto(
     Guid Id,
     string Role,
@@ -13,4 +14,5 @@ public record UserProfileDto(
     string DisplayName,
     Guid? CompanyId,
     int? Age,
-    string? Description);
+    string? Description,
+    bool TwoFactorEnabled = false);

@@ -19,6 +19,9 @@ public class CompanyUser
 
     public bool IsAccessBlocked { get; private set; }
 
+    /// <summary>Weryfikacja dwuetapowa: gdy true, logowanie wymaga dodatkowo kodu wysłanego na adres e-mail.</summary>
+    public bool TwoFactorEnabled { get; private set; }
+
     /// <summary>
     /// Manager upoważniony przez właściciela do czatowania ze wszystkimi klientami (także niewspółpracującymi z firmą).
     /// Brak wartości = żaden manager nie ma tego uprawnienia. Zwykła kolumna bez klucza obcego; serwis czatu sprawdza,
@@ -44,6 +47,8 @@ public class CompanyUser
         };
 
     public void SetAccessBlocked(bool blocked) => IsAccessBlocked = blocked;
+
+    public void SetTwoFactorEnabled(bool enabled) => TwoFactorEnabled = enabled;
 
     public void SetChatManager(Guid? managerId) => ChatManagerId = managerId;
 

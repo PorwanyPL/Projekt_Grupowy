@@ -21,9 +21,14 @@ public class ManagerCredential
     /// </summary>
     public bool IsAccessBlocked { get; private set; }
 
+    /// <summary>Weryfikacja dwuetapowa: gdy true, logowanie wymaga dodatkowo kodu wysłanego na adres e-mail.</summary>
+    public bool TwoFactorEnabled { get; private set; }
+
     private ManagerCredential() { }
 
     public void SetAccessBlocked(bool blocked) => IsAccessBlocked = blocked;
+
+    public void SetTwoFactorEnabled(bool enabled) => TwoFactorEnabled = enabled;
 
     /// <summary>Zmiana adresu logowania; wywołujący przekazuje e-mail już znormalizowany i zwalidowany (Validate).</summary>
     public void ChangeEmail(string normalizedEmail) => Email = normalizedEmail;

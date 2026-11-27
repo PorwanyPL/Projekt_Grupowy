@@ -22,7 +22,7 @@ public class ChatController(IChatService service) : ControllerBase
     /// Firma: managerowie własnej firmy, inne firmy i wszyscy klienci. Manager: właściciel i managerowie własnej firmy oraz klienci
     /// współpracujący z firmą (manager ds. czatu - wszyscy klienci). Klient: firmy oraz managerowie, którzy mogą z nim czatować.
     /// Parametr <c>search</c> filtruje listę po stronie serwera, już po zastosowaniu reguł czatu, więc nie da się znaleźć osoby, z którą nie wolno pisać.
-    /// Tryby <c>mode</c>: <c>Prefix</c> (nazwa lub jej człon zaczyna się od frazy), <c>Contains</c> (fraza w dowolnym miejscu nazwy, domyślny),
+    /// Tryby <c>mode</c>: <c>Contains</c> (fragment nazwy, domyślny) oraz
     /// <c>Email</c> (fraza w adresie e-mail). Wielkość liter nie ma znaczenia.
     /// </remarks>
     /// <param name="search">Fraza wyszukiwania (do 100 znaków); pusta = wszystkie dozwolone kontakty.</param>

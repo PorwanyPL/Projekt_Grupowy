@@ -77,9 +77,9 @@ void main() {
     }
 
     test('fraza i tryb idą do serwera jako search i mode', () async {
-      final url = await capture('  kow ', ContactSearchMode.prefix);
+      final url = await capture('  kow ', ContactSearchMode.contains);
       expect(url.path, '/api/Chat/contacts');
-      expect(url.queryParameters, {'search': 'kow', 'mode': 'Prefix'});
+      expect(url.queryParameters, {'search': 'kow', 'mode': 'Contains'});
       expect((await capture('a@b', ContactSearchMode.email)).queryParameters['mode'], 'Email');
       expect((await capture('ow', ContactSearchMode.contains)).queryParameters['mode'], 'Contains');
     });

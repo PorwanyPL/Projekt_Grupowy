@@ -24,7 +24,7 @@ namespace SocialContent.Api.Data;
 /// </summary>
 public static class DatabaseInitializer
 {
-    public const int SchemaVersion = 9;
+    public const int SchemaVersion = 10;
 
     public static void Initialize(AppDbContext db, ILogger logger)
     {

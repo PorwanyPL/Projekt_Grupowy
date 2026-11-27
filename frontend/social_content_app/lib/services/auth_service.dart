@@ -6,12 +6,30 @@ class AuthService {
 
   final ApiClient _api;
 
-  Future<AuthSession> login(String email, String password) async {
+  Future<LoginResult> login(String email, String password) async {
     final json = await _api.post('/api/Auth/login', {
       'email': email,
       'password': password,
     });
+    return LoginResult.fromJson(json as Map<String, dynamic>);
+  }
+
+  /// Drugi krok logowania: kod z e-maila.
+  Future<AuthSession> verifyCode(String challengeId, String code) async {
+    final json = await _api.post('/api/Auth/login/verify-code', {
+      'challengeId': challengeId,
+      'code': code.trim(),
+    });
     return AuthSession.fromJson(json as Map<String, dynamic>);
+  }
+
+  /// Włącza/wyłącza weryfikację dwuetapową (wymaga hasła).
+  Future<UserProfile> setTwoFactor(bool enabled, String password) async {
+    final json = await _api.put('/api/Auth/two-factor', {
+      'enabled': enabled,
+      'password': password,
+    });
+    return UserProfile.fromJson(json as Map<String, dynamic>);
   }
 
   Future<AuthSession> registerCompany(RegisterCompanyInput input) async {

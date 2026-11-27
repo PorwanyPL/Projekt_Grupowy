@@ -41,6 +41,7 @@ public static class DatabaseSeeder
         // Klient bez współpracy z firmą: z nim może czatować tylko manager ds. czatu (Anna), nie Bartek.
         var marta = ClientUser.Create(FirstName.Create("Marta"), LastName.Create("Obca"), Age.Create(28),
             Description.Create("Klientka niewspółpracująca z firmą (test reguł czatu)"), "klient3@demo.pl", hash);
+        marta.SetTwoFactorEnabled(true); // klient3@demo.pl loguje się z kodem e-mail (test 2FA)
         company.AddClient(karol).SetAlias("Kawiarnia Pod Dębem");
         company.AddClient(karolina).SetAlias("Sklep Karoliny");
         company.Clients.Single(c => c.ClientId == karolina.Id).SetApprovalMode(PostApprovalMode.Client);
@@ -134,7 +135,7 @@ public static class DatabaseSeeder
         db.SaveChanges();
 
         logger.LogInformation(
-            "Seeder: dodano dane demo. Logowanie (hasło {Password}): firma@demo.pl, anna@demo.pl (manager ds. czatu), bartek@demo.pl, klient@demo.pl, klient2@demo.pl, klient3@demo.pl (bez współpracy z firmą).",
+            "Seeder: dodano dane demo. Logowanie (hasło {Password}): firma@demo.pl, anna@demo.pl (manager ds. czatu), bartek@demo.pl, klient@demo.pl, klient2@demo.pl, klient3@demo.pl (bez współpracy z firmą, z włączoną weryfikacją dwuetapową - kod pojawi się w logu serwera).",
             DemoPassword);
     }
 

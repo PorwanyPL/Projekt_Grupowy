@@ -237,7 +237,6 @@ class _ContactPickerDialogState extends State<_ContactPickerDialog> {
   }
 
   String get _hint => switch (_mode) {
-        ContactSearchMode.prefix => 'Pierwsze litery imienia, nazwiska lub nazwy',
         ContactSearchMode.contains => 'Fragment imienia, nazwiska lub nazwy',
         ContactSearchMode.email => 'Adres e-mail lub jego fragment',
       };

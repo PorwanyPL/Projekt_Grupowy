@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using SocialContent.Api.Dtos;
 using SocialContent.Api.Services;
 
@@ -53,17 +54,53 @@ public class AuthController(IAuthService service) : ControllerBase
     /// <remarks>
     /// <para>Logowanie adresem e-mail i hasłem dla każdej roli (CompanyUser, ManagerUser, ClientUser). Zwraca token JWT, który zawiera rolę, oraz profil zalogowanego.</para>
     /// <para>Przy błędnym e-mailu lub haśle zwracany jest ten sam komunikat, aby nie ujawniać, czy konto istnieje. Managerowie utworzeni bez e-maila i hasła nie mają danych logowania i nie mogą się zalogować. Zablokowane konto dostaje 401 z komunikatem o blokadzie (po podaniu poprawnego hasła).</para>
+    /// <para>Jeśli konto ma włączoną weryfikację dwuetapową, poprawne hasło NIE daje tokenu: odpowiedź ma <c>twoFactorRequired = true</c>, <c>challengeId</c> i zamaskowany adres, a na e-mail trafia 6-cyfrowy kod (ważny 5 minut, 5 prób). Token wydaje dopiero POST /api/Auth/login/verify-code.</para>
+    /// <para>Endpoint ma limit żądań (429 po przekroczeniu).</para>
     /// </remarks>
     /// <param name="dto">Adres e-mail i hasło.</param>
-    /// <response code="200">Logowanie udane; w odpowiedzi token i profil.</response>
+    /// <response code="200">Logowanie udane (token i profil) albo wymagany kod (twoFactorRequired).</response>
     /// <response code="400">Brakuje e-maila lub hasła.</response>
     /// <response code="401">Nieprawidłowy adres e-mail lub hasło albo konto jest zablokowane.</response>
+    /// <response code="429">Zbyt wiele prób logowania z tego adresu IP.</response>
+    [EnableRateLimiting("auth")]
     [HttpPost("login")]
     [ProducesResponseType<AuthResponseDto>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
     public async Task<ActionResult<AuthResponseDto>> Login(LoginDto dto, CancellationToken ct) =>
         Ok(await service.LoginAsync(dto, ct));
+
+    /// <summary>Zaloguj się - krok 2: kod z e-maila</summary>
+    /// <remarks>
+    /// Kod jest 6-cyfrowy, ważny 5 minut, jednorazowy; po 5 błędnych próbach wyzwanie jest unieważniane i trzeba zalogować się od nowa (nowy kod).
+    /// Przechowywany jest wyłącznie hasz kodu.
+    /// </remarks>
+    /// <param name="dto">Id wyzwania z kroku 1 i kod.</param>
+    /// <response code="200">Kod poprawny; w odpowiedzi token i profil.</response>
+    /// <response code="400">Brak Id wyzwania lub kodu.</response>
+    /// <response code="401">Kod błędny, wygasły, zużyty albo przekroczono limit prób; konto zablokowane.</response>
+    /// <response code="429">Zbyt wiele żądań z tego adresu IP.</response>
+    [EnableRateLimiting("auth")]
+    [HttpPost("login/verify-code")]
+    [ProducesResponseType<AuthResponseDto>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
+    public async Task<ActionResult<AuthResponseDto>> VerifyCode(VerifyCodeDto dto, CancellationToken ct) =>
+        Ok(await service.VerifyCodeAsync(dto, ct));
+
+    /// <summary>Włącz lub wyłącz weryfikację dwuetapową</summary>
+    /// <remarks>Wymaga potwierdzenia aktualnym hasłem. Po włączeniu każde logowanie wymaga kodu wysłanego na adres e-mail konta. Rejestracja nie wymaga weryfikacji e-maila.</remarks>
+    /// <param name="dto">Żądany stan i hasło.</param>
+    /// <response code="200">Zaktualizowany profil (pole twoFactorEnabled).</response>
+    /// <response code="400">Nieprawidłowe hasło.</response>
+    /// <response code="401">Brak tokenu lub sesja nieważna.</response>
+    [Authorize]
+    [HttpPut("two-factor")]
+    [ProducesResponseType<UserProfileDto>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
+    public async Task<ActionResult<UserProfileDto>> SetTwoFactor(TwoFactorSettingDto dto, CancellationToken ct) =>
+        Ok(await service.SetTwoFactorAsync(User.ToCurrentUser(), dto, ct));
 
     /// <summary>Pobierz profil zalogowanego użytkownika</summary>
     /// <remarks>Zwraca rolę (CompanyUser, ManagerUser lub ClientUser), adres e-mail i dane profilu na podstawie tokenu. Frontend używa go do odtworzenia sesji po ponownym uruchomieniu aplikacji.</remarks>

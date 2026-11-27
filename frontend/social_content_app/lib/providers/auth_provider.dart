@@ -56,9 +56,23 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  /// Rzuca [ApiException] - formularz pokazuje komunikat.
-  Future<void> login(String email, String password) async =>
-      _startSession(await _service.login(email.trim(), password));
+  /// Rzuca [ApiException] - formularz pokazuje komunikat. Zwraca null, gdy zalogowano; wyzwanie, gdy trzeba
+  /// jeszcze podać kod z e-maila (weryfikacja dwuetapowa) - wtedy ekran logowania wywołuje [verifyCode].
+  Future<TwoFactorChallenge?> login(String email, String password) async {
+    final result = await _service.login(email.trim(), password);
+    if (result.challenge != null) return result.challenge;
+    await _startSession(result.session!);
+    return null;
+  }
+
+  Future<void> verifyCode(String challengeId, String code) async =>
+      _startSession(await _service.verifyCode(challengeId, code));
+
+  /// Zmienia ustawienie 2FA i odświeża profil. Rzuca [ApiException] (np. błędne hasło).
+  Future<void> setTwoFactor(bool enabled, String password) async {
+    profile = await _service.setTwoFactor(enabled, password);
+    notifyListeners();
+  }
 
   Future<void> registerCompany(RegisterCompanyInput input) async =>
       _startSession(await _service.registerCompany(input));

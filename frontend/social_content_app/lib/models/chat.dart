@@ -107,9 +107,6 @@ class Conversation {
 
 /// Sposób dopasowania frazy w wyszukiwarce rozmówców (zgodny z ChatContactSearchMode z backendu).
 enum ContactSearchMode {
-  /// Nazwa albo dowolny jej człon (imię, nazwisko) zaczyna się od frazy.
-  prefix('Prefix', 'Początek nazwy'),
-
   /// Fraza w dowolnym miejscu nazwy.
   contains('Contains', 'Fragment nazwy'),
 

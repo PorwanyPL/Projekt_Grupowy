@@ -19,6 +19,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Conversation> Conversations => Set<Conversation>();
     public DbSet<ConversationParticipant> ConversationParticipants => Set<ConversationParticipant>();
     public DbSet<ChatMessage> ChatMessages => Set<ChatMessage>();
+    public DbSet<TwoFactorChallenge> TwoFactorChallenges => Set<TwoFactorChallenge>();
 
     protected override void OnModelCreating(ModelBuilder b)
     {
@@ -30,6 +31,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.Email).HasMaxLength(254).IsRequired();
             e.Property(x => x.PasswordHash).HasMaxLength(200).IsRequired();
             e.Property(x => x.IsAccessBlocked).IsRequired();
+            e.Property(x => x.TwoFactorEnabled).IsRequired();
             e.HasIndex(x => x.Email).IsUnique();
 
         });
@@ -58,6 +60,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.Description).HasConversion(v => v.Value, s => Description.Create(s)).HasMaxLength(2000).IsRequired();
             e.Property(x => x.Email).HasMaxLength(254).IsRequired();
             e.Property(x => x.PasswordHash).HasMaxLength(200).IsRequired();
+            e.Property(x => x.TwoFactorEnabled).IsRequired();
             e.HasIndex(x => x.Email).IsUnique();
         });
 
@@ -86,9 +89,22 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(x => x.Email).HasMaxLength(254).IsRequired();
             e.Property(x => x.PasswordHash).HasMaxLength(200).IsRequired();
             e.Property(x => x.IsAccessBlocked).IsRequired();
+            e.Property(x => x.TwoFactorEnabled).IsRequired();
             e.HasIndex(x => x.Email).IsUnique();
             e.HasOne(x => x.ManagerUser).WithOne().HasForeignKey<ManagerCredential>(x => x.ManagerUserId)
                 .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Wyzwania weryfikacji dwuetapowej: tylko hasz kodu, bez klucza obcego (UserId wskazuje jedną z trzech tabel kont).
+        b.Entity<TwoFactorChallenge>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).ValueGeneratedNever();
+            e.Property(x => x.UserRole).HasConversion<string>().HasMaxLength(20).IsRequired();
+            e.Property(x => x.CodeHash).HasMaxLength(200).IsRequired();
+            e.Property(x => x.CreatedAt).IsRequired();
+            e.Property(x => x.ExpiresAt).IsRequired();
+            e.HasIndex(x => new { x.UserId, x.UserRole });
         });
 
         b.Entity<SocialAccount>(e =>

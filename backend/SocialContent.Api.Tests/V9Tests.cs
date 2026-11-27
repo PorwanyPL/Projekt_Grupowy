@@ -53,20 +53,6 @@ public class V9Tests : IDisposable
     // ---------- 1. Wyszukiwanie rozmówcy ----------
 
     [Fact]
-    public async Task Search_Prefix_MatchesNameOrAnyWordOfName_CaseInsensitive()
-    {
-        var w = await BuildAsync();
-
-        var byLastName = await SearchAsync(AsCompany(w.Company), "kow", ChatContactSearchMode.Prefix);
-        Assert.Equal(w.Bartek.Id, Assert.Single(byLastName).UserId);
-
-        var byFirstName = await SearchAsync(AsCompany(w.Company), "ANN", ChatContactSearchMode.Prefix);
-        Assert.Equal(w.Anna.Id, Assert.Single(byFirstName).UserId);
-
-        Assert.Empty(await SearchAsync(AsCompany(w.Company), "owak", ChatContactSearchMode.Prefix)); // fragment w środku to nie prefiks
-    }
-
-    [Fact]
     public async Task Search_Contains_FindsFragmentAnywhereInName()
     {
         var w = await BuildAsync();
@@ -86,7 +72,7 @@ public class V9Tests : IDisposable
         Assert.Equal(w.Stranger.Id, found.UserId);
         Assert.Equal("obcy@example.com", found.Email);
 
-        Assert.Empty(await SearchAsync(AsCompany(w.Company), "Obcy", ChatContactSearchMode.Prefix)); // imię klienta to Karol, a nie fragment e-maila
+        Assert.Empty(await SearchAsync(AsCompany(w.Company), "Obcy", ChatContactSearchMode.Contains)); // tryb nazwy nie zagląda do e-maila: klient nazywa się Karol Klient
     }
 
     [Fact]
@@ -116,7 +102,7 @@ public class V9Tests : IDisposable
         await using var db = _db.NewContext();
         var all = await Chat(db).GetContactsAsync(AsCompany(w.Company), CancellationToken.None);
 
-        Assert.Equal(all.Count, (await SearchAsync(AsCompany(w.Company), null, ChatContactSearchMode.Prefix)).Count);
+        Assert.Equal(all.Count, (await SearchAsync(AsCompany(w.Company), null, ChatContactSearchMode.Contains)).Count);
         Assert.Equal(all.Count, (await SearchAsync(AsCompany(w.Company), "   ", ChatContactSearchMode.Email)).Count);
     }
 

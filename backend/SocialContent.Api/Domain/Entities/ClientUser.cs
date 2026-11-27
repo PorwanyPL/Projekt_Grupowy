@@ -20,6 +20,9 @@ public class ClientUser
     /// <summary>Hasz PBKDF2 w formacie "v1.iteracje.sól.hasz". Nigdy nie opuszcza warstwy serwisów.</summary>
     public string PasswordHash { get; private set; } = null!;
 
+    /// <summary>Weryfikacja dwuetapowa: gdy true, logowanie wymaga dodatkowo kodu wysłanego na adres e-mail.</summary>
+    public bool TwoFactorEnabled { get; private set; }
+
     /// <summary>Relacje z firmami (ClientUser n - m CompanyUser).</summary>
     public List<CompanyClient> Companies { get; private set; } = new();
 
@@ -40,6 +43,8 @@ public class ClientUser
             Email = normalizedEmail,
             PasswordHash = passwordHash
         };
+
+    public void SetTwoFactorEnabled(bool enabled) => TwoFactorEnabled = enabled;
 
     public void Update<T>(T value) where T : notnull
     {

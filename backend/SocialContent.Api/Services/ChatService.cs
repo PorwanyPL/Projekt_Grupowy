@@ -241,10 +241,6 @@ public class ChatService(AppDbContext db, IRealtimeNotifier realtime, INotificat
         const StringComparison cmp = StringComparison.CurrentCultureIgnoreCase;
         switch (mode)
         {
-            case ChatContactSearchMode.Prefix:
-                // "Kow" znajduje "Bartek Kowalski": prefiksem może być początek nazwy albo któregokolwiek jej członu.
-                return contact.Name.StartsWith(phrase, cmp)
-                       || contact.Name.Split(' ', StringSplitOptions.RemoveEmptyEntries).Any(w => w.StartsWith(phrase, cmp));
             case ChatContactSearchMode.Email:
                 return contact.Email is not null && contact.Email.Contains(phrase, cmp);
             default:

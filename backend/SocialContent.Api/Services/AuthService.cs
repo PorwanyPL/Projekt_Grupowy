@@ -17,11 +17,18 @@ public interface IAuthService
     Task<AuthResponseDto> LoginAsync(LoginDto dto, CancellationToken ct);
     Task<UserProfileDto> GetProfileAsync(CurrentUser user, CancellationToken ct);
 
+    /// <summary>Drugi krok logowania z weryfikacją dwuetapową: kod z e-maila.</summary>
+    Task<AuthResponseDto> VerifyCodeAsync(VerifyCodeDto dto, CancellationToken ct);
+
+    /// <summary>Włącza lub wyłącza weryfikację dwuetapową (po potwierdzeniu hasłem).</summary>
+    Task<UserProfileDto> SetTwoFactorAsync(CurrentUser user, TwoFactorSettingDto dto, CancellationToken ct);
+
     /// <summary>Czy konto z tokenu nadal istnieje i nie jest zablokowane (sprawdzane przy każdym żądaniu).</summary>
     Task<bool> IsSessionValidAsync(CurrentUser user, CancellationToken ct);
 }
 
-public class AuthService(AppDbContext db, IPasswordHasher hasher, ITokenService tokens, IMapper mapper) : IAuthService
+public class AuthService(AppDbContext db, IPasswordHasher hasher, ITokenService tokens, IMapper mapper,
+    ITwoFactorService twoFactor) : IAuthService
 {
     private const string InvalidCredentials = "Nieprawidłowy adres e-mail lub hasło.";
     private const string EmailTaken = "Konto z tym adresem e-mail już istnieje.";
@@ -86,17 +93,85 @@ public class AuthService(AppDbContext db, IPasswordHasher hasher, ITokenService 
             throw new UnauthorizedException("Dostęp tego konta został zablokowany. Skontaktuj się z administratorem.");
 
         if (company is not null)
-        {
-            var (t, e) = tokens.Create(company.CompanyId, company.Email, UserRole.CompanyUser);
-            return new AuthResponseDto(t, "Bearer", e, mapper.Map<UserProfileDto>(company));
-        }
+            return await FinishLoginAsync(company.CompanyId, UserRole.CompanyUser, company.Email, company.TwoFactorEnabled,
+                mapper.Map<UserProfileDto>(company), ct);
         if (manager is not null)
+            return await FinishLoginAsync(manager.ManagerUserId, UserRole.ManagerUser, manager.Email, manager.TwoFactorEnabled,
+                mapper.Map<UserProfileDto>(manager), ct);
+        return await FinishLoginAsync(client!.Id, UserRole.ClientUser, client.Email, client.TwoFactorEnabled,
+            mapper.Map<UserProfileDto>(client), ct);
+    }
+
+    /// <summary>Hasło jest już sprawdzone: bez 2FA wydaje token, z 2FA wysyła kod i zwraca wyzwanie.</summary>
+    private async Task<AuthResponseDto> FinishLoginAsync(Guid id, UserRole role, string email, bool twoFactorEnabled,
+        UserProfileDto profile, CancellationToken ct)
+    {
+        if (!twoFactorEnabled)
         {
-            var (t, e) = tokens.Create(manager.ManagerUserId, manager.Email, UserRole.ManagerUser);
-            return new AuthResponseDto(t, "Bearer", e, mapper.Map<UserProfileDto>(manager));
+            var (token, expiresAt) = tokens.Create(id, email, role);
+            return new AuthResponseDto(token, "Bearer", expiresAt, profile);
         }
-        var (token, expiresAt) = tokens.Create(client!.Id, client.Email, UserRole.ClientUser);
-        return new AuthResponseDto(token, "Bearer", expiresAt, mapper.Map<UserProfileDto>(client));
+
+        var challengeId = await twoFactor.StartAsync(id, role, email, ct);
+        return new AuthResponseDto("", "Bearer", default, null, true, challengeId, MaskEmail(email));
+    }
+
+    public async Task<AuthResponseDto> VerifyCodeAsync(VerifyCodeDto dto, CancellationToken ct)
+    {
+        var (id, role) = await twoFactor.VerifyAsync(dto.ChallengeId, dto.Code, ct);
+
+        // Konto mogło zostać zablokowane lub usunięte między hasłem a kodem.
+        var profile = await GetProfileAsync(new CurrentUser(id, role), ct);
+        var (token, expiresAt) = tokens.Create(id, profile.Email, role);
+        return new AuthResponseDto(token, "Bearer", expiresAt, profile);
+    }
+
+    public async Task<UserProfileDto> SetTwoFactorAsync(CurrentUser user, TwoFactorSettingDto dto, CancellationToken ct)
+    {
+        switch (user.Role)
+        {
+            case UserRole.CompanyUser:
+            {
+                var company = await db.CompanyUsers.FirstOrDefaultAsync(c => c.CompanyId == user.Id, ct)
+                              ?? throw new UnauthorizedException("Konto powiązane z tokenem już nie istnieje.");
+                RequirePassword(dto.Password, company.PasswordHash);
+                company.SetTwoFactorEnabled(dto.Enabled);
+                break;
+            }
+            case UserRole.ManagerUser:
+            {
+                var credential = await db.ManagerCredentials.FirstOrDefaultAsync(c => c.ManagerUserId == user.Id, ct)
+                                 ?? throw new UnauthorizedException("Konto powiązane z tokenem już nie istnieje.");
+                RequirePassword(dto.Password, credential.PasswordHash);
+                credential.SetTwoFactorEnabled(dto.Enabled);
+                break;
+            }
+            default:
+            {
+                var client = await db.ClientUsers.FirstOrDefaultAsync(c => c.Id == user.Id, ct)
+                             ?? throw new UnauthorizedException("Konto powiązane z tokenem już nie istnieje.");
+                RequirePassword(dto.Password, client.PasswordHash);
+                client.SetTwoFactorEnabled(dto.Enabled);
+                break;
+            }
+        }
+
+        await db.SaveChangesAsync(ct);
+        return await GetProfileAsync(user, ct);
+    }
+
+    // Błędne hasło to 400, nie 401: 401 po stronie klienta oznacza "sesja wygasła" i wylogowuje użytkownika.
+    private void RequirePassword(string? password, string hash)
+    {
+        if (string.IsNullOrEmpty(password) || !hasher.Verify(password, hash))
+            throw new DomainValidationException("Nieprawidłowe hasło.");
+    }
+
+    /// <summary>"kowalski@demo.pl" -> "k***@demo.pl".</summary>
+    private static string MaskEmail(string email)
+    {
+        var at = email.IndexOf('@');
+        return at <= 0 ? "***" : email[0] + "***" + email[at..];
     }
 
     public async Task<UserProfileDto> GetProfileAsync(CurrentUser user, CancellationToken ct)

@@ -34,6 +34,7 @@ class UserProfile {
     this.companyId,
     this.age,
     this.description,
+    this.twoFactorEnabled = false,
   });
 
   /// CompanyId (firma), Id managera albo Id klienta - zależnie od roli.
@@ -47,6 +48,9 @@ class UserProfile {
   final int? age;
   final String? description;
 
+  /// Czy logowanie wymaga kodu wysłanego e-mailem (weryfikacja dwuetapowa).
+  final bool twoFactorEnabled;
+
   bool get isCompany => role == UserRole.companyUser;
   bool get isManager => role == UserRole.managerUser;
   bool get isClient => role == UserRole.clientUser;
@@ -59,6 +63,7 @@ class UserProfile {
         companyId: json['companyId'] as String?,
         age: (json['age'] as num?)?.toInt(),
         description: json['description'] as String?,
+        twoFactorEnabled: json['twoFactorEnabled'] as bool? ?? false,
       );
 }
 
@@ -81,6 +86,35 @@ class AuthSession {
         expiresAt: DateTime.parse(json['expiresAt'] as String).toLocal(),
         user: UserProfile.fromJson(json['user'] as Map<String, dynamic>),
       );
+}
+
+/// Pierwszy krok logowania z weryfikacją dwuetapową: hasło poprawne, serwer wysłał kod e-mailem.
+class TwoFactorChallenge {
+  const TwoFactorChallenge({required this.challengeId, required this.maskedEmail});
+
+  final String challengeId;
+
+  /// Adres, na który wysłano kod, np. k***@demo.pl.
+  final String maskedEmail;
+}
+
+/// Wynik POST /api/Auth/login: albo gotowa sesja, albo wyzwanie (kod z e-maila).
+class LoginResult {
+  const LoginResult.session(AuthSession this.session) : challenge = null;
+  const LoginResult.challenge(TwoFactorChallenge this.challenge) : session = null;
+
+  final AuthSession? session;
+  final TwoFactorChallenge? challenge;
+
+  factory LoginResult.fromJson(Map<String, dynamic> json) {
+    if (json['twoFactorRequired'] == true) {
+      return LoginResult.challenge(TwoFactorChallenge(
+        challengeId: json['challengeId'] as String,
+        maskedEmail: (json['maskedEmail'] as String?) ?? '',
+      ));
+    }
+    return LoginResult.session(AuthSession.fromJson(json));
+  }
 }
 
 /// Odpowiada RegisterCompanyDto (rejestracja administratora firmy).

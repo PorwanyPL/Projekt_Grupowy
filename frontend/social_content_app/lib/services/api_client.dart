@@ -12,7 +12,12 @@ import 'api_exception.dart';
 class ApiClient {
   ApiClient({http.Client? client, String? baseUrl})
       : _client = client ?? http.Client(),
-        _baseUrl = baseUrl ?? ApiConfig.baseUrl;
+        _baseUrl = _checked(baseUrl ?? ApiConfig.baseUrl);
+
+  static String _checked(String url) {
+    ApiConfig.assertSecure(url);
+    return url;
+  }
 
   final http.Client _client;
   final String _baseUrl;

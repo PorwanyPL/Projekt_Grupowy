@@ -53,7 +53,8 @@ public class AuthAndMiddlewareTests : IDisposable
         new(db, new Pbkdf2PasswordHasher(), new JwtTokenService(Options.Create(new JwtOptions
         {
             Key = new string('k', 40), Issuer = "test", Audience = "test", ExpiresMinutes = 60
-        })), _db.Mapper);
+        })), _db.Mapper,
+            new TwoFactorService(db, new Pbkdf2PasswordHasher(), new CapturingEmailSender(), TimeProvider.System));
 
     [Fact]
     public async Task RegisterCompany_ThenLogin_ReturnsCompanyRoleAndToken()
@@ -62,13 +63,13 @@ public class AuthAndMiddlewareTests : IDisposable
         {
             var result = await Auth(db).RegisterCompanyAsync(
                 new RegisterCompanyDto { Name = "ACME", Email = "Admin@Acme.com", Password = "Haslo1234" }, CancellationToken.None);
-            Assert.Equal(nameof(UserRole.CompanyUser), result.User.Role.ToString());
+            Assert.Equal(nameof(UserRole.CompanyUser), result.User!.Role.ToString());
             Assert.False(string.IsNullOrEmpty(result.AccessToken));
         }
 
         await using var loginDb = _db.NewContext();
         var login = await Auth(loginDb).LoginAsync(new LoginDto { Email = "admin@acme.com", Password = "Haslo1234" }, CancellationToken.None);
-        Assert.Equal(nameof(UserRole.CompanyUser), login.User.Role.ToString());
+        Assert.Equal(nameof(UserRole.CompanyUser), login.User!.Role.ToString());
     }
 
     [Fact]
@@ -81,7 +82,7 @@ public class AuthAndMiddlewareTests : IDisposable
                 FirstName = "Karol", LastName = "Klient", Age = 33, Description = "Opis",
                 Email = "klient@example.com", Password = "Haslo1234"
             }, CancellationToken.None);
-            Assert.Equal(nameof(UserRole.ClientUser), result.User.Role.ToString());
+            Assert.Equal(nameof(UserRole.ClientUser), result.User!.Role.ToString());
         }
 
         // Ten sam e-mail nie może być użyty przez firmę.
